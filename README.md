@@ -1,69 +1,73 @@
 # Kaushal Thakur — Portfolio
 
-A personal portfolio website built with React, showcasing my skills, experience, and projects as a Fullstack Developer.
+Personal portfolio built with React + Vite. Dark/light mode, animated 3D skill cube, responsive across all devices.
 
-## 🚀 Live Demo
+🔗 **Live:** coming soon
 
-> Coming soon — will be deployed on Vercel
+---
 
-## ✨ Features
+## What's inside
 
-- Responsive design — works on all screen sizes
-- Dark / Light mode toggle
-- Animated hero section with 3D skill cube
-- Interactive skills section with marquee
-- Experience, Education, Projects & Contact sections
-- Smooth scroll animations
+- Animated hero with interactive 3D skill cube (drag to rotate)
+- Skills section with brand-accurate logos + infinite marquee
+- Work experience timeline with draw animation
+- Projects, Education, and Contact sections
+- Dark / light mode toggle
+- Smooth scroll-reveal animations
+- Fully responsive — mobile, tablet, desktop
 
-## 🛠️ Technologies Used
+---
 
-- **React 19** — UI library
-- **Vite** — Fast build tool
-- **CSS3** — Custom styling with animations
-- **JavaScript (ES6+)**
+## Stack
 
-## 📦 Installation & Setup
+- React 19
+- Vite
+- CSS3 (custom, no Tailwind)
+- Vanilla JS for animations
+
+---
+
+## Getting started
 
 ```bash
-# Clone the repository
 git clone https://github.com/kthakur50/portfolio-react.git
-
-# Go into the project folder
 cd portfolio-react
-
-# Install dependencies
 npm install
-
-# Run locally
 npm run dev
 ```
 
-## 📁 Project Structure
+Build for production:
 
-```
-portfolio-react/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Skills.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Education.jsx
-│   │   ├── Contact.jsx
-│   │   ├── Navbar.jsx
-│   │   └── Footer.jsx
-│   ├── styles/
-│   │   └── main.css
-│   ├── portfolio.js
-│   └── App.jsx
-└── package.json
+```bash
+npm run build
 ```
 
-## 📬 Contact
+---
 
-- **Email:** kthakur0578@gmail.com
-- **GitHub:** [github.com/kthakur50](https://github.com/kthakur50)
-- **Location:** Noida, India
+## Structure
+
+```
+src/
+├── components/
+│   ├── Navbar.jsx
+│   ├── Hero.jsx
+│   ├── About.jsx
+│   ├── Skills.jsx
+│   ├── Experience.jsx
+│   ├── Projects.jsx
+│   ├── Education.jsx
+│   ├── Contact.jsx
+│   └── Footer.jsx
+├── styles/
+│   └── main.css
+├── portfolio.js
+└── App.jsx
+```
+
+---
+
+## Contact
+
+kthakur0578@gmail.com  
+[github.com/kthakur50](https://github.com/kthakur50)  
+Noida, India
