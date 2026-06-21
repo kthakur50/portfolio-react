@@ -1,4 +1,11 @@
+import { useEffect } from 'react';
+
 const Skills = () => {
+  useEffect(() => {
+    const cards = document.querySelectorAll('.skill-card');
+    cards.forEach(card => card.classList.add('sk-glow'));
+  }, []);
+
   return (
     <section id="skills">
       <div className="wrap">

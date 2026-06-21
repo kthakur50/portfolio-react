@@ -4,8 +4,9 @@ const About = () => (
       <div className="sec-hd sr" data-n="01">
         <h2>About<em>.</em></h2>
       </div>
-      <div className="about-wrap">
-        <div className="sr" style={{ transitionDelay: '.04s' }}>
+
+      {/* Bio */}
+      <div className="about-bio sr" style={{ transitionDelay: '.04s' }}>
           <p className="about-para">
             An <em>AI Software Engineer</em> with <strong>1+ year of experience</strong> building
             scalable web applications. I work with <em>React</em>, <em>Next.js</em>,{' '}
@@ -18,8 +19,19 @@ const About = () => (
             about <strong>clean code</strong> and <strong>thoughtful UI/UX</strong> — turning
             complex problems into simple, intuitive experiences.
           </p>
-        </div>
+          <p className="about-para">
+            Currently exploring <em>AI-integrated development</em> — building tools that combine
+            modern frontend architecture with <strong>intelligent automation</strong> and{' '}
+            <em>real-time data pipelines</em>. I believe the best software is the kind users
+            don't have to think about.
+          </p>
+
+          {/* Availability badge */}
+          <div className="about-avail sr" style={{ transitionDelay: '.10s' }}>
+            — Available for freelance &amp; full-time opportunities
+          </div>
       </div>
+
     </div>
   </section>
 );
