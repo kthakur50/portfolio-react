@@ -2005,7 +2005,8 @@ body.light .win3d-btn.active {
 
   
   .skill-one-card { grid-template-columns: repeat(3, 1fr); }
-  .skill-card .skill-strip { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .skill-card .skill-strip { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-chip { width: 76px; min-width: 76px; max-width: 76px; height: 76px; flex-shrink: 0; }
 
   
   .exp-list { padding-left: 52px; }
@@ -2052,94 +2053,6 @@ body.light .win3d-btn.active {
     align-items: flex-start;
   }
   #home::before { width: 80%; }
-
-  .hero-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
-
-  .hero-left {
-    width: 100%;
-    max-width: 100%;
-    order: 1;
-  }
-
-  .hero-name {
-    font-size: clamp(2.8rem, 8vw, 5rem);
-    white-space: normal;
-    line-height: .92;
-    margin-bottom: 20px;
-    letter-spacing: -.04em;
-  }
-
-  .hero-role { margin-bottom: 24px; }
-
-  .hero-info {
-    margin-bottom: 28px;
-  }
-
-  .hero-info-grid {
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-  }
-
-  .hero-info-col { width: 100%; }
-
-  .hero-info-item {
-    height: auto;
-    min-height: 36px;
-    padding: 7px 0;
-    font-size: .75rem;
-    white-space: normal;
-    word-break: break-all;
-  }
-
-  .hero-btns {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    order: 3;
-    margin-top: 28px;
-  }
-
-  .btn-o, .btn-s {
-    padding: 12px 22px;
-    font-size: .84rem;
-  }
-
-  .hero-right {
-    order: 2;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 32px 0 0;
-  }
-
-  .win3d-scene {
-    width: clamp(220px, 55vw, 300px);
-  }
-
-  .win3d-perspective,
-  .win3d-cube { width: clamp(220px, 55vw, 300px); height: clamp(220px, 55vw, 300px); }
-  .win3d-face { width: clamp(220px, 55vw, 300px); height: clamp(220px, 55vw, 300px); }
-
-  .win3d-front  { transform: translateZ(clamp(110px, 27.5vw, 150px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(110px, 27.5vw, 150px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(110px, 27.5vw, 150px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(110px, 27.5vw, 150px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(110px, 27.5vw, 150px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(110px, 27.5vw, 150px)); }
-
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(90px, 22.5vw, 120px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(90px, 22.5vw, 120px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(90px, 22.5vw, 120px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(90px, 22.5vw, 120px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(90px, 22.5vw, 120px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(90px, 22.5vw, 120px)); }
-  .win3d-scene.mode-3d .win3d-face   { width: clamp(180px, 45vw, 240px); height: clamp(180px, 45vw, 240px); }
-  .win3d-scene.mode-3d .win3d-cube   { width: clamp(180px, 45vw, 240px); height: clamp(180px, 45vw, 240px); }
 
   .wt-name { font-size: .65rem; }
 
