@@ -2722,3 +2722,242 @@ body.light .win3d-btn.active {
   .win3d-cube,
   .win3d-face { width: clamp(170px, 72vw, 240px); height: clamp(170px, 72vw, 240px); }
 }
+
+/* ============================================================
+   FORCE DESKTOP LAYOUT ON ALL SCREEN SIZES
+   Hero: always row, Skills: always 3-col, Projects: always 3-col
+   Desktop styles are NOT changed — these only fix mobile/tablet
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  /* Hero — always side-by-side row */
+  .hero-inner {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 32px !important;
+  }
+  .hero-left {
+    flex: 1 !important;
+    width: auto !important;
+    max-width: none !important;
+    order: 1 !important;
+  }
+  .hero-right {
+    order: 2 !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 0 !important;
+  }
+
+  /* Hero name — readable but not too small */
+  .hero-name {
+    font-size: clamp(2rem, 5.5vw, 5rem) !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    line-height: .92 !important;
+  }
+
+  /* Info grid — always two columns */
+  .hero-info-grid {
+    flex-direction: row !important;
+    gap: 0 !important;
+    width: 100% !important;
+  }
+  .hero-info-item {
+    height: auto !important;
+    min-height: 34px !important;
+    padding: 6px 0 !important;
+    white-space: normal !important;
+    word-break: break-all !important;
+    font-size: .72rem !important;
+  }
+
+  /* Buttons — always row */
+  .hero-btns {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    order: unset !important;
+    margin-top: 24px !important;
+    width: auto !important;
+  }
+  .btn-o, .btn-s {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 110px !important;
+    justify-content: center !important;
+  }
+
+  /* Cube size scales with viewport */
+  .win3d-scene {
+    width: clamp(180px, 28vw, 320px) !important;
+  }
+  .win3d-perspective,
+  .win3d-cube,
+  .win3d-face {
+    width: clamp(180px, 28vw, 320px) !important;
+    height: clamp(180px, 28vw, 320px) !important;
+  }
+  .win3d-front  { transform: translateZ(clamp(90px, 14vw, 160px)) !important; }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(90px, 14vw, 160px)) !important; }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(90px, 14vw, 160px)) !important; }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(90px, 14vw, 160px)) !important; }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(90px, 14vw, 160px)) !important; }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(90px, 14vw, 160px)) !important; }
+  .win3d-scene.mode-3d .win3d-face,
+  .win3d-scene.mode-3d .win3d-cube {
+    width: clamp(150px, 24vw, 270px) !important;
+    height: clamp(150px, 24vw, 270px) !important;
+  }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(75px, 12vw, 135px)) !important; }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(75px, 12vw, 135px)) !important; }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(75px, 12vw, 135px)) !important; }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(75px, 12vw, 135px)) !important; }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(75px, 12vw, 135px)) !important; }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(75px, 12vw, 135px)) !important; }
+
+  /* Skills — always 3 columns like desktop */
+  .skill-one-card {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+  }
+  .skill-one-card .skill-group {
+    border-right: 1px solid rgba(255,255,255,.08) !important;
+    border-bottom: none !important;
+  }
+  .skill-one-card .skill-group:last-child {
+    border-right: 1px solid rgba(255,255,255,.08) !important;
+    border-bottom: none !important;
+  }
+  .skill-card .skill-strip {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+  .skill-chip {
+    width: auto !important;
+    min-width: unset !important;
+    max-width: unset !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    max-height: 76px !important;
+    border-radius: 10px !important;
+    flex-shrink: 0 !important;
+  }
+  .skill-chip svg { width: 24px !important; height: 24px !important; min-width: 24px !important; }
+  .skill-chip span { font-size: .55rem !important; }
+
+  /* Projects — always 3 columns */
+  .masonry-list {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  /* Footer — always row like desktop */
+  .f-inner {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+  }
+  .f-left {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .f-top {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+  .f-bottom {
+    flex-direction: row !important;
+    gap: 10px !important;
+    text-align: left !important;
+  }
+  .f-nav {
+    justify-content: flex-end !important;
+    gap: 16px !important;
+  }
+}
+
+/* Tablet portrait (768px–1024px): slightly tighter cube */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .hero-name {
+    font-size: clamp(2.2rem, 5vw, 4.8rem) !important;
+  }
+  .win3d-scene,
+  .win3d-perspective,
+  .win3d-cube,
+  .win3d-face {
+    width: clamp(200px, 30vw, 320px) !important;
+    height: clamp(200px, 30vw, 320px) !important;
+  }
+  .win3d-front  { transform: translateZ(clamp(100px, 15vw, 160px)) !important; }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(100px, 15vw, 160px)) !important; }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(100px, 15vw, 160px)) !important; }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(100px, 15vw, 160px)) !important; }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(100px, 15vw, 160px)) !important; }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(100px, 15vw, 160px)) !important; }
+}
+
+/* Small mobile (below 600px): cube thoda aur chhota */
+@media (max-width: 599px) {
+  .hero-name {
+    font-size: clamp(1.6rem, 7vw, 3rem) !important;
+    margin-bottom: 14px !important;
+  }
+  .hero-info-item {
+    font-size: .65rem !important;
+    min-height: 30px !important;
+    gap: 7px !important;
+  }
+  .hero-info-item svg { width: 16px !important; height: 16px !important; }
+  .win3d-scene,
+  .win3d-perspective,
+  .win3d-cube,
+  .win3d-face {
+    width: clamp(110px, 28vw, 160px) !important;
+    height: clamp(110px, 28vw, 160px) !important;
+  }
+  .win3d-front  { transform: translateZ(clamp(55px, 14vw, 80px)) !important; }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(55px, 14vw, 80px)) !important; }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(55px, 14vw, 80px)) !important; }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(55px, 14vw, 80px)) !important; }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(55px, 14vw, 80px)) !important; }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(55px, 14vw, 80px)) !important; }
+  .win3d-scene.mode-3d .win3d-face,
+  .win3d-scene.mode-3d .win3d-cube {
+    width: clamp(90px, 22vw, 130px) !important;
+    height: clamp(90px, 22vw, 130px) !important;
+  }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(45px, 11vw, 65px)) !important; }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(45px, 11vw, 65px)) !important; }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(45px, 11vw, 65px)) !important; }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(45px, 11vw, 65px)) !important; }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(45px, 11vw, 65px)) !important; }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(45px, 11vw, 65px)) !important; }
+  .hero-inner { gap: 16px !important; }
+  .hero-btns { gap: 6px !important; margin-top: 16px !important; }
+  .btn-o, .btn-s {
+    padding: 8px 12px !important;
+    font-size: .72rem !important;
+    min-width: 80px !important;
+  }
+  /* Skills — 3 col on small screens too */
+  .skill-one-card { gap: 8px !important; }
+  .skill-chip {
+    height: 62px !important;
+    min-height: 62px !important;
+    max-height: 62px !important;
+  }
+  .skill-chip svg { width: 20px !important; height: 20px !important; min-width: 20px !important; }
+  .skill-chip span { font-size: .45rem !important; }
+  /* Projects 3-col on small too */
+  .masonry-list { gap: 8px !important; }
+  .masonry-body { padding: 10px 8px !important; }
+  .masonry-title { font-size: .72rem !important; }
+  .masonry-desc { font-size: .6rem !important; }
+}
