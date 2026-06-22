@@ -1,5 +1,3 @@
-// ─── portfolio.js — vanilla-JS initialisations ────────────────────────────────
-
 function initTheme() {
   ['themeBtn', 'themeBtnM'].forEach(id => {
     document.getElementById(id)?.addEventListener('click', () =>
@@ -334,6 +332,7 @@ function initWin3DCube() {
     e.preventDefault(); dragging = true;
     cube.classList.add('dragging');
     lastX = e.clientX; lastY = e.clientY;
+    velX = 0; velY = 0;
     cube.style.transition = 'none';
     if (spinRAF) { cancelAnimationFrame(spinRAF); spinRAF = null; }
   });
@@ -341,8 +340,10 @@ function initWin3DCube() {
   window.addEventListener('mousemove', e => {
     if (!spinning || !dragging) return;
     const dx = e.clientX - lastX, dy = e.clientY - lastY;
-    rotY += dx * 0.4; rotX -= dy * 0.4;
-    velY = dx * 0.4; velX = -dy * 0.4;
+    rotY += dx * 0.4;
+    rotX = Math.max(-45, Math.min(45, rotX - dy * 0.4));
+    velY = velY * 0.6 + dx * 0.4 * 0.4;
+    velX = velX * 0.6 + (-dy * 0.4) * 0.4;
     lastX = e.clientX; lastY = e.clientY; applyRot();
   });
 
@@ -354,21 +355,25 @@ function initWin3DCube() {
 
   scene.addEventListener('touchstart', e => {
     if (!spinning) return;
+    e.stopPropagation();
     stopInertia(); dragging = true; velX = 0; velY = 0;
     lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
     cube.style.transition = 'none';
     if (spinRAF) { cancelAnimationFrame(spinRAF); spinRAF = null; }
   }, { passive: true });
 
-  window.addEventListener('touchmove', e => {
+  scene.addEventListener('touchmove', e => {
     if (!dragging) return;
+    e.preventDefault();
     const dx = e.touches[0].clientX - lastX, dy = e.touches[0].clientY - lastY;
-    rotY += dx * 0.4; rotX -= dy * 0.4;
-    velY = dx * 0.4; velX = -dy * 0.4;
+    rotY += dx * 0.4;
+    rotX = Math.max(-45, Math.min(45, rotX - dy * 0.4));
+    velY = velY * 0.6 + dx * 0.4 * 0.4;
+    velX = velX * 0.6 + (-dy * 0.4) * 0.4;
     lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; applyRot();
-  }, { passive: true });
+  }, { passive: false });
 
-  window.addEventListener('touchend', () => {
+  scene.addEventListener('touchend', () => {
     if (!dragging) return;
     dragging = false; spinning ? startSpin() : startInertia();
   });
@@ -399,17 +404,17 @@ function initWin3DCube() {
       const dot = rotateNormal(nx, ny, nz, rotX, rotY);
       const t   = (dot + 1) / 2;
       const tb  = (id === 'wTop' || id === 'wBottom');
-      let blur, opacity;
+      let opacity;
       if (t > 0.85) {
-        blur = 0; opacity = 0.92;
+        opacity = 0.92;
       } else if (t > 0.2) {
         const f = (0.85 - t) / 0.65;
-        blur = tb ? f * 5 : f * 14; opacity = tb ? 0.92 - f * 0.10 : 0.92 - f * 0.25;
+        opacity = tb ? 0.92 - f * 0.10 : 0.92 - f * 0.25;
       } else {
         const f = (0.2 - t) / 0.2;
-        blur = tb ? 5 + f * 3 : 14 + f * 8; opacity = tb ? 0.82 - f * 0.20 : 0.67 - f * 0.30;
+        opacity = tb ? 0.82 - f * 0.20 : 0.67 - f * 0.30;
       }
-      face.style.filter  = blur > 0.1 ? `blur(${blur.toFixed(1)}px)` : '';
+      face.style.filter  = '';
       face.style.opacity = opacity;
     });
     requestAnimationFrame(updateFaceBlur);

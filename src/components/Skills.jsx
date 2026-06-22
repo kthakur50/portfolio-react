@@ -15,7 +15,6 @@ const Skills = () => {
 
         <div className="skill-one-card">
 
-          {/* ── Frontend ── */}
           <div className="skill-group skill-card skill-card--fe sr" style={{ transitionDelay: '.05s' }}>
             <div className="skill-cat">Frontend</div>
             <div className="skill-strip">
@@ -109,7 +108,6 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* ── Backend ── */}
           <div className="skill-group skill-card skill-card--be sr" style={{ transitionDelay: '.12s' }}>
             <div className="skill-cat">Backend</div>
             <div className="skill-strip">
@@ -210,7 +208,6 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* ── Tools ── */}
           <div className="skill-group skill-card skill-card--tl sr" style={{ transitionDelay: '.2s' }}>
             <div className="skill-cat">Tools</div>
             <div className="skill-strip">
@@ -289,7 +286,6 @@ const Skills = () => {
 
         </div>
 
-        {/* ─── Marquee Strip ─── */}
         <div className="skill-marquee-wrap">
           <div className="skill-marquee-track">
             {(() => {
@@ -335,5 +331,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
-// NOTE: marquee appended below — but we need to replace the file entirely

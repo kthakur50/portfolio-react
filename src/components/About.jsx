@@ -5,7 +5,6 @@ const About = () => (
         <h2>About<em>.</em></h2>
       </div>
 
-      {/* Bio */}
       <div className="about-bio sr" style={{ transitionDelay: '.04s' }}>
           <p className="about-para">
             An <em>AI Software Engineer</em> with <strong>1+ year of experience</strong> building
@@ -26,7 +25,6 @@ const About = () => (
             don't have to think about.
           </p>
 
-          {/* Availability badge */}
           <div className="about-avail sr" style={{ transitionDelay: '.10s' }}>
             — Available for freelance &amp; full-time opportunities
           </div>
