@@ -1954,22 +1954,23 @@ body.light .win3d-btn.active {
 
   
   .hero-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
   }
   .hero-left {
-    width: 100%;
+    width: auto;
     max-width: 100%;
     order: 1;
+    flex: 1;
   }
   .hero-right {
     order: 2;
-    width: 100%;
+    width: auto;
     display: flex;
-    justify-content: flex-start;
-    margin-top: 40px;
-    flex: unset;
+    justify-content: center;
+    margin-top: 0;
+    flex: 0 0 auto;
   }
   .hero-name {
     font-size: clamp(3rem, 7vw, 5rem);
@@ -2021,7 +2022,8 @@ body.light .win3d-btn.active {
   .nav-mob-ctrl { display: none; }
 
   
-  .f-inner { flex-direction: row; }
+  .f-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+  .f-copy { text-align: center; }
 }
 
 @media (max-width: 1200px) {
