@@ -25,9 +25,7 @@ const About = () => (
             don't have to think about.
           </p>
 
-          <div className="about-avail sr" style={{ transitionDelay: '.10s' }}>
-            — Available for freelance &amp; full-time opportunities
-          </div>
+
       </div>
 
     </div>

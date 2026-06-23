@@ -304,7 +304,7 @@ function initWin3DCube() {
     if (spinRAF) cancelAnimationFrame(spinRAF);
     function loop() {
       if (!spinning || dragging) { spinRAF = null; return; }
-      rotY += 0.8;
+      rotY += 0.4;
       cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
       spinRAF = requestAnimationFrame(loop);
     }
@@ -318,7 +318,11 @@ function initWin3DCube() {
     function loop() {
       if (dragging || spinning) { inertiaRAF = null; return; }
       velX *= 0.92; velY *= 0.92;
-      if (Math.abs(velX) < 0.02 && Math.abs(velY) < 0.02) { inertiaRAF = null; return; }
+      if (Math.abs(velX) < 0.02 && Math.abs(velY) < 0.02) {
+        inertiaRAF = null;
+        if (!spinning) snapBack();
+        return;
+      }
       rotX += velX; rotY += velY; applyRot();
       inertiaRAF = requestAnimationFrame(loop);
     }
