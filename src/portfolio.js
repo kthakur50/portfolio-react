@@ -304,7 +304,7 @@ function initWin3DCube() {
     if (spinRAF) cancelAnimationFrame(spinRAF);
     function loop() {
       if (!spinning || dragging) { spinRAF = null; return; }
-      rotY += 0.4;
+      rotY += 0.65;
       cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
       spinRAF = requestAnimationFrame(loop);
     }
