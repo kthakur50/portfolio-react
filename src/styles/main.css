@@ -342,6 +342,7 @@ body.light #home { background: #ffffff; --htc: 200,225,215; }
  color: #f0f8f4;
  margin-bottom: 18px;
  white-space: nowrap;
+ font-family: 'Plus Jakarta Sans', -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
 }
 body.light .hero-name { color: #0c1e14; }
 .hero-name .ac {
@@ -1638,8 +1639,8 @@ body.light .skill-card--tl {
  display: grid;
  grid-template-columns: 1fr 1fr;
  grid-template-rows: 1fr 1fr;
- gap: 0;
- padding: 0;
+ gap: 5px;
+ padding: 5px;
  border-radius: 20px;
  overflow: visible;
  backface-visibility: visible;
@@ -1653,8 +1654,8 @@ body.light .skill-card--tl {
  display: grid;
  grid-template-columns: 1fr 1fr;
  grid-template-rows: 1fr 1fr;
- gap: 0;
- padding: 0;
+ gap: 5px;
+ padding: 5px;
  width: clamp(155px, 15.5vw, 240px);
  height: clamp(155px, 15.5vw, 240px);
  background: transparent !important;
@@ -1715,47 +1716,47 @@ body.light .skill-card--tl {
  flex-direction: column;
  align-items: center;
  justify-content: center;
- background: transparent !important;
- border: none !important;
- box-shadow: none;
+ background: rgba(180,180,180,0.07) !important;
+ border: 1px solid rgba(200,200,200,0.18) !important;
+ box-shadow: 0 0 12px 2px rgba(180,180,180,0.08), inset 0 0 8px 0 rgba(255,255,255,0.04);
 }
 .wt::after {
  content: '';
  position: absolute;
  inset: 0;
- backdrop-filter: blur(0px);
- -webkit-backdrop-filter: blur(0px);
+ backdrop-filter: blur(6px);
+ -webkit-backdrop-filter: blur(6px);
  z-index: 0;
  pointer-events: none;
 }
 body.light .wt {
- background: transparent !important;
- border: none !important;
- box-shadow: none;
+ background: rgba(200,200,200,0.12) !important;
+ border: 1px solid rgba(150,150,150,0.22) !important;
+ box-shadow: 0 0 12px 2px rgba(120,120,120,0.10), inset 0 0 8px 0 rgba(255,255,255,0.15);
  filter: none;
 }
 body.light .wt::after {
- backdrop-filter: blur(0px);
- -webkit-backdrop-filter: blur(0px);
+ backdrop-filter: blur(6px);
+ -webkit-backdrop-filter: blur(6px);
 }
 body.light .wt .wt-name {
  color: rgba(30,30,30,0.90);
  text-shadow: none;
 }
 .win3d-scene.mode-3d .wt {
- background: transparent !important;
- border: none !important;
- box-shadow: none;
- backdrop-filter: blur(0px) !important;
- -webkit-backdrop-filter: blur(0px) !important;
+ background: rgba(180,180,180,0.07) !important;
+ border: 1px solid rgba(200,200,200,0.18) !important;
+ box-shadow: 0 0 12px 2px rgba(180,180,180,0.08), inset 0 0 8px 0 rgba(255,255,255,0.04);
+ backdrop-filter: blur(6px) !important;
+ -webkit-backdrop-filter: blur(6px) !important;
  filter: none;
 }
 body.light .win3d-scene.mode-3d .wt {
- background: transparent !important;
- border: none !important;
- box-shadow: none;
- backdrop-filter: blur(0px) !important;
- -webkit-backdrop-filter: blur(0px) !important;
+ background: rgba(200,200,200,0.12) !important;
+ border: 1px solid rgba(150,150,150,0.22) !important;
+ box-shadow: 0 0 12px 2px rgba(120,120,120,0.10), inset 0 0 8px 0 rgba(255,255,255,0.15);
+ backdrop-filter: blur(6px) !important;
+ -webkit-backdrop-filter: blur(6px) !important;
  filter: none;
 }
 body.light .win3d-scene.mode-3d .win3d-face {
@@ -2102,7 +2103,7 @@ body.light .win3d-btn.active {
   .hero-left { flex: unset; order: 1; min-width: 0; width: 100%; }
   .hero-right { order: 2; flex: 0 0 auto; width: 100%; display: flex; justify-content: center; align-self: center; margin: 0; padding-bottom: 0; }
 
-  .hero-name { font-size: clamp(3.2rem, 9vw, 6rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .93; margin-bottom: 16px; }
+  .hero-name { font-size: clamp(3.6rem, 10vw, 6.5rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .93; margin-bottom: 16px; }
   .hero-name .ac { font-weight: 900; }
   .hero-role { margin-bottom: 18px; min-height: unset; overflow: visible; }
   .hero-role-pre { font-size: .82rem; }
@@ -2110,10 +2111,10 @@ body.light .win3d-btn.active {
 
   .hero-block { min-width: 0; width: 100%; }
   .hero-avail { font-size: .88rem; margin-bottom: 12px; }
-  .hero-info { padding: 10px 16px; margin-bottom: 12px; }
+  .hero-info { padding: 14px 18px; margin-bottom: 12px; }
   .hero-info-grid { flex-direction: row; }
-  .hero-info-item { font-size: .74rem; height: 30px; gap: 10px; white-space: nowrap; }
-  .hero-info-item svg { width: 22px; height: 22px; }
+  .hero-info-item { font-size: .78rem; height: 38px; gap: 10px; white-space: nowrap; padding: 8px 0; }
+  .hero-info-item svg { width: 24px; height: 24px; }
   .hero-info-col:first-child { padding-right: 28px; }
   .hero-info-col:last-child { padding-left: 8px; }
 
@@ -2213,18 +2214,18 @@ body.light .win3d-btn.active {
   .hero-inner { flex-direction: column; align-items: flex-start; gap: 32px; }
   .hero-left { order: 1; width: 100%; }
   .hero-right { order: 2; width: 100%; display: flex; justify-content: center; padding-bottom: 0; }
-  .hero-name { font-size: clamp(2.8rem, 12vw, 4.2rem); margin-bottom: 14px; }
+  .hero-name { font-size: clamp(3.2rem, 13vw, 4.6rem); margin-bottom: 14px; }
   .hero-role { margin-bottom: 14px; min-height: unset; overflow: visible; }
   .hero-role-pre { font-size: .76rem; }
   .hero-role-txt { font-size: 1.1rem; overflow: visible; min-height: 1.6em; }
   .hero-avail { font-size: .82rem; margin-bottom: 10px; }
 
-  .hero-info { padding: 8px 12px; margin-bottom: 10px; }
+  .hero-info { padding: 12px 14px; margin-bottom: 10px; }
   .hero-info-grid { flex-direction: row; gap: 0; }
   .hero-info-col:first-child { padding-right: 16px; border-right: none; }
   .hero-info-col:last-child { padding-left: 6px; }
-  .hero-info-item { font-size: .68rem; height: 28px; gap: 8px; white-space: nowrap; overflow: hidden; }
-  .hero-info-item svg { width: 18px; height: 18px; }
+  .hero-info-item { font-size: .72rem; height: 34px; gap: 8px; white-space: nowrap; overflow: hidden; padding: 6px 0; }
+  .hero-info-item svg { width: 20px; height: 20px; }
 
   .hero-btns { flex-wrap: wrap; gap: 6px; }
   .hero-btns .btn-o, .hero-btns .btn-s { font-size: .76rem; padding: 8px 14px; flex: 1; }
@@ -2315,17 +2316,17 @@ body.light .win3d-btn.active {
   .hero-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
   .hero-left { order: 1; width: 100%; }
   .hero-right { order: 2; width: 100%; display: flex; justify-content: center; padding-bottom: 0; }
-  .hero-name { font-size: clamp(2.4rem, 13vw, 3.4rem); margin-bottom: 10px; }
+  .hero-name { font-size: clamp(2.8rem, 14vw, 3.8rem); margin-bottom: 10px; }
   .hero-role { min-height: unset; overflow: visible; }
   .hero-role-pre { font-size: .7rem; }
   .hero-role-txt { font-size: 1rem; overflow: visible; min-height: 1.6em; }
   .hero-avail { font-size: .76rem; }
-  .hero-info { padding: 7px 10px; }
+  .hero-info { padding: 10px 12px; }
   .hero-info-grid { flex-direction: row; }
   .hero-info-col:first-child { padding-right: 12px; }
   .hero-info-col:last-child { padding-left: 4px; }
-  .hero-info-item { font-size: .62rem; min-height: 26px; height: 26px; gap: 6px; }
-  .hero-info-item svg { width: 16px; height: 16px; }
+  .hero-info-item { font-size: .66rem; min-height: 32px; height: 32px; gap: 6px; padding: 6px 0; }
+  .hero-info-item svg { width: 18px; height: 18px; }
   .hero-btns .btn-o, .hero-btns .btn-s { font-size: .68rem; padding: 7px 10px; }
 
   /* Cube */
@@ -2392,7 +2393,7 @@ body.light .win3d-btn.active {
   /* Skills: 1 column */
   .skill-one-card { grid-template-columns: 1fr; gap: 5px; }
   .skill-one-card .skill-group { padding: 10px 6px 8px !important; }
-  .hero-name { font-size: clamp(2rem, 10.5vw, 2.6rem); }
+  .hero-name { font-size: clamp(2.3rem, 11.5vw, 2.8rem); }
   .hero-role { min-height: unset; overflow: visible; }
   .hero-role-txt { font-size: .76rem; overflow: visible; min-height: 1.5em; }
   .win3d-controls { position: relative; bottom: auto; left: auto; transform: none; margin-top: 6px; }
