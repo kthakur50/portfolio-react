@@ -266,10 +266,10 @@ function initWin3DCube() {
   function applyRot() { cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`; }
 
   function snapBack() {
-    cube.style.transition = 'transform 0.8s cubic-bezier(.34,1.2,.64,1)';
+    cube.style.transition = 'transform 1s cubic-bezier(.25,.46,.45,.94)';
     rotX = 0; rotY = 0;
     cube.style.transform = 'rotateX(0deg) rotateY(0deg)';
-    setTimeout(() => { cube.style.transition = 'none'; }, 850);
+    setTimeout(() => { cube.style.transition = 'none'; }, 1050);
   }
 
   function startBounce() {
@@ -304,7 +304,7 @@ function initWin3DCube() {
     if (spinRAF) cancelAnimationFrame(spinRAF);
     function loop() {
       if (!spinning || dragging) { spinRAF = null; return; }
-      rotY += 0.65;
+      rotY += 0.7;
       cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
       spinRAF = requestAnimationFrame(loop);
     }
@@ -317,7 +317,7 @@ function initWin3DCube() {
     stopInertia();
     function loop() {
       if (dragging || spinning) { inertiaRAF = null; return; }
-      velX *= 0.92; velY *= 0.92;
+      velX *= 0.94; velY *= 0.94;
       if (Math.abs(velX) < 0.02 && Math.abs(velY) < 0.02) {
         inertiaRAF = null;
         if (!spinning) snapBack();
@@ -370,10 +370,10 @@ function initWin3DCube() {
     if (!dragging) return;
     e.preventDefault();
     const dx = e.touches[0].clientX - lastX, dy = e.touches[0].clientY - lastY;
-    rotY += dx * 0.4;
-    rotX = Math.max(-45, Math.min(45, rotX - dy * 0.4));
-    velY = velY * 0.6 + dx * 0.4 * 0.4;
-    velX = velX * 0.6 + (-dy * 0.4) * 0.4;
+    rotY += dx * 0.30;
+    rotX = Math.max(-45, Math.min(45, rotX - dy * 0.30));
+    velY = velY * 0.7 + dx * 0.30 * 0.3;
+    velX = velX * 0.7 + (-dy * 0.30) * 0.3;
     lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; applyRot();
   }, { passive: false });
 

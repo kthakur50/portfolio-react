@@ -1715,48 +1715,48 @@ body.light .skill-card--tl {
  flex-direction: column;
  align-items: center;
  justify-content: center;
- background: rgba(255,255,255,0.06) !important;
- border: 1px solid rgba(255,255,255,0.12) !important;
+ background: rgba(255,255,255,0.00) !important;
+ border: 1px solid rgba(255,255,255,0.08) !important;
  box-shadow: none;
 }
 .wt::after {
  content: '';
  position: absolute;
  inset: 0;
- backdrop-filter: blur(4px);
- -webkit-backdrop-filter: blur(4px);
+ backdrop-filter: blur(0px);
+ -webkit-backdrop-filter: blur(0px);
  z-index: 0;
  pointer-events: none;
 }
 body.light .wt {
- background: rgba(255,255,255,0.30) !important;
- border: 1px solid rgba(0,0,0,0.10) !important;
+ background: rgba(255,255,255,0.00) !important;
+ border: 1px solid rgba(0,0,0,0.07) !important;
  box-shadow: none;
- filter: saturate(1.5) contrast(1.1);
+ filter: none;
 }
 body.light .wt::after {
- backdrop-filter: blur(4px);
- -webkit-backdrop-filter: blur(4px);
+ backdrop-filter: blur(0px);
+ -webkit-backdrop-filter: blur(0px);
 }
 body.light .wt .wt-name {
- color: rgba(255,255,255,0.95);
- text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+ color: rgba(30,30,30,0.90);
+ text-shadow: none;
 }
 .win3d-scene.mode-3d .wt {
- background: rgba(255,255,255,0.06) !important;
- border: 1px solid rgba(255,255,255,0.12) !important;
+ background: rgba(255,255,255,0.00) !important;
+ border: 1px solid rgba(255,255,255,0.08) !important;
  box-shadow: none;
- backdrop-filter: blur(4px) !important;
- -webkit-backdrop-filter: blur(4px) !important;
+ backdrop-filter: blur(0px) !important;
+ -webkit-backdrop-filter: blur(0px) !important;
  filter: none;
 }
 body.light .win3d-scene.mode-3d .wt {
- background: rgba(255,255,255,0.30) !important;
- border: 1px solid rgba(0,0,0,0.10) !important;
+ background: rgba(255,255,255,0.00) !important;
+ border: 1px solid rgba(0,0,0,0.07) !important;
  box-shadow: none;
- backdrop-filter: blur(4px) !important;
- -webkit-backdrop-filter: blur(4px) !important;
- filter: saturate(1.5) contrast(1.1);
+ backdrop-filter: blur(0px) !important;
+ -webkit-backdrop-filter: blur(0px) !important;
+ filter: none;
 }
 body.light .win3d-scene.mode-3d .win3d-face {
  background: transparent !important;
@@ -1814,9 +1814,10 @@ body.light .win3d-scene.mode-3d .wt-logo-only .wt-logo-name {
  font-weight: 700;
  letter-spacing: .04em;
  font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
- color: var(--tx);
+ color: rgba(255,255,255,0.85);
  position: relative;
  z-index: 3;
+ text-shadow: 0 1px 6px rgba(0,0,0,0.6);
 }
 .win3d-popups {
  position: relative;
@@ -2083,28 +2084,29 @@ body.light .win3d-btn.active {
   .sec-hd h2 { font-size: clamp(1.35rem, 3.5vw, 1.7rem); }
   html, body { overflow-x: hidden; }
 
-  /* Navbar */
+  /* Navbar: desktop style on tablet portrait too */
   .nav { padding: 6px 0; }
-  .nav-inner { height: 44px; padding: 0 14px; border-radius: 10px; max-width: calc(100% - 2 * var(--pad)); }
-  .nav-logo .logo-k { font-size: .95rem; }
-  .nav-right { display: none; }
-  .nav-mob-ctrl { display: flex; gap: 4px; }
-  .nav-toggle svg { width: 18px; height: 18px; }
-  .nav-ham { width: 34px; height: 34px; }
-  .nav-mob { padding: 8px 14px 14px; gap: 2px; border-radius: 0 0 12px 12px; }
-  .nav-mob a { font-size: .88rem; padding: 12px 16px; border-radius: 8px; }
+  .nav-inner { height: 42px; padding: 0 clamp(10px, 2vw, 16px); border-radius: 10px; max-width: calc(100% - 2 * var(--pad)); }
+  .nav-logo .logo-k { font-size: clamp(.72rem, 2.2vw, .88rem); }
+  .nav-right { display: flex; }
+  .nav-mob-ctrl { display: none; }
+  .nav-mob { display: none !important; }
+  .nav-desk-links a { font-size: clamp(.6rem, 1.8vw, .76rem); padding: clamp(4px, .8vw, 6px) clamp(5px, 1.2vw, 10px); }
+  .nav-toggle { width: clamp(28px, 4vw, 34px); height: clamp(28px, 4vw, 34px); }
+  .nav-toggle svg { width: clamp(14px, 2.2vw, 17px); height: clamp(14px, 2.2vw, 17px); }
+  .nav-ham { width: clamp(28px, 4vw, 34px); height: clamp(28px, 4vw, 34px); padding: 6px; }
 
   /* Hero: column layout — details upar, cube neeche */
   #home { padding: calc(var(--nav) + 28px) 0 60px; min-height: unset; }
   .hero-inner { flex-direction: column; align-items: flex-start; gap: 40px; }
   .hero-left { flex: unset; order: 1; min-width: 0; width: 100%; }
-  .hero-right { order: 2; flex: 0 0 auto; width: 100%; display: flex; justify-content: center; align-self: center; margin: 0; padding-bottom: 8px; }
+  .hero-right { order: 2; flex: 0 0 auto; width: 100%; display: flex; justify-content: center; align-self: center; margin: 0; padding-bottom: 0; }
 
-  .hero-name { font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .92; margin-bottom: 16px; }
+  .hero-name { font-size: clamp(3.2rem, 9vw, 6rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .93; margin-bottom: 16px; }
   .hero-name .ac { font-weight: 900; }
-  .hero-role { margin-bottom: 18px; }
+  .hero-role { margin-bottom: 18px; min-height: unset; overflow: visible; }
   .hero-role-pre { font-size: .82rem; }
-  .hero-role-txt { font-size: 1.2rem; }
+  .hero-role-txt { font-size: 1.2rem; overflow: visible; min-height: 1.6em; }
 
   .hero-block { min-width: 0; width: 100%; }
   .hero-avail { font-size: .88rem; margin-bottom: 12px; }
@@ -2119,29 +2121,29 @@ body.light .win3d-btn.active {
   .hero-btns .btn-o, .hero-btns .btn-s { font-size: .80rem; padding: 10px 18px; }
 
   /* Cube: full-width centered below content */
-  .win3d-scene { width: 160px; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: 160px; height: 160px; }
-  .win3d-front  { transform: translateZ(80px); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(80px); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(80px); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(80px); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(80px); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(80px); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 136px; height: 136px; }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(68px); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(68px); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(68px); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(68px); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(68px); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(68px); }
-  .win3d-controls { bottom: -40px; gap: 5px; }
+  .win3d-scene { width: 200px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 200px; height: 200px; }
+  .win3d-front  { transform: translateZ(100px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(100px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(100px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(100px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(100px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(100px); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 170px; height: 170px; }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(85px); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(85px); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(85px); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(85px); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(85px); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(85px); }
+  .win3d-controls { position: relative; bottom: auto; left: auto; transform: none; margin-top: 10px; gap: 5px; }
   .win3d-btn { font-size: .72rem; padding: 6px 14px; }
 
   /* About */
   .about-para { font-size: .85rem; line-height: 1.88; }
 
-  /* Skills: 3 cols on tablet portrait */
-  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  /* Skills: desktop card style, 1 column on tablet portrait */
+  .skill-one-card { grid-template-columns: 1fr; gap: 14px; }
   .skill-one-card .skill-group { padding: 20px 16px 18px !important; }
   .skill-card .skill-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
   .skill-chip { width: auto; height: 72px; min-height: 72px; max-height: 72px; border-radius: 10px; }
@@ -2194,24 +2196,27 @@ body.light .win3d-btn.active {
   .sec-hd { margin-bottom: 22px; gap: 10px; }
   .sec-hd h2 { font-size: clamp(1.25rem, 5vw, 1.5rem); }
 
-  /* Navbar */
+  /* Navbar: desktop style, scaled for large phone */
   .nav { padding: 5px 0; }
-  .nav-inner { height: 42px; padding: 0 12px; border-radius: 10px; max-width: calc(100% - 2 * var(--pad)); }
-  .nav-logo .logo-k { font-size: .9rem; }
-  .nav-toggle svg { width: 17px; height: 17px; }
-  .nav-ham { width: 32px; height: 32px; }
-  .nav-mob { padding: 6px 12px 12px; }
-  .nav-mob a { font-size: .84rem; padding: 11px 14px; }
+  .nav-inner { height: 40px; padding: 0 10px; border-radius: 10px; max-width: calc(100% - 2 * var(--pad)); }
+  .nav-logo .logo-k { font-size: clamp(.65rem, 3.5vw, .8rem); }
+  .nav-right { display: flex; }
+  .nav-mob-ctrl { display: none; }
+  .nav-mob { display: none !important; }
+  .nav-desk-links a { font-size: clamp(.52rem, 2.2vw, .68rem); padding: clamp(3px, .7vw, 5px) clamp(4px, 1.2vw, 8px); }
+  .nav-toggle { width: 30px; height: 30px; }
+  .nav-toggle svg { width: 15px; height: 15px; }
+  .nav-ham { width: 30px; height: 30px; padding: 5px; }
 
   /* Hero: column — cube neeche, desktop jaisa detail */
   #home { padding: calc(var(--nav) + 24px) 0 52px; }
   .hero-inner { flex-direction: column; align-items: flex-start; gap: 32px; }
   .hero-left { order: 1; width: 100%; }
-  .hero-right { order: 2; width: 100%; display: flex; justify-content: center; }
-  .hero-name { font-size: clamp(2.6rem, 11vw, 3.8rem); margin-bottom: 14px; }
-  .hero-role { margin-bottom: 14px; }
+  .hero-right { order: 2; width: 100%; display: flex; justify-content: center; padding-bottom: 0; }
+  .hero-name { font-size: clamp(2.8rem, 12vw, 4.2rem); margin-bottom: 14px; }
+  .hero-role { margin-bottom: 14px; min-height: unset; overflow: visible; }
   .hero-role-pre { font-size: .76rem; }
-  .hero-role-txt { font-size: 1.1rem; }
+  .hero-role-txt { font-size: 1.1rem; overflow: visible; min-height: 1.6em; }
   .hero-avail { font-size: .82rem; margin-bottom: 10px; }
 
   .hero-info { padding: 8px 12px; margin-bottom: 10px; }
@@ -2225,27 +2230,27 @@ body.light .win3d-btn.active {
   .hero-btns .btn-o, .hero-btns .btn-s { font-size: .76rem; padding: 8px 14px; flex: 1; }
 
   /* Cube: centered below */
-  .win3d-scene { width: 140px; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: 140px; height: 140px; }
-  .win3d-front  { transform: translateZ(70px); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(70px); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(70px); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(70px); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 118px; height: 118px; }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(59px); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(59px); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(59px); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(59px); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(59px); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(59px); }
-  .win3d-controls { bottom: -36px; }
+  .win3d-scene { width: 180px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 180px; height: 180px; }
+  .win3d-front  { transform: translateZ(90px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(90px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(90px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(90px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(90px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(90px); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 152px; height: 152px; }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(76px); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(76px); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(76px); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(76px); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(76px); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(76px); }
+  .win3d-controls { position: relative; bottom: auto; left: auto; transform: none; margin-top: 8px; }
   .win3d-btn { font-size: .65rem; padding: 5px 10px; }
   .wt-name { font-size: .56rem; }
 
-  /* Skills: 1 col */
-  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  /* Skills: desktop card style, 1 column */
+  .skill-one-card { grid-template-columns: 1fr; gap: 8px; }
   .skill-one-card .skill-group { padding: 14px 10px 12px !important; }
   .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 5px; }
   .skill-chip { height: 62px; min-height: 62px; max-height: 62px; border-radius: 9px; gap: 4px; }
@@ -2293,23 +2298,27 @@ body.light .win3d-btn.active {
   section { padding: 48px 0; }
   .sec-hd h2 { font-size: clamp(1.15rem, 6vw, 1.4rem); }
 
-  /* Navbar */
+  /* Navbar: desktop style, scaled for small phone */
   .nav { padding: 5px 0; }
-  .nav-inner { height: 40px; padding: 0 10px; border-radius: 9px; max-width: calc(100% - 2 * var(--pad)); }
-  .nav-logo .logo-k { font-size: .88rem; }
-  .nav-toggle { width: 30px; height: 30px; }
-  .nav-toggle svg { width: 16px; height: 16px; }
-  .nav-ham { width: 30px; height: 30px; }
-  .nav-mob { padding: 5px 10px 10px; }
-  .nav-mob a { font-size: .8rem; padding: 10px 12px; }
+  .nav-inner { height: 38px; padding: 0 8px; border-radius: 9px; max-width: calc(100% - 2 * var(--pad)); }
+  .nav-logo .logo-k { font-size: clamp(.58rem, 3.8vw, .72rem); }
+  .nav-right { display: flex; }
+  .nav-mob-ctrl { display: none; }
+  .nav-mob { display: none !important; }
+  .nav-desk-links a { font-size: clamp(.46rem, 2.5vw, .6rem); padding: clamp(3px, .6vw, 5px) clamp(3px, 1vw, 6px); }
+  .nav-toggle { width: 28px; height: 28px; }
+  .nav-toggle svg { width: 14px; height: 14px; }
+  .nav-ham { width: 28px; height: 28px; padding: 5px; }
+  .nav-sep-line { display: none; }
 
   #home { padding: calc(var(--nav) + 20px) 0 48px; }
   .hero-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
   .hero-left { order: 1; width: 100%; }
-  .hero-right { order: 2; width: 100%; display: flex; justify-content: center; }
-  .hero-name { font-size: clamp(2.2rem, 12vw, 3rem); margin-bottom: 10px; }
+  .hero-right { order: 2; width: 100%; display: flex; justify-content: center; padding-bottom: 0; }
+  .hero-name { font-size: clamp(2.4rem, 13vw, 3.4rem); margin-bottom: 10px; }
+  .hero-role { min-height: unset; overflow: visible; }
   .hero-role-pre { font-size: .7rem; }
-  .hero-role-txt { font-size: 1rem; }
+  .hero-role-txt { font-size: 1rem; overflow: visible; min-height: 1.6em; }
   .hero-avail { font-size: .76rem; }
   .hero-info { padding: 7px 10px; }
   .hero-info-grid { flex-direction: row; }
@@ -2320,25 +2329,26 @@ body.light .win3d-btn.active {
   .hero-btns .btn-o, .hero-btns .btn-s { font-size: .68rem; padding: 7px 10px; }
 
   /* Cube */
-  .win3d-scene { width: 120px; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: 120px; height: 120px; }
-  .win3d-front  { transform: translateZ(60px); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(60px); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(60px); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(60px); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(60px); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(60px); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 102px; height: 102px; }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(51px); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(51px); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(51px); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(51px); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(51px); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(51px); }
-  .win3d-controls { bottom: -32px; }
+  .win3d-scene { width: 155px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 155px; height: 155px; }
+  .win3d-front  { transform: translateZ(77px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(77px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(77px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(77px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(77px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(77px); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 130px; height: 130px; }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(65px); }
+  .win3d-controls { position: relative; bottom: auto; left: auto; transform: none; margin-top: 8px; }
   .win3d-btn { font-size: .62rem; padding: 4px 9px; }
 
-  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  /* Skills: desktop card style, 1 column */
+  .skill-one-card { grid-template-columns: 1fr; gap: 6px; }
   .skill-one-card .skill-group { padding: 12px 8px 10px !important; }
   .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 4px; }
   .skill-chip { height: 58px; min-height: 58px; max-height: 58px; border-radius: 8px; gap: 3px; }
@@ -2367,27 +2377,35 @@ body.light .win3d-btn.active {
   section { padding: 42px 0; }
   .sec-hd h2 { font-size: clamp(1.1rem, 7vw, 1.3rem); }
 
-  /* Navbar */
-  .nav-inner { height: 38px; padding: 0 8px; border-radius: 8px; }
-  .nav-logo .logo-k { font-size: .84rem; }
-  .nav-toggle { width: 28px; height: 28px; }
-  .nav-ham { width: 28px; height: 28px; }
-  .nav-mob a { font-size: .76rem; padding: 9px 10px; }
+  /* Navbar: desktop style, very compact */
+  .nav-inner { height: 36px; padding: 0 6px; border-radius: 8px; }
+  .nav-logo .logo-k { font-size: clamp(.52rem, 4vw, .66rem); }
+  .nav-right { display: flex; }
+  .nav-mob-ctrl { display: none; }
+  .nav-mob { display: none !important; }
+  .nav-desk-links a { font-size: clamp(.42rem, 2.8vw, .56rem); padding: 3px 4px; }
+  .nav-toggle { width: 26px; height: 26px; }
+  .nav-toggle svg { width: 13px; height: 13px; }
+  .nav-ham { width: 26px; height: 26px; }
+  .nav-sep-line { display: none; }
 
-  .hero-name { font-size: clamp(1.2rem, 9.5vw, 2.2rem); }
-  .hero-role-txt { font-size: .76rem; }
-
-  .win3d-scene { width: clamp(68px, 20vw, 96px); }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(68px, 20vw, 96px); height: clamp(68px, 20vw, 96px); }
-  .win3d-front  { transform: translateZ(clamp(34px, 10vw, 48px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(34px, 10vw, 48px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(34px, 10vw, 48px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(34px, 10vw, 48px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(34px, 10vw, 48px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(34px, 10vw, 48px)); }
-
-  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+  /* Skills: 1 column */
+  .skill-one-card { grid-template-columns: 1fr; gap: 5px; }
   .skill-one-card .skill-group { padding: 10px 6px 8px !important; }
+  .hero-name { font-size: clamp(2rem, 10.5vw, 2.6rem); }
+  .hero-role { min-height: unset; overflow: visible; }
+  .hero-role-txt { font-size: .76rem; overflow: visible; min-height: 1.5em; }
+  .win3d-controls { position: relative; bottom: auto; left: auto; transform: none; margin-top: 6px; }
+
+  .win3d-scene { width: clamp(110px, 30vw, 130px); }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(110px, 30vw, 130px); height: clamp(110px, 30vw, 130px); }
+  .win3d-front  { transform: translateZ(clamp(55px, 15vw, 65px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(55px, 15vw, 65px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(55px, 15vw, 65px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(55px, 15vw, 65px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(55px, 15vw, 65px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(55px, 15vw, 65px)); }
+
   .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 3px; }
   .skill-chip { height: 54px; min-height: 54px; max-height: 54px; border-radius: 7px; gap: 3px; }
   .skill-chip svg { width: 14px; height: 14px; min-width: 14px; }
@@ -2399,8 +2417,8 @@ body.light .win3d-btn.active {
 /* ── TOUCH DEVICES: minimum tap targets ─────────────────────── */
 @media (hover: none) and (pointer: coarse) {
   .btn-o, .btn-s, .li-btn { min-height: 44px; }
-  .nav-mob a { min-height: 44px; display: flex; align-items: center; }
-  .nav-toggle, .nav-ham { min-height: 44px; min-width: 44px; }
+  .nav-toggle, .nav-ham { min-height: 36px; min-width: 36px; }
+  .nav-desk-links a { min-height: 36px; display: flex; align-items: center; }
   .masonry-link { min-height: 36px; display: inline-flex; align-items: center; }
   .mq-chip { min-height: 36px; }
   .skill-chip { cursor: pointer; }
