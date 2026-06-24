@@ -218,12 +218,12 @@ function initWin3DCube() {
   ];
 
   const faceSkills = {
-    wFront:  { flat:[0,1,4,3],  cube:[0,1,4,3]   },
-    wRight:  { flat:[0,1,4,3],  cube:[1,2,7,8]   },
-    wBack:   { flat:[0,1,4,3],  cube:[2,5,6,9]   },
-    wLeft:   { flat:[0,1,4,3],  cube:[4,9,10,11] },
-    wTop:    { flat:[0,1,4,3],  cube:[5,6,7,8]   },
-    wBottom: { flat:[0,1,4,3],  cube:[10,11,0,3] },
+    wFront:  { flat:[0],  cube:[0]  },
+    wRight:  { flat:[1],  cube:[1]  },
+    wBack:   { flat:[2],  cube:[2]  },
+    wLeft:   { flat:[3],  cube:[3]  },
+    wTop:    { flat:[4],  cube:[4]  },
+    wBottom: { flat:[5],  cube:[5]  },
   };
 
   const glowMap = {
@@ -235,22 +235,23 @@ function initWin3DCube() {
 
   function makeTile(skill) {
     const d = document.createElement('div');
-    d.className = 'wt';
+    d.className = 'wt wt-single';
     d.style.setProperty('background', `linear-gradient(135deg,${skill.grad[0]}dd,${skill.grad[1]}cc)`, 'important');
     d.style.setProperty('--tile-glow', (glowMap[skill.name] || '#fff') + '99');
-    d.innerHTML = `<div class="wt-inner">${skill.svg}<span class="wt-name">${skill.name}</span></div>`;
+    const bigSvg = skill.svg.replace(/width="38" height="38"/g, 'width="64" height="64"');
+    d.innerHTML = `<div class="wt-inner">${bigSvg}<span class="wt-name">${skill.name}</span></div>`;
     return d;
   }
-
-  const radii = ['14px 0 0 0','0 14px 0 0','0 0 0 14px','0 0 14px 0'];
 
   function buildFaces(mode) {
     Object.entries(faceSkills).forEach(([faceId, cfg]) => {
       const face = document.getElementById(faceId);
       if (!face) return;
       face.innerHTML = '';
-      (mode === 'cube' ? cfg.cube : cfg.flat).forEach(idx => face.appendChild(makeTile(skills[idx % skills.length])));
-      face.querySelectorAll('.wt').forEach((t, i) => { t.style.borderRadius = radii[i] || '0'; });
+      const idx = (mode === 'cube' ? cfg.cube : cfg.flat)[0];
+      const tile = makeTile(skills[idx % skills.length]);
+      tile.style.borderRadius = '16px';
+      face.appendChild(tile);
     });
   }
 
