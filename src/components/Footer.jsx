@@ -4,6 +4,7 @@ const Footer = () => (
       <a className="f-logo" href="#home">
         <span className="logo-k">kt<em>.</em></span>
       </a>
+      <span className="f-copy">© {new Date().getFullYear()} Kaushal Thakur. All rights reserved.</span>
       <div className="f-socials">
         <a href="https://github.com/kaushalt18" target="_blank" rel="noopener" className="f-social-link" aria-label="GitHub">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
@@ -22,7 +23,6 @@ const Footer = () => (
           </svg>
         </a>
       </div>
-      <span className="f-copy">© {new Date().getFullYear()} Kaushal Thakur. All rights reserved.</span>
     </div>
   </footer>
 );

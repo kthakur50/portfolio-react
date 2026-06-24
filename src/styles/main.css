@@ -1300,16 +1300,16 @@ body.light .c-form input, body.light .c-form textarea {
 .c-form .btn-s { justify-content: center; width: 100%; margin-top: 2px; }
 footer { padding: 20px var(--pad); border-top: 1px solid var(--br); background: #0f0f0f; }
 body.light footer { background: #ffffff; }
-.f-inner { max-width: 1280px; margin: 0 auto; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; text-align: center; }
+.f-inner { max-width: 1280px; margin: 0 auto; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 16px; text-align: center; }
 .f-logo { font-size: .95rem; font-weight: 900; letter-spacing: .02em; line-height: 1; }
 .f-logo .logo-k { font-size: .95rem; font-weight: 900; color: #bccfc4; letter-spacing: .02em; line-height: 1; display: block; }
 body.light .f-logo .logo-k { color: #24382c; }
 .f-logo .logo-k em { font-style: normal; color: var(--a2); }
 .f-socials { display: flex; align-items: center; gap: 6px; }
-.f-social-link { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; border: none; color: var(--mu); transition: color var(--ease), background var(--ease); }
+.f-social-link { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; border: 1px solid rgba(255,255,255,.1); color: var(--mu); transition: color var(--ease), background var(--ease), border-color var(--ease); }
 .f-social-link svg { width: 15px; height: 15px; }
 .f-social-link:hover { color: #27b872; background: rgba(34,160,99,.08); }
-body.light .f-social-link { border: none; color: #57606a; }
+body.light .f-social-link { border: 1px solid rgba(0,0,0,.12); color: #57606a; }
 body.light .f-social-link:hover { color: #196a47; background: rgba(25,106,71,.06); }
 .f-divider { height: 1px; background: var(--br); opacity: .5; }
 .f-bottom { display: flex; align-items: center; justify-content: space-between; }
@@ -1975,1123 +1975,385 @@ body.light .win3d-btn.active {
 }
 .win3d-hint { display: none; }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  :root {
-    --pad: clamp(24px, 4vw, 48px);
-  }
 
-  
-  .hero-inner {
-    flex-direction: row;
-    align-items: flex-end;
-    gap: 24px;
-  }
-  .hero-left {
-    width: auto;
-    max-width: 100%;
-    order: 1;
-    flex: 1;
-  }
-  .hero-right {
-    order: 2;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-self: flex-end;
-    margin-top: 0;
-    margin-bottom: 0;
-    flex: 0 0 auto;
-  }
-  .hero-name {
-    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-    font-weight: 900;
-    white-space: normal;
-    line-height: .92;
-  }
+/* ================================================================
+   RESPONSIVE — Single clean breakpoint system
+   Desktop-first: all sections stay same as desktop, just scaled
+   ================================================================ */
+
+/* ── LARGE DESKTOP (≤ 1400px) ──────────────────────────────── */
+@media (max-width: 1400px) {
+  .hero-name { font-size: clamp(2.4rem, 5.5vw, 6rem); }
+  .masonry-list { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── MEDIUM DESKTOP / LARGE TABLET LANDSCAPE (≤ 1200px) ────── */
+@media (max-width: 1200px) {
+  .hero-name { font-size: clamp(2.2rem, 5vw, 5.5rem); }
+  .contact-grid { gap: 36px; }
+  .masonry-list { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── TABLET LANDSCAPE + SMALL DESKTOP (≤ 1024px) ───────────── */
+@media (max-width: 1024px) {
+  :root { --pad: clamp(20px, 4vw, 48px); }
+  section { padding: 80px 0; }
+
+  /* Navbar: always desktop style, just scaled */
+  .nav-inner { height: clamp(34px, 4.5vw, 38px); padding: 0 clamp(12px, 2vw, 20px); }
+  .nav-logo .logo-k { font-size: clamp(.78rem, 1.5vw, .95rem); }
+  .nav-right { display: flex; }
+  .nav-mob-ctrl { display: none; }
+  .nav-desk-links a { font-size: clamp(.68rem, 1.1vw, .8rem); padding: clamp(5px, .8vw, 6px) clamp(7px, 1.2vw, 12px); }
+  .nav-toggle { width: clamp(30px, 4vw, 36px); height: clamp(30px, 4vw, 36px); }
+  .nav-toggle svg { width: clamp(14px, 2vw, 17px); height: clamp(14px, 2vw, 17px); }
+  .nav-ham { width: clamp(30px, 4vw, 36px); height: clamp(30px, 4vw, 36px); padding: 6px; }
+
+  /* Hero: always row, left + cube side by side */
+  #home { padding: clamp(36px, 5vw, 60px) 0; min-height: calc(100svh - var(--nav)); align-items: center; }
+  .hero-inner { flex-direction: row; align-items: flex-start; gap: clamp(20px, 3vw, 40px); }
+  .hero-left { flex: 1; width: auto; max-width: unset; order: 1; min-width: 0; }
+  .hero-right { order: 2; flex: 0 0 auto; width: auto; display: flex; justify-content: center; align-self: flex-end; margin: 0; }
+
+  /* Hero name: big, scales with vw */
+  .hero-name { font-size: clamp(1.8rem, 5.5vw, 5rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .92; letter-spacing: -.04em; margin-bottom: clamp(12px, 2vw, 18px); }
   .hero-name .ac { font-weight: 900; }
-  .hero-role { margin-bottom: 14px; }
-  .hero-role-pre { font-size: .68rem; }
-  .hero-role-txt { font-size: .9rem; }
-  .hero-info { padding: 10px 14px; margin-bottom: 12px; }
+
+  /* Role row */
+  .hero-role { margin-bottom: clamp(12px, 2vw, 22px); }
+  .hero-role-pre { font-size: clamp(.58rem, 1vw, .72rem); }
+  .hero-role-txt { font-size: clamp(.82rem, 1.5vw, 1.05rem); }
+
+  /* Info box */
+  .hero-block { min-width: 0; width: 100%; }
+  .hero-avail { font-size: clamp(.6rem, 1.1vw, .76rem); margin-bottom: clamp(8px, 1.2vw, 12px); }
+  .hero-info { padding: clamp(7px, 1.2vw, 10px) clamp(10px, 1.5vw, 16px); margin-bottom: clamp(7px, 1.2vw, 12px); }
   .hero-info-grid { flex-direction: row; }
-  .hero-info-item { font-size: .72rem; height: 26px; gap: 7px; }
-  .hero-info-item svg { width: 12px; height: 12px; }
-  .hero-avail { font-size: .65rem; }
-  .hero-btns { flex-wrap: wrap; gap: 8px; }
-  .hero-btns .btn-o, .hero-btns .btn-s { font-size: .75rem; padding: 7px 12px; }
+  .hero-info-item { font-size: clamp(.62rem, 1.1vw, .74rem); height: clamp(24px, 3.5vw, 30px); gap: clamp(5px, .8vw, 10px); white-space: nowrap; padding: clamp(4px, .6vw, 6px) 0; }
+  .hero-info-item svg { width: clamp(14px, 2.2vw, 22px); height: clamp(14px, 2.2vw, 22px); }
+  .hero-info-col:first-child { padding-right: clamp(12px, 2vw, 28px); }
+  .hero-info-col:last-child { padding-left: clamp(5px, 1vw, 8px); }
 
-  .win3d-scene { width: clamp(160px, 22vw, 220px); }
-  .win3d-perspective,
-  .win3d-cube { width: clamp(160px, 22vw, 220px); height: clamp(160px, 22vw, 220px); }
-  .win3d-face  { width: clamp(160px, 22vw, 220px); height: clamp(160px, 22vw, 220px); }
-  .win3d-front  { transform: translateZ(clamp(80px, 11vw, 110px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(80px, 11vw, 110px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(80px, 11vw, 110px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(80px, 11vw, 110px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(80px, 11vw, 110px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(80px, 11vw, 110px)); }
-  .win3d-scene.mode-3d .win3d-cube { width: clamp(136px, 19vw, 188px); height: clamp(136px, 19vw, 188px); }
-  .win3d-scene.mode-3d .win3d-face { width: clamp(136px, 19vw, 188px); height: clamp(136px, 19vw, 188px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(68px, 9.5vw, 94px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(68px, 9.5vw, 94px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(68px, 9.5vw, 94px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(68px, 9.5vw, 94px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(68px, 9.5vw, 94px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(68px, 9.5vw, 94px)); }
+  /* Buttons: always row */
+  .hero-btns { flex-wrap: nowrap; gap: clamp(5px, 1vw, 8px); order: unset; margin-top: 0; width: auto; }
+  .hero-btns .btn-o, .hero-btns .btn-s { font-size: clamp(.68rem, 1.2vw, .8rem); padding: clamp(7px, 1vw, 10px) clamp(10px, 1.5vw, 18px); flex: 1; }
 
-  
-  .about-layout { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .about-stats { grid-template-columns: repeat(2, 1fr); }
+  /* Cube: scaled proportionally */
+  .win3d-scene { width: clamp(140px, 22vw, 240px); }
+  .win3d-perspective, .win3d-cube { width: clamp(140px, 22vw, 240px); height: clamp(140px, 22vw, 240px); }
+  .win3d-face { width: clamp(140px, 22vw, 240px); height: clamp(140px, 22vw, 240px); }
+  .win3d-front  { transform: translateZ(clamp(70px, 11vw, 120px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(70px, 11vw, 120px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(70px, 11vw, 120px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(70px, 11vw, 120px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(70px, 11vw, 120px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(70px, 11vw, 120px)); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(116px, 18.5vw, 200px); height: clamp(116px, 18.5vw, 200px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(58px, 9.2vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(58px, 9.2vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(58px, 9.2vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(58px, 9.2vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(58px, 9.2vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(58px, 9.2vw, 100px)); }
 
-  
-  .skill-one-card { grid-template-columns: repeat(3, 1fr); }
-  .skill-card .skill-strip { display: flex; flex-wrap: wrap; gap: 8px; }
-  .skill-chip { width: 76px; min-width: 76px; max-width: 76px; height: 76px; flex-shrink: 0; }
+  /* Skills: 3 columns always */
+  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .skill-card .skill-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+  .skill-chip { width: auto; height: 76px; min-height: 76px; max-height: 76px; }
 
-  
+  /* Projects: 3 columns */
+  .masonry-list { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+  /* Experience & Education */
   .exp-list { padding-left: 52px; }
   .edu-list { padding-left: 52px; }
 
-  
-  .masonry-list { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr 1.5fr; gap: 36px; }
 
-  
-  .contact-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-
-  
-  .nav-right { display: flex; }
-  .nav-mob-ctrl { display: none; }
-
-  
-  .f-inner { flex-direction: row; align-items: center; justify-content: space-between; }
-  .f-copy { text-align: center; }
+  /* Footer: centered row */
+  .f-inner { flex-direction: row; align-items: center; justify-content: center; }
 }
 
-@media (max-width: 1200px) {
-  .contact-grid { gap: 40px; }
-  .hero-name { font-size: clamp(2.4rem, 5.5vw, 5.5rem); }
-}
-
-@media (max-width: 900px) {
-  :root {
-    --pad: clamp(16px, 4vw, 40px);
-    --nav: 56px;
-  }
-
-  section { padding: 72px 0; }
-  .wrap   { padding: 0 var(--pad); }
-  .sec-hd { margin-bottom: 32px; }
-  .sec-hd h2 { font-size: clamp(1.45rem, 3.5vw, 1.75rem); }
-
-  .nav { padding: 8px 0; }
-  .nav-right { display: none; }
-  .nav-mob-ctrl { display: flex; }
-
-  #home {
-    padding: calc(var(--nav) + 48px) 0 64px;
-    min-height: 100svh;
-    align-items: flex-start;
-  }
-  #home::before { width: 80%; }
-
-  .wt-name { font-size: .65rem; }
-
-  .skill-one-card { grid-template-columns: 1fr; gap: 12px; }
-  .skill-one-card .skill-group { padding: 20px 16px 18px !important; }
-  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .skill-chip { height: 74px; min-height: 74px; max-height: 74px; }
-  .skill-marquee-wrap { margin-top: 24px; }
-
-  .exp-list { padding-left: 44px; }
-  .exp-node { left: -42px; width: 30px; height: 30px; top: 16px; }
-  .exp-card { padding: 16px 18px; }
-  .exp-card-top { flex-wrap: wrap; gap: 10px; }
-  .exp-right { align-items: flex-end; flex-direction: column; gap: 5px; flex-shrink: 0; margin-left: auto; }
-
-  .masonry-list { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-
-  .edu-list { padding-left: 44px; }
-  .edu-node { left: -42px; width: 30px; height: 30px; }
-  .edu-card { padding: 16px 18px; }
-
-  .contact-grid { grid-template-columns: 1fr; gap: 28px; max-width: 100%; }
-  .c-form-row { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .c-form { padding: 24px 20px; }
-  .c-info-links { flex-direction: row; flex-wrap: wrap; gap: 8px; }
-  .li-btn { flex: 1; min-width: 140px; justify-content: center; }
-
-  .f-inner { gap: 10px; }
-}
-
+/* ── TABLET PORTRAIT (≤ 768px) ──────────────────────────────── */
 @media (max-width: 768px) {
-  :root {
-    --pad: clamp(16px, 4vw, 40px);
-    --nav: 56px;
-  }
+  :root { --pad: clamp(16px, 4vw, 36px); }
+  section { padding: 64px 0; }
+  .sec-hd { margin-bottom: 28px; }
+  .sec-hd h2 { font-size: clamp(1.35rem, 3.5vw, 1.7rem); }
+  html, body { overflow-x: hidden; }
 
-  section { padding: 72px 0; }
-  .wrap   { padding: 0 var(--pad); }
-  .sec-hd { margin-bottom: 32px; }
-  .sec-hd h2 { font-size: clamp(1.45rem, 3.5vw, 1.75rem); }
-
-  .nav { padding: 8px 0; }
+  /* Navbar */
   .nav-right { display: none; }
   .nav-mob-ctrl { display: flex; }
 
-  #home {
-    padding-top: calc(var(--nav) + 24px);
-    padding-bottom: 64px;
-    min-height: auto;
-    align-items: flex-start;
-  }
-  .hero-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 40px;
-  }
-  .hero-left { max-width: 100%; width: 100%; }
-  .hero-name { font-size: clamp(2rem, 6vw, 4.2rem); white-space: normal; }
-  .hero-role { margin-bottom: 22px; }
-  .hero-btns { flex-wrap: wrap; gap: 10px; }
-  .btn-o, .btn-s { padding: 13px 24px; }
+  /* Hero: still row but tighter */
+  #home { padding: calc(var(--nav) + 32px) 0 48px; min-height: 100svh; align-items: flex-start; }
+  .hero-inner { flex-direction: row; align-items: flex-start; gap: 20px; }
+  .hero-left { flex: 1; order: 1; min-width: 0; }
+  .hero-right { order: 2; flex: 0 0 auto; width: auto; display: flex; justify-content: center; align-self: flex-end; margin: 0; }
 
-  .hero-right {
-    flex: unset;
-    width: 100%;
-    justify-content: center;
-    margin-top: 8px;
-  }
-  .win3d-perspective,
-  .win3d-cube { width: clamp(200px, 52vw, 260px); height: clamp(200px, 52vw, 260px); }
-  .win3d-scene.mode-3d .win3d-cube { width: clamp(170px, 44vw, 220px); height: clamp(170px, 44vw, 220px); }
-  .win3d-front  { transform: translateZ(clamp(100px, 26vw, 130px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(100px, 26vw, 130px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(100px, 26vw, 130px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(100px, 26vw, 130px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(100px, 26vw, 130px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(100px, 26vw, 130px)); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(70px, 18vw, 90px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(70px, 18vw, 90px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(70px, 18vw, 90px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(70px, 18vw, 90px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(70px, 18vw, 90px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(70px, 18vw, 90px)); }
-  .win3d-face { width: clamp(200px, 52vw, 260px); height: clamp(200px, 52vw, 260px); }
-  .win3d-scene.mode-3d .win3d-face   { width: clamp(170px, 44vw, 220px); height: clamp(170px, 44vw, 220px); }
-
-  .about-layout { grid-template-columns: 1fr; gap: 32px; }
-  .about-stats { grid-template-columns: repeat(4,1fr); }
-  .about-cards { grid-template-columns: repeat(2,1fr); }
-  .about-wrap { max-width: 100%; }
-  .about-para { font-size: .83rem; }
-
-  .skill-one-card { grid-template-columns: 1fr; }
-  .skill-one-card .skill-group {
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.06) !important;
-  }
-  .skill-one-card .skill-group:last-child { border-bottom: none !important; }
-  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .skill-chip { height: 74px; min-height: 74px; max-height: 74px; }
-  .skill-marquee-wrap { margin-top: 24px; }
-
-  .exp-list { padding-left: 44px; }
-  .exp-node { left: -42px; width: 30px; height: 30px; top: 16px; }
-  .exp-card { padding: 16px 18px; }
-  .exp-card-top { flex-wrap: wrap; gap: 10px; }
-  .exp-right { align-items: flex-end; flex-direction: column; gap: 5px; flex-shrink: 0; margin-left: auto; }
-
-  .masonry-list { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-
-  .edu-list { padding-left: 44px; }
-  .edu-node { left: -42px; width: 30px; height: 30px; }
-  .edu-card { padding: 16px 18px; }
-
-  .contact-grid { grid-template-columns: 1fr; gap: 28px; max-width: 100%; }
-  .c-form-row { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .c-form { padding: 24px 20px; }
-  .c-info-links { flex-direction: row; flex-wrap: wrap; gap: 8px; }
-  .li-btn { flex: 1; min-width: 140px; justify-content: center; }
-
-  .f-inner { gap: 10px; }
-}
-
-@media (max-width: 640px) {
-  :root { --pad: 20px; }
-
-  section { padding: 56px 0; }
-  .sec-hd { margin-bottom: 24px; gap: 12px; }
-  .sec-hd h2 { font-size: clamp(1.3rem, 5vw, 1.55rem); }
-
-  .nav { padding: 8px 0; }
-  .nav-inner { height: 42px; border-radius: 9px; }
-  .nav-desk-links { display: none; }
-  .nav-mob { padding: 8px var(--pad) 14px; }
-  .nav-mob a { font-size: .82rem; padding: 11px 14px; width: 100%; }
-
-  #home {
-    padding: calc(var(--nav) + 32px) 0 52px;
-    min-height: 100svh;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  #home::before { width: 90%; height: 2px; }
-
-  .hero-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
-
-  .hero-left { order: 1; width: 100%; }
-
-  .hero-name {
-    font-size: clamp(2.6rem, 11vw, 4rem);
-    white-space: normal;
-    word-break: keep-all;
-    line-height: .9;
-    letter-spacing: -.04em;
-    margin-bottom: 18px;
-  }
-
-  .hero-role {
-    gap: 8px;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-  }
-  .hero-role-pre { font-size: .68rem; letter-spacing: .18em; }
-  .hero-role-txt { font-size: .95rem; }
-
-  .hero-info { margin-bottom: 0; }
-  .hero-info-grid { flex-direction: column; gap: 0; width: 100%; }
-  .hero-info-item {
-    height: auto;
-    min-height: 34px;
-    padding: 6px 0;
-    font-size: .72rem;
-    white-space: normal;
-    word-break: break-all;
-    gap: 8px;
-  }
-  .hero-info-item svg { width: 20px; height: 20px; }
-
-  .hero-right {
-    order: 2;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 28px 0 0;
-  }
-
-  .win3d-scene {
-    width: clamp(200px, 72vw, 280px);
-  }
-  .win3d-perspective,
-  .win3d-cube,
-  .win3d-face {
-    width: clamp(200px, 72vw, 280px);
-    height: clamp(200px, 72vw, 280px);
-  }
-  .win3d-front  { transform: translateZ(clamp(100px, 36vw, 140px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(100px, 36vw, 140px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(100px, 36vw, 140px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(100px, 36vw, 140px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(100px, 36vw, 140px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(100px, 36vw, 140px)); }
-  .win3d-scene.mode-3d .win3d-face,
-  .win3d-scene.mode-3d .win3d-cube { width: clamp(160px, 58vw, 230px); height: clamp(160px, 58vw, 230px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(80px, 29vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(80px, 29vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(80px, 29vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(80px, 29vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(80px, 29vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(80px, 29vw, 115px)); }
-
-  .win3d-controls { bottom: -44px; gap: 6px; }
-  .win3d-btn { font-size: .7rem; padding: 6px 14px; }
-  .wt-name { font-size: .6rem; }
-
-  .hero-btns {
-    order: 3;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 56px;
-    width: 100%;
-  }
-  .btn-o, .btn-s {
-    flex: 1;
-    min-width: 120px;
-    justify-content: center;
-    padding: 12px 16px;
-    font-size: .82rem;
-    border-radius: 10px;
-    text-align: center;
-  }
-
-  .about-cards { grid-template-columns: repeat(2,1fr); }
-  .about-para { font-size: .82rem; line-height: 1.85; }
-  .about-para + .about-para { margin-top: 14px; }
-
-  .skill-one-card { grid-template-columns: 1fr; gap: 10px; }
-  .skill-one-card .skill-group { padding: 20px 14px 16px !important; }
-  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .skill-chip { height: 68px; min-height: 68px; max-height: 68px; border-radius: 10px; }
-  .skill-chip svg { width: 22px; height: 22px; min-width: 22px; }
-  .skill-chip span { font-size: .52rem; }
-  .skill-cat { font-size: .57rem; letter-spacing: .16em; }
-  .skill-marquee-wrap { margin-top: 20px; }
-  .skill-marquee-wrap::before,
-  .skill-marquee-wrap::after { width: 48px; }
-  .mq-chip { padding: 7px 12px; font-size: .64rem; gap: 6px; }
-  .mq-chip svg { width: 14px; height: 14px; }
-
-  .exp-list { padding-left: 40px; }
-  .exp-node { left: -38px; width: 28px; height: 28px; padding: 6px; top: 15px; }
-  .exp-card { padding: 14px 15px; }
-  .exp-card-top { flex-direction: row; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
-  .exp-right { align-items: flex-end; flex-direction: column; gap: 4px; flex-shrink: 0; margin-left: auto; text-align: right; }
-  .exp-role { font-size: .9rem; }
-  .exp-period { font-size: .56rem; }
-  .exp-badge { font-size: .54rem; padding: 2px 6px; }
-  .exp-co { font-size: .73rem; }
-  .exp-co-row { margin-top: 4px; gap: 5px; flex-wrap: wrap; }
-  .exp-divider { margin: 12px 0; }
-  .exp-desc { font-size: .78rem; line-height: 1.8; margin-top: 8px; }
-  .exp-tags { gap: 5px; margin-top: 10px; }
-  .tag { font-size: .62rem; padding: 3px 7px; }
-
-  .masonry-list { grid-template-columns: 1fr; gap: 10px; }
-  .masonry-body { padding: 16px 14px; }
-  .masonry-title { font-size: .88rem; }
-  .masonry-desc { font-size: .72rem; }
-
-  .edu-list { padding-left: 40px; }
-  .edu-node { left: -38px; width: 28px; height: 28px; padding: 5px; border-radius: 7px; }
-  .edu-card { padding: 14px 15px; }
-  .edu-header-row { gap: 8px; align-items: flex-start; justify-content: space-between; }
-  .edu-deg-title { font-size: .9rem; }
-  .edu-yr { font-size: .56rem; text-align: right; flex-shrink: 0; white-space: nowrap; }
-  .edu-inst { font-size: .76rem; margin-top: 5px; }
-
-  .contact-grid { gap: 20px; }
-  .c-info p { font-size: .8rem; line-height: 1.78; }
-  .c-info-links { flex-direction: column; gap: 8px; }
-  .li-btn { width: 100%; justify-content: center; font-size: .78rem; border-radius: 10px; padding: 11px 16px; }
-  .c-form { padding: 20px 16px; gap: 12px; border-radius: var(--rad); }
-  .c-form-row { grid-template-columns: 1fr; gap: 10px; }
-  .c-form-field label { font-size: .62rem; }
-  .c-form input, .c-form textarea { font-size: .82rem; padding: 11px 13px; border-radius: 8px; }
-  .c-form textarea { height: 110px; }
-  .c-form .btn-s { padding: 14px 20px; font-size: .88rem; border-radius: 10px; margin-top: 4px; }
-
-  footer { padding: 20px var(--pad); }
-  .f-bottom { flex-direction: column; gap: 10px; text-align: center; }
-  .f-nav { flex-wrap: wrap; justify-content: center; gap: 12px; }
-  .f-top { flex-direction: column; gap: 14px; }
-  .f-copy { font-size: .65rem; }
-}
-
-@media (max-width: 480px) {
-  :root { --pad: 20px; }
-
-  section { padding: 56px 0; }
-  .sec-hd { margin-bottom: 24px; gap: 12px; }
-  .sec-hd h2 { font-size: clamp(1.3rem, 5vw, 1.55rem); }
-  .sec-hd::after { max-width: 80px; }
-
-  .nav { padding: 8px 0; }
-  .nav-inner { height: 42px; border-radius: 9px; }
-  .nav-desk-links { display: none; }
-  .nav-mob { padding: 8px var(--pad) 14px; }
-  .nav-mob a { font-size: .82rem; padding: 11px 14px; width: 100%; }
-
-  #home {
-    padding-top: calc(var(--nav) + 16px);
-    padding-bottom: 52px;
-  }
-  .hero-name {
-    font-size: clamp(2rem, 8vw, 3.2rem);
-    white-space: normal;
-    word-break: break-word;
-    margin-bottom: 18px;
-  }
-  .hero-role { gap: 8px; margin-bottom: 18px; }
-  .hero-role-pre { font-size: .72rem; }
-  .hero-role-txt { font-size: .98rem; }
-  .hero-info-grid { flex-direction: column; gap: 0; width: 100%; }
-  .hero-info-item { height: auto; min-height: 34px; white-space: normal; word-break: break-all; }
-  .hero-btns { flex-direction: column; width: 100%; gap: 10px; }
-  .btn-o, .btn-s {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 20px;
-    font-size: .86rem;
-    border-radius: 10px;
-  }
-
-  .hero-right { margin-top: 4px; }
-  .win3d-perspective,
-  .win3d-cube,
-  .win3d-face { width: clamp(180px, 68vw, 260px); height: clamp(180px, 68vw, 260px); }
-  .win3d-controls { bottom: -48px; gap: 6px; }
-  .win3d-btn { font-size: .72rem; padding: 5px 12px; }
-
-  .about-para { font-size: .82rem; line-height: 1.85; }
-  .about-para + .about-para { margin-top: 14px; }
-
-  .skill-one-card { border-radius: 10px; }
-  .skill-one-card .skill-group { padding: 20px 14px 16px; }
-  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .skill-chip {
-    height: 68px;
-    min-height: 68px;
-    max-height: 68px;
-    border-radius: 10px;
-  }
-  .skill-chip svg { width: 22px; height: 22px; min-width: 22px; }
-  .skill-chip span { font-size: .52rem; }
-  .skill-cat { font-size: .57rem; letter-spacing: .16em; }
-  .skill-marquee-wrap { margin-top: 20px; }
-  .skill-marquee-wrap::before,
-  .skill-marquee-wrap::after { width: 48px; }
-  .mq-chip { padding: 7px 12px; font-size: .64rem; gap: 6px; }
-  .mq-chip svg { width: 14px; height: 14px; }
-
-  .exp-list { padding-left: 40px; }
-  .exp-node { left: -38px; width: 28px; height: 28px; padding: 6px; top: 15px; }
-  .exp-card { padding: 14px 15px; }
-  .exp-card-top { flex-direction: row; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
-  .exp-right { align-items: flex-end; flex-direction: column; gap: 4px; flex-shrink: 0; margin-left: auto; text-align: right; }
-  .exp-role { font-size: .9rem; }
-  .exp-period { font-size: .56rem; }
-  .exp-badge { font-size: .54rem; padding: 2px 6px; }
-  .exp-co { font-size: .73rem; }
-  .exp-co-row { margin-top: 4px; gap: 5px; flex-wrap: wrap; }
-  .exp-divider { margin: 12px 0; }
-  .exp-desc { font-size: .78rem; line-height: 1.8; margin-top: 8px; }
-  .exp-tags { gap: 5px; margin-top: 10px; }
-  .tag { font-size: .62rem; padding: 3px 7px; }
-
-  .masonry-list { grid-template-columns: 1fr; gap: 10px; }
-  .masonry-body { padding: 16px 14px; }
-  .masonry-title { font-size: .88rem; }
-  .masonry-desc { font-size: .72rem; }
-
-  .edu-list { padding-left: 40px; }
-  .edu-node { left: -38px; width: 28px; height: 28px; padding: 5px; border-radius: 7px; }
-  .edu-card { padding: 14px 15px; }
-  .edu-header-row { gap: 8px; align-items: flex-start; justify-content: space-between; }
-  .edu-deg-title { font-size: .9rem; }
-  .edu-yr { font-size: .56rem; text-align: right; flex-shrink: 0; white-space: nowrap; }
-  .edu-inst { font-size: .76rem; margin-top: 5px; }
-
-  .contact-grid { gap: 20px; }
-  .c-info p { font-size: .8rem; line-height: 1.78; }
-  .c-info-links { flex-direction: column; gap: 8px; }
-  .li-btn {
-    width: 100%;
-    justify-content: center;
-    font-size: .78rem;
-    border-radius: 10px;
-    padding: 11px 16px;
-  }
-  .c-form { padding: 20px 16px; gap: 12px; border-radius: var(--rad); }
-  .c-form-row { grid-template-columns: 1fr; gap: 10px; }
-  .c-form-field label { font-size: .62rem; }
-  .c-form input, .c-form textarea {
-    font-size: .82rem;
-    padding: 11px 13px;
-    border-radius: 8px;
-  }
-  .c-form textarea { height: 110px; }
-  .c-form .btn-s {
-    padding: 14px 20px;
-    font-size: .88rem;
-    border-radius: 10px;
-    margin-top: 4px;
-  }
-
-  footer { padding: 20px var(--pad); }
-  .f-bottom { flex-direction: column; gap: 10px; text-align: center; }
-  .f-nav { flex-wrap: wrap; justify-content: center; gap: 12px; }
-  .f-top { flex-direction: column; gap: 14px; }
-  .f-copy { font-size: .65rem; }
-}
-
-@media (max-width: 480px) {
-  :root { --pad: 16px; }
-
-  section { padding: 48px 0; }
-  .sec-hd h2 { font-size: clamp(1.2rem, 6vw, 1.4rem); }
-
-  #home {
-    padding: calc(var(--nav) + 28px) 0 44px;
-  }
-
-  .hero-name {
-    font-size: clamp(2.4rem, 12vw, 3.4rem);
-    margin-bottom: 16px;
-  }
-
-  .hero-role-pre { font-size: .65rem; }
+  .hero-name { font-size: clamp(1.6rem, 6vw, 3.5rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .92; margin-bottom: 14px; }
+  .hero-name .ac { font-weight: 900; }
+  .hero-role { margin-bottom: 14px; }
+  .hero-role-pre { font-size: .64rem; }
   .hero-role-txt { font-size: .88rem; }
 
-  .hero-info-item { font-size: .7rem; min-height: 32px; padding: 5px 0; }
-  .hero-info-item svg { width: 18px; height: 18px; }
+  .hero-block { min-width: 0; width: 100%; }
+  .hero-avail { font-size: .64rem; margin-bottom: 8px; }
+  .hero-info { padding: 8px 12px; margin-bottom: 8px; }
+  .hero-info-grid { flex-direction: row; }
+  .hero-info-item { font-size: .64rem; height: 26px; gap: 6px; white-space: nowrap; }
+  .hero-info-item svg { width: 14px; height: 14px; }
+  .hero-info-col:first-child { padding-right: 14px; }
+  .hero-info-col:last-child { padding-left: 6px; }
 
-  .hero-right { margin-top: 24px; }
+  .hero-btns { flex-wrap: wrap; gap: 6px; }
+  .hero-btns .btn-o, .hero-btns .btn-s { font-size: .7rem; padding: 7px 12px; flex: 1; }
 
-  .win3d-scene { width: clamp(180px, 78vw, 260px); }
-  .win3d-perspective,
-  .win3d-cube,
-  .win3d-face { width: clamp(180px, 78vw, 260px); height: clamp(180px, 78vw, 260px); }
-  .win3d-front  { transform: translateZ(clamp(90px, 39vw, 130px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(90px, 39vw, 130px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(90px, 39vw, 130px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(90px, 39vw, 130px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(90px, 39vw, 130px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(90px, 39vw, 130px)); }
+  /* Cube: smaller for tablet portrait */
+  .win3d-scene { width: clamp(110px, 28vw, 180px); }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(110px, 28vw, 180px); height: clamp(110px, 28vw, 180px); }
+  .win3d-front  { transform: translateZ(clamp(55px, 14vw, 90px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(55px, 14vw, 90px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(55px, 14vw, 90px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(55px, 14vw, 90px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(55px, 14vw, 90px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(55px, 14vw, 90px)); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(92px, 23vw, 152px); height: clamp(92px, 23vw, 152px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(46px, 11.5vw, 76px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(46px, 11.5vw, 76px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(46px, 11.5vw, 76px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(46px, 11.5vw, 76px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(46px, 11.5vw, 76px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(46px, 11.5vw, 76px)); }
+  .win3d-controls { bottom: -40px; gap: 5px; }
+  .win3d-btn { font-size: .7rem; padding: 5px 12px; }
 
-  .hero-btns {
-    margin-top: 48px;
-    gap: 8px;
-  }
-  .btn-o, .btn-s {
-    flex: 1;
-    min-width: 100px;
-    font-size: .8rem;
-    padding: 11px 14px;
-  }
+  /* About */
+  .about-para { font-size: .85rem; line-height: 1.88; }
 
-  .skill-one-card .skill-group { padding: 18px 12px 14px; }
-  .skill-card .skill-strip { gap: 5px; }
-  .skill-chip { height: 62px; min-height: 62px; max-height: 62px; border-radius: 9px; gap: 5px; }
-  .skill-chip svg { width: 20px; height: 20px; min-width: 20px; }
-  .skill-chip span { font-size: .48rem; max-width: 56px; }
-
-  .exp-list { padding-left: 36px; }
-  .exp-node { left: -34px; width: 26px; height: 26px; top: 14px; padding: 5px; }
-  .exp-role { font-size: .86rem; }
-  .exp-desc { font-size: .76rem; }
-
-  .edu-list { padding-left: 36px; }
-  .edu-node { left: -34px; width: 26px; height: 26px; padding: 5px; }
-  .edu-deg-title { font-size: .86rem; }
-
-  .c-form { padding: 16px 14px; }
-  .c-form input, .c-form textarea { font-size: .8rem; }
-}
-
-@media (max-width: 480px) {
-  :root { --pad: 16px; }
-
-  section { padding: 48px 0; }
-  .sec-hd h2 { font-size: clamp(1.2rem, 6vw, 1.4rem); }
-
-  .hero-name { font-size: clamp(1.8rem, 9vw, 2.8rem); }
-  .hero-role-txt { font-size: .9rem; }
-
-  .skill-one-card .skill-group { padding: 18px 12px 14px; }
-  .skill-card .skill-strip { gap: 5px; }
-  .skill-chip {
-    height: 62px;
-    min-height: 62px;
-    max-height: 62px;
-    border-radius: 9px;
-    gap: 5px;
-  }
-  .skill-chip svg { width: 20px; height: 20px; min-width: 20px; }
-  .skill-chip span { font-size: .48rem; max-width: 56px; }
-
-  .exp-list { padding-left: 36px; }
-  .exp-node { left: -34px; width: 26px; height: 26px; top: 14px; padding: 5px; }
-  .exp-role { font-size: .86rem; }
-  .exp-desc { font-size: .76rem; }
-
-  .edu-list { padding-left: 36px; }
-  .edu-node { left: -34px; width: 26px; height: 26px; padding: 5px; }
-  .edu-deg-title { font-size: .86rem; }
-
-  .c-form { padding: 16px 14px; }
-  .c-form input, .c-form textarea { font-size: .8rem; }
-}
-
-@media (max-width: 360px) {
-  :root { --pad: 14px; }
-
-  section { padding: 40px 0; }
-  .hero-name { font-size: clamp(1.6rem, 10vw, 2.4rem); }
-  .hero-role-pre { font-size: .68rem; }
-  .hero-role-txt { font-size: .85rem; }
-  .btn-o, .btn-s { font-size: .82rem; padding: 13px 16px; }
-
-  .skill-card .skill-strip { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-  .skill-chip {
-    height: 72px;
-    min-height: 72px;
-    max-height: 72px;
-  }
+  /* Skills: 3 cols on tablet portrait */
+  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .skill-one-card .skill-group { padding: 18px 14px 16px !important; }
+  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .skill-chip { height: 70px; min-height: 70px; max-height: 70px; border-radius: 10px; }
   .skill-chip svg { width: 22px; height: 22px; min-width: 22px; }
   .skill-chip span { font-size: .52rem; }
+  .skill-marquee-wrap { margin-top: 20px; }
 
-  .exp-role, .edu-deg-title { font-size: .84rem; }
-  .masonry-title { font-size: .85rem; }
-  .c-form { padding: 14px 12px; }
+  /* Experience */
+  .exp-list { padding-left: 44px; }
+  .exp-node { left: -42px; width: 30px; height: 30px; top: 16px; }
+  .exp-card { padding: 15px 17px; }
+  .exp-role { font-size: .92rem; }
+  .exp-co { font-size: .74rem; }
+  .exp-desc { font-size: .8rem; line-height: 1.82; }
+  .exp-card-top { flex-wrap: wrap; gap: 8px; }
+  .exp-right { align-items: flex-end; flex-direction: column; gap: 4px; margin-left: auto; }
+  .exp-period { font-size: .58rem; }
+  .exp-badge { font-size: .56rem; }
+  .tag { font-size: .62rem; }
+
+  /* Projects: 2 cols on tablet portrait */
+  .masonry-list { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .masonry-title { font-size: .9rem; }
+  .masonry-desc { font-size: .74rem; }
+
+  /* Education */
+  .edu-list { padding-left: 44px; }
+  .edu-node { left: -42px; width: 30px; height: 30px; }
+  .edu-card { padding: 15px 17px; }
+  .edu-deg-title { font-size: .92rem; }
+  .edu-inst { font-size: .78rem; }
+  .edu-yr { font-size: .58rem; white-space: nowrap; }
+
+  /* Contact: stack on tablet portrait */
+  .contact-grid { grid-template-columns: 1fr; gap: 24px; max-width: 100%; }
+  .c-info-links { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  .li-btn { flex: 1; min-width: 140px; justify-content: center; }
+  .c-form { padding: 22px 18px; }
+  .c-form-row { grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  /* Footer */
+  .f-inner { flex-direction: row; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .f-copy { font-size: .65rem; }
 }
 
+/* ── LARGE PHONE (≤ 600px) ───────────────────────────────────── */
+@media (max-width: 600px) {
+  :root { --pad: 18px; }
+  section { padding: 56px 0; }
+  .sec-hd { margin-bottom: 22px; gap: 10px; }
+  .sec-hd h2 { font-size: clamp(1.25rem, 5vw, 1.5rem); }
+
+  /* Hero: still row, cube beside text */
+  #home { padding: calc(var(--nav) + 24px) 0 44px; }
+  .hero-inner { gap: 14px; }
+  .hero-name { font-size: clamp(1.5rem, 7vw, 3rem); margin-bottom: 12px; }
+  .hero-role { margin-bottom: 12px; }
+  .hero-role-pre { font-size: .62rem; }
+  .hero-role-txt { font-size: .84rem; }
+
+  .hero-info { padding: 7px 10px; margin-bottom: 8px; }
+  .hero-info-grid { flex-direction: column; gap: 0; }
+  .hero-info-col:first-child { padding-right: 0; border-right: none; }
+  .hero-info-col:last-child { padding-left: 0; }
+  .hero-info-item { font-size: .64rem; height: auto; min-height: 28px; gap: 6px; white-space: nowrap; overflow: hidden; }
+  .hero-info-item svg { width: 14px; height: 14px; }
+
+  .hero-btns { flex-wrap: wrap; gap: 6px; }
+  .hero-btns .btn-o, .hero-btns .btn-s { font-size: .68rem; padding: 7px 10px; }
+
+  /* Cube: small beside text */
+  .win3d-scene { width: clamp(90px, 26vw, 140px); }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(90px, 26vw, 140px); height: clamp(90px, 26vw, 140px); }
+  .win3d-front  { transform: translateZ(clamp(45px, 13vw, 70px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(45px, 13vw, 70px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(45px, 13vw, 70px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(45px, 13vw, 70px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(45px, 13vw, 70px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(45px, 13vw, 70px)); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(76px, 22vw, 118px); height: clamp(76px, 22vw, 118px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(38px, 11vw, 59px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(38px, 11vw, 59px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(38px, 11vw, 59px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(38px, 11vw, 59px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(38px, 11vw, 59px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(38px, 11vw, 59px)); }
+  .win3d-controls { bottom: -36px; }
+  .win3d-btn { font-size: .65rem; padding: 5px 10px; }
+  .wt-name { font-size: .56rem; }
+
+  /* Skills: 1 col */
+  .skill-one-card { grid-template-columns: 1fr; gap: 10px; }
+  .skill-one-card .skill-group { padding: 18px 14px 16px !important; }
+  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .skill-chip { height: 64px; min-height: 64px; max-height: 64px; border-radius: 9px; gap: 5px; }
+  .skill-chip svg { width: 20px; height: 20px; min-width: 20px; }
+  .skill-chip span { font-size: .50rem; }
+  .skill-marquee-wrap::before, .skill-marquee-wrap::after { width: 60px; }
+  .mq-chip { padding: 6px 12px; font-size: .62rem; gap: 6px; }
+  .mq-chip svg { width: 13px; height: 13px; }
+
+  /* Experience */
+  .exp-list { padding-left: 40px; }
+  .exp-node { left: -38px; width: 28px; height: 28px; padding: 6px; top: 14px; }
+  .exp-card { padding: 13px 14px; }
+  .exp-role { font-size: .88rem; }
+  .exp-desc { font-size: .76rem; line-height: 1.78; }
+  .exp-divider { margin: 10px 0; }
+
+  /* Projects: 1 col */
+  .masonry-list { grid-template-columns: 1fr; gap: 10px; }
+  .masonry-body { padding: 14px 13px; }
+  .masonry-title { font-size: .86rem; }
+  .masonry-desc { font-size: .72rem; }
+
+  /* Education */
+  .edu-list { padding-left: 40px; }
+  .edu-node { left: -38px; width: 28px; height: 28px; padding: 5px; }
+  .edu-card { padding: 13px 14px; }
+  .edu-deg-title { font-size: .88rem; }
+  .edu-inst { font-size: .76rem; }
+
+  /* Contact */
+  .c-form-row { grid-template-columns: 1fr; gap: 10px; }
+  .c-form { padding: 18px 14px; gap: 12px; }
+  .c-info-links { flex-direction: column; gap: 8px; }
+  .li-btn { width: 100%; justify-content: center; }
+  .c-form textarea { height: 100px; }
+
+  /* Footer */
+  .f-inner { gap: 8px; }
+}
+
+/* ── SMALL PHONE (≤ 430px) ───────────────────────────────────── */
+@media (max-width: 430px) {
+  :root { --pad: 16px; }
+  section { padding: 48px 0; }
+  .sec-hd h2 { font-size: clamp(1.15rem, 6vw, 1.4rem); }
+
+  #home { padding: calc(var(--nav) + 20px) 0 40px; }
+  .hero-inner { gap: 10px; align-items: flex-start; }
+  .hero-name { font-size: clamp(1.35rem, 8vw, 2.6rem); margin-bottom: 10px; }
+  .hero-role-pre { font-size: .6rem; }
+  .hero-role-txt { font-size: .8rem; }
+  .hero-avail { font-size: .6rem; }
+  .hero-info { padding: 6px 8px; }
+  .hero-info-item { font-size: .6rem; min-height: 26px; }
+  .hero-info-item svg { width: 12px; height: 12px; }
+  .hero-btns .btn-o, .hero-btns .btn-s { font-size: .64rem; padding: 6px 9px; }
+
+  /* Cube: very small */
+  .win3d-scene { width: clamp(76px, 22vw, 110px); }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(76px, 22vw, 110px); height: clamp(76px, 22vw, 110px); }
+  .win3d-front  { transform: translateZ(clamp(38px, 11vw, 55px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(38px, 11vw, 55px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(38px, 11vw, 55px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(38px, 11vw, 55px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(38px, 11vw, 55px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(38px, 11vw, 55px)); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(62px, 18vw, 92px); height: clamp(62px, 18vw, 92px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(31px, 9vw, 46px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(31px, 9vw, 46px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(31px, 9vw, 46px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(31px, 9vw, 46px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(31px, 9vw, 46px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(31px, 9vw, 46px)); }
+  .win3d-controls { bottom: -32px; }
+  .win3d-btn { font-size: .62rem; padding: 4px 9px; }
+
+  .skill-chip { height: 60px; min-height: 60px; max-height: 60px; }
+  .skill-chip svg { width: 18px; height: 18px; min-width: 18px; }
+  .skill-chip span { font-size: .46rem; }
+
+  .exp-list { padding-left: 36px; }
+  .exp-node { left: -34px; width: 26px; height: 26px; top: 13px; padding: 5px; }
+  .exp-role { font-size: .84rem; }
+  .exp-desc { font-size: .74rem; }
+  .exp-period { font-size: .54rem; }
+  .exp-badge { font-size: .52rem; padding: 2px 5px; }
+
+  .edu-list { padding-left: 36px; }
+  .edu-node { left: -34px; width: 26px; height: 26px; padding: 5px; }
+  .edu-deg-title { font-size: .84rem; }
+  .edu-yr { font-size: .54rem; }
+
+  .c-form { padding: 16px 12px; }
+  .c-form input, .c-form textarea { font-size: .8rem; padding: 10px 12px; }
+}
+
+/* ── VERY SMALL PHONE (≤ 360px) ─────────────────────────────── */
+@media (max-width: 360px) {
+  :root { --pad: 14px; }
+  section { padding: 42px 0; }
+  .sec-hd h2 { font-size: clamp(1.1rem, 7vw, 1.3rem); }
+
+  .hero-name { font-size: clamp(1.2rem, 9.5vw, 2.2rem); }
+  .hero-role-txt { font-size: .76rem; }
+
+  .win3d-scene { width: clamp(68px, 20vw, 96px); }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(68px, 20vw, 96px); height: clamp(68px, 20vw, 96px); }
+  .win3d-front  { transform: translateZ(clamp(34px, 10vw, 48px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(34px, 10vw, 48px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(34px, 10vw, 48px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(34px, 10vw, 48px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(34px, 10vw, 48px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(34px, 10vw, 48px)); }
+
+  .skill-card .skill-strip { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+  .skill-chip { height: 62px; min-height: 62px; max-height: 62px; }
+  .exp-role, .edu-deg-title { font-size: .82rem; }
+  .c-form { padding: 14px 10px; }
+}
+
+/* ── TOUCH DEVICES: minimum tap targets ─────────────────────── */
 @media (hover: none) and (pointer: coarse) {
-  .btn-o, .btn-s, .li-btn { min-height: 48px; }
-  .nav-mob a { min-height: 48px; display: flex; align-items: center; }
+  .btn-o, .btn-s, .li-btn { min-height: 44px; }
+  .nav-mob a { min-height: 44px; display: flex; align-items: center; }
   .nav-toggle, .nav-ham { min-height: 44px; min-width: 44px; }
   .masonry-link { min-height: 36px; display: inline-flex; align-items: center; }
   .mq-chip { min-height: 36px; }
   .skill-chip { cursor: pointer; }
-}
-
-@media (max-width: 768px) {
-  
-  html, body { overflow-x: hidden; max-width: 100vw; }
-  * { box-sizing: border-box; }
-
-  
-  .hero-inner { flex-direction: column; align-items: flex-start; gap: 0; }
-  .hero-left { width: 100%; max-width: 100%; order: 1; }
-  .hero-right { order: 2; width: 100%; display: flex; justify-content: center; margin-top: 32px; flex: unset; }
-  .hero-name { font-size: clamp(2.4rem, 10vw, 3.8rem); white-space: normal; word-break: keep-all; line-height: .92; letter-spacing: -.04em; }
-  .hero-btns { order: 3; margin-top: 32px; flex-wrap: wrap; gap: 10px; width: 100%; }
-  .btn-o, .btn-s { flex: 1; min-width: 130px; justify-content: center; }
-  #home::before { width: 90%; }
-
-  
-  .win3d-scene { width: clamp(200px, 68vw, 280px); }
-  .win3d-perspective,
-  .win3d-cube,
-  .win3d-face { width: clamp(200px, 68vw, 280px); height: clamp(200px, 68vw, 280px); }
-  .win3d-front  { transform: translateZ(clamp(100px, 34vw, 140px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(100px, 34vw, 140px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(100px, 34vw, 140px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(100px, 34vw, 140px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(100px, 34vw, 140px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(100px, 34vw, 140px)); }
-  .win3d-scene.mode-3d .win3d-face,
-  .win3d-scene.mode-3d .win3d-cube { width: clamp(160px, 56vw, 230px); height: clamp(160px, 56vw, 230px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(80px, 28vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(80px, 28vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(80px, 28vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(80px, 28vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(80px, 28vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(80px, 28vw, 115px)); }
-
-  
-  .about-layout { grid-template-columns: 1fr; gap: 28px; }
-  .about-wrap { max-width: 100%; }
-  .about-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .about-para { font-size: .82rem; line-height: 1.85; }
-
-  
-  .skill-one-card { grid-template-columns: 1fr; gap: 10px; }
-  .skill-one-card .skill-group {
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.06) !important;
-    padding: 20px 14px 16px !important;
-  }
-  .skill-one-card .skill-group:last-child { border-bottom: none !important; }
-  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .skill-chip { height: 68px; min-height: 68px; max-height: 68px; border-radius: 10px; }
-  .skill-chip svg { width: 22px; height: 22px; min-width: 22px; }
-  .skill-chip span { font-size: .52rem; }
-  .skill-marquee-wrap { margin-top: 20px; }
-
-  
-  .exp-list { padding-left: 40px; }
-  .exp-node { left: -38px; width: 28px; height: 28px; padding: 6px; top: 15px; }
-  .exp-card { padding: 14px 15px; }
-  .exp-card-top { flex-wrap: wrap; gap: 8px; }
-  .exp-right { align-items: flex-end; flex-direction: column; gap: 4px; flex-shrink: 0; margin-left: auto; }
-  .exp-role { font-size: .88rem; }
-  .exp-co { font-size: .72rem; }
-  .exp-desc { font-size: .78rem; line-height: 1.8; }
-  .exp-tags { gap: 5px; }
-  .tag { font-size: .62rem; padding: 3px 7px; }
-
-  
-  .masonry-list { grid-template-columns: 1fr; gap: 10px; }
-  .masonry-body { padding: 16px 14px; }
-  .masonry-title { font-size: .88rem; }
-  .masonry-desc { font-size: .72rem; }
-
-  
-  .edu-list { padding-left: 40px; }
-  .edu-node { left: -38px; width: 28px; height: 28px; padding: 5px; }
-  .edu-card { padding: 14px 15px; }
-  .edu-deg-title { font-size: .88rem; }
-  .edu-inst { font-size: .75rem; }
-  .edu-yr { font-size: .56rem; flex-shrink: 0; white-space: nowrap; }
-
-  
-  .contact-grid { grid-template-columns: 1fr; gap: 20px; max-width: 100%; }
-  .c-form-row { grid-template-columns: 1fr; gap: 10px; }
-  .c-form { padding: 20px 16px; gap: 12px; }
-  .c-info-links { flex-direction: column; gap: 8px; }
-  .li-btn { width: 100%; justify-content: center; }
-  .c-form input, .c-form textarea { font-size: .82rem; padding: 11px 13px; }
-  .c-form textarea { height: 110px; }
-
-  
-  .f-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .f-copy { font-size: .65rem; }
-
-  
-  .nav-right { display: none; }
-  .nav-mob-ctrl { display: flex; }
-}
-
-@media (max-width: 480px) {
-  :root { --pad: 16px; }
-  section { padding: 48px 0; }
-  .hero-name { font-size: clamp(2rem, 10vw, 3rem); }
-  .hero-btns { flex-direction: column; }
-  .btn-o, .btn-s { width: 100%; min-width: unset; }
-  .skill-card .skill-strip { grid-template-columns: repeat(3, 1fr); }
-  .about-stats { grid-template-columns: repeat(2, 1fr); }
-  .win3d-scene,
-  .win3d-perspective,
-  .win3d-cube,
-  .win3d-face { width: clamp(170px, 72vw, 240px); height: clamp(170px, 72vw, 240px); }
-
-/* ============================================================
-   FORCE DESKTOP LAYOUT — mobile & tablet
-   Hero row layout, big name, desktop info grid, cube below
-   Skills 3-col, Projects 3-col, Footer row — desktop unchanged
-   ============================================================ */
-
-/* Applied LAST so all specificity wars are won via !important */
-@media (max-width: 1400px) {
-
-  /* ── HERO: always row, left content + cube side by side ── */
-  .hero-inner {
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 40px !important;
-  }
-  .hero-left {
-    flex: 1 1 0 !important;
-    width: auto !important;
-    max-width: none !important;
-    order: 1 !important;
-    min-width: 0 !important;
-  }
-  .hero-right {
-    flex: 0 0 auto !important;
-    width: auto !important;
-    order: 2 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: flex-start !important;
-    margin-top: 0 !important;
-  }
-
-  /* ── HERO NAME: big like desktop, scales with vw ── */
-  .hero-name {
-    font-size: clamp(2.4rem, 7vw, 6.2rem) !important;
-    font-weight: 800 !important;
-    line-height: .93 !important;
-    letter-spacing: -.04em !important;
-    white-space: normal !important;
-    word-break: keep-all !important;
-    margin-bottom: 22px !important;
-  }
-
-  /* ── INFO GRID: always 2 columns like desktop ── */
-  .hero-info-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0 !important;
-    width: 100% !important;
-  }
-  .hero-info-item {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    font-size: .82rem !important;
-    min-height: 40px !important;
-    padding: 8px 0 !important;
-    white-space: normal !important;
-    word-break: break-all !important;
-  }
-  .hero-info-item svg {
-    width: 24px !important;
-    height: 24px !important;
-    flex-shrink: 0 !important;
-  }
-
-  /* ── SUBTITLE (Fullstack Developer) ── */
-  .hero-subtitle,
-  .hero-type {
-    font-size: clamp(.85rem, 2vw, 1.1rem) !important;
-  }
-
-  /* ── BUTTONS: always row ── */
-  .hero-btns {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-    order: unset !important;
-    margin-top: 28px !important;
-    width: auto !important;
-  }
-  .btn-o, .btn-s {
-    flex: 0 0 auto !important;
-    width: auto !important;
-    min-width: 110px !important;
-    justify-content: center !important;
-    font-size: .85rem !important;
-    padding: 10px 18px !important;
-  }
-
-  /* ── CUBE: desktop size, neeche stays via flex-start ── */
-  .win3d-scene {
-    width: clamp(200px, 28vw, 400px) !important;
-    height: clamp(200px, 28vw, 400px) !important;
-  }
-  .win3d-perspective,
-  .win3d-cube,
-  .win3d-face {
-    width: clamp(200px, 28vw, 400px) !important;
-    height: clamp(200px, 28vw, 400px) !important;
-  }
-  .win3d-front  { transform: translateZ(clamp(100px, 14vw, 200px)) !important; }
-  .win3d-back   { transform: rotateY(180deg)  translateZ(clamp(100px, 14vw, 200px)) !important; }
-  .win3d-right  { transform: rotateY(90deg)   translateZ(clamp(100px, 14vw, 200px)) !important; }
-  .win3d-left   { transform: rotateY(-90deg)  translateZ(clamp(100px, 14vw, 200px)) !important; }
-  .win3d-top    { transform: rotateX(90deg)   translateZ(clamp(100px, 14vw, 200px)) !important; }
-  .win3d-bottom { transform: rotateX(-90deg)  translateZ(clamp(100px, 14vw, 200px)) !important; }
-
-  .win3d-scene.mode-3d .win3d-face,
-  .win3d-scene.mode-3d .win3d-cube {
-    width: clamp(160px, 22vw, 320px) !important;
-    height: clamp(160px, 22vw, 320px) !important;
-  }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(80px, 11vw, 160px)) !important; }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg)  translateZ(clamp(80px, 11vw, 160px)) !important; }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg)   translateZ(clamp(80px, 11vw, 160px)) !important; }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg)  translateZ(clamp(80px, 11vw, 160px)) !important; }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg)   translateZ(clamp(80px, 11vw, 160px)) !important; }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg)  translateZ(clamp(80px, 11vw, 160px)) !important; }
-
-  /* ── SKILLS: always 3 columns ── */
-  .skill-one-card {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
-  .skill-card .skill-strip {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px !important;
-  }
-  .skill-chip {
-    width: auto !important;
-    min-width: unset !important;
-    max-width: unset !important;
-    height: 76px !important;
-    min-height: 76px !important;
-    max-height: 76px !important;
-    border-radius: 10px !important;
-    flex-direction: column !important;
-  }
-  .skill-chip svg { width: 24px !important; height: 24px !important; min-width: 24px !important; }
-  .skill-chip span { font-size: .55rem !important; }
-
-  /* ── PROJECTS: always 3 columns ── */
-  .masonry-list {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 12px !important;
-  }
-
-  /* ── FOOTER: always row ── */
-  .f-inner {
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-  }
-  .f-left {
-    flex-direction: row !important;
-    align-items: center !important;
-  }
-  .f-top {
-    flex-direction: row !important;
-    align-items: center !important;
-  }
-  .f-bottom {
-    flex-direction: row !important;
-    text-align: left !important;
-  }
-  .f-nav {
-    justify-content: flex-end !important;
-  }
-}
-
-/* Very small phones: cube slightly smaller, name still big */
-@media (max-width: 420px) {
-  .hero-inner { gap: 14px !important; }
-  .hero-name { font-size: clamp(2rem, 8vw, 3.2rem) !important; }
-  .win3d-scene,
-  .win3d-perspective,
-  .win3d-cube,
-  .win3d-face {
-    width: clamp(120px, 30vw, 170px) !important;
-    height: clamp(120px, 30vw, 170px) !important;
-  }
-  .win3d-front  { transform: translateZ(clamp(60px, 15vw, 85px)) !important; }
-  .win3d-back   { transform: rotateY(180deg)  translateZ(clamp(60px, 15vw, 85px)) !important; }
-  .win3d-right  { transform: rotateY(90deg)   translateZ(clamp(60px, 15vw, 85px)) !important; }
-  .win3d-left   { transform: rotateY(-90deg)  translateZ(clamp(60px, 15vw, 85px)) !important; }
-  .win3d-top    { transform: rotateX(90deg)   translateZ(clamp(60px, 15vw, 85px)) !important; }
-  .win3d-bottom { transform: rotateX(-90deg)  translateZ(clamp(60px, 15vw, 85px)) !important; }
-  .skill-chip { height: 62px !important; min-height: 62px !important; max-height: 62px !important; }
-  .skill-chip svg { width: 20px !important; height: 20px !important; min-width: 20px !important; }
-  .skill-chip span { font-size: .46rem !important; }
-  .btn-o, .btn-s { padding: 8px 12px !important; font-size: .75rem !important; min-width: 90px !important; }
-}
-
-/* ============================================================
-   DESKTOP STYLE ON ALL SCREEN SIZES
-   Keep hero row layout and desktop navbar at every breakpoint.
-   Only scale sizes down proportionally.
-   ============================================================ */
-
-/* ---- NAVBAR: always show desktop controls, never hamburger ---- */
-@media (max-width: 1024px) {
-  .nav-inner {
-    height: clamp(32px, 4.5vw, 38px);
-    padding: 0 clamp(10px, 2vw, 20px);
-  }
-  .nav-logo .logo-k { font-size: clamp(.72rem, 1.6vw, .95rem); }
-
-  /* Always show desktop right-side controls */
-  .nav-right { display: flex !important; }
-  /* Always hide mobile controls */
-  .nav-mob-ctrl { display: none !important; }
-
-  /* Desktop links: keep same behavior as desktop (hidden until ham opens) */
-  .nav-desk-links a { font-size: clamp(.65rem, 1.2vw, .8rem); padding: clamp(4px, .8vw, 6px) clamp(6px, 1.2vw, 12px); }
-
-  .nav-toggle { width: clamp(28px, 4vw, 36px); height: clamp(28px, 4vw, 36px); }
-  .nav-toggle svg { width: clamp(13px, 2vw, 17px); height: clamp(13px, 2vw, 17px); }
-  .nav-ham { width: clamp(28px, 4vw, 36px); height: clamp(28px, 4vw, 36px); padding: 6px; }
-}
-
-/* ---- HERO: always row, never column ---- */
-@media (max-width: 1024px) {
-  #home {
-    min-height: calc(100svh - var(--nav));
-    padding: clamp(32px, 5vw, 60px) 0 !important;
-    align-items: center !important;
-  }
-
-  .hero-inner {
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: clamp(16px, 3vw, 40px) !important;
-  }
-
-  .hero-left {
-    flex: 1 !important;
-    width: auto !important;
-    max-width: unset !important;
-    order: 1 !important;
-  }
-
-  /* Scale down name */
-  .hero-name {
-    font-size: clamp(1.6rem, 5.2vw, 5rem) !important;
-    white-space: normal !important;
-    line-height: .92 !important;
-    margin-bottom: clamp(10px, 1.8vw, 18px) !important;
-  }
-
-  /* Role row */
-  .hero-role { margin-bottom: clamp(10px, 2vw, 22px) !important; }
-  .hero-role-pre { font-size: clamp(.55rem, 1vw, .72rem) !important; }
-  .hero-role-txt { font-size: clamp(.78rem, 1.5vw, 1.05rem) !important; }
-
-  /* Info box */
-  .hero-block { min-width: 0 !important; width: 100% !important; }
-  .hero-avail { font-size: clamp(.58rem, 1.1vw, .76rem) !important; margin-bottom: clamp(6px, 1.2vw, 12px) !important; }
-  .hero-info { padding: clamp(6px, 1.2vw, 10px) clamp(8px, 1.5vw, 16px) !important; margin-bottom: clamp(6px, 1.2vw, 12px) !important; }
-  .hero-info-grid { flex-direction: row !important; }
-  .hero-info-item {
-    font-size: clamp(.6rem, 1.1vw, .74rem) !important;
-    height: clamp(22px, 3.5vw, 30px) !important;
-    gap: clamp(4px, .8vw, 10px) !important;
-    white-space: nowrap !important;
-    padding: clamp(3px, .6vw, 6px) 0 !important;
-  }
-  .hero-info-item svg {
-    width: clamp(14px, 2.2vw, 22px) !important;
-    height: clamp(14px, 2.2vw, 22px) !important;
-  }
-  .hero-info-col:first-child { padding-right: clamp(10px, 2vw, 28px) !important; }
-  .hero-info-col:last-child { padding-left: clamp(4px, 1vw, 8px) !important; }
-
-  /* Buttons */
-  .hero-btns { flex-wrap: nowrap !important; gap: clamp(4px, 1vw, 8px) !important; }
-  .hero-btns .btn-o,
-  .hero-btns .btn-s,
-  .btn-o, .btn-s {
-    font-size: clamp(.65rem, 1.2vw, .8rem) !important;
-    padding: clamp(6px, 1vw, 10px) clamp(8px, 1.5vw, 18px) !important;
-  }
-
-  /* Cube: right side, scaled */
-  .hero-right {
-    order: 2 !important;
-    width: auto !important;
-    flex: 0 0 auto !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-self: flex-end !important;
-    margin: 0 !important;
-  }
-  .win3d-scene { width: clamp(130px, 20vw, 220px) !important; }
-  .win3d-perspective,
-  .win3d-cube { width: clamp(130px, 20vw, 220px) !important; height: clamp(130px, 20vw, 220px) !important; }
-  .win3d-face  { width: clamp(130px, 20vw, 220px) !important; height: clamp(130px, 20vw, 220px) !important; }
-  .win3d-front  { transform: translateZ(clamp(65px, 10vw, 110px)) !important; }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(65px, 10vw, 110px)) !important; }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(65px, 10vw, 110px)) !important; }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(65px, 10vw, 110px)) !important; }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(65px, 10vw, 110px)) !important; }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(65px, 10vw, 110px)) !important; }
-  .win3d-scene.mode-3d .win3d-cube { width: clamp(110px, 17vw, 188px) !important; height: clamp(110px, 17vw, 188px) !important; }
-  .win3d-scene.mode-3d .win3d-face { width: clamp(110px, 17vw, 188px) !important; height: clamp(110px, 17vw, 188px) !important; }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(55px, 8.5vw, 94px)) !important; }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(55px, 8.5vw, 94px)) !important; }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(55px, 8.5vw, 94px)) !important; }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(55px, 8.5vw, 94px)) !important; }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(55px, 8.5vw, 94px)) !important; }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(55px, 8.5vw, 94px)) !important; }
-}
-
-/* ---- Very small phones (< 480px): tighten further but keep row ---- */
-@media (max-width: 480px) {
-  .hero-name { font-size: clamp(1.3rem, 7vw, 2.2rem) !important; }
-  .hero-info-grid { flex-direction: column !important; }
-  .hero-info-col:first-child { padding-right: 0 !important; border-right: none !important; }
-  .hero-info-col:last-child { padding-left: 0 !important; border-top: 1px solid var(--br); padding-top: 4px !important; }
-  .hero-info-item { white-space: normal !important; word-break: break-all; }
-  .hero-btns .btn-o,
-  .hero-btns .btn-s { font-size: clamp(.6rem, 3vw, .75rem) !important; padding: 6px 8px !important; }
-  .win3d-scene { width: clamp(80px, 26vw, 140px) !important; }
-  .win3d-perspective,
-  .win3d-cube,
-  .win3d-face { width: clamp(80px, 26vw, 140px) !important; height: clamp(80px, 26vw, 140px) !important; }
-  .win3d-front  { transform: translateZ(clamp(40px, 13vw, 70px)) !important; }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(40px, 13vw, 70px)) !important; }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(40px, 13vw, 70px)) !important; }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(40px, 13vw, 70px)) !important; }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(40px, 13vw, 70px)) !important; }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(40px, 13vw, 70px)) !important; }
 }
