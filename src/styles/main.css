@@ -1306,8 +1306,8 @@ body.light footer { background: #ffffff; }
 body.light .f-logo .logo-k { color: #24382c; }
 .f-logo .logo-k em { font-style: normal; color: var(--a2); }
 .f-socials { display: flex; align-items: center; gap: 6px; }
-.f-social-link { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; border: 1px solid rgba(255,255,255,.1); color: var(--mu); transition: color var(--ease), background var(--ease), border-color var(--ease); }
-.f-social-link svg { width: 15px; height: 15px; }
+.f-social-link { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; border: 1px solid rgba(255,255,255,.1); color: var(--mu); transition: color var(--ease), background var(--ease), border-color var(--ease); }
+.f-social-link svg { width: 11px; height: 11px; }
 .f-social-link:hover { color: #27b872; background: rgba(34,160,99,.08); }
 body.light .f-social-link { border: 1px solid rgba(0,0,0,.12); color: #57606a; }
 body.light .f-social-link:hover { color: #196a47; background: rgba(25,106,71,.06); }
@@ -2084,62 +2084,69 @@ body.light .win3d-btn.active {
   html, body { overflow-x: hidden; }
 
   /* Navbar */
+  .nav { padding: 6px 0; }
+  .nav-inner { height: 44px; padding: 0 14px; border-radius: 10px; max-width: calc(100% - 2 * var(--pad)); }
+  .nav-logo .logo-k { font-size: .95rem; }
   .nav-right { display: none; }
-  .nav-mob-ctrl { display: flex; }
+  .nav-mob-ctrl { display: flex; gap: 4px; }
+  .nav-toggle svg { width: 18px; height: 18px; }
+  .nav-ham { width: 34px; height: 34px; }
+  .nav-mob { padding: 8px 14px 14px; gap: 2px; border-radius: 0 0 12px 12px; }
+  .nav-mob a { font-size: .88rem; padding: 12px 16px; border-radius: 8px; }
 
-  /* Hero: column layout — cube neeche */
-  #home { padding: calc(var(--nav) + 32px) 0 48px; min-height: 100svh; align-items: flex-start; }
-  .hero-inner { flex-direction: column; align-items: center; gap: 36px; }
+  /* Hero: column layout — details upar, cube neeche */
+  #home { padding: calc(var(--nav) + 28px) 0 60px; min-height: unset; }
+  .hero-inner { flex-direction: column; align-items: flex-start; gap: 40px; }
   .hero-left { flex: unset; order: 1; min-width: 0; width: 100%; }
-  .hero-right { order: 2; flex: 0 0 auto; width: auto; display: flex; justify-content: center; align-self: center; margin: 0; }
+  .hero-right { order: 2; flex: 0 0 auto; width: 100%; display: flex; justify-content: center; align-self: center; margin: 0; padding-bottom: 8px; }
 
-  .hero-name { font-size: clamp(2.4rem, 8vw, 4.2rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .92; margin-bottom: 16px; }
+  .hero-name { font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .92; margin-bottom: 16px; }
   .hero-name .ac { font-weight: 900; }
-  .hero-role { margin-bottom: 16px; }
-  .hero-role-pre { font-size: .78rem; }
-  .hero-role-txt { font-size: 1.08rem; }
+  .hero-role { margin-bottom: 18px; }
+  .hero-role-pre { font-size: .82rem; }
+  .hero-role-txt { font-size: 1.2rem; }
 
   .hero-block { min-width: 0; width: 100%; }
-  .hero-avail { font-size: .76rem; margin-bottom: 10px; }
-  .hero-info { padding: 10px 14px; margin-bottom: 10px; }
+  .hero-avail { font-size: .88rem; margin-bottom: 12px; }
+  .hero-info { padding: 10px 16px; margin-bottom: 12px; }
   .hero-info-grid { flex-direction: row; }
-  .hero-info-item { font-size: .78rem; height: 30px; gap: 8px; white-space: nowrap; }
-  .hero-info-item svg { width: 16px; height: 16px; }
-  .hero-info-col:first-child { padding-right: 18px; }
+  .hero-info-item { font-size: .74rem; height: 30px; gap: 10px; white-space: nowrap; }
+  .hero-info-item svg { width: 22px; height: 22px; }
+  .hero-info-col:first-child { padding-right: 28px; }
   .hero-info-col:last-child { padding-left: 8px; }
 
-  .hero-btns { flex-wrap: wrap; gap: 8px; }
-  .hero-btns .btn-o, .hero-btns .btn-s { font-size: .82rem; padding: 9px 16px; flex: 1; }
+  .hero-btns { flex-wrap: nowrap; gap: 8px; }
+  .hero-btns .btn-o, .hero-btns .btn-s { font-size: .80rem; padding: 10px 18px; }
 
-  /* Cube: centered below content on tablet */
-  .win3d-scene { width: clamp(160px, 40vw, 240px); }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(160px, 40vw, 240px); height: clamp(160px, 40vw, 240px); }
-  .win3d-front  { transform: translateZ(clamp(80px, 20vw, 120px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(80px, 20vw, 120px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(80px, 20vw, 120px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(80px, 20vw, 120px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(80px, 20vw, 120px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(80px, 20vw, 120px)); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(136px, 34vw, 204px); height: clamp(136px, 34vw, 204px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(68px, 17vw, 102px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(68px, 17vw, 102px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(68px, 17vw, 102px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(68px, 17vw, 102px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(68px, 17vw, 102px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(68px, 17vw, 102px)); }
+  /* Cube: full-width centered below content */
+  .win3d-scene { width: 160px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 160px; height: 160px; }
+  .win3d-front  { transform: translateZ(80px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(80px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(80px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(80px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(80px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(80px); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 136px; height: 136px; }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(68px); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(68px); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(68px); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(68px); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(68px); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(68px); }
   .win3d-controls { bottom: -40px; gap: 5px; }
-  .win3d-btn { font-size: .7rem; padding: 5px 12px; }
+  .win3d-btn { font-size: .72rem; padding: 6px 14px; }
 
   /* About */
   .about-para { font-size: .85rem; line-height: 1.88; }
 
   /* Skills: 3 cols on tablet portrait */
-  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .skill-one-card .skill-group { padding: 18px 14px 16px !important; }
-  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .skill-chip { height: 70px; min-height: 70px; max-height: 70px; border-radius: 10px; }
-  .skill-chip svg { width: 22px; height: 22px; min-width: 22px; }
-  .skill-chip span { font-size: .52rem; }
+  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .skill-one-card .skill-group { padding: 20px 16px 18px !important; }
+  .skill-card .skill-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+  .skill-chip { width: auto; height: 72px; min-height: 72px; max-height: 72px; border-radius: 10px; }
+  .skill-chip svg { width: 24px; height: 24px; min-width: 24px; }
+  .skill-chip span { font-size: .54rem; }
   .skill-marquee-wrap { margin-top: 20px; }
 
   /* Experience */
@@ -2187,51 +2194,63 @@ body.light .win3d-btn.active {
   .sec-hd { margin-bottom: 22px; gap: 10px; }
   .sec-hd h2 { font-size: clamp(1.25rem, 5vw, 1.5rem); }
 
-  /* Hero: still row, cube beside text */
-  #home { padding: calc(var(--nav) + 24px) 0 44px; }
-  .hero-inner { gap: 14px; }
-  .hero-name { font-size: clamp(1.5rem, 7vw, 3rem); margin-bottom: 12px; }
-  .hero-role { margin-bottom: 12px; }
-  .hero-role-pre { font-size: .62rem; }
-  .hero-role-txt { font-size: .84rem; }
+  /* Navbar */
+  .nav { padding: 5px 0; }
+  .nav-inner { height: 42px; padding: 0 12px; border-radius: 10px; max-width: calc(100% - 2 * var(--pad)); }
+  .nav-logo .logo-k { font-size: .9rem; }
+  .nav-toggle svg { width: 17px; height: 17px; }
+  .nav-ham { width: 32px; height: 32px; }
+  .nav-mob { padding: 6px 12px 12px; }
+  .nav-mob a { font-size: .84rem; padding: 11px 14px; }
 
-  .hero-info { padding: 7px 10px; margin-bottom: 8px; }
-  .hero-info-grid { flex-direction: column; gap: 0; }
-  .hero-info-col:first-child { padding-right: 0; border-right: none; }
-  .hero-info-col:last-child { padding-left: 0; }
-  .hero-info-item { font-size: .64rem; height: auto; min-height: 28px; gap: 6px; white-space: nowrap; overflow: hidden; }
-  .hero-info-item svg { width: 14px; height: 14px; }
+  /* Hero: column — cube neeche, desktop jaisa detail */
+  #home { padding: calc(var(--nav) + 24px) 0 52px; }
+  .hero-inner { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .hero-left { order: 1; width: 100%; }
+  .hero-right { order: 2; width: 100%; display: flex; justify-content: center; }
+  .hero-name { font-size: clamp(2.6rem, 11vw, 3.8rem); margin-bottom: 14px; }
+  .hero-role { margin-bottom: 14px; }
+  .hero-role-pre { font-size: .76rem; }
+  .hero-role-txt { font-size: 1.1rem; }
+  .hero-avail { font-size: .82rem; margin-bottom: 10px; }
+
+  .hero-info { padding: 8px 12px; margin-bottom: 10px; }
+  .hero-info-grid { flex-direction: row; gap: 0; }
+  .hero-info-col:first-child { padding-right: 16px; border-right: none; }
+  .hero-info-col:last-child { padding-left: 6px; }
+  .hero-info-item { font-size: .68rem; height: 28px; gap: 8px; white-space: nowrap; overflow: hidden; }
+  .hero-info-item svg { width: 18px; height: 18px; }
 
   .hero-btns { flex-wrap: wrap; gap: 6px; }
-  .hero-btns .btn-o, .hero-btns .btn-s { font-size: .68rem; padding: 7px 10px; }
+  .hero-btns .btn-o, .hero-btns .btn-s { font-size: .76rem; padding: 8px 14px; flex: 1; }
 
-  /* Cube: small beside text */
-  .win3d-scene { width: clamp(90px, 26vw, 140px); }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(90px, 26vw, 140px); height: clamp(90px, 26vw, 140px); }
-  .win3d-front  { transform: translateZ(clamp(45px, 13vw, 70px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(45px, 13vw, 70px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(45px, 13vw, 70px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(45px, 13vw, 70px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(45px, 13vw, 70px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(45px, 13vw, 70px)); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(76px, 22vw, 118px); height: clamp(76px, 22vw, 118px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(38px, 11vw, 59px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(38px, 11vw, 59px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(38px, 11vw, 59px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(38px, 11vw, 59px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(38px, 11vw, 59px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(38px, 11vw, 59px)); }
+  /* Cube: centered below */
+  .win3d-scene { width: 140px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 140px; height: 140px; }
+  .win3d-front  { transform: translateZ(70px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(70px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(70px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(70px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 118px; height: 118px; }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(59px); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(59px); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(59px); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(59px); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(59px); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(59px); }
   .win3d-controls { bottom: -36px; }
   .win3d-btn { font-size: .65rem; padding: 5px 10px; }
   .wt-name { font-size: .56rem; }
 
   /* Skills: 1 col */
-  .skill-one-card { grid-template-columns: 1fr; gap: 10px; }
-  .skill-one-card .skill-group { padding: 18px 14px 16px !important; }
-  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .skill-chip { height: 64px; min-height: 64px; max-height: 64px; border-radius: 9px; gap: 5px; }
-  .skill-chip svg { width: 20px; height: 20px; min-width: 20px; }
-  .skill-chip span { font-size: .50rem; }
+  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .skill-one-card .skill-group { padding: 14px 10px 12px !important; }
+  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+  .skill-chip { height: 62px; min-height: 62px; max-height: 62px; border-radius: 9px; gap: 4px; }
+  .skill-chip svg { width: 18px; height: 18px; min-width: 18px; }
+  .skill-chip span { font-size: .46rem; }
   .skill-marquee-wrap::before, .skill-marquee-wrap::after { width: 60px; }
   .mq-chip { padding: 6px 12px; font-size: .62rem; gap: 6px; }
   .mq-chip svg { width: 13px; height: 13px; }
@@ -2274,39 +2293,57 @@ body.light .win3d-btn.active {
   section { padding: 48px 0; }
   .sec-hd h2 { font-size: clamp(1.15rem, 6vw, 1.4rem); }
 
-  #home { padding: calc(var(--nav) + 20px) 0 40px; }
-  .hero-inner { gap: 10px; align-items: flex-start; }
-  .hero-name { font-size: clamp(1.35rem, 8vw, 2.6rem); margin-bottom: 10px; }
-  .hero-role-pre { font-size: .6rem; }
-  .hero-role-txt { font-size: .8rem; }
-  .hero-avail { font-size: .6rem; }
-  .hero-info { padding: 6px 8px; }
-  .hero-info-item { font-size: .6rem; min-height: 26px; }
-  .hero-info-item svg { width: 12px; height: 12px; }
-  .hero-btns .btn-o, .hero-btns .btn-s { font-size: .64rem; padding: 6px 9px; }
+  /* Navbar */
+  .nav { padding: 5px 0; }
+  .nav-inner { height: 40px; padding: 0 10px; border-radius: 9px; max-width: calc(100% - 2 * var(--pad)); }
+  .nav-logo .logo-k { font-size: .88rem; }
+  .nav-toggle { width: 30px; height: 30px; }
+  .nav-toggle svg { width: 16px; height: 16px; }
+  .nav-ham { width: 30px; height: 30px; }
+  .nav-mob { padding: 5px 10px 10px; }
+  .nav-mob a { font-size: .8rem; padding: 10px 12px; }
 
-  /* Cube: very small */
-  .win3d-scene { width: clamp(76px, 22vw, 110px); }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(76px, 22vw, 110px); height: clamp(76px, 22vw, 110px); }
-  .win3d-front  { transform: translateZ(clamp(38px, 11vw, 55px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(38px, 11vw, 55px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(38px, 11vw, 55px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(38px, 11vw, 55px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(38px, 11vw, 55px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(38px, 11vw, 55px)); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(62px, 18vw, 92px); height: clamp(62px, 18vw, 92px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(31px, 9vw, 46px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(31px, 9vw, 46px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(31px, 9vw, 46px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(31px, 9vw, 46px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(31px, 9vw, 46px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(31px, 9vw, 46px)); }
+  #home { padding: calc(var(--nav) + 20px) 0 48px; }
+  .hero-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+  .hero-left { order: 1; width: 100%; }
+  .hero-right { order: 2; width: 100%; display: flex; justify-content: center; }
+  .hero-name { font-size: clamp(2.2rem, 12vw, 3rem); margin-bottom: 10px; }
+  .hero-role-pre { font-size: .7rem; }
+  .hero-role-txt { font-size: 1rem; }
+  .hero-avail { font-size: .76rem; }
+  .hero-info { padding: 7px 10px; }
+  .hero-info-grid { flex-direction: row; }
+  .hero-info-col:first-child { padding-right: 12px; }
+  .hero-info-col:last-child { padding-left: 4px; }
+  .hero-info-item { font-size: .62rem; min-height: 26px; height: 26px; gap: 6px; }
+  .hero-info-item svg { width: 16px; height: 16px; }
+  .hero-btns .btn-o, .hero-btns .btn-s { font-size: .68rem; padding: 7px 10px; }
+
+  /* Cube */
+  .win3d-scene { width: 120px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 120px; height: 120px; }
+  .win3d-front  { transform: translateZ(60px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(60px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(60px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(60px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(60px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(60px); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 102px; height: 102px; }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(51px); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(51px); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(51px); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(51px); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(51px); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(51px); }
   .win3d-controls { bottom: -32px; }
   .win3d-btn { font-size: .62rem; padding: 4px 9px; }
 
-  .skill-chip { height: 60px; min-height: 60px; max-height: 60px; }
-  .skill-chip svg { width: 18px; height: 18px; min-width: 18px; }
-  .skill-chip span { font-size: .46rem; }
+  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .skill-one-card .skill-group { padding: 12px 8px 10px !important; }
+  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .skill-chip { height: 58px; min-height: 58px; max-height: 58px; border-radius: 8px; gap: 3px; }
+  .skill-chip svg { width: 16px; height: 16px; min-width: 16px; }
+  .skill-chip span { font-size: .42rem; }
 
   .exp-list { padding-left: 36px; }
   .exp-node { left: -34px; width: 26px; height: 26px; top: 13px; padding: 5px; }
@@ -2330,6 +2367,13 @@ body.light .win3d-btn.active {
   section { padding: 42px 0; }
   .sec-hd h2 { font-size: clamp(1.1rem, 7vw, 1.3rem); }
 
+  /* Navbar */
+  .nav-inner { height: 38px; padding: 0 8px; border-radius: 8px; }
+  .nav-logo .logo-k { font-size: .84rem; }
+  .nav-toggle { width: 28px; height: 28px; }
+  .nav-ham { width: 28px; height: 28px; }
+  .nav-mob a { font-size: .76rem; padding: 9px 10px; }
+
   .hero-name { font-size: clamp(1.2rem, 9.5vw, 2.2rem); }
   .hero-role-txt { font-size: .76rem; }
 
@@ -2342,8 +2386,12 @@ body.light .win3d-btn.active {
   .win3d-top    { transform: rotateX(90deg) translateZ(clamp(34px, 10vw, 48px)); }
   .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(34px, 10vw, 48px)); }
 
-  .skill-card .skill-strip { grid-template-columns: repeat(3, 1fr); gap: 5px; }
-  .skill-chip { height: 62px; min-height: 62px; max-height: 62px; }
+  .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+  .skill-one-card .skill-group { padding: 10px 6px 8px !important; }
+  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .skill-chip { height: 54px; min-height: 54px; max-height: 54px; border-radius: 7px; gap: 3px; }
+  .skill-chip svg { width: 14px; height: 14px; min-width: 14px; }
+  .skill-chip span { font-size: .38rem; }
   .exp-role, .edu-deg-title { font-size: .82rem; }
   .c-form { padding: 14px 10px; }
 }
