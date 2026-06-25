@@ -218,12 +218,12 @@ function initWin3DCube() {
   ];
 
   const faceSkills = {
-    wFront:  { flat:[0],  cube:[0]  },
-    wRight:  { flat:[1],  cube:[1]  },
-    wBack:   { flat:[2],  cube:[2]  },
-    wLeft:   { flat:[3],  cube:[3]  },
-    wTop:    { flat:[4],  cube:[4]  },
-    wBottom: { flat:[5],  cube:[5]  },
+    wFront:  { flat:[0,1,4,3],  cube:[0]  },
+    wRight:  { flat:[0,1,4,3],  cube:[1]  },
+    wBack:   { flat:[0,1,4,3],  cube:[2]  },
+    wLeft:   { flat:[0,1,4,3],  cube:[3]  },
+    wTop:    { flat:[0,1,4,3],  cube:[4]  },
+    wBottom: { flat:[0,1,4,3],  cube:[5]  },
   };
 
   const glowMap = {
@@ -233,25 +233,42 @@ function initWin3DCube() {
     'HTML5':'#E44D26','Git':'#F05032','Redux':'#764ABC',
   };
 
-  function makeTile(skill) {
+  function makeTile(skill, isCube) {
     const d = document.createElement('div');
-    d.className = 'wt wt-single';
-    d.style.setProperty('background', `linear-gradient(135deg,${skill.grad[0]}dd,${skill.grad[1]}cc)`, 'important');
-    d.style.setProperty('--tile-glow', (glowMap[skill.name] || '#fff') + '99');
-    const bigSvg = skill.svg.replace(/width="38" height="38"/g, 'width="64" height="64"');
-    d.innerHTML = `<div class="wt-inner">${bigSvg}<span class="wt-name">${skill.name}</span></div>`;
+    if (isCube) {
+      d.className = 'wt wt-cube-single';
+      d.style.setProperty('background', '#ffffff', 'important');
+      d.style.setProperty('--tile-glow', '#ffffff99');
+      const bigSvg = skill.svg.replace(/width="38" height="38"/g, 'width="60" height="60"');
+      d.innerHTML = `<div class="wt-inner">${bigSvg}<span class="wt-name" style="color:#111;text-shadow:none;">${skill.name}</span></div>`;
+    } else {
+      d.className = 'wt';
+      d.style.setProperty('background', `linear-gradient(135deg,${skill.grad[0]}dd,${skill.grad[1]}cc)`, 'important');
+      d.style.setProperty('--tile-glow', (glowMap[skill.name] || '#fff') + '99');
+      d.innerHTML = `<div class="wt-inner">${skill.svg}<span class="wt-name">${skill.name}</span></div>`;
+    }
     return d;
   }
 
+  const radii = ['14px 0 0 0','0 14px 0 0','0 0 0 14px','0 0 14px 0'];
+
   function buildFaces(mode) {
+    const isCube = mode === 'cube';
     Object.entries(faceSkills).forEach(([faceId, cfg]) => {
       const face = document.getElementById(faceId);
       if (!face) return;
       face.innerHTML = '';
-      const idx = (mode === 'cube' ? cfg.cube : cfg.flat)[0];
-      const tile = makeTile(skills[idx % skills.length]);
-      tile.style.borderRadius = '16px';
-      face.appendChild(tile);
+      if (isCube) {
+        const idx = cfg.cube[0];
+        const tile = makeTile(skills[idx % skills.length], true);
+        tile.style.borderRadius = '16px';
+        tile.style.width = '100%';
+        tile.style.height = '100%';
+        face.appendChild(tile);
+      } else {
+        cfg.flat.forEach(idx => face.appendChild(makeTile(skills[idx % skills.length], false)));
+        face.querySelectorAll('.wt').forEach((t, i) => { t.style.borderRadius = radii[i] || '0'; });
+      }
     });
   }
 

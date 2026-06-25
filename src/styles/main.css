@@ -1645,16 +1645,16 @@ body.light .skill-card--tl {
  width: clamp(180px, 18vw, 280px);
  height: clamp(180px, 18vw, 280px);
  display: grid;
- grid-template-columns: 1fr;
- grid-template-rows: 1fr;
- gap: 0;
- padding: 0;
+ grid-template-columns: 1fr 1fr;
+ grid-template-rows: 1fr 1fr;
+ gap: 5px;
+ padding: 5px;
  border-radius: 20px;
- overflow: hidden;
+ overflow: visible;
  backface-visibility: visible;
  -webkit-backface-visibility: visible;
  background: transparent !important;
- border: 1px solid rgba(255,255,255,0.10) !important;
+ border: none !important;
  backdrop-filter: none !important;
  -webkit-backdrop-filter: none !important;
 }
@@ -1667,10 +1667,30 @@ body.light .skill-card--tl {
  width: clamp(155px, 15.5vw, 240px);
  height: clamp(155px, 15.5vw, 240px);
  background: transparent !important;
- border: 1px solid rgba(255,255,255,0.10) !important;
+ border: none !important;
  box-shadow: none !important;
  backdrop-filter: none !important;
  -webkit-backdrop-filter: none !important;
+}
+.wt.wt-cube-single {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 8px;
+ background: #ffffff !important;
+}
+.wt.wt-cube-single svg {
+ width: 60px !important;
+ height: 60px !important;
+ filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+}
+.wt.wt-cube-single .wt-name {
+ font-size: 0.78rem;
+ font-weight: 700;
+ color: #111111;
+ text-shadow: none;
+ letter-spacing: 0.04em;
 }
 .win3d-scene.mode-3d .win3d-face .wt {
  width: 100% !important;
@@ -1690,9 +1710,6 @@ body.light .skill-card--tl {
 .win3d-scene.mode-3d .win3d-top { transform: rotateX(90deg) translateZ(clamp(77px, 7.75vw, 120px)); }
 .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(77px, 7.75vw, 120px)); }
 .wt svg { width: clamp(26px, 2.8vw, 40px); height: clamp(26px, 2.8vw, 40px); position: relative; z-index: 3; display: block; }
-.wt.wt-single { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-.wt.wt-single svg { width: clamp(52px, 5.5vw, 76px) !important; height: clamp(52px, 5.5vw, 76px) !important; filter: drop-shadow(0 4px 18px rgba(0,0,0,0.45)); }
-.wt.wt-single .wt-name { font-size: clamp(.7rem, 1vw, .88rem); font-weight: 700; letter-spacing: .04em; color: rgba(255,255,255,0.90); text-shadow: 0 1px 6px rgba(0,0,0,0.5); text-align: center; }
 .wt-logo-only {
  display: flex;
  flex-direction: column;
@@ -1779,8 +1796,11 @@ body.light .win3d-scene.mode-3d .wt-logo-only .wt-logo-name {
  color: rgba(255,255,255,0.90);
  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
 }
-.win3d-face .wt { border-radius: 0; width: 100%; height: 100%; }
-.win3d-face .wt.wt-single { border-radius: 0; }
+.win3d-face .wt { border-radius: 14px; }
+.win3d-face .wt:nth-child(1) { border-radius: 14px 0 0 0; }
+.win3d-face .wt:nth-child(2) { border-radius: 0 14px 0 0; }
+.win3d-face .wt:nth-child(3) { border-radius: 0 0 0 14px; }
+.win3d-face .wt:nth-child(4) { border-radius: 0 0 14px 0; }
 .wt.wt-pop {
  animation: wtPop .6s cubic-bezier(.25,.46,.45,.94) forwards;
 }
