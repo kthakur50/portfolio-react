@@ -335,21 +335,21 @@ body.light #home { background: #ffffff; --htc: 200,225,215; }
 .hero-inner { display: flex; flex-direction: row; align-items: flex-start; width: 100%; position: relative; gap: 40px; }
 .hero-left { flex: 1; position: relative; z-index: 2; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
 .hero-name {
- font-size: clamp(2.8rem, 6.8vw, 7.4rem);
- font-weight: 700;
- line-height: .93;
- letter-spacing: -.01em;
+ font-size: clamp(3.4rem, 8.5vw, 9.2rem);
+ font-weight: 900;
+ line-height: .88;
+ letter-spacing: -.035em;
  color: #f0f8f4;
  margin-bottom: 18px;
  white-space: nowrap;
- font-family: 'Rubik', 'SF Pro Display', -apple-system, sans-serif;
- transform: scaleX(1.08);
+ font-family: 'Plus Jakarta Sans', 'SF Pro Display', -apple-system, sans-serif;
+ transform: none;
  transform-origin: left;
 }
 body.light .hero-name { color: #0c1e14; }
 .hero-name .ac {
  color: var(--a2);
- font-weight: 700;
+ font-weight: 900;
 }
 .hero-role {
  display: flex; align-items: center; gap: 14px;
@@ -1678,7 +1678,11 @@ body.light .skill-card--tl {
  align-items: center;
  justify-content: center;
  gap: 8px;
- background: #ffffff !important;
+ background: rgba(220, 230, 225, 0.18) !important;
+ backdrop-filter: blur(12px) saturate(160%);
+ -webkit-backdrop-filter: blur(12px) saturate(160%);
+ border: 1px solid rgba(200, 220, 210, 0.30) !important;
+ box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 24px rgba(0,0,0,0.18);
 }
 .wt.wt-cube-single svg {
  width: 60px !important;
@@ -1688,8 +1692,8 @@ body.light .skill-card--tl {
 .wt.wt-cube-single .wt-name {
  font-size: 0.78rem;
  font-weight: 700;
- color: #111111;
- text-shadow: none;
+ color: rgba(240, 248, 244, 0.92);
+ text-shadow: 0 1px 4px rgba(0,0,0,0.3);
  letter-spacing: 0.04em;
 }
 .win3d-scene.mode-3d .win3d-face .wt {
@@ -2046,8 +2050,8 @@ body.light .win3d-btn.active {
   .hero-right { order: 2; flex: 0 0 auto; width: auto; display: flex; justify-content: center; align-self: flex-end; margin: 0; }
 
   /* Hero name: big, scales with vw */
-  .hero-name { font-size: clamp(1.8rem, 5.5vw, 5rem); font-weight: 700; white-space: normal; word-break: keep-all; line-height: .92; letter-spacing: -.04em; margin-bottom: clamp(12px, 2vw, 18px); }
-  .hero-name .ac { font-weight: 700; }
+  .hero-name { font-size: clamp(1.8rem, 5.5vw, 5rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .88; letter-spacing: -.04em; margin-bottom: clamp(12px, 2vw, 18px); }
+  .hero-name .ac { font-weight: 900; }
 
   /* Role row */
   .hero-role { margin-bottom: clamp(12px, 2vw, 22px); }
@@ -2131,8 +2135,8 @@ body.light .win3d-btn.active {
   .hero-left { flex: unset; order: 1; min-width: 0; width: 100%; }
   .hero-right { order: 2; flex: 0 0 auto; width: 100%; display: flex; justify-content: center; align-self: center; margin: 0; padding-bottom: 0; }
 
-  .hero-name { font-size: clamp(3.6rem, 10vw, 6.5rem); font-weight: 700; white-space: normal; word-break: keep-all; line-height: .93; margin-bottom: 16px; }
-  .hero-name .ac { font-weight: 700; }
+  .hero-name { font-size: clamp(3.6rem, 10vw, 6.5rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .88; margin-bottom: 16px; }
+  .hero-name .ac { font-weight: 900; }
   .hero-role { margin-bottom: 18px; min-height: unset; overflow: visible; }
   .hero-role-pre { font-size: .82rem; }
   .hero-role-txt { font-size: 1.2rem; overflow: visible; min-height: 1.6em; }
