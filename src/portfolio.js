@@ -242,11 +242,11 @@ function initWin3DCube() {
   function makeTile(skill, isCube) {
     const d = document.createElement('div');
     if (isCube) {
-      const brandColor = glowMap[skill.name] || '#aaa';
+      const brandColor = glowMap[skill.name] || '#aaaaaa';
       d.className = 'wt wt-cube-single';
-      // Subtle brand-tinted border from the logo colour
-      d.style.setProperty('--cube-border', hexToRgba(brandColor, 0.22));
-      d.style.setProperty('--tile-glow', brandColor + '55');
+      // Subtle brand colour background + matching glow
+      d.style.setProperty('background', hexToRgba(brandColor, 0.10), 'important');
+      d.style.setProperty('--tile-glow', brandColor + '44');
       const svg = skill.svg.replace(/width="38" height="38"/g, 'width="56" height="56"');
       d.innerHTML = `<div class="wt-inner">${svg}<span class="wt-name">${skill.name}</span></div>`;
     } else {
