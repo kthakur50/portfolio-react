@@ -294,7 +294,7 @@ body.light .nav-mob a:hover { background: rgba(0,0,0,.05); }
  min-height: calc(100svh - var(--nav));
  position: relative;
  display: flex; align-items: center; justify-content: center;
- padding: 60px 0;
+ padding: 80px 0 90px;
  overflow: hidden;
  background: #0f0f0f;
 }
@@ -338,17 +338,17 @@ body.light #home {
 }
 body.light #home { background: #ffffff; --htc: 200,225,215; }
 #home .wrap { position: relative; z-index: 2; width: 100%; }
-.hero-inner { display: flex; flex-direction: row; align-items: flex-start; width: 100%; position: relative; gap: 40px; }
+.hero-inner { display: flex; flex-direction: row; align-items: flex-start; width: 100%; position: relative; gap: 64px; }
 .hero-left { flex: 1; position: relative; z-index: 2; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
 .hero-name {
- font-size: clamp(3.8rem, 9.5vw, 10.5rem);
- font-weight: 900;
+ font-size: clamp(4.2rem, 10.5vw, 12rem);
+ font-weight: 800;
  line-height: .86;
  letter-spacing: -.04em;
  color: #f0f8f4;
- margin-bottom: 22px;
+ margin-bottom: 26px;
  white-space: nowrap;
- font-family: 'Poppins', 'SF Pro Display', -apple-system, sans-serif;
+ font-family: 'Overpass', 'SF Pro Display', -apple-system, sans-serif;
  transform: none;
  transform-origin: left;
  text-align: left;
@@ -1736,22 +1736,28 @@ body.light .wt .wt-name {
 
 /* ── CUBE SINGLE TILE (grey glass) ──────────────────────────── */
 .wt.wt-cube-single {
- gap: 10px;
- background: rgba(200, 205, 208, 0.18) !important;
- backdrop-filter: blur(20px) saturate(120%);
- -webkit-backdrop-filter: blur(20px) saturate(120%);
- border: 1px solid rgba(220, 225, 228, 0.30) !important;
+ gap: 0;
+ background: rgba(18, 22, 20, 0.55) !important;
+ backdrop-filter: blur(24px) saturate(140%);
+ -webkit-backdrop-filter: blur(24px) saturate(140%);
+ border: 1px solid var(--cube-border, rgba(200,205,208,0.18)) !important;
  box-shadow:
-   inset 0 1px 0 rgba(255,255,255,0.45),
-   inset 0 -1px 0 rgba(180,185,190,0.10),
-   0 8px 32px rgba(0,0,0,0.10);
+   inset 0 1px 0 rgba(255,255,255,0.08),
+   inset 0 -1px 0 rgba(0,0,0,0.12),
+   0 12px 40px rgba(0,0,0,0.25);
+ border-radius: 16px;
+ width: 100%;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 .wt.wt-cube-single svg {
- width: 60px !important;
- height: 60px !important;
+ width: 56px !important;
+ height: 56px !important;
  display: block;
- margin: 0 auto;
- filter: drop-shadow(0 2px 10px rgba(0,0,0,0.18));
+ flex-shrink: 0;
+ filter: drop-shadow(0 2px 12px rgba(0,0,0,0.35));
 }
 .wt.wt-cube-single .wt-inner {
  display: flex;
@@ -1760,14 +1766,20 @@ body.light .wt .wt-name {
  justify-content: center;
  gap: 10px;
  width: 100%;
+ height: 100%;
  text-align: center;
+ padding: 0;
+ margin: 0;
 }
 .wt.wt-cube-single .wt-name {
- font-size: 0.78rem;
- color: rgba(30, 30, 30, 0.85);
- text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+ font-size: 0.72rem;
+ font-weight: 600;
+ letter-spacing: 0.05em;
+ color: rgba(220, 230, 225, 0.82);
+ text-shadow: 0 1px 4px rgba(0,0,0,0.5);
  text-align: center;
  width: 100%;
+ line-height: 1.2;
 }
 
 /* ── TILE INNER & ANIMATIONS ─────────────────────────────────── */
@@ -1979,13 +1991,13 @@ body.light .win3d-btn.active {
 
 /* ── LARGE DESKTOP (≤ 1400px) ──────────────────────────────── */
 @media (max-width: 1400px) {
-  .hero-name { font-size: clamp(3.0rem, 7vw, 8rem); }
+  .hero-name { font-size: clamp(3.4rem, 8vw, 9rem); }
   .masonry-list { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ── MEDIUM DESKTOP / LARGE TABLET LANDSCAPE (≤ 1200px) ────── */
 @media (max-width: 1200px) {
-  .hero-name { font-size: clamp(2.6rem, 6vw, 7rem); }
+  .hero-name { font-size: clamp(3.0rem, 6.5vw, 7.5rem); }
   .contact-grid { gap: 36px; }
   .masonry-list { grid-template-columns: repeat(3, 1fr); }
 }
@@ -2012,8 +2024,8 @@ body.light .win3d-btn.active {
   .hero-right { order: 2; flex: 0 0 auto; width: auto; display: flex; justify-content: center; align-self: flex-end; margin: 0; }
 
   /* Hero name: big, scales with vw */
-  .hero-name { font-size: clamp(2.2rem, 6vw, 5.5rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .86; letter-spacing: -.04em; margin-bottom: clamp(12px, 2vw, 18px); }
-  .hero-name .ac { font-weight: 900; }
+  .hero-name { font-size: clamp(2.4rem, 6.5vw, 6rem); font-weight: 800; white-space: normal; word-break: keep-all; line-height: .86; letter-spacing: -.04em; margin-bottom: clamp(14px, 2vw, 22px); }
+  .hero-name .ac { font-weight: 800; }
 
   /* Role row */
   .hero-role { margin-bottom: clamp(12px, 2vw, 22px); }
@@ -2147,8 +2159,8 @@ body.light .win3d-btn.active {
   .hero-left { flex: unset; order: 1; min-width: 0; width: 100%; }
   .hero-right { order: 2; flex: 0 0 auto; width: 100%; display: flex; justify-content: center; align-self: center; margin: 0; padding-bottom: 0; }
 
-  .hero-name { font-size: clamp(3.6rem, 10vw, 6.5rem); font-weight: 900; white-space: normal; word-break: keep-all; line-height: .88; margin-bottom: 16px; }
-  .hero-name .ac { font-weight: 900; }
+  .hero-name { font-size: clamp(3.6rem, 10vw, 6.5rem); font-weight: 800; white-space: normal; word-break: keep-all; line-height: .86; margin-bottom: 16px; }
+  .hero-name .ac { font-weight: 800; }
   .hero-role { margin-bottom: 18px; min-height: unset; overflow: visible; }
   .hero-role-pre { font-size: .82rem; }
   .hero-role-txt { font-size: 1.2rem; overflow: visible; min-height: 1.6em; }

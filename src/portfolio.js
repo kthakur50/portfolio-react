@@ -242,9 +242,12 @@ function initWin3DCube() {
   function makeTile(skill, isCube) {
     const d = document.createElement('div');
     if (isCube) {
+      const brandColor = glowMap[skill.name] || '#aaa';
       d.className = 'wt wt-cube-single';
-      d.style.setProperty('--tile-glow', '#a8d8ff88');
-      const svg = skill.svg.replace(/width="38" height="38"/g, 'width="60" height="60"');
+      // Subtle brand-tinted border from the logo colour
+      d.style.setProperty('--cube-border', hexToRgba(brandColor, 0.22));
+      d.style.setProperty('--tile-glow', brandColor + '55');
+      const svg = skill.svg.replace(/width="38" height="38"/g, 'width="56" height="56"');
       d.innerHTML = `<div class="wt-inner">${svg}<span class="wt-name">${skill.name}</span></div>`;
     } else {
       d.className = 'wt';
@@ -253,6 +256,15 @@ function initWin3DCube() {
       d.innerHTML = `<div class="wt-inner">${skill.svg}<span class="wt-name">${skill.name}</span></div>`;
     }
     return d;
+  }
+
+  // Convert hex colour to rgba string
+  function hexToRgba(hex, alpha) {
+    const h = hex.replace('#','');
+    const r = parseInt(h.slice(0,2),16);
+    const g = parseInt(h.slice(2,4),16);
+    const b = parseInt(h.slice(4,6),16);
+    return `rgba(${r},${g},${b},${alpha})`;
   }
 
   // ── Build all 6 faces ─────────────────────────────────────────
@@ -293,10 +305,25 @@ function initWin3DCube() {
   }
 
   function snapBack() {
-    cube.style.transition = 'transform 1s cubic-bezier(.25,.46,.45,.94)';
-    rotX = 0; rotY = 0;
-    applyRot();
-    setTimeout(() => { cube.style.transition = 'none'; }, 1050);
+    cancelAnimationFrame(inertiaRAF); inertiaRAF = null;
+    const startX = rotX, startY = rotY;
+    // Normalise rotY so we always take the short arc back to nearest 0°
+    let normY = ((startY % 360) + 360) % 360;
+    if (normY > 180) normY -= 360;
+    const duration = 700;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      // Ease out cubic
+      const e = 1 - Math.pow(1 - t, 3);
+      rotX = startX * (1 - e);
+      rotY = normY * (1 - e);
+      applyRot();
+      if (t < 1) { inertiaRAF = requestAnimationFrame(tick); }
+      else { rotX = 0; rotY = 0; applyRot(); cube.style.transition = 'none'; inertiaRAF = null; }
+    }
+    cube.style.transition = 'none';
+    inertiaRAF = requestAnimationFrame(tick);
   }
 
   // ── Bounce animation (flat mode) ──────────────────────────────
@@ -382,7 +409,7 @@ function initWin3DCube() {
   window.addEventListener('mouseup', () => {
     if (!dragging) return;
     dragging = false; cube.classList.remove('dragging');
-    spinning ? startSpin() : startInertia();
+    if (spinning) startSpin(); else snapBack();
   });
 
   // ── Touch events ──────────────────────────────────────────────
@@ -410,7 +437,7 @@ function initWin3DCube() {
   scene.addEventListener('touchend', () => {
     if (!dragging) return;
     dragging = false;
-    spinning ? startSpin() : startInertia();
+    if (spinning) startSpin(); else snapBack();
   });
 
   // ── Face shading based on camera angle ───────────────────────
