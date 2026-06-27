@@ -202,28 +202,30 @@ function initMasonry() {
 function initWin3DCube() {
   if (!document.getElementById('win3dScene')) return;
 
+  // ── Skills data ───────────────────────────────────────────────
   const skills = [
-    { name:'React.js',     grad:['#1a3a4a','#0d2233'], svg:`<svg viewBox="0 0 630 630" width="38" height="38"><circle cx="315" cy="315" r="50" fill="#61DAFB"/><g fill="none" stroke="#61DAFB" stroke-width="30"><ellipse cx="315" cy="315" rx="260" ry="95"/><ellipse cx="315" cy="315" rx="260" ry="95" transform="rotate(60 315 315)"/><ellipse cx="315" cy="315" rx="260" ry="95" transform="rotate(120 315 315)"/></g></svg>` },
-    { name:'Next.js',      grad:['#1a1a1a','#2a2a2a'], svg:`<svg viewBox="0 0 630 630" width="38" height="38"><circle cx="315" cy="315" r="315" fill="#000"/><mask id="nm2" style="mask-type:alpha"><circle cx="315" cy="315" r="315" fill="#000"/></mask><g mask="url(#nm2)"><path d="M513.3 552.8L235.6 189H189V440.9h46.9V247.4L481.3 577C492.1 570.5 502.8 563.5 513.3 552.8Z" fill="url(#ng3)"/><rect x="395" y="189" width="47" height="252" fill="url(#ng4)"/></g><defs><linearGradient id="ng3" x1="374" y1="408" x2="496" y2="561" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient><linearGradient id="ng4" x1="418" y1="189" x2="417" y2="374" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient></defs></svg>` },
-    { name:'TypeScript',   grad:['#1a3050','#0d1e35'], svg:`<svg viewBox="0 0 100 100" width="38" height="38"><rect width="100" height="100" rx="12" fill="#3178C6"/><text x="94" y="90" text-anchor="end" font-family="'Arial Black',Arial,sans-serif" font-weight="700" font-size="48" fill="#fff">TS</text></svg>` },
-    { name:'Tailwind CSS', grad:['#0a2a33','#052030'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#06B6D4" d="M20 7c-5.3 0-8.7 2.7-10 8 2-2.7 4.3-3.7 7-3 1.5.4 2.6 1.6 3.8 2.8C22.8 17 25.1 19 30 19c5.3 0 8.7-2.7 10-8-2 2.7-4.3 3.7-7 3-1.5-.4-2.6-1.6-3.8-2.8C27.2 9 24.9 7 20 7zM10 19c-5.3 0-8.7 2.7-10 8 2-2.7 4.3-3.7 7-3 1.5.4 2.6 1.6 3.8 2.8C12.8 29 15.1 31 20 31c5.3 0 8.7-2.7 10-8-2 2.7-4.3 3.7-7 3-1.5-.4-2.6-1.6-3.8-2.8C17.2 21 14.9 19 10 19z"/></svg>` },
-    { name:'JavaScript',   grad:['#2a2500','#1a1800'], svg:`<svg viewBox="0 0 100 100" width="38" height="38"><rect width="100" height="100" rx="12" fill="#F7DF1E"/><text x="94" y="90" text-anchor="end" font-family="'Arial Black',Arial,sans-serif" font-weight="900" font-size="48" fill="#000">JS</text></svg>` },
-    { name:'Python',       grad:['#1a2a3a','#0d1a28'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><defs><linearGradient id="pyb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#387EB8"/><stop offset="1" stop-color="#366994"/></linearGradient><linearGradient id="pyy" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE052"/><stop offset="1" stop-color="#FFC331"/></linearGradient></defs><path fill="url(#pyb)" d="M20 4c-2.8 0-5 .3-6.6 1-.5.2-.9.7-1.1 1.2-.2.5-.3 1.2-.3 2v2.8h8v1H8.7C7 12 5.7 13 5 14.5c-.7 1.5-1 3.4-1 5.5s.3 3.8 1 5.3c.7 1.4 1.9 2.2 3.4 2.2H11v-4.8c0-1.7 1.5-3.2 4-3.2h8.5c1.2 0 2.2-.4 2.9-1.1.7-.7 1.1-1.7 1.1-2.9V8.2c0-1.2-.4-2.2-1.1-2.9C25.7 4.6 24.3 4 22.5 4H20zm-2.5 3.5c.7 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2-1.2-.5-1.2-1.2.5-1.2 1.2-1.2z"/><path fill="url(#pyy)" d="M30 14h-2.5v4.8c0 1.7-1.5 3.2-4 3.2H15c-1.2 0-2.2.4-2.9 1.1-.7.7-1.1 1.7-1.1 2.9v5.8c0 1.2.5 2.2 1.4 2.7C13.5 35.5 16 36 20 36s6.5-.5 8.1-1.2c.8-.4 1.2-1.1 1.4-1.9.2-.8.3-1.7.3-2.7V28h-8v-1h8.7c1.6 0 3-.9 3.7-2.5.7-1.5 1-3.4 1-5.5s-.3-3.8-1-5.3c-.7-1.4-2-2-3.2-2v2.3zm-7.5 16c.7 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2-1.2-.5-1.2-1.2.5-1.2 1.2-1.2z"/></svg>` },
-    { name:'Node.js',      grad:['#0d2210','#071508'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#5FA04E" d="M20 3.5a1.5 1.5 0 00-.75.2L5.5 11.6a1.5 1.5 0 00-.75 1.3v13.6c0 .54.29 1.03.75 1.3l13.75 7.9a1.5 1.5 0 001.5 0l13.75-7.9a1.5 1.5 0 00.75-1.3V12.9a1.5 1.5 0 00-.75-1.3L20.75 3.7a1.5 1.5 0 00-.75-.2zm0 3l10.5 6.07v12.14L20 30.7 9.5 24.71V12.57z"/></svg>` },
-    { name:'MongoDB',      grad:['#0a2010','#051508'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#00ED64" d="M20 3S10 14.5 10 22.5c0 5.5 4.5 9.5 10 9.5s10-4 10-9.5C30 14.5 20 3 20 3z"/></svg>` },
-    { name:'Docker',       grad:['#0a1e35','#061422'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#2496ED" d="M37.3 18c-.6-3.2-2.8-6-5.9-7.4l-.9-.4-.5 1c-.5 1.3-.6 2.7-.3 4-1.5-.9-3.2-1.4-5-1.2H2.8l-.2.8c-.8 3.3-.1 7.2 2.1 10.1C7 27.7 10.8 29.5 15.5 29.5c8 0 14.6-5 16.6-12.7.2 0 .4-.1.6-.1 2.2 0 4.2-.9 5.7-2.3l.7-.7-.6-.4c-.5-.4-1-.7-1.3-.8z"/><rect x="5" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="11" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="11" y="10" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="10" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="4.5" width="5" height="3.5" rx="1" fill="#fff"/></svg>` },
-    { name:'HTML5',        grad:['#2a1000','#1a0a00'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#E44D26" d="M5 3l3 33L20 40l12-4 3-33z"/><path fill="#F16529" d="M20 37.3V6.6l10.4.3-2.6 23.6z"/><path fill="#EBEBEB" d="M20 18H15l-.4-4H20V10H9.8l1 12H20zm0 8.5l-.1.1-4-1.1-.3-3H12l.6 6.8 7.4 2z"/><path fill="#fff" d="M20 18v3.7h4.3l-.4 4.7-3.9 1.1V31l7.3-2 .6-7.8.6-8.2H20zm0-7.4v3.9h7.8l.3-3.9H20z"/></svg>` },
-    { name:'Git',          grad:['#2a1008','#1a0804'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#F05032" d="M38.1 18.1L21.9 1.9a3.1 3.1 0 00-4.4 0l-3.3 3.3 4.2 4.2c1-.4 2.2-.2 3 .6.8.8 1 2 .6 3L26 17a3.1 3.1 0 11-1.9 1.9l-4.1-4V28a3.1 3.1 0 11-2.5 0V14.8a3.1 3.1 0 01-1.6-4.1L11.5 6.3 1.9 15.9a3.1 3.1 0 000 4.4l16.2 16.2a3.1 3.1 0 004.4 0L38.1 22.5a3.1 3.1 0 000-4.4z"/></svg>` },
-    { name:'Redux',        grad:['#1a0a2a','#100618'], svg:`<svg viewBox="0 0 40 40" fill="none" width="38" height="38"><path fill="#764ABC" d="M27.5 10.2c.5-.1 1.1-.1 1.6.1a3.7 3.7 0 012.4 3.5 3.7 3.7 0 01-.7 2.2 11.5 11.5 0 011.9 5.7c.2 2.9-.5 5.8-2.2 8.1a9.7 9.7 0 01-8.5 4.2 9.2 9.2 0 01-7.8-4.3 9.2 9.2 0 01-1-8.4h.2a3.5 3.5 0 01-.4-1.7 3.7 3.7 0 013.7-3.7c.4 0 .8.1 1.2.2A11.5 11.5 0 0121 14c.9-.1 1.8-.1 2.7 0a11 11 0 013 .8c.2-.4.4-.8.8-1.1a3.6 3.6 0 010 0zm-4.2 2.3c-.8 0-1.5.1-2.3.3a9.6 9.6 0 00-4.2 2.2 8.2 8.2 0 00-2.4 4 8.1 8.1 0 00.7 5.7 7.2 7.2 0 006.2 3.4 7.7 7.7 0 006.8-3.4c1.4-2 1.9-4.5 1.6-7a9.7 9.7 0 00-1.5-4.1 8.5 8.5 0 00-4.9-1.1z"/><circle cx="20" cy="6.5" r="3" fill="#764ABC"/></svg>` },
+    { name:'React.js',     grad:['#0d6e96','#0a3f5a'], svg:`<svg viewBox="0 0 630 630" width="38" height="38"><circle cx="315" cy="315" r="50" fill="#61DAFB"/><g fill="none" stroke="#61DAFB" stroke-width="30"><ellipse cx="315" cy="315" rx="260" ry="95"/><ellipse cx="315" cy="315" rx="260" ry="95" transform="rotate(60 315 315)"/><ellipse cx="315" cy="315" rx="260" ry="95" transform="rotate(120 315 315)"/></g></svg>` },
+    { name:'Next.js',      grad:['#3a3a3a','#555555'], svg:`<svg viewBox="0 0 630 630" width="38" height="38"><circle cx="315" cy="315" r="315" fill="#000"/><mask id="nm2" style="mask-type:alpha"><circle cx="315" cy="315" r="315" fill="#000"/></mask><g mask="url(#nm2)"><path d="M513.3 552.8L235.6 189H189V440.9h46.9V247.4L481.3 577C492.1 570.5 502.8 563.5 513.3 552.8Z" fill="url(#ng3)"/><rect x="395" y="189" width="47" height="252" fill="url(#ng4)"/></g><defs><linearGradient id="ng3" x1="374" y1="408" x2="496" y2="561" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient><linearGradient id="ng4" x1="418" y1="189" x2="417" y2="374" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient></defs></svg>` },
+    { name:'TypeScript',   grad:['#1e5ea8','#0f3870'], svg:`<svg viewBox="0 0 100 100" width="38" height="38"><rect width="100" height="100" rx="12" fill="#3178C6"/><text x="94" y="90" text-anchor="end" font-family="'Arial Black',Arial,sans-serif" font-weight="700" font-size="48" fill="#fff">TS</text></svg>` },
+    { name:'Tailwind CSS', grad:['#084055','#042838'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#06B6D4" d="M20 7c-5.3 0-8.7 2.7-10 8 2-2.7 4.3-3.7 7-3 1.5.4 2.6 1.6 3.8 2.8C22.8 17 25.1 19 30 19c5.3 0 8.7-2.7 10-8-2 2.7-4.3 3.7-7 3-1.5-.4-2.6-1.6-3.8-2.8C27.2 9 24.9 7 20 7zM10 19c-5.3 0-8.7 2.7-10 8 2-2.7 4.3-3.7 7-3 1.5.4 2.6 1.6 3.8 2.8C12.8 29 15.1 31 20 31c5.3 0 8.7-2.7 10-8-2 2.7-4.3 3.7-7 3-1.5-.4-2.6-1.6-3.8-2.8C17.2 21 14.9 19 10 19z"/></svg>` },
+    { name:'JavaScript',   grad:['#5c4c00','#3a3000'], svg:`<svg viewBox="0 0 100 100" width="38" height="38"><rect width="100" height="100" rx="12" fill="#F7DF1E"/><text x="94" y="90" text-anchor="end" font-family="'Arial Black',Arial,sans-serif" font-weight="900" font-size="48" fill="#000">JS</text></svg>` },
+    { name:'Python',       grad:['#1a3d5c','#0e2438'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><defs><linearGradient id="pyb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#387EB8"/><stop offset="1" stop-color="#366994"/></linearGradient><linearGradient id="pyy" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE052"/><stop offset="1" stop-color="#FFC331"/></linearGradient></defs><path fill="url(#pyb)" d="M20 4c-2.8 0-5 .3-6.6 1-.5.2-.9.7-1.1 1.2-.2.5-.3 1.2-.3 2v2.8h8v1H8.7C7 12 5.7 13 5 14.5c-.7 1.5-1 3.4-1 5.5s.3 3.8 1 5.3c.7 1.4 1.9 2.2 3.4 2.2H11v-4.8c0-1.7 1.5-3.2 4-3.2h8.5c1.2 0 2.2-.4 2.9-1.1.7-.7 1.1-1.7 1.1-2.9V8.2c0-1.2-.4-2.2-1.1-2.9C25.7 4.6 24.3 4 22.5 4H20zm-2.5 3.5c.7 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2-1.2-.5-1.2-1.2.5-1.2 1.2-1.2z"/><path fill="url(#pyy)" d="M30 14h-2.5v4.8c0 1.7-1.5 3.2-4 3.2H15c-1.2 0-2.2.4-2.9 1.1-.7.7-1.1 1.7-1.1 2.9v5.8c0 1.2.5 2.2 1.4 2.7C13.5 35.5 16 36 20 36s6.5-.5 8.1-1.2c.8-.4 1.2-1.1 1.4-1.9.2-.8.3-1.7.3-2.7V28h-8v-1h8.7c1.6 0 3-.9 3.7-2.5.7-1.5 1-3.4 1-5.5s-.3-3.8-1-5.3c-.7-1.4-2-2-3.2-2v2.3zm-7.5 16c.7 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2-1.2-.5-1.2-1.2.5-1.2 1.2-1.2z"/></svg>` },
+    { name:'Node.js',      grad:['#0e3d1a','#07220e'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#5FA04E" d="M20 3.5a1.5 1.5 0 00-.75.2L5.5 11.6a1.5 1.5 0 00-.75 1.3v13.6c0 .54.29 1.03.75 1.3l13.75 7.9a1.5 1.5 0 001.5 0l13.75-7.9a1.5 1.5 0 00.75-1.3V12.9a1.5 1.5 0 00-.75-1.3L20.75 3.7a1.5 1.5 0 00-.75-.2zm0 3l10.5 6.07v12.14L20 30.7 9.5 24.71V12.57z"/></svg>` },
+    { name:'MongoDB',      grad:['#083818','#04200e'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#00ED64" d="M20 3S10 14.5 10 22.5c0 5.5 4.5 9.5 10 9.5s10-4 10-9.5C30 14.5 20 3 20 3z"/></svg>` },
+    { name:'Docker',       grad:['#083258','#041e38'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#2496ED" d="M37.3 18c-.6-3.2-2.8-6-5.9-7.4l-.9-.4-.5 1c-.5 1.3-.6 2.7-.3 4-1.5-.9-3.2-1.4-5-1.2H2.8l-.2.8c-.8 3.3-.1 7.2 2.1 10.1C7 27.7 10.8 29.5 15.5 29.5c8 0 14.6-5 16.6-12.7.2 0 .4-.1.6-.1 2.2 0 4.2-.9 5.7-2.3l.7-.7-.6-.4c-.5-.4-1-.7-1.3-.8z"/><rect x="5" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="11" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="11" y="10" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="10" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="4.5" width="5" height="3.5" rx="1" fill="#fff"/></svg>` },
+    { name:'HTML5',        grad:['#4a1e00','#2e1200'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#E44D26" d="M5 3l3 33L20 40l12-4 3-33z"/><path fill="#F16529" d="M20 37.3V6.6l10.4.3-2.6 23.6z"/><path fill="#EBEBEB" d="M20 18H15l-.4-4H20V10H9.8l1 12H20zm0 8.5l-.1.1-4-1.1-.3-3H12l.6 6.8 7.4 2z"/><path fill="#fff" d="M20 18v3.7h4.3l-.4 4.7-3.9 1.1V31l7.3-2 .6-7.8.6-8.2H20zm0-7.4v3.9h7.8l.3-3.9H20z"/></svg>` },
+    { name:'Git',          grad:['#4a1e0c','#2e1208'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#F05032" d="M38.1 18.1L21.9 1.9a3.1 3.1 0 00-4.4 0l-3.3 3.3 4.2 4.2c1-.4 2.2-.2 3 .6.8.8 1 2 .6 3L26 17a3.1 3.1 0 11-1.9 1.9l-4.1-4V28a3.1 3.1 0 11-2.5 0V14.8a3.1 3.1 0 01-1.6-4.1L11.5 6.3 1.9 15.9a3.1 3.1 0 000 4.4l16.2 16.2a3.1 3.1 0 004.4 0L38.1 22.5a3.1 3.1 0 000-4.4z"/></svg>` },
+    { name:'Redux',        grad:['#2e1252','#1c0a32'], svg:`<svg viewBox="0 0 40 40" fill="none" width="38" height="38"><path fill="#764ABC" d="M27.5 10.2c.5-.1 1.1-.1 1.6.1a3.7 3.7 0 012.4 3.5 3.7 3.7 0 01-.7 2.2 11.5 11.5 0 011.9 5.7c.2 2.9-.5 5.8-2.2 8.1a9.7 9.7 0 01-8.5 4.2 9.2 9.2 0 01-7.8-4.3 9.2 9.2 0 01-1-8.4h.2a3.5 3.5 0 01-.4-1.7 3.7 3.7 0 013.7-3.7c.4 0 .8.1 1.2.2A11.5 11.5 0 0121 14c.9-.1 1.8-.1 2.7 0a11 11 0 013 .8c.2-.4.4-.8.8-1.1a3.6 3.6 0 010 0zm-4.2 2.3c-.8 0-1.5.1-2.3.3a9.6 9.6 0 00-4.2 2.2 8.2 8.2 0 00-2.4 4 8.1 8.1 0 00.7 5.7 7.2 7.2 0 006.2 3.4 7.7 7.7 0 006.8-3.4c1.4-2 1.9-4.5 1.6-7a9.7 9.7 0 00-1.5-4.1 8.5 8.5 0 00-4.9-1.1z"/><circle cx="20" cy="6.5" r="3" fill="#764ABC"/></svg>` },
   ];
 
+  // which skill index each face shows: flat=2x2 grid, cube=single tile
   const faceSkills = {
-    wFront:  { flat:[0,1,4,3],  cube:[0]  },
-    wRight:  { flat:[0,1,4,3],  cube:[1]  },
-    wBack:   { flat:[0,1,4,3],  cube:[2]  },
-    wLeft:   { flat:[0,1,4,3],  cube:[3]  },
-    wTop:    { flat:[0,1,4,3],  cube:[4]  },
-    wBottom: { flat:[0,1,4,3],  cube:[5]  },
+    wFront:  { flat:[0,1,4,3], cube:0 },
+    wRight:  { flat:[0,1,4,3], cube:1 },
+    wBack:   { flat:[0,1,4,3], cube:2 },
+    wLeft:   { flat:[0,1,4,3], cube:3 },
+    wTop:    { flat:[0,1,4,3], cube:4 },
+    wBottom: { flat:[0,1,4,3], cube:5 },
   };
 
   const glowMap = {
@@ -233,25 +235,27 @@ function initWin3DCube() {
     'HTML5':'#E44D26','Git':'#F05032','Redux':'#764ABC',
   };
 
+  // corner radii for 2x2 grid tiles
+  const RADII = ['14px 0 0 0','0 14px 0 0','0 0 0 14px','0 0 14px 0'];
+
+  // ── Tile factory ──────────────────────────────────────────────
   function makeTile(skill, isCube) {
     const d = document.createElement('div');
     if (isCube) {
       d.className = 'wt wt-cube-single';
-      d.style.setProperty('background', '#ffffff', 'important');
-      d.style.setProperty('--tile-glow', '#ffffff99');
-      const bigSvg = skill.svg.replace(/width="38" height="38"/g, 'width="60" height="60"');
-      d.innerHTML = `<div class="wt-inner">${bigSvg}<span class="wt-name" style="color:#111;text-shadow:none;">${skill.name}</span></div>`;
+      d.style.setProperty('--tile-glow', '#a8d8ff88');
+      const svg = skill.svg.replace(/width="38" height="38"/g, 'width="60" height="60"');
+      d.innerHTML = `<div class="wt-inner">${svg}<span class="wt-name">${skill.name}</span></div>`;
     } else {
       d.className = 'wt';
-      d.style.setProperty('background', `linear-gradient(135deg,${skill.grad[0]}dd,${skill.grad[1]}cc)`, 'important');
+      d.style.background = `linear-gradient(135deg,${skill.grad[0]},${skill.grad[1]})`;
       d.style.setProperty('--tile-glow', (glowMap[skill.name] || '#fff') + '99');
       d.innerHTML = `<div class="wt-inner">${skill.svg}<span class="wt-name">${skill.name}</span></div>`;
     }
     return d;
   }
 
-  const radii = ['14px 0 0 0','0 14px 0 0','0 0 0 14px','0 0 14px 0'];
-
+  // ── Build all 6 faces ─────────────────────────────────────────
   function buildFaces(mode) {
     const isCube = mode === 'cube';
     Object.entries(faceSkills).forEach(([faceId, cfg]) => {
@@ -259,37 +263,43 @@ function initWin3DCube() {
       if (!face) return;
       face.innerHTML = '';
       if (isCube) {
-        const idx = cfg.cube[0];
-        const tile = makeTile(skills[idx % skills.length], true);
+        const tile = makeTile(skills[cfg.cube % skills.length], true);
         tile.style.borderRadius = '16px';
         tile.style.width = '100%';
         tile.style.height = '100%';
         face.appendChild(tile);
       } else {
-        cfg.flat.forEach(idx => face.appendChild(makeTile(skills[idx % skills.length], false)));
-        face.querySelectorAll('.wt').forEach((t, i) => { t.style.borderRadius = radii[i] || '0'; });
+        cfg.flat.forEach((idx, i) => {
+          const tile = makeTile(skills[idx % skills.length], false);
+          tile.style.borderRadius = RADII[i] || '0';
+          face.appendChild(tile);
+        });
       }
     });
   }
 
   buildFaces('flat');
 
+  // ── State ─────────────────────────────────────────────────────
   let spinning = false, rotX = 0, rotY = 0;
   let dragging = false, lastX = 0, lastY = 0, velX = 0, velY = 0;
-  let spinRAF = null, inertiaRAF = null, bounceRAF = null;
+  let spinRAF = null, inertiaRAF = null, bounceTimer = null;
 
   const cube  = document.getElementById('win3dCube');
   const scene = document.getElementById('win3dScene');
 
-  function applyRot() { cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`; }
+  function applyRot() {
+    cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+  }
 
   function snapBack() {
     cube.style.transition = 'transform 1s cubic-bezier(.25,.46,.45,.94)';
     rotX = 0; rotY = 0;
-    cube.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    applyRot();
     setTimeout(() => { cube.style.transition = 'none'; }, 1050);
   }
 
+  // ── Bounce animation (flat mode) ──────────────────────────────
   function startBounce() {
     const tiles = document.querySelectorAll('#wFront .wt');
     let i = 0, busy = false;
@@ -298,47 +308,46 @@ function initWin3DCube() {
       busy = true;
       const tile = tiles[i % tiles.length];
       tile.classList.remove('wt-bounce');
-      void tile.offsetWidth;
+      void tile.offsetWidth; // reflow to restart animation
       tile.classList.add('wt-bounce');
-      function onEnd() {
+      tile.addEventListener('animationend', function onEnd() {
         tile.removeEventListener('animationend', onEnd);
         tile.classList.remove('wt-bounce');
         i++; busy = false;
-        bounceRAF = setTimeout(next, 300);
-      }
-      tile.addEventListener('animationend', onEnd);
+        bounceTimer = setTimeout(next, 300);
+      });
     }
     next();
   }
 
   function stopBounce() {
-    if (bounceRAF) { clearTimeout(bounceRAF); bounceRAF = null; }
+    clearTimeout(bounceTimer); bounceTimer = null;
     document.querySelectorAll('#wFront .wt').forEach(t => t.classList.remove('wt-bounce'));
   }
 
   startBounce();
 
+  // ── Spin loop ─────────────────────────────────────────────────
   function startSpin() {
-    if (spinRAF) cancelAnimationFrame(spinRAF);
+    cancelAnimationFrame(spinRAF);
     function loop() {
       if (!spinning || dragging) { spinRAF = null; return; }
       rotY += 0.7;
-      cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      applyRot();
       spinRAF = requestAnimationFrame(loop);
     }
     spinRAF = requestAnimationFrame(loop);
   }
 
-  function stopInertia() { if (inertiaRAF) { cancelAnimationFrame(inertiaRAF); inertiaRAF = null; } }
-
+  // ── Inertia after drag ────────────────────────────────────────
   function startInertia() {
-    stopInertia();
+    cancelAnimationFrame(inertiaRAF);
     function loop() {
       if (dragging || spinning) { inertiaRAF = null; return; }
       velX *= 0.94; velY *= 0.94;
       if (Math.abs(velX) < 0.02 && Math.abs(velY) < 0.02) {
         inertiaRAF = null;
-        if (!spinning) snapBack();
+        snapBack();
         return;
       }
       rotX += velX; rotY += velY; applyRot();
@@ -347,16 +356,17 @@ function initWin3DCube() {
     inertiaRAF = requestAnimationFrame(loop);
   }
 
+  // ── Mouse events ──────────────────────────────────────────────
   scene.addEventListener('mouseleave', () => { if (!dragging && !spinning) snapBack(); });
 
   scene.addEventListener('mousedown', e => {
     if (!spinning) return;
-    e.preventDefault(); dragging = true;
-    cube.classList.add('dragging');
+    e.preventDefault();
+    dragging = true; cube.classList.add('dragging');
     lastX = e.clientX; lastY = e.clientY;
     velX = 0; velY = 0;
     cube.style.transition = 'none';
-    if (spinRAF) { cancelAnimationFrame(spinRAF); spinRAF = null; }
+    cancelAnimationFrame(spinRAF); spinRAF = null;
   });
 
   window.addEventListener('mousemove', e => {
@@ -364,8 +374,8 @@ function initWin3DCube() {
     const dx = e.clientX - lastX, dy = e.clientY - lastY;
     rotY += dx * 0.4;
     rotX = Math.max(-45, Math.min(45, rotX - dy * 0.4));
-    velY = velY * 0.6 + dx * 0.4 * 0.4;
-    velX = velX * 0.6 + (-dy * 0.4) * 0.4;
+    velY = velY * 0.6 + dx * 0.16;
+    velX = velX * 0.6 - dy * 0.16;
     lastX = e.clientX; lastY = e.clientY; applyRot();
   });
 
@@ -375,13 +385,15 @@ function initWin3DCube() {
     spinning ? startSpin() : startInertia();
   });
 
+  // ── Touch events ──────────────────────────────────────────────
   scene.addEventListener('touchstart', e => {
     if (!spinning) return;
     e.stopPropagation();
-    stopInertia(); dragging = true; velX = 0; velY = 0;
+    cancelAnimationFrame(inertiaRAF); inertiaRAF = null;
+    dragging = true; velX = 0; velY = 0;
     lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
     cube.style.transition = 'none';
-    if (spinRAF) { cancelAnimationFrame(spinRAF); spinRAF = null; }
+    cancelAnimationFrame(spinRAF); spinRAF = null;
   }, { passive: true });
 
   scene.addEventListener('touchmove', e => {
@@ -390,16 +402,18 @@ function initWin3DCube() {
     const dx = e.touches[0].clientX - lastX, dy = e.touches[0].clientY - lastY;
     rotY += dx * 0.30;
     rotX = Math.max(-45, Math.min(45, rotX - dy * 0.30));
-    velY = velY * 0.7 + dx * 0.30 * 0.3;
-    velX = velX * 0.7 + (-dy * 0.30) * 0.3;
+    velY = velY * 0.7 + dx * 0.09;
+    velX = velX * 0.7 - dy * 0.09;
     lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; applyRot();
   }, { passive: false });
 
   scene.addEventListener('touchend', () => {
     if (!dragging) return;
-    dragging = false; spinning ? startSpin() : startInertia();
+    dragging = false;
+    spinning ? startSpin() : startInertia();
   });
 
+  // ── Face shading based on camera angle ───────────────────────
   const faceNormals = {
     wFront:[ 0, 0, 1], wBack:[ 0, 0,-1],
     wRight:[ 1, 0, 0], wLeft:[-1, 0, 0],
@@ -418,25 +432,19 @@ function initWin3DCube() {
         const f = document.getElementById(id);
         if (f) { f.style.filter = ''; f.style.opacity = ''; }
       });
-      requestAnimationFrame(updateFaceBlur); return;
+      requestAnimationFrame(updateFaceBlur);
+      return;
     }
+    const isTB = new Set(['wTop','wBottom']);
     Object.entries(faceNormals).forEach(([id, [nx, ny, nz]]) => {
       const face = document.getElementById(id);
       if (!face) return;
       const dot = rotateNormal(nx, ny, nz, rotX, rotY);
       const t   = (dot + 1) / 2;
-      const tb  = (id === 'wTop' || id === 'wBottom');
       let opacity;
-      if (t > 0.85) {
-        opacity = 0.92;
-      } else if (t > 0.2) {
-        const f = (0.85 - t) / 0.65;
-        opacity = tb ? 0.92 - f * 0.10 : 0.92 - f * 0.25;
-      } else {
-        const f = (0.2 - t) / 0.2;
-        opacity = tb ? 0.82 - f * 0.20 : 0.67 - f * 0.30;
-      }
-      face.style.filter  = '';
+      if (t > 0.85)      opacity = 0.92;
+      else if (t > 0.2)  opacity = isTB.has(id) ? 0.92 - (0.85-t)/0.65*0.10 : 0.92 - (0.85-t)/0.65*0.25;
+      else               opacity = isTB.has(id) ? 0.82 - (0.2-t)/0.2*0.20   : 0.67 - (0.2-t)/0.2*0.30;
       face.style.opacity = opacity;
     });
     requestAnimationFrame(updateFaceBlur);
@@ -444,23 +452,27 @@ function initWin3DCube() {
 
   updateFaceBlur();
 
+  // ── Toggle spin / flat mode ───────────────────────────────────
   window.wToggleSpin = function () {
     spinning = !spinning;
     const btn = document.getElementById('wBtnSpin');
     if (spinning) {
       btn.classList.add('active');
       scene.classList.add('mode-3d');
-      buildFaces('cube'); stopBounce();
-      cube.style.transition = 'none'; startSpin();
+      buildFaces('cube');
+      stopBounce();
+      cube.style.transition = 'none';
+      startSpin();
     } else {
       btn.classList.remove('active');
       scene.classList.remove('mode-3d');
-      if (spinRAF) { cancelAnimationFrame(spinRAF); spinRAF = null; }
+      cancelAnimationFrame(spinRAF); spinRAF = null;
       Object.keys(faceNormals).forEach(id => {
         const f = document.getElementById(id);
-        if (f) { f.style.filter = ''; f.style.opacity = ''; }
+        if (f) { f.style.opacity = ''; }
       });
-      buildFaces('flat'); snapBack();
+      buildFaces('flat');
+      snapBack();
       setTimeout(startBounce, 900);
     }
   };
