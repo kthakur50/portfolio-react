@@ -341,12 +341,12 @@ body.light #home { background: #ffffff; --htc: 200,225,215; }
 .hero-inner { display: flex; flex-direction: row; align-items: flex-start; width: 100%; position: relative; gap: 64px; }
 .hero-left { flex: 1; position: relative; z-index: 2; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
 .hero-name {
- font-size: clamp(4.2rem, 10.5vw, 12rem);
+ font-size: clamp(3.4rem, 8.5vw, 9.5rem);
  font-weight: 800;
  line-height: .86;
  letter-spacing: .03em;
  color: #f0f8f4;
- margin-bottom: 26px;
+ margin-bottom: 22px;
  white-space: nowrap;
  font-family: 'Arial Narrow', 'Arial Nova Cond', Impact, 'Haettenschweiler', sans-serif;
  transform: none;
@@ -356,6 +356,10 @@ body.light #home { background: #ffffff; --htc: 200,225,215; }
 body.light .hero-name { color: #0c1e14; }
 .hero-name .ac {
  color: var(--a2);
+ font-weight: 900;
+}
+.hero-name .ac-white {
+ color: #ffffff;
  font-weight: 900;
 }
 .hero-role {
@@ -376,7 +380,7 @@ body.light .hero-role { border-bottom-color: rgba(0,0,0,.04); border-top-color: 
 }
 body.light .hero-role-pre { color: var(--mu); }
 .hero-role-txt {
- font-size: 0.92rem; font-weight: 700;
+ font-size: 0.76rem; font-weight: 700;
  perspective: 400px;
  overflow: hidden;
  display: inline-block;
@@ -417,7 +421,7 @@ body.light .hero-role-pre { color: var(--mu); }
   width: 100%;
   border: 1.5px solid var(--br);
   border-radius: 10px;
-  padding: 8px 18px;
+  padding: 12px 18px;
   box-sizing: border-box;
 }
 .hero-info-grid {
