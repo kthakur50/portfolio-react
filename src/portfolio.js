@@ -469,9 +469,9 @@ function initWin3DCube() {
       const dot = rotateNormal(nx, ny, nz, rotX, rotY);
       const t   = (dot + 1) / 2;
       let opacity;
-      if (t > 0.85)      opacity = 0.92;
-      else if (t > 0.2)  opacity = isTB.has(id) ? 0.92 - (0.85-t)/0.65*0.10 : 0.92 - (0.85-t)/0.65*0.25;
-      else               opacity = isTB.has(id) ? 0.82 - (0.2-t)/0.2*0.20   : 0.67 - (0.2-t)/0.2*0.30;
+      if (t > 0.85)      opacity = 0.95;
+      else if (t > 0.2)  opacity = isTB.has(id) ? 0.95 - (0.85-t)/0.65*0.10 : 0.95 - (0.85-t)/0.65*0.30;
+      else               opacity = isTB.has(id) ? 0.85 - (0.2-t)/0.2*0.15   : 0.65 - (0.2-t)/0.2*0.45;
       face.style.opacity = opacity;
     });
     requestAnimationFrame(updateFaceBlur);

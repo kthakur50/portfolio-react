@@ -344,7 +344,7 @@ body.light #home { background: #ffffff; --htc: 200,225,215; }
  font-size: clamp(4.2rem, 10.5vw, 12rem);
  font-weight: 800;
  line-height: .86;
- letter-spacing: .06em;
+ letter-spacing: .03em;
  color: #f0f8f4;
  margin-bottom: 26px;
  white-space: nowrap;
@@ -417,7 +417,7 @@ body.light .hero-role-pre { color: var(--mu); }
   width: 100%;
   border: 1.5px solid var(--br);
   border-radius: 10px;
-  padding: 4px 18px;
+  padding: 8px 18px;
   box-sizing: border-box;
 }
 .hero-info-grid {
@@ -1682,12 +1682,12 @@ body.light .skill-card--tl {
  width: clamp(155px, 15.5vw, 240px);
  height: clamp(155px, 15.5vw, 240px);
  box-shadow: none;
- backface-visibility: hidden;
- -webkit-backface-visibility: hidden;
+ backface-visibility: visible;
+ -webkit-backface-visibility: visible;
 }
 .win3d-scene.mode-3d .win3d-face .wt {
- backface-visibility: hidden;
- -webkit-backface-visibility: hidden;
+ backface-visibility: visible;
+ -webkit-backface-visibility: visible;
 }
 
 /* flat mode face positions */

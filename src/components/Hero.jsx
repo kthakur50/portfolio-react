@@ -7,7 +7,7 @@ const Hero = () => (
 
         <div className="hero-left sr on">
           <h1 className="hero-name">
-            Kaushal<br />
+            <span className="ac">Kaushal</span><br />
             <span className="ac">Thakur</span>.
           </h1>
 
