@@ -341,10 +341,10 @@ body.light #home { background: #ffffff; --htc: 200,225,215; }
 .hero-inner { display: flex; flex-direction: row; align-items: flex-start; width: 100%; position: relative; gap: 64px; }
 .hero-left { flex: 1; position: relative; z-index: 2; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
 .hero-name {
- font-size: clamp(3.4rem, 8.5vw, 9.5rem);
+ font-size: clamp(3.0rem, 7.5vw, 8.2rem);
  font-weight: 800;
  line-height: .86;
- letter-spacing: .03em;
+ letter-spacing: .015em;
  color: #f0f8f4;
  margin-bottom: 22px;
  white-space: nowrap;
@@ -358,9 +358,8 @@ body.light .hero-name { color: #0c1e14; }
  color: var(--a2);
  font-weight: 900;
 }
-.hero-name .ac-white {
- color: #ffffff;
- font-weight: 900;
+body.light .hero-name .ac {
+ color: var(--a);
 }
 .hero-role {
  display: flex; align-items: center; gap: 10px;
