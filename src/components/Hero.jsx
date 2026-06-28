@@ -26,15 +26,15 @@ const Hero = () => (
                 <div className="hero-info-col">
                   <div className="hero-info-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-                    </svg>
-                    Junior Engineer @RMSI
-                  </div>
-                  <div className="hero-info-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="4" width="20" height="13" rx="2"/><path d="M22 17H2l2 4h16z"/>
                     </svg>
                     <TypingText text="Fullstack Developer" />
+                  </div>
+                  <div className="hero-info-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                    Junior Engineer @RMSI
                   </div>
                   <div className="hero-info-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4285F4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
