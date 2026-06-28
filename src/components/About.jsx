@@ -5,18 +5,21 @@ const About = () => (
         <h2>About<em>.</em></h2>
       </div>
 
-      <div className="about-h sr" style={{ transitionDelay: '.04s' }}>
-        <p className="about-h-text">
-          I'm a <strong>Fullstack Engineer</strong> with <strong>1+ year</strong> of professional experience at{' '}
-          <strong>RMSI</strong>, building production-grade applications with <strong>React</strong>,{' '}
-          <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>Python</strong>.
-          I specialize in <strong>GIS &amp; interactive mapping</strong> with Leaflet.js,
-          crafting <strong>clean, performant UIs</strong> and integrating{' '}
-          <strong>AI-driven systems</strong> into real-world products.
-          Driven by curiosity, precision, and a deep passion for{' '}
-          <strong>developer experience</strong> and <strong>modern web architecture</strong>.
-        </p>
+      <div className="about-bio sr" style={{ transitionDelay: '.04s' }}>
+          <p className="about-para">
+            <em>AI Software Engineer</em> with <strong>1+ year of experience</strong> building
+            scalable web apps using <em>React</em>, <em>Next.js</em>, <em>TypeScript</em>, and <em>Python</em>.
+            Hands-on with <strong>GIS &amp; interactive mapping</strong> via <em>Leaflet.js</em>,
+            and passionate about <strong>clean code</strong> and <strong>thoughtful UI/UX</strong> —
+            turning complex problems into experiences users don't have to think about.
+          </p>
+          <p className="about-para">
+            Currently building at the intersection of <em>modern frontend</em> and{' '}
+            <em>AI-integrated development</em> — combining smart architecture with{' '}
+            <strong>intelligent automation</strong> and <strong>real-time data</strong>.
+          </p>
       </div>
+
     </div>
   </section>
 );

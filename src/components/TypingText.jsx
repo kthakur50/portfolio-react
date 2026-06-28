@@ -1,49 +1,28 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
-const PHRASES = ['Fullstack Developer', 'Software Engineer', 'AI Enthusiast', 'UI / UX Craftsman'];
-
-const TypingText = () => {
+const TypingText = ({ text, speed = 90, deleteSpeed = 45, pause = 1800, pauseEmpty = 400 }) => {
   const [display, setDisplay] = useState('');
-  const [phraseIdx, setPhraseIdx] = useState(0);
-  const [phase, setPhase] = useState('typing'); // typing | hold | deleting | gap
-  const frameRef = useRef(null);
+  const [phase, setPhase] = useState('typing'); // typing | pausing | deleting | pausingEmpty
 
   useEffect(() => {
-    const phrase = PHRASES[phraseIdx];
-
-    // Eased character timing — starts fast, slows near end, fast delete
-    const typeDelay  = (i, len) => 55 + Math.sin((i / len) * Math.PI) * 35;
-    const deleteDelay = () => 28 + Math.random() * 18;
-
-    let charIdx = display.length;
-
-    const next = (delay, fn) => {
-      frameRef.current = setTimeout(fn, delay);
-    };
+    let timeout;
 
     if (phase === 'typing') {
-      if (charIdx < phrase.length) {
-        next(typeDelay(charIdx, phrase.length), () =>
-          setDisplay(phrase.slice(0, charIdx + 1))
-        );
+      if (display.length < text.length) {
+        timeout = setTimeout(() => setDisplay(text.slice(0, display.length + 1)), speed);
       } else {
-        next(1800, () => setPhase('deleting'));
+        timeout = setTimeout(() => setPhase('deleting'), pause);
       }
     } else if (phase === 'deleting') {
       if (display.length > 0) {
-        next(deleteDelay(), () =>
-          setDisplay(d => d.slice(0, -1))
-        );
+        timeout = setTimeout(() => setDisplay(text.slice(0, display.length - 1)), deleteSpeed);
       } else {
-        next(320, () => {
-          setPhraseIdx(i => (i + 1) % PHRASES.length);
-          setPhase('typing');
-        });
+        timeout = setTimeout(() => setPhase('typing'), pauseEmpty);
       }
     }
 
-    return () => clearTimeout(frameRef.current);
-  }, [display, phase, phraseIdx]);
+    return () => clearTimeout(timeout);
+  }, [display, phase, text, speed, deleteSpeed, pause, pauseEmpty]);
 
   return (
     <span className="typing-text">

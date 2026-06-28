@@ -140,7 +140,7 @@ function initClock() {
     const s    = ist.getSeconds();
     const ampm = h >= 12 ? 'PM' : 'AM';
     h = h % 12 || 12;
-    el.innerHTML = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ampm} <em>IST</em>`;
+    el.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ampm}`;
   }
   tick();
   setInterval(tick, 1000);
@@ -220,12 +220,12 @@ function initWin3DCube() {
 
   // which skill index each face shows: flat=2x2 grid, cube=single tile
   const faceSkills = {
-    wFront:  { flat:[0,1,4,3], cube:0, ice:'linear-gradient(135deg,rgba(180,230,255,0.10) 0%,rgba(140,210,245,0.06) 100%)' },
-    wRight:  { flat:[0,1,4,3], cube:1, ice:'linear-gradient(135deg,rgba(150,215,250,0.08) 0%,rgba(100,190,240,0.04) 100%)' },
-    wBack:   { flat:[0,1,4,3], cube:2, ice:'linear-gradient(135deg,rgba(200,240,255,0.09) 0%,rgba(160,220,248,0.05) 100%)' },
-    wLeft:   { flat:[0,1,4,3], cube:6, ice:'linear-gradient(135deg,rgba(130,205,248,0.07) 0%,rgba(90,180,238,0.04) 100%)' },
-    wTop:    { flat:[0,1,4,3], cube:4, ice:'linear-gradient(135deg,rgba(220,248,255,0.12) 0%,rgba(185,235,255,0.07) 100%)' },
-    wBottom: { flat:[0,1,4,3], cube:5, ice:'linear-gradient(135deg,rgba(110,190,235,0.06) 0%,rgba(70,160,220,0.03) 100%)' },
+    wFront:  { flat:[0,1,4,3], cube:0 },
+    wRight:  { flat:[0,1,4,3], cube:1 },
+    wBack:   { flat:[0,1,4,3], cube:2 },
+    wLeft:   { flat:[0,1,4,3], cube:3 },
+    wTop:    { flat:[0,1,4,3], cube:4 },
+    wBottom: { flat:[0,1,4,3], cube:5 },
   };
 
   const glowMap = {
@@ -279,10 +279,6 @@ function initWin3DCube() {
         tile.style.borderRadius = '16px';
         tile.style.width = '100%';
         tile.style.height = '100%';
-        // Ice color per face
-        if (cfg.ice) {
-          tile.style.setProperty('background', cfg.ice, 'important');
-        }
         face.appendChild(tile);
       } else {
         cfg.flat.forEach((idx, i) => {
@@ -330,107 +326,30 @@ function initWin3DCube() {
     inertiaRAF = requestAnimationFrame(tick);
   }
 
-  // ── Rubik slide animation (flat mode) ────────────────────────
-  // Cycle through skill combos shown in the 2x2 grid
-  const SKILL_COMBOS = [
-    [0, 1, 6, 2],   // React, Next, Node, TS
-    [1, 2, 0, 6],   // Next, TS, React, Node
-    [6, 0, 2, 1],   // Node, React, TS, Next
-    [2, 6, 1, 0],   // TS, Node, Next, React
-    [0, 2, 1, 6],   // React, TS, Next, Node
-    [1, 6, 2, 0],   // Next, Node, TS, React
-    [6, 1, 0, 2],   // Node, Next, React, TS
-    [2, 0, 6, 1],   // TS, React, Node, Next
-  ];
-
-  const MOVES = [
-    { tiles:[0,1], dir:'left'  },
-    { tiles:[0,1], dir:'right' },
-    { tiles:[2,3], dir:'left'  },
-    { tiles:[2,3], dir:'right' },
-    { tiles:[0,2], dir:'up'    },
-    { tiles:[0,2], dir:'down'  },
-    { tiles:[1,3], dir:'up'    },
-    { tiles:[1,3], dir:'down'  },
-  ];
-  let moveIdx = 0, comboIdx = 0;
-  const SLIDE = 38;
-
-  function rebuildFlatFace(combo) {
-    const face = document.getElementById('wFront');
-    if (!face) return;
-    face.innerHTML = '';
-    combo.forEach((skillIdx, i) => {
-      const tile = makeTile(skills[skillIdx % skills.length], false);
-      tile.style.borderRadius = RADII[i] || '0';
-      face.appendChild(tile);
-    });
-  }
-
+  // ── Bounce animation (flat mode) ──────────────────────────────
   function startBounce() {
-    let busy = false;
+    const tiles = document.querySelectorAll('#wFront .wt');
+    let i = 0, busy = false;
     function next() {
       if (spinning || busy) return;
       busy = true;
-      const face = document.getElementById('wFront');
-      const allTiles = face ? [...face.querySelectorAll('.wt')] : [];
-      if (allTiles.length < 4) { busy = false; return; }
-
-      const move = MOVES[moveIdx % MOVES.length];
-      moveIdx++;
-
-      const targets = move.tiles.map(i => allTiles[i]).filter(Boolean);
-      const axis = (move.dir === 'left' || move.dir === 'right') ? 'X' : 'Y';
-      const sign = (move.dir === 'left' || move.dir === 'up') ? -1 : 1;
-      const dist = sign * SLIDE;
-
-      // Slide out
-      targets.forEach(t => {
-        t.style.transition = 'transform 0.30s cubic-bezier(.4,0,.6,1), opacity 0.30s ease';
-        t.style.transform = `translate${axis}(${dist}px)`;
-        t.style.opacity = '0.2';
+      const tile = tiles[i % tiles.length];
+      tile.classList.remove('wt-bounce');
+      void tile.offsetWidth; // reflow to restart animation
+      tile.classList.add('wt-bounce');
+      tile.addEventListener('animationend', function onEnd() {
+        tile.removeEventListener('animationend', onEnd);
+        tile.classList.remove('wt-bounce');
+        i++; busy = false;
+        bounceTimer = setTimeout(next, 300);
       });
-
-      bounceTimer = setTimeout(() => {
-        // Switch to next skill combo mid-animation
-        comboIdx = (comboIdx + 1) % SKILL_COMBOS.length;
-        rebuildFlatFace(SKILL_COMBOS[comboIdx]);
-
-        const newTiles = face ? [...face.querySelectorAll('.wt')] : [];
-        const newTargets = move.tiles.map(i => newTiles[i]).filter(Boolean);
-
-        // Start from opposite side instantly
-        newTargets.forEach(t => {
-          t.style.transition = 'none';
-          t.style.transform = `translate${axis}(${-dist}px)`;
-          t.style.opacity = '0.2';
-        });
-        newTargets.forEach(t => void t.offsetWidth);
-
-        // Slide back in
-        newTargets.forEach(t => {
-          t.style.transition = 'transform 0.30s cubic-bezier(.4,0,.6,1), opacity 0.30s ease';
-          t.style.transform = '';
-          t.style.opacity = '';
-        });
-
-        bounceTimer = setTimeout(() => {
-          busy = false;
-          bounceTimer = setTimeout(next, 600);
-        }, 320);
-      }, 320);
     }
     next();
   }
 
   function stopBounce() {
     clearTimeout(bounceTimer); bounceTimer = null;
-    const face = document.getElementById('wFront');
-    if (face) face.querySelectorAll('.wt').forEach(t => {
-      t.style.transition = 'none';
-      t.style.transform = '';
-      t.style.opacity = '';
-    });
+    document.querySelectorAll('#wFront .wt').forEach(t => t.classList.remove('wt-bounce'));
   }
 
   startBounce();
@@ -450,93 +369,58 @@ function initWin3DCube() {
   // ── Inertia after drag ────────────────────────────────────────
   function startInertia() {
     cancelAnimationFrame(inertiaRAF);
-    rotX = 0; // lock X flat
     function loop() {
       if (dragging || spinning) { inertiaRAF = null; return; }
-      velY *= 0.92;
-      // Once velocity is low, smoothly snap rotY to nearest 0° then start clockwise spin
-      if (Math.abs(velY) < 0.3) {
+      velX *= 0.94; velY *= 0.94;
+      if (Math.abs(velX) < 0.02 && Math.abs(velY) < 0.02) {
         inertiaRAF = null;
-        startClockwiseSpin();
+        snapBack();
         return;
       }
-      rotY += velY; applyRot();
+      rotX += velX; rotY += velY; applyRot();
       inertiaRAF = requestAnimationFrame(loop);
     }
     inertiaRAF = requestAnimationFrame(loop);
-  }
-
-  // Smoothly snap rotY to nearest multiple of 90°, then spin clockwise from front
-  function startClockwiseSpin() {
-    cancelAnimationFrame(inertiaRAF);
-    const startY = rotY;
-    const startX = rotX;
-    const targetY = Math.round(rotY / 360) * 360; // snap to nearest full rotation
-    const duration = 500;
-    const t0 = performance.now();
-    function snapTick(now) {
-      const t = Math.min((now - t0) / duration, 1);
-      const e = 1 - Math.pow(1 - t, 3); // ease-out cubic
-      rotX = startX * (1 - e);
-      rotY = startY + (targetY - startY) * e;
-      applyRot();
-      if (t < 1) {
-        inertiaRAF = requestAnimationFrame(snapTick);
-      } else {
-        rotX = 0; rotY = targetY % 360;
-        applyRot();
-        inertiaRAF = null;
-        // Now start continuous clockwise rotation from front
-        spinning = true;
-        startSpin();
-      }
-    }
-    inertiaRAF = requestAnimationFrame(snapTick);
   }
 
   // ── Mouse events ──────────────────────────────────────────────
   scene.addEventListener('mouseleave', () => { if (!dragging && !spinning) snapBack(); });
 
   scene.addEventListener('mousedown', e => {
+    if (!spinning) return;
     e.preventDefault();
     dragging = true; cube.classList.add('dragging');
     lastX = e.clientX; lastY = e.clientY;
     velX = 0; velY = 0;
     cube.style.transition = 'none';
     cancelAnimationFrame(spinRAF); spinRAF = null;
-    cancelAnimationFrame(inertiaRAF); inertiaRAF = null;
-    if (!scene.classList.contains('mode-3d')) {
-      scene.classList.add('mode-3d');
-      buildFaces('cube');
-    }
   });
 
   window.addEventListener('mousemove', e => {
-    if (!dragging) return;
+    if (!spinning || !dragging) return;
     const dx = e.clientX - lastX, dy = e.clientY - lastY;
     rotY += dx * 0.4;
+    rotX = Math.max(-45, Math.min(45, rotX - dy * 0.4));
     velY = velY * 0.6 + dx * 0.16;
+    velX = velX * 0.6 - dy * 0.16;
     lastX = e.clientX; lastY = e.clientY; applyRot();
   });
 
   window.addEventListener('mouseup', () => {
     if (!dragging) return;
     dragging = false; cube.classList.remove('dragging');
-    if (spinning) startSpin(); else startInertia();
+    if (spinning) startSpin(); else snapBack();
   });
 
   // ── Touch events ──────────────────────────────────────────────
   scene.addEventListener('touchstart', e => {
+    if (!spinning) return;
     e.stopPropagation();
     cancelAnimationFrame(inertiaRAF); inertiaRAF = null;
-    cancelAnimationFrame(spinRAF); spinRAF = null;
     dragging = true; velX = 0; velY = 0;
     lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
     cube.style.transition = 'none';
-    if (!scene.classList.contains('mode-3d')) {
-      scene.classList.add('mode-3d');
-      buildFaces('cube');
-    }
+    cancelAnimationFrame(spinRAF); spinRAF = null;
   }, { passive: true });
 
   scene.addEventListener('touchmove', e => {
@@ -544,14 +428,16 @@ function initWin3DCube() {
     e.preventDefault();
     const dx = e.touches[0].clientX - lastX, dy = e.touches[0].clientY - lastY;
     rotY += dx * 0.30;
+    rotX = Math.max(-45, Math.min(45, rotX - dy * 0.30));
     velY = velY * 0.7 + dx * 0.09;
+    velX = velX * 0.7 - dy * 0.09;
     lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; applyRot();
   }, { passive: false });
 
   scene.addEventListener('touchend', () => {
     if (!dragging) return;
     dragging = false;
-    if (spinning) startSpin(); else startInertia();
+    if (spinning) startSpin(); else snapBack();
   });
 
   // ── Face shading based on camera angle ───────────────────────
@@ -622,7 +508,7 @@ function initWin3DCube() {
 function initHL() {
   const section = document.getElementById('about');
   if (!section) return;
-  const targets = Array.from(section.querySelectorAll('.about-para em, .about-para strong, .about-h-text strong'));
+  const targets = Array.from(section.querySelectorAll('.about-para em, .about-para strong'));
   if (!targets.length) return;
   let timers = [];
 
