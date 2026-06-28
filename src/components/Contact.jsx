@@ -3,6 +3,7 @@ import { useState } from 'react';
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [error, setError] = useState('');
+  const [open, setOpen] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -46,25 +47,46 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="c-form sr" style={{ transitionDelay: '.13s' }}>
-            <div className="c-form-row">
-              <div className="c-form-field">
-                <label htmlFor="c-name">Name</label>
-                <input id="c-name" name="name" type="text" placeholder="Your name" value={form.name} onChange={handleChange}/>
-              </div>
-              <div className="c-form-field">
-                <label htmlFor="c-email">Email</label>
-                <input id="c-email" name="email" type="email" placeholder="your@email.com" value={form.email} onChange={handleChange}/>
-              </div>
-            </div>
-            <div className="c-form-field">
-              <label htmlFor="c-msg">Message</label>
-              <textarea id="c-msg" name="message" placeholder="Your message here..." value={form.message} onChange={handleChange}></textarea>
-            </div>
-            {error && <p className="c-form-error">{error}</p>}
-            <button className="btn-s" onClick={handleSend}>
-              Send Message <span className="arr">→</span>
+          <div className="c-message-box sr" style={{ transitionDelay: '.13s' }}>
+            <button
+              type="button"
+              className={`c-accordion-toggle ${open ? 'is-open' : ''}`}
+              onClick={() => setOpen(!open)}
+              aria-expanded={open}
+            >
+              <span className="c-accordion-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </span>
+              <span className="c-accordion-label">Send me a message</span>
+              <svg className="c-accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
             </button>
+
+            <div className={`c-accordion-panel ${open ? 'is-open' : ''}`}>
+              <div className="c-form">
+                <div className="c-form-row">
+                  <div className="c-form-field">
+                    <label htmlFor="c-name">Name</label>
+                    <input id="c-name" name="name" type="text" placeholder="Your name" value={form.name} onChange={handleChange}/>
+                  </div>
+                  <div className="c-form-field">
+                    <label htmlFor="c-email">Email</label>
+                    <input id="c-email" name="email" type="email" placeholder="your@email.com" value={form.email} onChange={handleChange}/>
+                  </div>
+                </div>
+                <div className="c-form-field">
+                  <label htmlFor="c-msg">Message</label>
+                  <textarea id="c-msg" name="message" placeholder="Your message here..." value={form.message} onChange={handleChange}></textarea>
+                </div>
+                {error && <p className="c-form-error">{error}</p>}
+                <button className="btn-s" onClick={handleSend}>
+                  Send Message <span className="arr">→</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
