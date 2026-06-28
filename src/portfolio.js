@@ -331,9 +331,18 @@ function initWin3DCube() {
   }
 
   // ── Rubik slide animation (flat mode) ────────────────────────
-  // Tiles: [0]=top-left [1]=top-right [2]=bottom-left [3]=bottom-right
-  // Moves: row0-left, row0-right, row1-left, row1-right,
-  //        col0-up, col0-down, col1-up, col1-down
+  // Cycle through skill combos shown in the 2x2 grid
+  const SKILL_COMBOS = [
+    [0, 1, 6, 2],   // React, Next, Node, TS
+    [1, 2, 0, 6],   // Next, TS, React, Node
+    [6, 0, 2, 1],   // Node, React, TS, Next
+    [2, 6, 1, 0],   // TS, Node, Next, React
+    [0, 2, 1, 6],   // React, TS, Next, Node
+    [1, 6, 2, 0],   // Next, Node, TS, React
+    [6, 1, 0, 2],   // Node, Next, React, TS
+    [2, 0, 6, 1],   // TS, React, Node, Next
+  ];
+
   const MOVES = [
     { tiles:[0,1], dir:'left'  },
     { tiles:[0,1], dir:'right' },
@@ -344,8 +353,19 @@ function initWin3DCube() {
     { tiles:[1,3], dir:'up'    },
     { tiles:[1,3], dir:'down'  },
   ];
-  let moveIdx = 0;
-  const SLIDE = 38; // px to slide
+  let moveIdx = 0, comboIdx = 0;
+  const SLIDE = 38;
+
+  function rebuildFlatFace(combo) {
+    const face = document.getElementById('wFront');
+    if (!face) return;
+    face.innerHTML = '';
+    combo.forEach((skillIdx, i) => {
+      const tile = makeTile(skills[skillIdx % skills.length], false);
+      tile.style.borderRadius = RADII[i] || '0';
+      face.appendChild(tile);
+    });
+  }
 
   function startBounce() {
     let busy = false;
@@ -366,33 +386,39 @@ function initWin3DCube() {
 
       // Slide out
       targets.forEach(t => {
-        t.style.transition = 'transform 0.32s cubic-bezier(.4,0,.6,1), opacity 0.32s ease';
+        t.style.transition = 'transform 0.30s cubic-bezier(.4,0,.6,1), opacity 0.30s ease';
         t.style.transform = `translate${axis}(${dist}px)`;
-        t.style.opacity = '0.3';
+        t.style.opacity = '0.2';
       });
 
       bounceTimer = setTimeout(() => {
-        // Instant reset to opposite side (no transition)
-        targets.forEach(t => {
+        // Switch to next skill combo mid-animation
+        comboIdx = (comboIdx + 1) % SKILL_COMBOS.length;
+        rebuildFlatFace(SKILL_COMBOS[comboIdx]);
+
+        const newTiles = face ? [...face.querySelectorAll('.wt')] : [];
+        const newTargets = move.tiles.map(i => newTiles[i]).filter(Boolean);
+
+        // Start from opposite side instantly
+        newTargets.forEach(t => {
           t.style.transition = 'none';
           t.style.transform = `translate${axis}(${-dist}px)`;
-          t.style.opacity = '0.3';
+          t.style.opacity = '0.2';
         });
-        // Force reflow
-        targets.forEach(t => void t.offsetWidth);
+        newTargets.forEach(t => void t.offsetWidth);
 
         // Slide back in
-        targets.forEach(t => {
-          t.style.transition = 'transform 0.32s cubic-bezier(.4,0,.6,1), opacity 0.32s ease';
+        newTargets.forEach(t => {
+          t.style.transition = 'transform 0.30s cubic-bezier(.4,0,.6,1), opacity 0.30s ease';
           t.style.transform = '';
           t.style.opacity = '';
         });
 
         bounceTimer = setTimeout(() => {
           busy = false;
-          bounceTimer = setTimeout(next, 420);
-        }, 340);
-      }, 340);
+          bounceTimer = setTimeout(next, 600);
+        }, 320);
+      }, 320);
     }
     next();
   }
