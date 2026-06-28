@@ -5,31 +5,17 @@ const About = () => (
         <h2>About<em>.</em></h2>
       </div>
 
-      <div className="about-s sr" style={{ transitionDelay: '.04s' }}>
-
-        <p className="about-s-text">
-          Fullstack developer with <strong>1+ year</strong> at RMSI —
-          building with <strong>React</strong>, <strong>Next.js</strong>, <strong>TypeScript</strong> &amp; <strong>Python</strong>.
-          Focused on <strong>GIS</strong>, clean UI, and <strong>AI-integrated</strong> systems.
+      <div className="about-h sr" style={{ transitionDelay: '.04s' }}>
+        <p className="about-h-text">
+          I'm a <strong>Fullstack Engineer</strong> with <strong>1+ year</strong> of professional experience at{' '}
+          <strong>RMSI</strong>, building production-grade applications with <strong>React</strong>,{' '}
+          <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>Python</strong>.
+          I specialize in <strong>GIS &amp; interactive mapping</strong> with Leaflet.js,
+          crafting <strong>clean, performant UIs</strong> and integrating{' '}
+          <strong>AI-driven systems</strong> into real-world products.
+          Driven by curiosity, precision, and a deep passion for{' '}
+          <strong>developer experience</strong> and <strong>modern web architecture</strong>.
         </p>
-
-        <div className="about-s-stats">
-          <div className="about-s-stat">
-            <span>1<em>+</em></span>
-            <small>Years Exp.</small>
-          </div>
-          <div className="about-s-divider" />
-          <div className="about-s-stat">
-            <span>12<em>+</em></span>
-            <small>Projects</small>
-          </div>
-          <div className="about-s-divider" />
-          <div className="about-s-stat">
-            <span>8<em>+</em></span>
-            <small>Tech Stack</small>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>

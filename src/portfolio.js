@@ -596,7 +596,7 @@ function initWin3DCube() {
 function initHL() {
   const section = document.getElementById('about');
   if (!section) return;
-  const targets = Array.from(section.querySelectorAll('.about-para em, .about-para strong'));
+  const targets = Array.from(section.querySelectorAll('.about-para em, .about-para strong, .about-h-text strong'));
   if (!targets.length) return;
   let timers = [];
 
