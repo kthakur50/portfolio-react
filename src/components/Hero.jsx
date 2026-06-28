@@ -1,8 +1,64 @@
+import { useEffect, useRef } from 'react';
 import HeroCube from './HeroCube';
 import TypingText from './TypingText';
 
+const HeroSnow = () => {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    let W = canvas.offsetWidth;
+    let H = canvas.offsetHeight;
+    canvas.width = W;
+    canvas.height = H;
+
+    const COUNT = 18;
+    const flakes = Array.from({ length: COUNT }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.4 + 0.4,
+      speed: Math.random() * 0.5 + 0.18,
+      drift: (Math.random() - 0.5) * 0.25,
+      opacity: Math.random() * 0.12 + 0.04,
+    }));
+
+    let raf;
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      flakes.forEach(f => {
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(210,240,255,${f.opacity})`;
+        ctx.fill();
+        f.y += f.speed;
+        f.x += f.drift;
+        if (f.y > H + 4) { f.y = -4; f.x = Math.random() * W; }
+        if (f.x > W + 4) f.x = -4;
+        if (f.x < -4) f.x = W + 4;
+      });
+      raf = requestAnimationFrame(draw);
+    }
+    draw();
+
+    const onResize = () => {
+      W = canvas.offsetWidth;
+      H = canvas.offsetHeight;
+      canvas.width = W;
+      canvas.height = H;
+    };
+    window.addEventListener('resize', onResize);
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', onResize); };
+  }, []);
+
+  return <canvas ref={canvasRef} className="hero-snow" aria-hidden="true" />;
+};
+
 const Hero = () => (
-  <section id="home">
+  <section id="home" style={{ position: 'relative' }}>
+    <HeroSnow />
     <div className="wrap">
       <div className="hero-inner">
 
@@ -26,15 +82,15 @@ const Hero = () => (
                 <div className="hero-info-col">
                   <div className="hero-info-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                      <rect x="2" y="4" width="20" height="13" rx="2"/><path d="M22 17H2l2 4h16z"/>
                     </svg>
-                    Junior Engineer @RMSI
+                    <TypingText />
                   </div>
                   <div className="hero-info-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="4" width="20" height="13" rx="2"/><path d="M22 17H2l2 4h16z"/>
+                      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
                     </svg>
-                    <TypingText text="Fullstack Developer" />
+                    Junior Engineer @RMSI
                   </div>
                   <div className="hero-info-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4285F4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
