@@ -1362,7 +1362,7 @@ body.light .c-message-box {
  justify-content: flex-start;
  gap: 12px;
  width: 100%;
- padding: 8px 13px;
+ padding: 14px 16px;
  border: none;
  background: transparent;
  color: var(--tx);
@@ -1370,7 +1370,7 @@ body.light .c-message-box {
  cursor: pointer;
 }
 .c-accordion-toggle:hover .c-accordion-label {
- color: var(--a2);
+ color: var(--tx);
 }
 .c-accordion-icon {
  display: flex; align-items: center; justify-content: center;
@@ -1388,7 +1388,7 @@ body.light .c-message-box {
  align-items: center;
 }
 .c-accordion-label {
- font-size: 1rem;
+ font-size: .88rem;
  font-weight: 700;
  line-height: 1;
  color: var(--tx);
