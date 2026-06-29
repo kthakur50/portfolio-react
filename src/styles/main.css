@@ -1236,7 +1236,7 @@ body.light .edu-item:hover .edu-card {
 }
 .contact-grid {
  display: grid;
- grid-template-columns: 1fr 1.4fr;
+ grid-template-columns: 1fr 1.25fr;
  gap: 60px;
  align-items: start;
  margin: 0;
@@ -1255,6 +1255,7 @@ body.light .edu-item:hover .edu-card {
  color: var(--a2);
  position: relative;
  padding-left: 16px;
+ margin-bottom: 18px;
 }
 .c-info-title::before {
  content: '';
@@ -1323,9 +1324,9 @@ body.light .c-message-box {
 .c-accordion-toggle {
  display: flex;
  align-items: center;
- gap: 14px;
+ gap: 12px;
  width: 100%;
- padding: 14px 18px;
+ padding: 11px 16px;
  border: none;
  background: transparent;
  color: var(--tx);
@@ -1337,9 +1338,9 @@ body.light .c-message-box {
 }
 .c-accordion-icon {
  display: flex; align-items: center; justify-content: center;
- width: 30px; height: 30px;
+ width: 26px; height: 26px;
  flex-shrink: 0;
- border-radius: 8px;
+ border-radius: 7px;
  background: rgba(34,160,99,.10);
  border: 1px solid rgba(34,160,99,.25);
  color: var(--a2);
@@ -1348,16 +1349,20 @@ body.light .c-message-box {
  flex: 1;
  display: flex;
  flex-direction: column;
- gap: 2px;
+ justify-content: center;
+ gap: 3px;
+ line-height: 1.2;
 }
 .c-accordion-label {
- font-size: .82rem;
+ font-size: .8rem;
  font-weight: 600;
+ line-height: 1.2;
  color: var(--tx);
  transition: color var(--ease);
 }
 .c-accordion-sub {
- font-size: .68rem;
+ font-size: .66rem;
+ line-height: 1.2;
  color: var(--mu);
  opacity: .7;
  font-weight: 400;

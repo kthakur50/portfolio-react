@@ -30,9 +30,10 @@ const Contact = () => {
           <h2>Contact<em>.</em></h2>
         </div>
 
+        <div className="c-info-title sr" style={{ transitionDelay: '.02s' }}>Get in touch</div>
+
         <div className="contact-grid">
           <div className="c-info sr" style={{ transitionDelay: '.05s' }}>
-            <div className="c-info-title">Get in touch</div>
             <p>
               Open to new opportunities, collaborations, and freelance projects.
               Feel free to reach out — I usually respond within 24 hours.
