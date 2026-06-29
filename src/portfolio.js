@@ -374,7 +374,7 @@ function initWin3DCube() {
     cancelAnimationFrame(spinRAF);
     function loop() {
       if (dragging) { spinRAF = null; return; }
-      rotY += 0.8;  // clockwise (faster)
+      rotY += 0.4;  // clockwise (slower)
       applyRot();
       spinRAF = requestAnimationFrame(loop);
     }

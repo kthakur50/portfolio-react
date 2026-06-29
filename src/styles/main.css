@@ -1141,12 +1141,12 @@ body.light #education { background: transparent; }
  content: '';
  position: absolute;
  left: -29px;
- top: calc(50% + 24px);
- bottom: 8px;
+ top: 52px;
+ bottom: 0;
  width: 1px;
  background: linear-gradient(
  180deg,
- var(--br) 0%,
+ var(--br) 60%,
  transparent 100%
  );
  opacity: .5;
@@ -1155,8 +1155,8 @@ body.light .edu-item::before { opacity: .7; }
 .edu-node {
  position: absolute;
  left: -46px;
- top: 50%;
- transform: translateY(-50%);
+ top: 18px;
+ transform: none;
  width: 34px;
  height: 34px;
  border-radius: 9px;
@@ -1353,7 +1353,7 @@ body.light .c-message-box {
  align-items: center;
  gap: 12px;
  width: 100%;
- padding: 11px 16px;
+ padding: 8px 13px;
  border: none;
  background: transparent;
  color: var(--tx);
@@ -1365,11 +1365,12 @@ body.light .c-message-box {
 }
 .c-accordion-icon {
  display: flex; align-items: center; justify-content: center;
- width: 26px; height: 26px;
+ width: 24px; height: 24px;
  flex-shrink: 0;
- border-radius: 7px;
- background: rgba(34,160,99,.10);
- border: 1px solid rgba(34,160,99,.25);
+ align-self: center;
+ border-radius: 6px;
+ background: rgba(34,160,99,.18);
+ border: 1px solid rgba(34,160,99,.55);
  color: var(--a2);
 }
 .c-accordion-label-wrap {
@@ -1378,9 +1379,9 @@ body.light .c-message-box {
  align-items: center;
 }
 .c-accordion-label {
- font-size: .92rem;
+ font-size: 1rem;
  font-weight: 700;
- line-height: 1.2;
+ line-height: 1;
  color: var(--tx);
  transition: color var(--ease);
 }
@@ -1983,22 +1984,22 @@ body.light .win3d-scene.mode-3d .win3d-face .wt-cube-single {
  z-index: 3;
 }
 .wt svg {
- width: clamp(26px, 2.8vw, 40px);
- height: clamp(26px, 2.8vw, 40px);
+ width: clamp(18px, 2vw, 28px);
+ height: clamp(18px, 2vw, 28px);
  position: relative;
  z-index: 3;
  display: block;
  filter: brightness(1.12) saturate(1.12);
 }
 .win3d-scene.mode-3d .win3d-face .wt svg {
- width: clamp(18px, 1.8vw, 28px);
- height: clamp(18px, 1.8vw, 28px);
+ width: clamp(18px, 1.9vw, 28px);
+ height: clamp(18px, 1.9vw, 28px);
 }
 .win3d-scene.mode-3d .win3d-face .wt-name {
- font-size: clamp(.45rem, 0.5vw, .62rem);
+ font-size: clamp(18px, 1.9vw, 28px);
 }
 .wt-name {
- font-size: clamp(.58rem, 0.7vw, .78rem);
+ font-size: clamp(18px, 2vw, 28px);
  font-weight: 700;
  letter-spacing: .04em;
  font-family: -apple-system, 'SF Pro Display', BlinkMacSystemFont, sans-serif;

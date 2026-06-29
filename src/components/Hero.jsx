@@ -25,16 +25,10 @@ const Hero = () => (
               <div className="hero-info-grid">
                 <div className="hero-info-col">
                   <div className="hero-info-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="4" width="20" height="13" rx="2"/><path d="M22 17H2l2 4h16z"/>
-                    </svg>
-                    <TypingText text="Fullstack Developer" />
-                  </div>
-                  <div className="hero-info-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="4" width="20" height="13" rx="2"/><path d="M1 20h22"/>
                     </svg>
-                    GenAI Engineer
+                    <TypingText texts={["GenAI Engineer", "Fullstack Developer"]} />
                   </div>
                   <div className="hero-info-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
