@@ -75,8 +75,20 @@ function initHam() {
       const open = mob.classList.toggle('open');
       ham.classList.toggle('open', open);
     });
+    mob.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mob.classList.remove('open');
+        ham.classList.remove('open');
+      });
+    });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
+        mob.classList.remove('open');
+        ham.classList.remove('open');
+      }
+    });
+    document.addEventListener('click', e => {
+      if (mob.classList.contains('open') && !mob.contains(e.target) && !ham.contains(e.target)) {
         mob.classList.remove('open');
         ham.classList.remove('open');
       }
@@ -223,12 +235,12 @@ function initWin3DCube() {
   // Set A (front-style): React, Next.js, JavaScript, JS  → indices 0,1,12,4
   // Set B (back-style):  TS, Node.js, MongoDB, Python  → indices 2,3,7,5
   const faceSkills = {
-    wFront:  { flat:[0,1,4,12] },
-    wBack:   { flat:[2,3,7,5]  },
-    wRight:  { flat:[2,3,7,5]  },
-    wLeft:   { flat:[0,1,4,12] },
-    wTop:    { flat:[0,1,4,12] },
-    wBottom: { flat:[2,3,7,5]  },
+    wFront:  { flat:[0,1,4,12],  single:false },  // React, Next.js, JS, Tailwind CSS (4 tiles)
+    wBack:   { flat:[2,6,7,10], single:false },  // TypeScript, Node.js, MongoDB, Git (4 tiles)
+    wRight:  { flat:[5],         single:true  },  // Python (1 tile)
+    wLeft:   { flat:[8],         single:true  },  // Docker (1 tile)
+    wTop:    { flat:[0,1,4,12],  single:false },  // repeat front
+    wBottom: { flat:[2,6,7,10], single:false },  // repeat back
   };
 
   const glowMap = {
@@ -248,7 +260,8 @@ function initWin3DCube() {
       const brandColor = glowMap[skill.name] || '#aaaaaa';
       d.className = 'wt wt-cube-single';
       // Subtle brand colour background + matching glow
-      d.style.setProperty('background', 'rgba(255,255,255,0.06)', 'important');
+      const isLight = document.body.classList.contains('light');
+      d.style.setProperty('background', isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.06)', 'important');
       d.style.setProperty('--tile-glow', brandColor + '88');
       const svg = skill.svg.replace(/width="38" height="38"/g, 'width="56" height="56"');
       d.innerHTML = `<div class="wt-inner">${svg}<span class="wt-name">${skill.name}</span></div>`;
@@ -276,11 +289,20 @@ function initWin3DCube() {
       const face = document.getElementById(faceId);
       if (!face) return;
       face.innerHTML = '';
-      cfg.flat.forEach((idx, i) => {
-        const tile = makeTile(skills[idx % skills.length], false);
-        tile.style.borderRadius = RADII[i] || '0';
+      if (cfg.single) {
+        face.classList.add('win3d-face-single');
+        face.classList.remove('win3d-face-grid');
+        const tile = makeTile(skills[cfg.flat[0] % skills.length], true);
         face.appendChild(tile);
-      });
+      } else {
+        face.classList.remove('win3d-face-single');
+        face.classList.add('win3d-face-grid');
+        cfg.flat.forEach((idx, i) => {
+          const tile = makeTile(skills[idx % skills.length], false);
+          tile.style.borderRadius = RADII[i] || '0';
+          face.appendChild(tile);
+        });
+      }
     });
   }
 
