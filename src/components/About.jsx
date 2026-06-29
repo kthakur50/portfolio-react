@@ -18,6 +18,10 @@ const About = () => (
             <em>AI-integrated development</em> — combining smart architecture with{' '}
             <strong>intelligent automation</strong> and <strong>real-time data</strong>.
           </p>
+          <p className="about-para">
+            Always curious to learn <em>new tools</em> and <em>frameworks</em>, with a strong focus on{' '}
+            <strong>performance</strong> and writing code that's easy for teams to maintain and scale.
+          </p>
       </div>
 
     </div>

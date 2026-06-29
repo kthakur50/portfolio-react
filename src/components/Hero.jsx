@@ -31,6 +31,12 @@ const Hero = () => (
                     <TypingText text="Fullstack Developer" />
                   </div>
                   <div className="hero-info-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="4" width="20" height="13" rx="2"/><path d="M1 20h22"/>
+                    </svg>
+                    GenAI Engineer
+                  </div>
+                  <div className="hero-info-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
                     </svg>

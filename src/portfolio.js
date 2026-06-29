@@ -236,11 +236,11 @@ function initWin3DCube() {
   // Set B (back-style):  TS, Node.js, MongoDB, Python  → indices 2,3,7,5
   const faceSkills = {
     wFront:  { flat:[0,1,4,12],  single:false },  // React, Next.js, JS, Tailwind CSS (4 tiles)
-    wBack:   { flat:[2,6,7,10], single:false },  // TypeScript, Node.js, MongoDB, Git (4 tiles)
-    wRight:  { flat:[5],         single:true  },  // Python (1 tile)
-    wLeft:   { flat:[8],         single:true  },  // Docker (1 tile)
-    wTop:    { flat:[0,1,4,12],  single:false },  // repeat front
-    wBottom: { flat:[2,6,7,10], single:false },  // repeat back
+    wBack:   { flat:[2],         single:true  },  // TypeScript (1 tile)
+    wRight:  { flat:[3],         single:true  },  // Node.js (1 tile)
+    wLeft:   { flat:[5],         single:true  },  // Python (1 tile)
+    wTop:    { flat:[10],        single:true  },  // Git (1 tile)
+    wBottom: { flat:[8],         single:true  },  // Docker (1 tile)
   };
 
   const glowMap = {
@@ -263,7 +263,7 @@ function initWin3DCube() {
       const isLight = document.body.classList.contains('light');
       d.style.setProperty('background', isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.06)', 'important');
       d.style.setProperty('--tile-glow', brandColor + '88');
-      const svg = skill.svg.replace(/width="38" height="38"/g, 'width="56" height="56"');
+      const svg = skill.svg.replace(/width="38" height="38"/g, 'width="72" height="72"');
       d.innerHTML = `<div class="wt-inner">${svg}<span class="wt-name">${skill.name}</span></div>`;
     } else {
       d.className = 'wt';
@@ -374,7 +374,7 @@ function initWin3DCube() {
     cancelAnimationFrame(spinRAF);
     function loop() {
       if (dragging) { spinRAF = null; return; }
-      rotY += 0.5;  // clockwise
+      rotY += 0.8;  // clockwise (faster)
       applyRot();
       spinRAF = requestAnimationFrame(loop);
     }
