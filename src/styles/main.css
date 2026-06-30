@@ -1953,19 +1953,11 @@ body.light .win3d-btn.active {
   .nav-ham {
     display: flex !important;
     width: clamp(30px, 4vw, 36px); height: clamp(30px, 4vw, 36px); padding: 6px;
-    border-radius: 9px;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.08);
   }
-  body.light .nav-ham { background: rgba(0,0,0,.05); border-color: rgba(0,0,0,.08); }
   .nav-sep-line { display: none; }
   .nav-toggle {
     width: clamp(30px, 4vw, 36px); height: clamp(30px, 4vw, 36px);
-    border-radius: 9px;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.08);
   }
-  body.light .nav-toggle { background: rgba(0,0,0,.05); border-color: rgba(0,0,0,.08); }
   .nav-toggle svg { width: clamp(14px, 2vw, 17px); height: clamp(14px, 2vw, 17px); }
   .nav-mob-ctrl { gap: 8px; }
 
@@ -2054,18 +2046,10 @@ body.light .win3d-btn.active {
   body.light .nav-sep-line { background: rgba(0,0,0,.14); }
   .nav-ham {
     display: flex !important; width: 32px; height: 32px; padding: 7px;
-    border-radius: 9px;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.08);
   }
-  body.light .nav-ham { background: rgba(0,0,0,.05); border-color: rgba(0,0,0,.08); }
   .nav-toggle {
     width: 32px; height: 32px;
-    border-radius: 9px;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.08);
   }
-  body.light .nav-toggle { background: rgba(0,0,0,.05); border-color: rgba(0,0,0,.08); }
   .nav-toggle svg { width: 15px; height: 15px; }
   /* Desk links: tablet → small card dropdown, not inline expand */
   .nav-desk-links {
@@ -2078,11 +2062,11 @@ body.light .win3d-btn.active {
     width: 172px;
     flex-direction: column;
     gap: 1px;
-    background: rgba(16, 20, 16, 0.90);
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(24px) saturate(160%);
     -webkit-backdrop-filter: blur(24px) saturate(160%);
     border: 1px solid rgba(255,255,255,.09);
-    border-radius: 13px;
+    border-radius: 4px;
     padding: 7px 5px 9px;
     box-shadow: 0 8px 28px rgba(0,0,0,.32), 0 2px 6px rgba(0,0,0,.18);
     z-index: 998;
@@ -2128,7 +2112,7 @@ body.light .win3d-btn.active {
 
   /* ── Hero: stacked layout on tablet portrait — name/info top, cube below ── */
   #home {
-    padding: clamp(32px, 5vw, 52px) 0 clamp(40px, 6vw, 64px);
+    padding: clamp(64px, 10vw, 92px) 0 clamp(40px, 6vw, 64px);
     min-height: auto;
     align-items: flex-start;
   }
@@ -2176,8 +2160,8 @@ body.light .win3d-btn.active {
   .hero-info { padding: clamp(12px, 2vw, 18px) clamp(14px, 2.2vw, 22px); margin-bottom: clamp(10px, 1.8vw, 14px); }
   .hero-info-grid { flex-direction: row; align-items: stretch; gap: 0; }
   .hero-info-col { flex: 1 1 50%; min-width: 0; }
-  .hero-info-col:first-child { padding-right: clamp(16px, 3vw, 32px); border-right: none; padding-bottom: 0; border-bottom: none; }
-  .hero-info-col:last-child { padding-left: clamp(14px, 2.5vw, 24px); padding-top: 0; }
+  .hero-info-col:first-child { padding-right: clamp(8px, 1.5vw, 16px); border-right: none; padding-bottom: 0; border-bottom: none; }
+  .hero-info-col:last-child { padding-left: clamp(6px, 1.2vw, 14px); padding-top: 0; }
   .hero-info-item {
     font-size: clamp(.7rem, 1.6vw, .8rem);
     height: clamp(28px, 4.5vw, 34px);
