@@ -247,9 +247,8 @@ function initWin3DCube() {
     if (isCube) {
       const brandColor = glowMap[skill.name] || '#aaaaaa';
       d.className = 'wt wt-cube-single';
-      // Subtle brand colour background + matching glow
-      const isLight = document.body.classList.contains('light');
-      d.style.setProperty('background', isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.06)', 'important');
+      // Use the skill's own gradient (same as grid tiles) for consistent visibility
+      d.style.setProperty('background', `linear-gradient(135deg,${skill.grad[0]},${skill.grad[1]})`, 'important');
       d.style.setProperty('--tile-glow', brandColor + '88');
       const svg = skill.svg.replace(/width="38" height="38"/g, 'width="72" height="72"');
       d.innerHTML = `<div class="wt-inner">${svg}<span class="wt-name">${skill.name}</span></div>`;

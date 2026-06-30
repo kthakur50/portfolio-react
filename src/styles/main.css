@@ -1680,16 +1680,14 @@ body.light .skill-card--tl {
 }
 body.light .win3d-scene.mode-3d .win3d-face .wt,
 body.light .win3d-scene.mode-3d .win3d-face .wt-cube-single {
- background: #eef2ef !important;
- border: 1px solid rgba(0,0,0,.08);
- box-shadow: 0 1px 3px rgba(0,0,0,.06);
+ border: 1px solid rgba(0,0,0,.1);
+ box-shadow: 0 1px 4px rgba(0,0,0,.1);
 }
 
-/* flat (non-3D) mode: give tiles a visible card background in light mode */
+/* flat (non-3D) mode: keep each skill's own gradient, just add a visible border in light mode */
 body.light .win3d-face .wt {
- background: #eef2ef !important;
- border: 1px solid rgba(0,0,0,.08);
- box-shadow: 0 1px 3px rgba(0,0,0,.06);
+ border: 1px solid rgba(0,0,0,.1);
+ box-shadow: 0 1px 4px rgba(0,0,0,.1);
 }
 body.light .win3d-scene:not(.mode-3d) .win3d-face {
  background: transparent;
@@ -1828,8 +1826,8 @@ body.light .win3d-scene:not(.mode-3d) .win3d-face {
  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
 }
 body.light .wt-name {
- color: #1d2b23;
- text-shadow: none;
+ color: rgba(255,255,255,0.96);
+ text-shadow: 0 1px 6px rgba(0,0,0,0.6);
 }
 
 @keyframes wtBounce {
