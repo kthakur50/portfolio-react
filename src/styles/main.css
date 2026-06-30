@@ -1673,23 +1673,19 @@ body.light .skill-card--tl {
  backface-visibility: visible;
  -webkit-backface-visibility: visible;
 }
-/* all cube tiles: subtle white */
-.win3d-scene.mode-3d .win3d-face .wt,
-.win3d-scene.mode-3d .win3d-face .wt-cube-single {
+/* all cube tiles: uniform subtle background, same look everywhere */
+.win3d-face .wt,
+.win3d-face .wt-cube-single {
  background: rgba(255,255,255,0.09) !important;
+ border: 1px solid rgba(255,255,255,.08);
 }
-body.light .win3d-scene.mode-3d .win3d-face .wt,
-body.light .win3d-scene.mode-3d .win3d-face .wt-cube-single {
+body.light .win3d-face .wt,
+body.light .win3d-face .wt-cube-single {
+ background: rgba(0,0,0,0.055) !important;
  border: 1px solid rgba(0,0,0,.1);
- box-shadow: 0 1px 4px rgba(0,0,0,.1);
+ box-shadow: 0 1px 4px rgba(0,0,0,.08);
 }
-
-/* flat (non-3D) mode: keep each skill's own gradient, just add a visible border in light mode */
-body.light .win3d-face .wt {
- border: 1px solid rgba(0,0,0,.1);
- box-shadow: 0 1px 4px rgba(0,0,0,.1);
-}
-body.light .win3d-scene:not(.mode-3d) .win3d-face {
+.win3d-scene:not(.mode-3d) .win3d-face {
  background: transparent;
  border-radius: 20px;
 }
@@ -1737,12 +1733,12 @@ body.light .win3d-scene:not(.mode-3d) .win3d-face {
  width: 100%;
  height: 100%;
  flex-shrink: 0;
- border-radius: 10px;
+ border-radius: 6px;
 }
-.win3d-scene.mode-3d .win3d-face .wt:nth-child(1) { border-radius: 10px 0 0 0; }
-.win3d-scene.mode-3d .win3d-face .wt:nth-child(2) { border-radius: 0 10px 0 0; }
-.win3d-scene.mode-3d .win3d-face .wt:nth-child(3) { border-radius: 0 0 0 10px; }
-.win3d-scene.mode-3d .win3d-face .wt:nth-child(4) { border-radius: 0 0 10px 0; }
+.win3d-scene.mode-3d .win3d-face .wt:nth-child(1) { border-radius: 10px 6px 6px 6px; }
+.win3d-scene.mode-3d .win3d-face .wt:nth-child(2) { border-radius: 6px 10px 6px 6px; }
+.win3d-scene.mode-3d .win3d-face .wt:nth-child(3) { border-radius: 6px 6px 6px 10px; }
+.win3d-scene.mode-3d .win3d-face .wt:nth-child(4) { border-radius: 6px 6px 10px 6px; }
 
 /* ── CUBE SINGLE TILE (grey glass) ──────────────────────────── */
 .wt.wt-cube-single {
@@ -1826,8 +1822,8 @@ body.light .win3d-scene:not(.mode-3d) .win3d-face {
  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
 }
 body.light .wt-name {
- color: rgba(255,255,255,0.96);
- text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+ color: #1d2b23;
+ text-shadow: none;
 }
 
 @keyframes wtBounce {

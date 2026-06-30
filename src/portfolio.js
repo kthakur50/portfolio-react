@@ -247,14 +247,11 @@ function initWin3DCube() {
     if (isCube) {
       const brandColor = glowMap[skill.name] || '#aaaaaa';
       d.className = 'wt wt-cube-single';
-      // Use the skill's own gradient (same as grid tiles) for consistent visibility
-      d.style.setProperty('background', `linear-gradient(135deg,${skill.grad[0]},${skill.grad[1]})`, 'important');
       d.style.setProperty('--tile-glow', brandColor + '88');
       const svg = skill.svg.replace(/width="38" height="38"/g, 'width="72" height="72"');
       d.innerHTML = `<div class="wt-inner">${svg}<span class="wt-name">${skill.name}</span></div>`;
     } else {
       d.className = 'wt';
-      d.style.background = `linear-gradient(135deg,${skill.grad[0]},${skill.grad[1]})`;
       d.style.setProperty('--tile-glow', (glowMap[skill.name] || '#fff') + '99');
       d.innerHTML = `<div class="wt-inner">${skill.svg}<span class="wt-name">${skill.name}</span></div>`;
     }
