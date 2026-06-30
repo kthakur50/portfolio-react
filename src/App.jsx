@@ -10,7 +10,6 @@ import Projects   from './components/Projects';
 import Education  from './components/Education';
 import Contact    from './components/Contact';
 import Footer     from './components/Footer';
-import ShootingStars from './components/ShootingStars';
 import { initAll } from './portfolio';
 
 const App = () => {
@@ -18,7 +17,6 @@ const App = () => {
 
   return (
     <>
-      <ShootingStars />
       <Navbar />
       <main>
         <Hero />
