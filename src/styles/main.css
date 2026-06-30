@@ -2037,7 +2037,6 @@ body.light .win3d-btn.active {
   section { padding: 64px 0; }
   .sec-hd { margin-bottom: 28px; }
   .sec-hd h2 { font-size: clamp(1.3rem, 3.5vw, 1.7rem); }
-  html, body { overflow-x: hidden; }
 
   /* ── Navbar: desktop-style on tablet portrait ── */
   .nav { padding: 8px 0; }
@@ -2050,8 +2049,9 @@ body.light .win3d-btn.active {
   }
   .nav-logo .logo-k { font-size: clamp(.78rem, 2vw, .92rem); }
   /* Show desktop-style controls */
-  .nav-right { display: flex !important; gap: 8px; }
-  .nav-sep-line { display: none; }
+  .nav-right { display: flex !important; gap: 10px; grid-column: 3; justify-self: end; }
+  .nav-sep-line { display: flex; width: 1px; height: 18px; background: rgba(255,255,255,.14); margin: 0; }
+  body.light .nav-sep-line { background: rgba(0,0,0,.14); }
   .nav-ham {
     display: flex !important; width: 32px; height: 32px; padding: 7px;
     border-radius: 9px;
@@ -2176,8 +2176,7 @@ body.light .win3d-btn.active {
   .hero-info { padding: clamp(12px, 2vw, 18px) clamp(14px, 2.2vw, 22px); margin-bottom: clamp(10px, 1.8vw, 14px); }
   .hero-info-grid { flex-direction: row; align-items: stretch; gap: 0; }
   .hero-info-col { flex: 1 1 50%; min-width: 0; }
-  .hero-info-col:first-child { padding-right: clamp(16px, 3vw, 32px); border-right: 1px solid rgba(138,170,152,.10); padding-bottom: 0; border-bottom: none; }
-  body.light .hero-info-col:first-child { border-right-color: rgba(0,0,0,.08); }
+  .hero-info-col:first-child { padding-right: clamp(16px, 3vw, 32px); border-right: none; padding-bottom: 0; border-bottom: none; }
   .hero-info-col:last-child { padding-left: clamp(14px, 2.5vw, 24px); padding-top: 0; }
   .hero-info-item {
     font-size: clamp(.7rem, 1.6vw, .8rem);
@@ -2196,23 +2195,23 @@ body.light .win3d-btn.active {
     flex: 1;
   }
 
-  /* Cube: centered below content, full size */
-  .win3d-scene { width: clamp(190px, 38vw, 260px); margin-top: 0; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(190px, 38vw, 260px); height: clamp(190px, 38vw, 260px); }
-  .win3d-front  { transform: translateZ(clamp(95px, 19vw, 130px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(95px, 19vw, 130px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(95px, 19vw, 130px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(95px, 19vw, 130px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(95px, 19vw, 130px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(95px, 19vw, 130px)); }
+  /* Cube: centered below content, smaller on tablet */
+  .win3d-scene { width: clamp(140px, 26vw, 190px); margin-top: 0; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(140px, 26vw, 190px); height: clamp(140px, 26vw, 190px); }
+  .win3d-front  { transform: translateZ(clamp(70px, 13vw, 95px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(70px, 13vw, 95px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(70px, 13vw, 95px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(70px, 13vw, 95px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(70px, 13vw, 95px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(70px, 13vw, 95px)); }
   .win3d-scene.mode-3d .win3d-cube,
-  .win3d-scene.mode-3d .win3d-face { width: clamp(190px, 38vw, 260px); height: clamp(190px, 38vw, 260px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(95px, 19vw, 130px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(95px, 19vw, 130px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(95px, 19vw, 130px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(95px, 19vw, 130px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(95px, 19vw, 130px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(95px, 19vw, 130px)); }
+  .win3d-scene.mode-3d .win3d-face { width: clamp(140px, 26vw, 190px); height: clamp(140px, 26vw, 190px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(70px, 13vw, 95px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(70px, 13vw, 95px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(70px, 13vw, 95px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(70px, 13vw, 95px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(70px, 13vw, 95px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(70px, 13vw, 95px)); }
   .win3d-controls {
     position: static;
     transform: none;
