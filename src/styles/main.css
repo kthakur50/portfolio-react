@@ -2045,14 +2045,14 @@ body.light .win3d-btn.active {
 
   /* ── Hero: row layout — text left, cube right bottom-aligned ── */
   #home {
-    padding: clamp(32px, 5vw, 56px) 0;
+    padding: clamp(44px, 7vw, 72px) 0;
     min-height: calc(100svh - var(--nav));
     align-items: center;
   }
   .hero-inner {
     flex-direction: column;
     align-items: center;
-    gap: clamp(28px, 5vw, 44px);
+    gap: clamp(36px, 6vw, 56px);
   }
   .hero-left { flex: 1; width: 100%; max-width: unset; order: 1; min-width: 0; display: flex; flex-direction: column; }
   .hero-right {
@@ -2069,58 +2069,59 @@ body.light .win3d-btn.active {
   /* Name */
   .hero-name {
     font-size: clamp(3rem, 9vw, 4.6rem);
-    line-height: .86;
+    line-height: .9;
     letter-spacing: -.04em;
-    margin-bottom: clamp(16px, 2.5vw, 24px);
+    margin-bottom: clamp(20px, 3.2vw, 30px);
   }
   /* Role */
   /* Info */
   .hero-block { min-width: 0; width: 100%; }
-  .hero-avail { font-size: clamp(.7rem, 1.6vw, .88rem); margin-bottom: clamp(10px, 1.6vw, 16px); }
-  .hero-info { padding: clamp(10px, 1.8vw, 16px) clamp(14px, 2.2vw, 20px); margin-bottom: clamp(10px, 1.6vw, 16px); }
+  .hero-avail { font-size: clamp(.72rem, 1.7vw, .92rem); margin-bottom: clamp(14px, 2vw, 20px); letter-spacing: .01em; }
+  .hero-info { padding: clamp(12px, 2vw, 18px) clamp(16px, 2.5vw, 22px); margin-bottom: clamp(14px, 2vw, 20px); }
   .hero-info-grid { flex-direction: row; gap: 0; }
   .hero-info-col { flex: 1; }
   .hero-info-col:first-child { padding-right: clamp(12px, 2.2vw, 24px); border-right: none; padding-bottom: 0; border-bottom: none; }
   .hero-info-col:last-child { padding-left: clamp(12px, 2.2vw, 24px); padding-top: 0; }
   .hero-info-item {
-    font-size: clamp(.78rem, 1.6vw, .94rem);
-    height: clamp(32px, 4.5vw, 40px);
-    gap: clamp(7px, 1.1vw, 12px);
+    font-size: clamp(.8rem, 1.7vw, .96rem);
+    height: clamp(36px, 5vw, 44px);
+    gap: clamp(8px, 1.2vw, 13px);
     white-space: nowrap;
-    padding: clamp(4px, .7vw, 6px) 0;
+    padding: clamp(6px, 1vw, 9px) 0;
+    line-height: 1.5;
   }
-  .hero-info-item svg { width: clamp(17px, 2.6vw, 23px); height: clamp(17px, 2.6vw, 23px); }
+  .hero-info-item svg { width: clamp(18px, 2.8vw, 24px); height: clamp(18px, 2.8vw, 24px); }
   /* Buttons */
-  .hero-btns { flex-wrap: nowrap; gap: clamp(7px, 1.1vw, 11px); margin-top: 0; }
+  .hero-btns { flex-wrap: nowrap; gap: clamp(8px, 1.3vw, 13px); margin-top: 0; }
   .hero-btns .btn-o, .hero-btns .btn-s, .hero-btns .btn-li {
-    font-size: clamp(.72rem, 1.5vw, .86rem);
-    padding: clamp(9px, 1.4vw, 13px) clamp(9px, 1.6vw, 16px);
+    font-size: clamp(.74rem, 1.6vw, .9rem);
+    padding: clamp(10px, 1.6vw, 14px) clamp(10px, 1.8vw, 18px);
     flex: 1;
   }
 
-  /* Cube: scaled, bottom of hero-right */
-  .win3d-scene { width: clamp(230px, 36vw, 320px); margin-top: 0; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(230px, 36vw, 320px); height: clamp(230px, 36vw, 320px); }
-  .win3d-front  { transform: translateZ(clamp(115px, 18vw, 160px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(115px, 18vw, 160px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(115px, 18vw, 160px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(115px, 18vw, 160px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(115px, 18vw, 160px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(115px, 18vw, 160px)); }
+  /* Cube: both window-grid and 3d-cube same size, slightly bigger */
+  .win3d-scene { width: clamp(260px, 42vw, 360px); margin-top: 0; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(260px, 42vw, 360px); height: clamp(260px, 42vw, 360px); }
+  .win3d-front  { transform: translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(130px, 21vw, 180px)); }
   .win3d-scene.mode-3d .win3d-cube,
-  .win3d-scene.mode-3d .win3d-face { width: clamp(155px, 23vw, 235px); height: clamp(155px, 23vw, 235px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(77px, 11.5vw, 117px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(77px, 11.5vw, 117px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(77px, 11.5vw, 117px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(77px, 11.5vw, 117px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(77px, 11.5vw, 117px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(77px, 11.5vw, 117px)); }
-  .win3d-controls { position: relative; bottom: auto; left: auto; transform: none; margin-top: 14px; gap: 8px; }
-  .win3d-btn { font-size: .82rem; padding: 7px 16px; }
-  .win3d-scene.mode-3d .win3d-face .wt svg { width: clamp(22px, 3.4vw, 30px); height: clamp(22px, 3.4vw, 30px); }
-  .win3d-scene.mode-3d .win3d-face .wt-name { font-size: clamp(.56rem, 1.1vw, .68rem); }
-  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-cube-single svg { width: 64px !important; height: 64px !important; }
-  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-name { font-size: .72rem; }
+  .win3d-scene.mode-3d .win3d-face { width: clamp(260px, 42vw, 360px); height: clamp(260px, 42vw, 360px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(130px, 21vw, 180px)); }
+  .win3d-controls { position: relative; bottom: auto; left: auto; transform: none; margin-top: 16px; gap: 8px; }
+  .win3d-btn { font-size: .86rem; padding: 8px 20px; }
+  .win3d-scene.mode-3d .win3d-face .wt svg { width: clamp(26px, 4vw, 36px); height: clamp(26px, 4vw, 36px); }
+  .win3d-scene.mode-3d .win3d-face .wt-name { font-size: clamp(.6rem, 1.2vw, .74rem); }
+  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-cube-single svg { width: 72px !important; height: 72px !important; }
+  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-name { font-size: .78rem; }
 
   /* About */
   .about-para { font-size: .85rem; line-height: 1.95; }
