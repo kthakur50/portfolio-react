@@ -223,12 +223,12 @@ function initWin3DCube() {
   // Set A (front-style): React, Next.js, JavaScript, JS  → indices 0,1,12,4
   // Set B (back-style):  TS, Node.js, MongoDB, Python  → indices 2,3,7,5
   const faceSkills = {
-    wFront:  { flat:[0,1,4,12],  single:false },  // React, Next.js, JS, Tailwind CSS (4 tiles)
+    wFront:  { flat:[0,1,4,11],  single:false },  // React, Next.js, JS, Tailwind CSS (4 tiles)
     wBack:   { flat:[2],         single:true  },  // TypeScript (1 tile)
     wRight:  { flat:[3],         single:true  },  // Node.js (1 tile)
     wLeft:   { flat:[5],         single:true  },  // Python (1 tile)
-    wTop:    { flat:[10],        single:true  },  // Git (1 tile)
-    wBottom: { flat:[8],         single:true  },  // Docker (1 tile)
+    wTop:    { flat:[9],         single:true  },  // Git (1 tile)
+    wBottom: { flat:[7],         single:true  },  // Docker (1 tile)
   };
 
   const glowMap = {
