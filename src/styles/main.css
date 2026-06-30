@@ -2287,22 +2287,18 @@ body.light .win3d-btn.active {
     width: 34px; height: 34px;
     padding: 8px;
     display: flex !important;
-    border-radius: 9px;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.08);
   }
-  body.light .nav-ham { background: rgba(0,0,0,.05); border-color: rgba(0,0,0,.08); }
   /* Mobile dropdown */
   .nav-mob {
     position: fixed;
     top: calc(var(--nav) + 8px);
     left: var(--pad);
     right: var(--pad);
-    background: rgba(14,18,14,0.97);
+    background: rgba(15, 15, 15, 0.60);
     backdrop-filter: blur(28px) saturate(160%);
     -webkit-backdrop-filter: blur(28px) saturate(160%);
     border: 1px solid rgba(255,255,255,.09);
-    border-radius: 16px;
+    border-radius: 4px;
     padding: 8px;
     display: flex;
     flex-direction: column;
@@ -2316,7 +2312,7 @@ body.light .win3d-btn.active {
     box-shadow: 0 16px 48px rgba(0,0,0,.4);
   }
   body.light .nav-mob {
-    background: rgba(248,250,248,0.97);
+    background: rgba(255,255,255,0.82);
     border-color: rgba(0,0,0,.08);
     box-shadow: 0 16px 48px rgba(0,0,0,.12);
   }
@@ -2342,7 +2338,7 @@ body.light .win3d-btn.active {
 
   /* ── Hero: same row layout as desktop — text left, cube right ── */
   #home {
-    padding: clamp(20px, 4vw, 36px) 0;
+    padding: clamp(40px, 8vw, 56px) 0 clamp(20px, 4vw, 36px);
     min-height: calc(100svh - var(--nav));
     align-items: center;
   }
@@ -2375,13 +2371,13 @@ body.light .win3d-btn.active {
   /* Role */
   /* Info box */
   .hero-block { min-width: 0; width: 100%; }
-  .hero-avail { font-size: clamp(.54rem, 1.5vw, .7rem); margin-bottom: clamp(5px, 1.5vw, 9px); }
-  .hero-info { padding: clamp(5px, 1.5vw, 9px) clamp(8px, 2vw, 13px); margin-bottom: clamp(5px, 1.5vw, 9px); }
+  .hero-avail { font-size: clamp(.54rem, 1.5vw, .7rem); margin-bottom: clamp(6px, 1.6vw, 10px); }
+  .hero-info { padding: clamp(9px, 2vw, 14px) clamp(8px, 2vw, 13px); margin-bottom: clamp(6px, 1.6vw, 10px); }
   .hero-info-grid { flex-direction: row; gap: 0; }
   .hero-info-col { flex: 1; min-width: 0; }
-  .hero-info-col:first-child { padding-right: clamp(6px, 2vw, 14px); border-right: none; padding-bottom: 0; border-bottom: none; }
-  .hero-info-col:last-child { padding-left: clamp(6px, 2vw, 14px); padding-top: 0; }
-  .hero-info-item { font-size: clamp(.5rem, 1.7vw, .64rem); height: auto; gap: clamp(4px, 1.2vw, 7px); white-space: nowrap; padding: clamp(3px, .8vw, 5px) 0; overflow: hidden; text-overflow: ellipsis; }
+  .hero-info-col:first-child { padding-right: clamp(4px, 1.2vw, 8px); border-right: none; padding-bottom: 0; border-bottom: none; }
+  .hero-info-col:last-child { padding-left: clamp(3px, 1vw, 7px); padding-top: 0; }
+  .hero-info-item { font-size: clamp(.5rem, 1.7vw, .64rem); height: clamp(24px, 5vw, 30px); gap: clamp(4px, 1.2vw, 7px); white-space: nowrap; padding: clamp(3px, .8vw, 5px) 0; overflow: hidden; text-overflow: ellipsis; }
   .hero-info-item svg { width: clamp(11px, 2.6vw, 15px); height: clamp(11px, 2.6vw, 15px); flex-shrink: 0; }
   /* Buttons */
   .hero-btns { flex-wrap: wrap; gap: clamp(4px, 1.5vw, 7px); margin-top: 0; }
@@ -2393,7 +2389,7 @@ body.light .win3d-btn.active {
   }
 
   /* Cube: bottom of right col, proportionally smaller */
-  .win3d-scene { width: clamp(90px, 24vw, 150px); margin-top: 0; }
+  .win3d-scene { width: clamp(90px, 24vw, 150px); margin-top: 10px; }
   .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(90px, 24vw, 150px); height: clamp(90px, 24vw, 150px); }
   .win3d-front  { transform: translateZ(clamp(45px, 12vw, 75px)); }
   .win3d-back   { transform: rotateY(180deg) translateZ(clamp(45px, 12vw, 75px)); }
