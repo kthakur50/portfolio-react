@@ -67,7 +67,7 @@ const Experience = () => (
           <div className="exp-card">
             <div className="exp-card-top">
               <div className="exp-card-top-row">
-                <div className="exp-role">Freelance Frontend Developer</div>
+                <div className="exp-role">Fullstack Developer</div>
                 <span className="exp-period">Jan 2023 – Present</span>
               </div>
               <div className="exp-card-top-row">

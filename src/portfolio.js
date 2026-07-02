@@ -195,6 +195,11 @@ function initMasonry() {
         </div>
       </div>`;
     container.appendChild(el);
+
+    const linkEl = el.querySelector('.masonry-link');
+    if (linkEl && (!p.link || p.link === '#')) {
+      linkEl.addEventListener('click', e => e.preventDefault());
+    }
   });
 
   initSR();
