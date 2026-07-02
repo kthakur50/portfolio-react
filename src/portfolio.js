@@ -460,16 +460,34 @@ function initWin3DCube() {
       return;
     }
     const isTB = new Set(['wTop','wBottom']);
+
+    // First pass: how "front-facing" is each face right now, and which
+    // one is currently facing the viewer the most.
+    const dots = {};
+    let maxT = -Infinity, frontId = null;
     Object.entries(faceNormals).forEach(([id, [nx, ny, nz]]) => {
+      const dot = rotateNormal(nx, ny, nz, rotX, rotY);
+      const t = (dot + 1) / 2;
+      dots[id] = t;
+      if (t > maxT) { maxT = t; frontId = id; }
+    });
+
+    // Second pass: the face currently facing the viewer stays perfectly
+    // sharp; every other face gets a subtle blur that increases the
+    // further it is turned away from the camera.
+    Object.entries(dots).forEach(([id, t]) => {
       const face = document.getElementById(id);
       if (!face) return;
-      const dot = rotateNormal(nx, ny, nz, rotX, rotY);
-      const t   = (dot + 1) / 2;
       let opacity;
       if (t > 0.85)      opacity = 0.95;
       else if (t > 0.2)  opacity = isTB.has(id) ? 0.95 - (0.85-t)/0.65*0.10 : 0.95 - (0.85-t)/0.65*0.30;
       else               opacity = isTB.has(id) ? 0.85 - (0.2-t)/0.2*0.15   : 0.65 - (0.2-t)/0.2*0.45;
+
+      const isFront = id === frontId;
+      const blurPx = isFront ? 0 : Math.min(3.5, (1 - t) * 4);
+
       face.style.opacity = opacity;
+      face.style.filter = blurPx > 0.05 ? `blur(${blurPx.toFixed(2)}px)` : 'none';
     });
     requestAnimationFrame(updateFaceBlur);
   }
