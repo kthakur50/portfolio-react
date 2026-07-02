@@ -395,7 +395,7 @@ body.light .hero-name .ac-plain {
   width: 100%;
   border: 1px solid rgba(138,170,152,.10);
   border-radius: 10px;
-  padding: 17px 22px;
+  padding: 28px 22px;
   box-sizing: border-box;
   background: rgba(255,255,255,.025);
 }
@@ -421,14 +421,14 @@ body.light .hero-name .ac-plain {
  display: flex;
  align-items: center;
  gap: 11px;
- padding: 8px 0;
+ padding: 12px 0;
  font-size: .7rem;
  font-weight: 500;
  color: #9ab8ab;
  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
  transition: color .35s ease;
  white-space: nowrap;
- height: 29px;
+ height: 36px;
 }
 .hero-info-item:hover { color: var(--tx); }
 .hero-info-item svg {
