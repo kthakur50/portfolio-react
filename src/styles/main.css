@@ -1743,7 +1743,7 @@ body.light .win3d-face .wt-cube-single {
 /* ── CUBE SINGLE TILE (grey glass) ──────────────────────────── */
 .wt.wt-cube-single {
  gap: 0;
- border: none !important;
+ border: 1px solid rgba(255,255,255,.08);
  box-shadow: none;
  border-radius: 16px;
  width: 100%;
