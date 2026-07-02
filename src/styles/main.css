@@ -1764,6 +1764,10 @@ body.light .win3d-perspective::before {
  backface-visibility: visible;
  -webkit-backface-visibility: visible;
 }
+.win3d-scene.mode-3d .win3d-face:not(.win3d-front) {
+ gap: 2px;
+ padding: 2px;
+}
 /* single-tile face: full-face one skill */
 .win3d-scene.mode-3d .win3d-face.win3d-face-single {
  display: flex;
