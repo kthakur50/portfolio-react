@@ -1233,10 +1233,10 @@ body.light .c-message-box {
 .c-form {
  display: flex;
  flex-direction: column;
- gap: 8px;
- padding: 0 14px 10px;
+ gap: 14px;
+ padding: 0 14px 18px;
  border-top: 1px solid rgba(255,255,255,.07);
- padding-top: 10px;
+ padding-top: 16px;
 }
 body.light .c-form {
  border-top-color: rgba(0,0,0,.07);
@@ -1257,7 +1257,7 @@ body.light .c-form {
  border: 1px solid var(--br);
  color: var(--tx);
  border-radius: 8px;
- padding: 6px 11px;
+ padding: 10px 12px;
  font-size: .78rem;
  font-weight: 500;
  outline: none;
@@ -1273,9 +1273,45 @@ body.light .c-form input, body.light .c-form textarea {
  border-color: rgba(34,160,99,.4);
  background: rgba(34,160,99,.04);
 }
-.c-form textarea { resize: none; height: 58px; }
+.c-form textarea { resize: none; height: 100px; }
 .c-form-error { color: #e5484d; font-size: .78rem; margin: -4px 0 0; }
-.c-form .btn-s { justify-content: center; width: 100%; margin-top: 2px; }
+
+.c-form-actions {
+ display: flex;
+ justify-content: flex-end;
+ align-items: center;
+ gap: 10px;
+ margin-top: 2px;
+}
+.btn-cancel {
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ padding: 9px 15px;
+ border-radius: 7px;
+ background: transparent;
+ color: var(--mu);
+ border: 1px solid var(--br);
+ font-size: .70rem;
+ font-weight: 700;
+ cursor: pointer;
+ transition: all .35s cubic-bezier(.25,.46,.45,.94);
+}
+.btn-cancel:hover {
+ background: rgba(255,255,255,.05);
+ color: var(--tx);
+ border-color: rgba(255,255,255,.2);
+}
+body.light .btn-cancel:hover {
+ background: rgba(0,0,0,.04);
+ border-color: rgba(0,0,0,.18);
+}
+.c-form .btn-s-sm {
+ justify-content: center;
+ width: auto;
+ padding: 8px 13px;
+ font-size: .66rem;
+}
 footer { padding: 20px var(--pad); border-top: 1px solid var(--br); background: transparent; }
 body.light footer { background: #ffffff; }
 body.light .f-social-link { border: 1px solid rgba(0,0,0,.12); color: #57606a; }

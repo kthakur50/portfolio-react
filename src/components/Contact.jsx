@@ -7,6 +7,11 @@ const Contact = () => {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
+  const handleCancel = () => {
+    setForm({ name: '', email: '', message: '' });
+    setError('');
+  };
+
   const handleSend = () => {
     const { name, email, message } = form;
     if (!name.trim() || !email.trim() || !message.trim()) {
@@ -92,9 +97,14 @@ const Contact = () => {
                   <textarea id="c-msg" name="message" placeholder="Your message here..." value={form.message} onChange={handleChange}></textarea>
                 </div>
                 {error && <p className="c-form-error">{error}</p>}
-                <button className="btn-s" onClick={handleSend}>
-                  Send Message <span className="arr">→</span>
-                </button>
+                <div className="c-form-actions">
+                  <button type="button" className="btn-cancel" onClick={handleCancel}>
+                    Cancel
+                  </button>
+                  <button className="btn-s btn-s-sm" onClick={handleSend}>
+                    Send Message <span className="arr">→</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
