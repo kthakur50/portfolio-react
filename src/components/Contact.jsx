@@ -101,7 +101,7 @@ const Contact = () => {
                   <button type="button" className="btn-o btn-o-sm" onClick={handleCancel}>
                     Cancel
                   </button>
-                  <button type="button" className="btn-o btn-o-sm" onClick={handleSend}>
+                  <button type="button" className="btn-o btn-o-sm btn-send" onClick={handleSend}>
                     Send Message <span className="arr">→</span>
                   </button>
                 </div>
