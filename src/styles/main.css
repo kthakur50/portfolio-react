@@ -307,39 +307,10 @@ body.light .nav-mob a:hover { background: rgba(0,0,0,.05); }
  background: transparent;
 }
 #home::before {
- content: '';
- position: absolute;
- top: -2px;
- left: 50%;
- transform: translateX(-50%);
- width: min(70%, 1180px);
- height: 2px;
- background: linear-gradient(90deg, transparent 0%, rgba(var(--htc),.6) 12%, rgba(var(--htc),1) 30%, rgba(var(--htc),1) 50%, rgba(var(--htc),1) 70%, rgba(var(--htc),.6) 88%, transparent 100%);
- border-radius: 50%;
- box-shadow:
- 0 0 8px 3px rgba(var(--htc),.7),
- 0 0 24px 8px rgba(var(--htc),.35),
- 0 0 60px 22px rgba(var(--htc),.14),
- 0 0 110px 40px rgba(var(--htc),.05);
- z-index: 1;
- pointer-events: none;
- clip-path: inset(-300px -300px -300px -300px);
- animation: heroFlicker 6s linear 1.5s infinite;
- opacity: 1;
+ display: none;
 }
 #home::after {
- content: '';
- position: absolute;
- top: 0; left: 50%;
- transform: translateX(-50%);
- width: 70%;
- height: 55%;
- pointer-events: none;
- z-index: 1;
- border-radius: var(--rad);
- background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(var(--htc),.04) 0%, transparent 75%);
- animation: tubeConeFade .4s ease-out .1s forwards;
- opacity: 0;
+ display: none;
 }
 body.light #home {
  --htc: 225,250,238;
@@ -1311,6 +1282,14 @@ body.light .btn-cancel:hover {
  width: auto;
  padding: 8px 13px;
  font-size: .66rem;
+}
+.btn-o-sm {
+ justify-content: center;
+ width: auto;
+ padding: 8px 13px;
+ font-size: .66rem;
+ cursor: pointer;
+ background: transparent;
 }
 footer { padding: 20px var(--pad); border-top: 1px solid var(--br); background: transparent; }
 body.light footer { background: #ffffff; }

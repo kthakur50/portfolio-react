@@ -98,10 +98,10 @@ const Contact = () => {
                 </div>
                 {error && <p className="c-form-error">{error}</p>}
                 <div className="c-form-actions">
-                  <button type="button" className="btn-cancel" onClick={handleCancel}>
+                  <button type="button" className="btn-o btn-o-sm" onClick={handleCancel}>
                     Cancel
                   </button>
-                  <button className="btn-s btn-s-sm" onClick={handleSend}>
+                  <button type="button" className="btn-o btn-o-sm" onClick={handleSend}>
                     Send Message <span className="arr">→</span>
                   </button>
                 </div>
