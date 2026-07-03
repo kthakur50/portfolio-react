@@ -42,10 +42,10 @@ function initScroll() {
         l.classList.toggle('active', l.getAttribute('href') === '#' + id)
       );
       scrollToSection(id);
-      if (window.innerWidth <= 768) {
-        document.getElementById('navMob')?.classList.remove('open');
-        document.getElementById('ham')?.classList.remove('open');
-      }
+      document.getElementById('navMob')?.classList.remove('open');
+      document.getElementById('ham')?.classList.remove('open');
+      document.getElementById('navDeskLinks')?.classList.remove('open');
+      document.getElementById('hamDesk')?.classList.remove('open');
     });
   });
 
@@ -103,7 +103,37 @@ function initHam() {
       const open = links.classList.toggle('open');
       hamDesk.classList.toggle('open', open);
     });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        hamDesk.classList.remove('open');
+      });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        links.classList.remove('open');
+        hamDesk.classList.remove('open');
+      }
+    });
+    document.addEventListener('click', e => {
+      if (links.classList.contains('open') && !links.contains(e.target) && !hamDesk.contains(e.target)) {
+        links.classList.remove('open');
+        hamDesk.classList.remove('open');
+      }
+    });
   }
+}
+
+function initNavResize() {
+  let w = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if (window.innerWidth === w) return;
+    w = window.innerWidth;
+    document.getElementById('navMob')?.classList.remove('open');
+    document.getElementById('ham')?.classList.remove('open');
+    document.getElementById('navDeskLinks')?.classList.remove('open');
+    document.getElementById('hamDesk')?.classList.remove('open');
+  }, { passive: true });
 }
 
 function initSR() {
@@ -569,6 +599,7 @@ export function initAll() {
   initNav();
   initScroll();
   initHam();
+  initNavResize();
   initSR();
   initHL();
   initHeroAnimations();
