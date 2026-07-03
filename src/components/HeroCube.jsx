@@ -11,11 +11,6 @@ const HeroCube = () => (
           <div className="win3d-face win3d-bottom" id="wBottom"></div>
         </div>
       </div>
-      <div className="win3d-controls">
-        <button className="win3d-btn" id="wBtnSpin" onClick={() => window.wToggleSpin?.()}>
-          Rotate
-        </button>
-      </div>
     </div>
   </div>
 );
