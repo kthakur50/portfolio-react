@@ -12,7 +12,7 @@ const Hero = () => (
         <div className="hero-left sr on">
           <h1 className="hero-name">
             <span className="ac-plain">Kaushal</span><br />
-            <span className="ac">Thakur</span>.
+            <span className="ac">Thakur</span><span className="ac-pixel-dot">.</span>
           </h1>
 
 
