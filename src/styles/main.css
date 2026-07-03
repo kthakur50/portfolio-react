@@ -335,31 +335,35 @@ body.light #home { background: #ffffff; --htc: 200,225,215; }
  position: absolute;
  top: 0; left: 0;
  width: 100%;
- height: 1px;
- border-radius: 2px;
+ height: .4px;
+ border-radius: 999px;
  background: linear-gradient(90deg,
    rgba(255,255,255,0) 0%,
-   rgba(255,255,255,1) 18%,
+   rgba(255,255,255,.35) 12%,
+   rgba(255,255,255,.85) 30%,
    #ffffff 50%,
-   rgba(255,255,255,1) 82%,
-   rgba(255,255,255,0)100%);
+   rgba(255,255,255,.85) 70%,
+   rgba(255,255,255,.35) 88%,
+   rgba(255,255,255,0) 100%);
  box-shadow:
-   0 0 5px .5px rgba(255,255,255,.9),
-   0 0 15px 3px rgba(255,255,255,.5),
-   0 0 30px 8px rgba(255,255,255,.18);
+   0 0 6px 1px rgba(255,255,255,.85),
+   0 0 18px 5px rgba(255,255,255,.4),
+   0 0 36px 12px rgba(255,255,255,.14);
  animation: tubeFlickerSubtle 2s ease-in-out infinite;
 }
 body.light .tube-bar {
  background: linear-gradient(90deg,
    rgba(255,255,255,0) 0%,
-   rgba(255,255,255,1) 18%,
+   rgba(255,255,255,.35) 12%,
+   rgba(255,255,255,.85) 30%,
    #ffffff 50%,
-   rgba(255,255,255,1) 82%,
+   rgba(255,255,255,.85) 70%,
+   rgba(255,255,255,.35) 88%,
    rgba(255,255,255,0) 100%);
  box-shadow:
-   0 0 5px .5px rgba(200,220,255,.75),
-   0 0 14px 3px rgba(200,220,255,.4),
-   0 0 28px 8px rgba(200,220,255,.15);
+   0 0 6px 1px rgba(200,220,255,.65),
+   0 0 17px 5px rgba(200,220,255,.3),
+   0 0 34px 12px rgba(200,220,255,.11);
 }
 @media (max-width: 640px) {
  .tube-light { width: clamp(340px, 96vw, 520px); height: 140px; }
@@ -367,15 +371,22 @@ body.light .tube-bar {
 #home .wrap { position: relative; z-index: 2; width: 100%; }
 .hero-inner { display: flex; flex-direction: row; align-items: flex-start; width: 100%; position: relative; gap: 92px; }
 .hero-left { flex: 1; position: relative; z-index: 2; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
+@font-face {
+ font-family: 'Geist Pixel';
+ src: url('/fonts/GeistPixel-Square.woff2') format('woff2');
+ font-weight: 400;
+ font-style: normal;
+ font-display: swap;
+}
 .hero-name {
- font-size: clamp(2rem, 4.5vw, 5.05rem);
- font-weight: 700;
- line-height: .88;
- letter-spacing: .015em;
+ font-size: clamp(1.9rem, 4.3vw, 4.7rem);
+ font-weight: 400;
+ line-height: .95;
+ letter-spacing: .005em;
  color: #f0f8f4;
  margin-bottom: 30px;
  white-space: nowrap;
- font-family: 'Ranade', -apple-system, sans-serif;
+ font-family: 'Geist Pixel', 'Ranade', -apple-system, sans-serif;
  transform: none;
  transform-origin: left;
  text-align: left;
@@ -384,14 +395,14 @@ body.light .tube-bar {
 body.light .hero-name { color: #0c1e14; }
 .hero-name .ac {
  color: var(--a2);
- font-weight: 700;
+ font-weight: 400;
 }
 body.light .hero-name .ac {
  color: var(--a);
 }
 .hero-name .ac-plain {
  color: var(--tx);
- font-weight: 700;
+ font-weight: 400;
 }
 body.light .hero-name .ac-plain {
  color: var(--tx);
@@ -1745,8 +1756,8 @@ body.light .skill-card--tl {
  -webkit-backface-visibility: visible;
 }
 .win3d-scene.mode-3d .win3d-face:not(.win3d-front) {
- gap: 2px;
- padding: 2px;
+ gap: 1px;
+ padding: 1px;
 }
 /* single-tile face: full-face one skill */
 .win3d-scene.mode-3d .win3d-face.win3d-face-single {
@@ -2092,8 +2103,8 @@ body.light .win3d-btn.active {
   .hero-right { order: 2; flex: 0 0 auto; width: auto; display: flex; justify-content: center; align-self: center; margin: 0; }
 
   /* Hero name: big, scales with vw */
-  .hero-name { font-size: clamp(1.7rem, 4.6vw, 4.2rem); font-weight: 700; white-space: normal; word-break: keep-all; line-height: .86; letter-spacing: -.04em; margin-top: clamp(14px, 2.5vw, 26px); margin-bottom: clamp(14px, 2vw, 22px); }
-  .hero-name .ac { font-weight: 700; }
+  .hero-name { font-size: clamp(1.6rem, 4.4vw, 3.9rem); font-weight: 400; white-space: normal; word-break: keep-all; line-height: .92; letter-spacing: -.01em; margin-top: clamp(14px, 2.5vw, 26px); margin-bottom: clamp(14px, 2vw, 22px); }
+  .hero-name .ac { font-weight: 400; }
 
   /* Role row */
 
@@ -2267,10 +2278,10 @@ body.light .win3d-btn.active {
 
   /* Name */
   .hero-name {
-    font-size: clamp(2.4rem, 8.8vw, 3.9rem);
-    font-weight: 900;
-    line-height: .92;
-    letter-spacing: .01em;
+    font-size: clamp(2.2rem, 8.2vw, 3.6rem);
+    font-weight: 400;
+    line-height: .98;
+    letter-spacing: 0;
     word-spacing: normal;
     text-align: left;
     white-space: normal;
