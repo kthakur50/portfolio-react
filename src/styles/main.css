@@ -84,6 +84,21 @@ section { padding: 110px 0; }
  font-style: normal;
  color: var(--a2);
 }
+.sec-hd-icon {
+ width: clamp(30px, 5.5vw, 38px);
+ height: clamp(30px, 5.5vw, 38px);
+ border-radius: 10px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding: clamp(6px, 1vw, 8px);
+ box-sizing: border-box;
+ border: 1px solid rgba(255,255,255,.12);
+ color: var(--a2);
+ flex-shrink: 0;
+}
+.sec-hd-icon svg { width: 100%; height: 100%; display: block; }
+body.light .sec-hd-icon { border-color: rgba(0,0,0,.12); }
 .sec-hd::after {
  content: '';
  flex: 1;
@@ -2181,33 +2196,34 @@ body.light .win3d-btn.active {
   :root { --pad: clamp(20px, 4vw, 48px); }
   section { padding: 80px 0; }
 
-  /* Navbar: hamburger for tablet landscape too */
+  /* Navbar: hamburger opens icons inline inside the navbar (tablet) */
   .nav-inner { height: clamp(34px, 4.5vw, 38px); padding: 0 clamp(12px, 2vw, 20px); }
   .nav-logo .logo-k { font-size: clamp(.78rem, 1.5vw, .95rem); }
-  .nav-right { display: none !important; }
-  .nav-desk-links { display: none !important; }
-  .nav-mob-ctrl { display: flex !important; }
-  .nav-mob { display: flex; }
+  .nav-mob-ctrl { display: none !important; }
+  .nav-mob { display: none !important; }
+  .nav-right { display: flex !important; gap: 8px; }
   .nav-ham {
     display: flex !important;
     width: clamp(30px, 4vw, 36px); height: clamp(30px, 4vw, 36px); padding: 6px;
   }
-  .nav-sep-line { display: none; }
+  .nav-sep-line { display: flex; width: 1px; height: 16px; }
   .nav-toggle {
     width: clamp(30px, 4vw, 36px); height: clamp(30px, 4vw, 36px);
   }
   .nav-toggle svg { width: clamp(14px, 2vw, 17px); height: clamp(14px, 2vw, 17px); }
-  .nav-mob-ctrl { gap: 8px; }
+  /* Icons open inline within the navbar itself, kept small */
+  .nav-desk-links a { padding: 7px 9px; }
+  .nav-desk-links a svg { width: 16px; height: 16px; }
 
   /* Hero: always row, left + cube side by side */
   #home { padding: clamp(36px, 5vw, 60px) 0; min-height: calc(100svh - var(--nav)); align-items: center; }
   .hero-inner { flex-direction: row; align-items: flex-start; gap: clamp(20px, 3vw, 40px); }
   .hero-left { flex: 1; width: auto; max-width: unset; order: 1; min-width: 0; }
-  .hero-right { order: 2; flex: 0 0 auto; width: auto; display: flex; justify-content: center; align-self: center; margin: 0; }
+  .hero-right { order: 2; flex: 0 0 auto; width: auto; display: flex; justify-content: center; align-self: flex-end; margin: 0; }
 
-  /* Hero name: big, scales with vw */
-  .hero-name { font-size: clamp(1.6rem, 4.4vw, 3.9rem); font-weight: 400; white-space: normal; word-break: keep-all; line-height: .92; letter-spacing: -.01em; margin-top: clamp(14px, 2.5vw, 26px); margin-bottom: clamp(14px, 2vw, 22px); }
-  .hero-name .ac { font-weight: 400; }
+  /* Hero name: same style as desktop, just scales with vw */
+  .hero-name { font-size: clamp(1.6rem, 4.4vw, 3.9rem); font-weight: 600; white-space: nowrap; line-height: .9; letter-spacing: .02em; margin-bottom: clamp(20px, 2.5vw, 30px); }
+  .hero-name .ac { font-weight: 600; }
 
   /* Role row */
 
@@ -2268,7 +2284,7 @@ body.light .win3d-btn.active {
   .sec-hd { margin-bottom: 28px; }
   .sec-hd h2 { font-size: clamp(1.3rem, 3.5vw, 1.7rem); }
 
-  /* ── Navbar: desktop-style on tablet portrait ── */
+  /* ── Navbar: icons open inline inside the navbar, tablet portrait ── */
   .nav { padding: 8px 0; }
   .nav.scrolled { transform: translateY(8px) translateZ(0) !important; }
   .nav-inner {
@@ -2278,76 +2294,15 @@ body.light .win3d-btn.active {
     max-width: calc(100% - 2 * var(--pad));
   }
   .nav-logo .logo-k { font-size: clamp(.78rem, 2vw, .92rem); }
-  /* Show desktop-style controls */
-  .nav-right { display: flex !important; gap: 10px; grid-column: 3; justify-self: end; }
-  .nav-sep-line { display: flex; width: 1px; height: 18px; background: rgba(255,255,255,.14); margin: 0; }
+  .nav-right { gap: 10px; }
+  .nav-sep-line { width: 1px; height: 18px; background: rgba(255,255,255,.14); margin: 0; }
   body.light .nav-sep-line { background: rgba(0,0,0,.14); }
-  .nav-ham {
-    display: flex !important; width: 32px; height: 32px; padding: 7px;
-  }
-  .nav-toggle {
-    width: 32px; height: 32px;
-  }
+  .nav-ham { width: 32px; height: 32px; padding: 7px; }
+  .nav-toggle { width: 32px; height: 32px; }
   .nav-toggle svg { width: 15px; height: 15px; }
-  /* Desk links: tablet → small card dropdown, not inline expand */
-  .nav-desk-links {
-    display: flex !important;
-    position: fixed;
-    top: calc(var(--nav) + 2px);
-    right: clamp(12px, 3vw, 20px);
-    left: auto;
-    max-width: none !important;
-    width: 172px;
-    flex-direction: column;
-    gap: 1px;
-    background: rgba(15, 15, 15, 0.88);
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
-    border: 1px solid rgba(255,255,255,.09);
-    border-radius: 8px;
-    padding: 7px 5px 9px;
-    z-index: 998;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-6px) scale(0.96);
-    transform-origin: top right;
-    transition: opacity .18s cubic-bezier(.4,0,.2,1),
-                transform .2s cubic-bezier(.34,1.3,.64,1);
-    overflow: visible;
-  }
-  body.light .nav-desk-links {
-    background: rgba(255,255,255,0.90);
-    border: 1px solid rgba(0,0,0,.08);
-  }
-  .nav-desk-links.open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0) scale(1);
-    max-width: none !important;
-  }
-  .nav-desk-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 11px;
-    border-radius: 8px;
-    font-size: .77rem;
-    font-weight: 600;
-    color: var(--mu);
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateX(5px);
-    transition: color 0s, background 0s, opacity .22s ease, transform .22s ease;
-  }
-  .nav-desk-links a svg { width: 18px; height: 18px; }
-  .nav-desk-links a::after { display: none; }
-  .nav-desk-links.open a { opacity: 1; transform: translateX(0); }
-  .nav-desk-links a:hover { color: var(--tx); background: rgba(255,255,255,.06); }
-  body.light .nav-desk-links a:hover { background: rgba(0,0,0,.05); }
-  .nav-desk-links a.active { color: var(--a2); }
-  /* Hide mobile-only controls */
-  .nav-mob-ctrl { display: none !important; }
-  .nav-mob { display: none !important; }
+  /* Desk links: inline expand within the navbar, small icons */
+  .nav-desk-links a { padding: 7px 9px; }
+  .nav-desk-links a svg { width: 15px; height: 15px; }
 
   /* ── Hero: stacked layout on tablet portrait — name/info top, cube below ── */
   #home {
@@ -2356,13 +2311,14 @@ body.light .win3d-btn.active {
     align-items: flex-start;
   }
   .hero-inner {
-    flex-direction: column;
-    align-items: center;
-    gap: clamp(28px, 5vw, 44px);
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(16px, 2.5vw, 28px);
   }
   .hero-left {
-    flex: none;
-    width: 100%;
+    flex: 1;
+    width: auto;
+    max-width: unset;
     min-width: 0;
     order: 1;
     display: flex;
@@ -2371,29 +2327,25 @@ body.light .win3d-btn.active {
   }
   .hero-right {
     order: 2;
-    flex: none;
-    width: 100%;
+    flex: 0 0 auto;
+    width: auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    align-self: center;
+    align-self: flex-end;
     margin: 0;
     padding-bottom: 0;
   }
 
-  /* Name */
+  /* Name: same style as desktop, scaled for tablet portrait width */
   .hero-name {
-    font-size: clamp(2.2rem, 8.2vw, 3.6rem);
-    font-weight: 400;
-    line-height: .98;
-    letter-spacing: 0;
-    word-spacing: normal;
-    text-align: left;
-    white-space: normal;
-    margin-top: clamp(16px, 3vw, 30px);
+    font-size: clamp(1.5rem, 4.6vw, 2.6rem);
+    font-weight: 600;
+    line-height: .9;
+    letter-spacing: .02em;
+    white-space: nowrap;
     margin-bottom: clamp(18px, 2.8vw, 28px);
   }
+  .hero-name .ac { font-weight: 600; }
   /* Info */
   .hero-block { min-width: 0; width: 100%; }
   .hero-avail { font-size: clamp(.74rem, 1.75vw, .88rem); margin-bottom: clamp(11px, 2vw, 16px); line-height: 1.5; letter-spacing: .01em; }
@@ -2419,23 +2371,23 @@ body.light .win3d-btn.active {
     flex: 1;
   }
 
-  /* Cube: centered below content, smaller on tablet */
-  .win3d-scene { width: clamp(155px, 28vw, 205px); margin-top: 18px; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(155px, 28vw, 205px); height: clamp(155px, 28vw, 205px); }
-  .win3d-front  { transform: translateZ(clamp(77px, 14vw, 102px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(77px, 14vw, 102px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(77px, 14vw, 102px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(77px, 14vw, 102px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(77px, 14vw, 102px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(77px, 14vw, 102px)); }
+  /* Cube: side-by-side with text like desktop, pushed down */
+  .win3d-scene { width: clamp(130px, 22vw, 180px); margin-top: 28px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(130px, 22vw, 180px); height: clamp(130px, 22vw, 180px); }
+  .win3d-front  { transform: translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(65px, 11vw, 90px)); }
   .win3d-scene.mode-3d .win3d-cube,
-  .win3d-scene.mode-3d .win3d-face { width: clamp(155px, 28vw, 205px); height: clamp(155px, 28vw, 205px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(77px, 14vw, 102px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(77px, 14vw, 102px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(77px, 14vw, 102px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(77px, 14vw, 102px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(77px, 14vw, 102px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(77px, 14vw, 102px)); }
+  .win3d-scene.mode-3d .win3d-face { width: clamp(130px, 22vw, 180px); height: clamp(130px, 22vw, 180px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(65px, 11vw, 90px)); }
   .win3d-controls {
     position: static;
     transform: none;
@@ -2444,10 +2396,10 @@ body.light .win3d-btn.active {
     gap: 8px;
   }
   .win3d-btn { font-size: .78rem; padding: 6px 14px; }
-  .win3d-scene.mode-3d .win3d-face .wt svg { width: clamp(18px, 2.8vw, 26px); height: clamp(18px, 2.8vw, 26px); }
-  .win3d-scene.mode-3d .win3d-face .wt-name { font-size: clamp(.5rem, 1vw, .62rem); }
-  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-cube-single svg { width: 52px !important; height: 52px !important; }
-  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-name { font-size: .66rem; }
+  .win3d-scene.mode-3d .win3d-face .wt svg { width: clamp(16px, 2.4vw, 22px); height: clamp(16px, 2.4vw, 22px); }
+  .win3d-scene.mode-3d .win3d-face .wt-name { font-size: clamp(.48rem, .9vw, .58rem); }
+  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-cube-single svg { width: 46px !important; height: 46px !important; }
+  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-name { font-size: .62rem; }
 
   /* About */
   .about-para { font-size: .85rem; line-height: 1.95; }
