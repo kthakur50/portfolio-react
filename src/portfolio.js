@@ -99,21 +99,6 @@ function initSR() {
 }
 
 
-function initHeroAnimations() {
-  const words = document.querySelectorAll('#slideWords .slide-word');
-  if (!words.length) return;
-  let cur = 0;
-  words[0].classList.add('active');
-  setInterval(() => {
-    const prev = cur;
-    cur = (cur + 1) % words.length;
-    words[prev].classList.add('exit');
-    words[prev].classList.remove('active');
-    words[cur].classList.add('active');
-    setTimeout(() => words[prev].classList.remove('exit'), 480);
-  }, 2600);
-}
-
 function initClock() {
   const el = document.getElementById('exp-timer');
   if (!el) return;
@@ -247,7 +232,7 @@ function initWin3DCube() {
   }
 
   // ── Build all 6 faces ─────────────────────────────────────────
-  function buildFaces(mode) {
+  function buildFaces() {
     Object.entries(faceSkills).forEach(([faceId, cfg]) => {
       const face = document.getElementById(faceId);
       if (!face) return;
@@ -269,7 +254,7 @@ function initWin3DCube() {
     });
   }
 
-  buildFaces('flat');
+  buildFaces();
 
   // ── State ─────────────────────────────────────────────────────
   let spinning = false, rotX = 0, rotY = 0;
@@ -343,9 +328,6 @@ function initWin3DCube() {
     }
     spinRAF = requestAnimationFrame(loop);
   }
-
-  // legacy startSpin kept for toggle button compat
-  function startSpin() { startAutoSpin(); }
 
   // ── Inertia after drag → fades into auto-spin ────────────────
   function startInertia() {
@@ -486,7 +468,7 @@ function initWin3DCube() {
   // ── Start 3D mode + auto-spin on load ───────────────────────
   spinning = true;
   scene.classList.add('mode-3d');
-  buildFaces('cube');
+  buildFaces();
   stopBounce();
   document.getElementById('wBtnSpin')?.classList.add('active');
   startAutoSpin();
@@ -498,7 +480,7 @@ function initWin3DCube() {
     if (spinning) {
       btn.classList.add('active');
       scene.classList.add('mode-3d');
-      buildFaces('cube');
+      buildFaces();
       stopBounce();
       cube.style.transition = 'none';
       startAutoSpin();
@@ -511,7 +493,7 @@ function initWin3DCube() {
         const f = document.getElementById(id);
         if (f) { f.style.opacity = ''; }
       });
-      buildFaces('flat');
+      buildFaces();
       rotX = 0; rotY = 0; applyRot();
       setTimeout(startBounce, 300);
     }
@@ -554,7 +536,6 @@ export function initAll() {
   initHam();
   initSR();
   initHL();
-  initHeroAnimations();
   initClock();
   initMasonry();
   initWin3DCube();
