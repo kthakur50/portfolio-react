@@ -13,11 +13,16 @@ function initNav() {
 
   function mark() {
     const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav')) || 62;
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
     let current = 'home';
-    sections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= navH + 60) current = id;
-    });
+    if (atBottom) {
+      current = sections[sections.length - 1];
+    } else {
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= navH + 60) current = id;
+      });
+    }
     links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
   }
 
