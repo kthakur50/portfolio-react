@@ -248,7 +248,7 @@ const Skills = () => {
       <div className="wrap">
         <div className="sec-hd sr" data-n="02">
           <span className="sec-hd-icon" aria-hidden="true">
-            <svg viewBox="1 5 22 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <svg viewBox="1 1 22 22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
           </span>
           <h2>Skills<em>.</em></h2>
         </div>
