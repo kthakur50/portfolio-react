@@ -1958,7 +1958,7 @@ body.light .win3d-face .wt-cube-single {
  justify-content: center;
  border-radius: 0;
  overflow: visible;
- cursor: default;
+ cursor: inherit;
  background: transparent;
  border: none;
  box-shadow: none;
@@ -2215,34 +2215,35 @@ body.light .win3d-btn.active {
   .nav-desk-links a { padding: 7px 9px; }
   .nav-desk-links a svg { width: 16px; height: 16px; }
 
-  /* Hero: always row, left + cube side by side */
+  /* Hero: text takes full width, cube sits centered below as its own row */
   #home { padding: clamp(36px, 5vw, 60px) 0; min-height: calc(100svh - var(--nav)); align-items: center; }
-  .hero-inner { flex-direction: row; align-items: flex-start; gap: clamp(20px, 3vw, 40px); }
-  .hero-left { flex: 1; width: auto; max-width: unset; order: 1; min-width: 0; }
-  .hero-right { order: 2; flex: 0 0 auto; width: auto; display: flex; justify-content: center; align-self: flex-start; margin: 0; margin-top: clamp(340px, 50vw, 460px); }
+  .hero-inner { flex-direction: column; align-items: center; gap: clamp(28px, 4vw, 48px); }
+  .hero-left { flex: none; width: 100%; max-width: unset; order: 1; min-width: 0; }
+  .hero-right { order: 2; flex: none; width: 100%; display: flex; justify-content: center; align-self: center; margin: 0; }
 
-  /* Hero name: same style as desktop, just scales with vw */
-  .hero-name { font-size: clamp(2.1rem, 5.6vw, 4.5rem); font-weight: 600; white-space: nowrap; line-height: .9; letter-spacing: .02em; margin-bottom: clamp(24px, 3vw, 36px); }
+  /* Hero name: bigger */
+  .hero-name { font-size: clamp(2.6rem, 6.5vw, 5.2rem); font-weight: 600; white-space: nowrap; line-height: .9; letter-spacing: .02em; margin-bottom: clamp(26px, 3.2vw, 38px); }
   .hero-name .ac { font-weight: 600; }
 
   /* Role row */
 
-  /* Info box */
+  /* Info box: full width, bigger horizontally */
   .hero-block { min-width: 0; width: 100%; }
-  .hero-avail { font-size: clamp(.8rem, 1.5vw, 1rem); margin-bottom: clamp(12px, 1.6vw, 16px); }
-  .hero-info { padding: clamp(11px, 1.7vw, 16px) clamp(14px, 2vw, 22px); margin-bottom: clamp(10px, 1.6vw, 16px); }
-  .hero-info-grid { flex-direction: column; gap: 0; }
-  .hero-info-col:first-child { padding-right: 0; border-right: none; padding-bottom: 0; border-bottom: none; }
-  .hero-info-col:last-child { padding-left: 0; padding-top: 4px; }
-  .hero-info-item { font-size: clamp(.85rem, 1.6vw, 1.05rem); height: clamp(34px, 4.8vw, 42px); gap: clamp(7px, 1.1vw, 12px); white-space: nowrap; padding: clamp(5px, .8vw, 7px) 0; }
-  .hero-info-item svg { width: clamp(19px, 2.9vw, 27px); height: clamp(19px, 2.9vw, 27px); }
+  .hero-avail { font-size: clamp(.85rem, 1.6vw, 1.05rem); margin-bottom: clamp(13px, 1.7vw, 17px); }
+  .hero-info { width: 100%; padding: clamp(14px, 2vw, 20px) clamp(20px, 3vw, 32px); margin-bottom: clamp(11px, 1.7vw, 17px); }
+  .hero-info-grid { flex-direction: row; align-items: stretch; gap: 0; }
+  .hero-info-col { flex: 1 1 50%; min-width: 0; }
+  .hero-info-col:first-child { padding-right: clamp(6px, 1.2vw, 14px); border-right: none; padding-bottom: 0; border-bottom: none; }
+  .hero-info-col:last-child { padding-left: clamp(6px, 1.2vw, 14px); padding-top: 0; }
+  .hero-info-item { font-size: clamp(.9rem, 1.7vw, 1.1rem); height: clamp(36px, 5vw, 44px); gap: clamp(8px, 1.2vw, 13px); white-space: nowrap; padding: clamp(5px, .8vw, 7px) 0; }
+  .hero-info-item svg { width: clamp(20px, 3vw, 28px); height: clamp(20px, 3vw, 28px); }
 
-  /* Buttons: always row */
-  .hero-btns { flex-wrap: nowrap; gap: clamp(8px, 1.2vw, 12px); order: unset; margin-top: 0; width: auto; }
+  /* Buttons: same full width as info box */
+  .hero-btns { flex-wrap: nowrap; gap: clamp(8px, 1.2vw, 12px); order: unset; margin-top: 0; width: 100%; }
   .hero-btns .btn-o, .hero-btns .btn-s, .hero-btns .btn-li { font-size: clamp(.88rem, 1.6vw, 1.05rem); padding: clamp(12px, 1.5vw, 16px) clamp(16px, 2vw, 24px); flex: 1; }
 
   /* Cube: scaled proportionally */
-  .win3d-scene { width: clamp(112px, 17.5vw, 192px); }
+  .win3d-scene { width: clamp(112px, 17.5vw, 192px); margin-top: 10px; }
   .win3d-perspective, .win3d-cube { width: clamp(112px, 17.5vw, 192px); height: clamp(112px, 17.5vw, 192px); }
   .win3d-face { width: clamp(112px, 17.5vw, 192px); height: clamp(112px, 17.5vw, 192px); }
   .win3d-front  { transform: translateZ(clamp(56px, 8.75vw, 96px)); }
@@ -2304,20 +2305,20 @@ body.light .win3d-btn.active {
   .nav-desk-links a { padding: 7px 9px; }
   .nav-desk-links a svg { width: 15px; height: 15px; }
 
-  /* ── Hero: stacked layout on tablet portrait — name/info top, cube below ── */
+  /* ── Hero: text full width on top, cube centered below at the very bottom ── */
   #home {
-    padding: clamp(64px, 10vw, 92px) 0 clamp(40px, 6vw, 64px);
+    padding: clamp(56px, 9vw, 80px) 0 clamp(40px, 6vw, 64px);
     min-height: auto;
     align-items: flex-start;
   }
   .hero-inner {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: clamp(16px, 2.5vw, 28px);
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(24px, 4vw, 40px);
   }
   .hero-left {
-    flex: 1;
-    width: auto;
+    flex: none;
+    width: 100%;
     max-width: unset;
     min-width: 0;
     order: 1;
@@ -2327,53 +2328,52 @@ body.light .win3d-btn.active {
   }
   .hero-right {
     order: 2;
-    flex: 0 0 auto;
-    width: auto;
+    flex: none;
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-self: flex-start;
+    align-self: center;
     margin: 0;
-    margin-top: clamp(260px, 44vw, 360px);
     padding-bottom: 0;
   }
 
-  /* Name: same style as desktop, scaled for tablet portrait width */
+  /* Name: bigger */
   .hero-name {
-    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-size: clamp(2.5rem, 7.4vw, 3.8rem);
     font-weight: 600;
     line-height: .9;
     letter-spacing: .02em;
     white-space: nowrap;
-    margin-bottom: clamp(22px, 3.2vw, 32px);
+    margin-bottom: clamp(24px, 3.4vw, 34px);
   }
   .hero-name .ac { font-weight: 600; }
-  /* Info */
+  /* Info: full width, bigger horizontally */
   .hero-block { min-width: 0; width: 100%; }
-  .hero-avail { font-size: clamp(.9rem, 2.1vw, 1.05rem); margin-bottom: clamp(14px, 2.4vw, 20px); line-height: 1.5; letter-spacing: .01em; }
-  .hero-info { padding: clamp(22px, 3.3vw, 32px) clamp(17px, 2.7vw, 26px); margin-bottom: clamp(14px, 2.4vw, 20px); }
+  .hero-avail { font-size: clamp(.95rem, 2.2vw, 1.1rem); margin-bottom: clamp(15px, 2.5vw, 21px); line-height: 1.5; letter-spacing: .01em; }
+  .hero-info { width: 100%; padding: clamp(24px, 3.6vw, 34px) clamp(20px, 3.2vw, 30px); margin-bottom: clamp(15px, 2.5vw, 21px); }
   .hero-info-grid { flex-direction: row; align-items: stretch; gap: 0; }
   .hero-info-col { flex: 1 1 50%; min-width: 0; }
-  .hero-info-col:first-child { padding-right: clamp(5px, 1vw, 10px); border-right: none; padding-bottom: 0; border-bottom: none; }
-  .hero-info-col:last-child { padding-left: clamp(4px, .8vw, 9px); padding-top: 0; }
+  .hero-info-col:first-child { padding-right: clamp(7px, 1.3vw, 14px); border-right: none; padding-bottom: 0; border-bottom: none; }
+  .hero-info-col:last-child { padding-left: clamp(7px, 1.3vw, 14px); padding-top: 0; }
   .hero-info-item {
-    font-size: clamp(.9rem, 2.1vw, 1.08rem);
-    height: clamp(42px, 6.2vw, 50px);
-    gap: clamp(9px, 1.5vw, 14px);
+    font-size: clamp(.95rem, 2.2vw, 1.12rem);
+    height: clamp(44px, 6.4vw, 52px);
+    gap: clamp(10px, 1.6vw, 15px);
     white-space: nowrap;
     padding: clamp(5px, 1vw, 8px) 0;
     line-height: 1.4;
   }
-  .hero-info-item svg { width: clamp(19px, 3vw, 25px); height: clamp(19px, 3vw, 25px); }
-  /* Buttons */
-  .hero-btns { flex-wrap: nowrap; gap: clamp(9px, 1.6vw, 13px); margin-top: 0; }
+  .hero-info-item svg { width: clamp(20px, 3.2vw, 27px); height: clamp(20px, 3.2vw, 27px); }
+  /* Buttons: same full width as info box */
+  .hero-btns { flex-wrap: nowrap; gap: clamp(9px, 1.6vw, 13px); margin-top: 0; width: 100%; }
   .hero-btns .btn-o, .hero-btns .btn-s, .hero-btns .btn-li {
-    font-size: clamp(.9rem, 2.1vw, 1.05rem);
-    padding: clamp(13px, 1.8vw, 16px) clamp(11px, 2vw, 18px);
+    font-size: clamp(.95rem, 2.2vw, 1.1rem);
+    padding: clamp(14px, 1.9vw, 17px) clamp(12px, 2.1vw, 19px);
     flex: 1;
   }
 
-  /* Cube: side-by-side with text like desktop, pushed down */
-  .win3d-scene { width: clamp(130px, 22vw, 180px); margin-top: 28px; }
+  /* Cube: centered below, at the very bottom */
+  .win3d-scene { width: clamp(130px, 22vw, 180px); margin-top: 8px; }
   .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(130px, 22vw, 180px); height: clamp(130px, 22vw, 180px); }
   .win3d-front  { transform: translateZ(clamp(65px, 11vw, 90px)); }
   .win3d-back   { transform: rotateY(180deg) translateZ(clamp(65px, 11vw, 90px)); }
