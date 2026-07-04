@@ -3,7 +3,7 @@ const About = () => (
     <div className="wrap">
       <div className="sec-hd sr" data-n="01">
         <span className="sec-hd-icon" aria-hidden="true">
-          <svg viewBox="3 1 18 22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <svg viewBox="2 2 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </span>
         <h2>About<em>.</em></h2>
       </div>
