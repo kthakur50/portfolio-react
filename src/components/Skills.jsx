@@ -230,7 +230,7 @@ const Skills = () => {
     { cls: 'sc-js',      label: 'JavaScript',    icon: <IconJS /> },
     { cls: 'sc-ts',      label: 'TypeScript',    icon: <IconTS /> },
     { cls: 'sc-node',    label: 'Node.js',       icon: <IconNode /> },
-    { cls: 'sc-express', label: 'Express',       icon: <IconExpress /> },
+    { cls: 'sc-express', label: 'Express.js',    icon: <IconExpress /> },
     { cls: 'sc-api',     label: 'REST APIs',     icon: <IconRestAPI /> },
     { cls: 'sc-mongo',   label: 'MongoDB',       icon: <IconMongoDB /> },
     { cls: 'sc-redis',   label: 'Redis',         icon: <IconRedis /> },
@@ -275,7 +275,7 @@ const Skills = () => {
             <div className="skill-cat">Backend</div>
             <div className="skill-strip">
               <div className="skill-chip sc-node"><IconNode /><span>Node.js</span></div>
-              <div className="skill-chip sc-express"><IconExpress /><span>Express</span></div>
+              <div className="skill-chip sc-express"><IconExpress /><span>Express.js</span></div>
               <div className="skill-chip sc-api"><IconRestAPI /><span>REST APIs</span></div>
               <div className="skill-chip sc-mongo"><IconMongoDB /><span>MongoDB</span></div>
               <div className="skill-chip sc-pg"><IconPostgres /><span>PostgreSQL</span></div>
