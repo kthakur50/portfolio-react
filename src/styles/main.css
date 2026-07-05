@@ -723,11 +723,11 @@ body.light #about { background: transparent; }
  left: -40%;
  width: 40%;
  height: 100%;
- background: linear-gradient(to right, transparent, rgba(34,160,99,.9), transparent);
- animation: availLineShimmer 2.8s ease-in-out infinite;
+ background: linear-gradient(to right, transparent, rgba(255,255,255,.45), transparent);
+ animation: availLineShimmer 3.6s ease-in-out infinite;
 }
 body.light .hero-avail-line::after {
- background: linear-gradient(to right, transparent, rgba(26,148,96,.85), transparent);
+ background: linear-gradient(to right, transparent, rgba(23,48,32,.3), transparent);
 }
 @keyframes availLineShimmer {
  0%   { left: -40%; }
@@ -2387,11 +2387,13 @@ body.light .wt.wt-cube-single .wt-name {
   .exp-desc { font-size: .76rem; line-height: 1.78; }
   .exp-divider { margin: 10px 0; }
 
-  /* Projects */
-  .masonry-list { grid-template-columns: 1fr; gap: 10px; }
-  .masonry-body { padding: 14px 13px; }
-  .masonry-title { font-size: .86rem; }
-  .masonry-desc { font-size: .72rem; }
+  /* Projects: keep same 2-col structure as tablet, scaled to fit */
+  .masonry-list { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .masonry-body { padding: 11px 10px; }
+  .masonry-title { font-size: .78rem; margin: 5px 0 5px; }
+  .masonry-desc { font-size: .66rem; line-height: 1.55; }
+  .masonry-tags { gap: 4px; margin-top: 6px; }
+  .masonry-cat { font-size: .6rem; }
 
   /* Education */
   .edu-list { padding-left: 40px; }
@@ -2399,9 +2401,9 @@ body.light .wt.wt-cube-single .wt-name {
   .edu-card { padding: 13px 14px; }
   .edu-deg-title { font-size: .88rem; }
 
-  /* Contact */
+  /* Contact: keep same 2-col form-row structure as tablet, scaled to fit */
   .contact-grid { grid-template-columns: 1fr; gap: 20px; }
-  .c-form-row { grid-template-columns: 1fr; gap: 8px; }
+  .c-form-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
 
   /* Footer */
 }
