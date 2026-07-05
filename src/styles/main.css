@@ -713,6 +713,8 @@ body.light #about { background: transparent; }
  border-radius: 1px;
  position: relative;
  overflow: hidden;
+ -webkit-mask-image: linear-gradient(to right, #000 0%, #000 55%, transparent 100%);
+ mask-image: linear-gradient(to right, #000 0%, #000 55%, transparent 100%);
 }
 .hero-avail-line::after {
  content: '';
@@ -728,10 +730,8 @@ body.light .hero-avail-line::after {
  background: linear-gradient(to right, transparent, rgba(26,148,96,.85), transparent);
 }
 @keyframes availLineShimmer {
- 0%   { left: -40%; opacity: 0; }
- 15%  { opacity: 1; }
- 65%  { left: 100%; opacity: 1; }
- 100% { left: 100%; opacity: 0; }
+ 0%   { left: -40%; }
+ 100% { left: 100%; }
 }
 .about-para {
  font-size: .94rem; font-weight: 450;
