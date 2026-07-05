@@ -711,6 +711,26 @@ body.light #about { background: transparent; }
  height: 1px;
  background: linear-gradient(to right, rgba(138,170,152,.25), transparent);
  border-radius: 1px;
+ position: relative;
+ overflow: hidden;
+}
+.hero-avail-line::after {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: -40%;
+ width: 40%;
+ height: 100%;
+ background: linear-gradient(to right, transparent, rgba(34,160,99,.9), transparent);
+ animation: availLineShimmer 2.8s ease-in-out infinite;
+}
+body.light .hero-avail-line::after {
+ background: linear-gradient(to right, transparent, rgba(26,148,96,.85), transparent);
+}
+@keyframes availLineShimmer {
+ 0%   { left: -40%; }
+ 60%  { left: 100%; }
+ 100% { left: 100%; }
 }
 .about-para {
  font-size: .94rem; font-weight: 450;
@@ -1354,10 +1374,8 @@ body.light .c-form input, body.light .c-form textarea {
  padding: 8px 13px;
  font-size: .66rem;
  cursor: pointer;
- background: rgba(255,255,255,.03);
- border-color: rgba(138,170,152,.45);
+ background: transparent;
 }
-body.light .btn-o-sm { background: rgba(0,0,0,.02); border-color: rgba(25,106,71,.3); }
 footer { padding: 20px var(--pad); border-top: 1px solid var(--br); background: transparent; }
 .btn-send {
  background: var(--a2);
@@ -1972,7 +1990,7 @@ body.light .wt.wt-cube-single .wt-name {
   .nav-desk-links a svg { width: 16px; height: 16px; }
 
   /* Hero: text takes full width, cube sits centered below as its own row */
-  .tube-light { width: clamp(480px, 90vw, 920px); height: clamp(160px, 30vw, 260px); }
+  .tube-light { width: clamp(420px, 58vw, 780px); height: clamp(140px, 19vw, 220px); }
   #home { padding: clamp(76px, 9.5vw, 112px) 0 clamp(36px, 5vw, 60px); min-height: calc(100svh - var(--nav)); align-items: center; }
   .hero-inner { flex-direction: column; align-items: center; gap: clamp(28px, 4vw, 48px); }
   .hero-left { flex: none; width: 100%; max-width: unset; order: 1; min-width: 0; }
