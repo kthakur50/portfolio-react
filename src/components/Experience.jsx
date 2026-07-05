@@ -93,7 +93,7 @@ const Experience = () => (
             <p className="exp-desc">
               Delivered <strong>high-performance web applications</strong> for clients across
               multiple domains with pixel-perfect UIs and optimized Core Web Vitals. Built
-              scalable frontends using <strong>Next.js, TypeScript</strong>, and TailwindCSS,
+              scalable frontends using <strong>Next.js, TypeScript, and TailwindCSS</strong>,
               managing scope, timelines, and deliverables end-to-end.
             </p>
             <div className="exp-tags">
