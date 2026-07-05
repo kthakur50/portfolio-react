@@ -2393,8 +2393,8 @@ body.light .wt.wt-cube-single .wt-name {
 
   /* Experience */
   .exp-list { padding-left: 40px; }
-  .exp-node { left: -38px; width: 28px; height: 28px; padding: 6px; top: 50%; transform: translateY(-50%); }
-  .exp-item::before { left: -24px; top: calc(50% + 14px); bottom: -24px; }
+  .exp-node { left: -38px; width: 28px; height: 28px; padding: 6px; top: 14px; }
+  .exp-item::before { left: -24px; top: 46px; bottom: -24px; }
   .exp-card { padding: 13px 14px; }
   .exp-role { font-size: .88rem; }
   .exp-desc { font-size: .76rem; line-height: 1.78; }
@@ -2410,8 +2410,8 @@ body.light .wt.wt-cube-single .wt-name {
 
   /* Education */
   .edu-list { padding-left: 40px; }
-  .edu-node { left: -38px; width: 28px; height: 28px; padding: 5px; top: 50%; transform: translateY(-50%); }
-  .edu-item::before { left: -24px; top: calc(50% + 14px); bottom: 0; }
+  .edu-node { left: -38px; width: 28px; height: 28px; padding: 5px; top: 14px; }
+  .edu-item::before { left: -24px; top: 46px; bottom: 0; }
   .edu-card { padding: 13px 14px; }
   .edu-header-row { flex-direction: column; align-items: flex-start; gap: 6px; }
   .edu-yr { margin-left: 0; text-align: left; }
@@ -2468,8 +2468,8 @@ body.light .wt.wt-cube-single .wt-name {
   .skill-chip span { font-size: .42rem; }
 
   .exp-list { padding-left: 36px; }
-  .exp-node { left: -34px; width: 26px; height: 26px; top: 50%; transform: translateY(-50%); padding: 5px; }
-  .exp-item::before { left: -21px; top: calc(50% + 13px); bottom: -24px; }
+  .exp-node { left: -34px; width: 26px; height: 26px; top: 13px; padding: 5px; }
+  .exp-item::before { left: -21px; top: 42px; bottom: -24px; }
   .exp-role { font-size: .84rem; }
   .exp-desc { font-size: .74rem; }
   .exp-period { font-size: .54rem; }
@@ -2484,8 +2484,8 @@ body.light .wt.wt-cube-single .wt-name {
   .masonry-cat { font-size: .64rem; }
 
   .edu-list { padding-left: 36px; }
-  .edu-node { left: -34px; width: 26px; height: 26px; top: 50%; transform: translateY(-50%); padding: 5px; }
-  .edu-item::before { left: -21px; top: calc(50% + 13px); bottom: 0; }
+  .edu-node { left: -34px; width: 26px; height: 26px; top: 13px; padding: 5px; }
+  .edu-item::before { left: -21px; top: 42px; bottom: 0; }
   .edu-deg-title { font-size: .84rem; }
   .edu-yr { font-size: .54rem; }
 
