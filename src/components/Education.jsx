@@ -17,14 +17,10 @@ const Education = () => (
           </div>
           <div className="edu-card">
             <div className="edu-header-row">
-              <div className="edu-deg">
-                <div className="edu-deg-content">
-                  <div className="edu-deg-title">Bachelor of Computer Application</div>
-                  <div className="edu-inst">Mangalmay Institute of Management and Technology · Greater Noida</div>
-                </div>
-              </div>
+              <div className="edu-deg-title">Bachelor of Computer Application</div>
               <span className="edu-yr">July 2019 – Aug 2022</span>
             </div>
+            <div className="edu-inst">Mangalmay Institute of Management and Technology · Greater Noida</div>
           </div>
         </div>
       </div>
