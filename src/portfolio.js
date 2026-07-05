@@ -76,13 +76,6 @@ function initHam() {
       const open = mob.classList.toggle('open');
       ham.classList.toggle('open', open);
     });
-
-    mob.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        a.classList.add('tip-show');
-        setTimeout(() => a.classList.remove('tip-show'), 900);
-      });
-    });
   }
 
   const hamDesk = document.getElementById('hamDesk');
