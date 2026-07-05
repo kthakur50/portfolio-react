@@ -2230,6 +2230,7 @@ body.light .wt.wt-cube-single .wt-name {
     max-width: calc(100% - 2 * var(--pad));
   }
   .nav-logo .logo-k { font-size: .8rem; }
+  .nav-logo { margin-left: 6px; }
   /* Hide desktop links */
   .nav-desk-links { display: none !important; }
   .nav-right { display: none !important; }
@@ -2259,7 +2260,7 @@ body.light .wt.wt-cube-single .wt-name {
     border: 1px solid rgba(255,255,255,.09);
     border-radius: 10px;
     padding: 8px;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     gap: 2px;
     opacity: 0;
