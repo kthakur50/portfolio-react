@@ -350,12 +350,6 @@ body.light .nav-mob {
 .nav-mob a:hover { color: var(--tx); }
 .nav-mob a.active { color: var(--a2); }
 .nav-mob a::after { display: none; }
-.nav-mob a:hover .nav-tip-mob,
-.nav-mob a:focus-visible .nav-tip-mob {
- opacity: 1;
- visibility: visible;
- transform: translateX(-50%) translateY(0);
-}
 #home {
  --htc: 225,250,238;
  min-height: calc(100svh - var(--nav));
@@ -2352,29 +2346,29 @@ body.light .wt.wt-cube-single .wt-name {
   /* Buttons */
   .hero-btns { flex-wrap: wrap; gap: clamp(4px, 1.5vw, 7px); margin-top: clamp(4px, 1.4vw, 8px); }
   .hero-btns .btn-o {
-    font-size: clamp(.58rem, 2vw, .72rem);
-    padding: clamp(5px, 1.5vw, 8px) clamp(7px, 2.5vw, 13px);
+    font-size: clamp(.54rem, 1.8vw, .66rem);
+    padding: clamp(4px, 1.3vw, 7px) clamp(6px, 2.2vw, 11px);
     flex: 1;
     min-width: 0;
   }
 
   /* Cube: bottom of right col, bigger and more prominent on phone */
-  .win3d-scene { width: clamp(95px, 24vw, 145px); margin-top: 10px; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(95px, 24vw, 145px); height: clamp(95px, 24vw, 145px); }
-  .win3d-front  { transform: translateZ(clamp(48px, 12vw, 73px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(48px, 12vw, 73px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(48px, 12vw, 73px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(48px, 12vw, 73px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(48px, 12vw, 73px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-scene { width: clamp(105px, 26vw, 158px); margin-top: 10px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(105px, 26vw, 158px); height: clamp(105px, 26vw, 158px); }
+  .win3d-front  { transform: translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(53px, 13vw, 79px)); }
   .win3d-scene.mode-3d .win3d-cube,
-  .win3d-scene.mode-3d .win3d-face { width: clamp(95px, 24vw, 145px); height: clamp(95px, 24vw, 145px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(48px, 12vw, 73px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(48px, 12vw, 73px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(48px, 12vw, 73px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(48px, 12vw, 73px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(48px, 12vw, 73px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-scene.mode-3d .win3d-face { width: clamp(105px, 26vw, 158px); height: clamp(105px, 26vw, 158px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(53px, 13vw, 79px)); }
   .wt-name { font-size: .56rem; }
 
   /* Skills */
@@ -2440,23 +2434,23 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-info-item { font-size: .6rem; height: 34px; gap: 10px; padding: 4px 0; overflow-y: visible; }
   .hero-info-item svg { width: 16px; height: 16px; }
   .hero-btns { margin-top: 6px; }
-  .hero-btns .btn-o { font-size: .68rem; padding: 7px 10px; }
+  .hero-btns .btn-o { font-size: .62rem; padding: 6px 9px; }
 
-  .win3d-scene { width: 130px; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: 130px; height: 130px; }
-  .win3d-front  { transform: translateZ(65px); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(65px); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(65px); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(65px); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(65px); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(65px); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 130px; height: 130px; }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(65px); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(65px); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(65px); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(65px); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(65px); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(65px); }
+  .win3d-scene { width: 142px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 142px; height: 142px; }
+  .win3d-front  { transform: translateZ(71px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(71px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(71px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(71px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(71px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(71px); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 142px; height: 142px; }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(71px); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(71px); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(71px); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(71px); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(71px); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(71px); }
 
   .skill-one-card { grid-template-columns: 1fr; gap: 10px; }
   .skill-one-card .skill-group { padding: 12px 8px 10px !important; }
@@ -2503,14 +2497,14 @@ body.light .wt.wt-cube-single .wt-name {
 
   .hero-name { font-size: clamp(1.9rem, 10vw, 2.3rem); margin-top: 5px; margin-bottom: 12px; }
 
-  .win3d-scene { width: clamp(90px, 25vw, 112px); }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(90px, 25vw, 112px); height: clamp(90px, 25vw, 112px); }
-  .win3d-front  { transform: translateZ(clamp(45px, 12.5vw, 56px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(45px, 12.5vw, 56px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(45px, 12.5vw, 56px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(45px, 12.5vw, 56px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(45px, 12.5vw, 56px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(45px, 12.5vw, 56px)); }
+  .win3d-scene { width: clamp(98px, 27vw, 122px); }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(98px, 27vw, 122px); height: clamp(98px, 27vw, 122px); }
+  .win3d-front  { transform: translateZ(clamp(49px, 13.5vw, 61px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(49px, 13.5vw, 61px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(49px, 13.5vw, 61px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(49px, 13.5vw, 61px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(49px, 13.5vw, 61px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(49px, 13.5vw, 61px)); }
 
   .skill-one-card { grid-template-columns: 1fr; gap: 8px; }
   .skill-one-card .skill-group { padding: 10px 6px 8px !important; }
