@@ -103,20 +103,7 @@ section { padding: 110px 0; }
 }
 .sec-hd-icon svg { width: 100%; height: 100%; display: block; }
 body.light .sec-hd-icon { border-color: rgba(0,0,0,.12); }
-.sec-hd::after {
- content: '';
- position: absolute;
- left: 0;
- right: 0;
- bottom: 0;
- height: 2px;
- background: rgba(255,255,255,.1);
- -webkit-mask-image: linear-gradient(to right, #000 0%, #000 55%, transparent 100%);
- mask-image: linear-gradient(to right, #000 0%, #000 55%, transparent 100%);
-}
-body.light .sec-hd::after {
- background: rgba(0,0,0,.1);
-}
+.sec-hd::after { display: none; }
 .sr { opacity: 0; transform: translateY(24px) translateZ(0); transition: opacity .6s cubic-bezier(.25,.46,.45,.94), transform .6s cubic-bezier(.25,.46,.45,.94); will-change: opacity, transform; }
 .sr.on { opacity: 1; transform: translateY(0) translateZ(0); }
 .nav {
@@ -737,7 +724,7 @@ body.light #about { background: transparent; }
  width: 40%;
  height: 100%;
  background: linear-gradient(to right, transparent, rgba(255,255,255,.45), transparent);
- animation: availLineShimmer 2.6s ease-in-out infinite;
+ animation: availLineShimmer 1.6s ease-in-out infinite;
 }
 body.light .hero-avail-line::after {
  background: linear-gradient(to right, transparent, rgba(23,48,32,.3), transparent);
@@ -2269,7 +2256,7 @@ body.light .wt.wt-cube-single .wt-name {
     top: calc(var(--nav) + 8px);
     left: auto;
     right: 14px;
-    width: 46px;
+    width: 168px;
     background: rgba(15, 15, 15, 0.88);
     backdrop-filter: blur(28px) saturate(160%);
     -webkit-backdrop-filter: blur(28px) saturate(160%);
@@ -2298,7 +2285,8 @@ body.light .wt.wt-cube-single .wt-name {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 8px;
+    gap: 10px;
+    padding: 9px 10px;
     border-radius: 6px;
     color: var(--tx);
     text-decoration: none;
@@ -2308,32 +2296,11 @@ body.light .wt.wt-cube-single .wt-name {
   .nav-mob a:hover, .nav-mob a.active {
     color: var(--a2);
   }
-  .nav-mob a .nav-tip-mob {
-    top: 50%;
-    left: auto;
-    right: calc(100% + 10px);
-    bottom: auto;
-    transform: translateY(-50%);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-  .nav-mob a:active .nav-tip-mob,
-  .nav-mob a.tip-show .nav-tip-mob {
-    opacity: 1;
-    visibility: visible;
-  }
-  .nav-mob a .nav-tip-mob::after {
-    bottom: auto;
-    left: 100%;
-    right: auto;
-    top: 50%;
-    transform: translateY(-50%);
-    border-left: 5px solid #000;
-    border-right: none;
-    border-bottom: 5px solid transparent;
-    border-top: 5px solid transparent;
-    filter: drop-shadow(1px 0 0 rgba(255,255,255,.06));
+  .nav-mob-label {
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+    white-space: nowrap;
   }
 
   /* ── Hero: same row layout as desktop — text left, cube right ── */
@@ -2392,22 +2359,22 @@ body.light .wt.wt-cube-single .wt-name {
   }
 
   /* Cube: bottom of right col, bigger and more prominent on phone */
-  .win3d-scene { width: clamp(110px, 28vw, 165px); margin-top: 10px; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(110px, 28vw, 165px); height: clamp(110px, 28vw, 165px); }
-  .win3d-front  { transform: translateZ(clamp(55px, 14vw, 82px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(55px, 14vw, 82px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(55px, 14vw, 82px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(55px, 14vw, 82px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(55px, 14vw, 82px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(55px, 14vw, 82px)); }
+  .win3d-scene { width: clamp(95px, 24vw, 145px); margin-top: 10px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(95px, 24vw, 145px); height: clamp(95px, 24vw, 145px); }
+  .win3d-front  { transform: translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(48px, 12vw, 73px)); }
   .win3d-scene.mode-3d .win3d-cube,
-  .win3d-scene.mode-3d .win3d-face { width: clamp(110px, 28vw, 165px); height: clamp(110px, 28vw, 165px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(55px, 14vw, 82px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(55px, 14vw, 82px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(55px, 14vw, 82px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(55px, 14vw, 82px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(55px, 14vw, 82px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(55px, 14vw, 82px)); }
+  .win3d-scene.mode-3d .win3d-face { width: clamp(95px, 24vw, 145px); height: clamp(95px, 24vw, 145px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(48px, 12vw, 73px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(48px, 12vw, 73px)); }
   .wt-name { font-size: .56rem; }
 
   /* Skills */
@@ -2475,21 +2442,21 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-btns { margin-top: 6px; }
   .hero-btns .btn-o { font-size: .68rem; padding: 7px 10px; }
 
-  .win3d-scene { width: 150px; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: 150px; height: 150px; }
-  .win3d-front  { transform: translateZ(75px); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(75px); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(75px); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(75px); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(75px); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(75px); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 150px; height: 150px; }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(75px); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(75px); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(75px); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(75px); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(75px); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(75px); }
+  .win3d-scene { width: 130px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 130px; height: 130px; }
+  .win3d-front  { transform: translateZ(65px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(65px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(65px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(65px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(65px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 130px; height: 130px; }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(65px); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(65px); }
 
   .skill-one-card { grid-template-columns: 1fr; gap: 10px; }
   .skill-one-card .skill-group { padding: 12px 8px 10px !important; }
@@ -2536,14 +2503,14 @@ body.light .wt.wt-cube-single .wt-name {
 
   .hero-name { font-size: clamp(1.9rem, 10vw, 2.3rem); margin-top: 5px; margin-bottom: 12px; }
 
-  .win3d-scene { width: clamp(105px, 29vw, 130px); }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(105px, 29vw, 130px); height: clamp(105px, 29vw, 130px); }
-  .win3d-front  { transform: translateZ(clamp(52px, 14.5vw, 65px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(52px, 14.5vw, 65px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(52px, 14.5vw, 65px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(52px, 14.5vw, 65px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(52px, 14.5vw, 65px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(52px, 14.5vw, 65px)); }
+  .win3d-scene { width: clamp(90px, 25vw, 112px); }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(90px, 25vw, 112px); height: clamp(90px, 25vw, 112px); }
+  .win3d-front  { transform: translateZ(clamp(45px, 12.5vw, 56px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(45px, 12.5vw, 56px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(45px, 12.5vw, 56px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(45px, 12.5vw, 56px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(45px, 12.5vw, 56px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(45px, 12.5vw, 56px)); }
 
   .skill-one-card { grid-template-columns: 1fr; gap: 8px; }
   .skill-one-card .skill-group { padding: 10px 6px 8px !important; }
