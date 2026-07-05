@@ -2296,7 +2296,7 @@ body.light .wt.wt-cube-single .wt-name {
   }
 
   /* ── Hero: same row layout as desktop — text left, cube right ── */
-  .tube-light { width: clamp(300px, 92vw, 480px); height: clamp(100px, 26vw, 140px); }
+  .tube-light { width: clamp(260px, 78vw, 400px); height: clamp(85px, 22vw, 118px); }
   #home {
     padding: clamp(40px, 8vw, 56px) 0 clamp(20px, 4vw, 36px);
     min-height: calc(100svh - var(--nav));
@@ -2456,6 +2456,14 @@ body.light .wt.wt-cube-single .wt-name {
   .exp-desc { font-size: .74rem; }
   .exp-period { font-size: .54rem; }
   .exp-badge { font-size: .52rem; padding: 2px 5px; }
+
+  /* Projects: single column below 430px — 2-col makes the card graphics illegible */
+  .masonry-list { grid-template-columns: 1fr; gap: 12px; }
+  .masonry-body { padding: 14px 14px; }
+  .masonry-title { font-size: .88rem; margin: 6px 0 7px; }
+  .masonry-desc { font-size: .76rem; line-height: 1.7; }
+  .masonry-tags { gap: 5px; margin-top: 8px; }
+  .masonry-cat { font-size: .64rem; }
 
   .edu-list { padding-left: 36px; }
   .edu-node { left: -34px; width: 26px; height: 26px; padding: 5px; }
