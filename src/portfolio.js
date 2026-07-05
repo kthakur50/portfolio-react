@@ -185,7 +185,7 @@ function initWin3DCube() {
     { name:'JavaScript',   grad:['#5c4c00','#3a3000'], svg:`<svg viewBox="0 0 100 100" width="38" height="38"><rect width="100" height="100" rx="12" fill="#F7DF1E"/><text x="94" y="90" text-anchor="end" font-family="'Arial Black',Arial,sans-serif" font-weight="900" font-size="48" fill="#000">JS</text></svg>` },
     { name:'Python',       grad:['#1a3d5c','#0e2438'], svg:`<svg viewBox="0 0 256 255" width="38" height="38" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pyb2" x1="12%" y1="12%" x2="80%" y2="78%"><stop stop-color="#387EB8" offset="0%"/><stop stop-color="#366994" offset="100%"/></linearGradient><linearGradient id="pyy2" x1="19%" y1="21%" x2="91%" y2="88%"><stop stop-color="#FFE052" offset="0%"/><stop stop-color="#FFC331" offset="100%"/></linearGradient></defs><path fill="url(#pyb2)" d="M126.9.1C62.1.1 66.2 28.2 66.2 28.2l.1 29.1h61.9v8.7H41.6S.1 61.4.1 126.8c0 65.4 36.2 63.1 36.2 63.1h21.6v-30.4s-1.2-36.2 35.6-36.2h61.4s34.5.6 34.5-33.3V34c-.1 0 5.2-33.9-62.5-33.9zm-34 19.6c6.1 0 11.1 5 11.1 11.1 0 6.1-5 11.1-11.1 11.1-6.1 0-11.1-5-11.1-11.1 0-6.1 5-11.1 11.1-11.1z"/><path fill="url(#pyy2)" d="M128.8 254.9c64.8 0 60.8-28.1 60.8-28.1l-.1-29.1h-61.9v-8.7h86.4s41.5 4.7 41.5-60.7c0-65.4-36.2-63.1-36.2-63.1h-21.6v30.4s1.2 36.2-35.6 36.2h-61.4S66.2 121.2 66.2 155v56c0 .1-5.2 43.9 62.6 43.9zm34-19.6c-6.1 0-11.1-5-11.1-11.1 0-6.1 5-11.1 11.1-11.1 6.1 0 11.1 5 11.1 11.1 0 6.1-5 11.1-11.1 11.1z"/></svg>` },
     { name:'MongoDB',      grad:['#083818','#04200e'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#00ED64" d="M20 3S10 14.5 10 22.5c0 5.5 4.5 9.5 10 9.5s10-4 10-9.5C30 14.5 20 3 20 3z"/></svg>` },
-    { name:'Docker',       grad:['#083258','#041e38'], svg:`<svg viewBox="1 2 37 30" width="38" height="38"><path fill="#2496ED" d="M37.3 18c-.6-3.2-2.8-6-5.9-7.4l-.9-.4-.5 1c-.5 1.3-.6 2.7-.3 4-1.5-.9-3.2-1.4-5-1.2H2.8l-.2.8c-.8 3.3-.1 7.2 2.1 10.1C7 27.7 10.8 29.5 15.5 29.5c8 0 14.6-5 16.6-12.7.2 0 .4-.1.6-.1 2.2 0 4.2-.9 5.7-2.3l.7-.7-.6-.4c-.5-.4-1-.7-1.3-.8z"/><rect x="5" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="11" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="11" y="10" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="10" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="4.5" width="5" height="3.5" rx="1" fill="#fff"/></svg>` },
+    { name:'Docker',       grad:['#083258','#041e38'], svg:`<svg viewBox="1 -1.5 37 37" width="38" height="38"><path fill="#2496ED" d="M37.3 18c-.6-3.2-2.8-6-5.9-7.4l-.9-.4-.5 1c-.5 1.3-.6 2.7-.3 4-1.5-.9-3.2-1.4-5-1.2H2.8l-.2.8c-.8 3.3-.1 7.2 2.1 10.1C7 27.7 10.8 29.5 15.5 29.5c8 0 14.6-5 16.6-12.7.2 0 .4-.1.6-.1 2.2 0 4.2-.9 5.7-2.3l.7-.7-.6-.4c-.5-.4-1-.7-1.3-.8z"/><rect x="5" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="11" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="15.5" width="5" height="3.5" rx="1" fill="#fff"/><rect x="11" y="10" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="10" width="5" height="3.5" rx="1" fill="#fff"/><rect x="17" y="4.5" width="5" height="3.5" rx="1" fill="#fff"/></svg>` },
     { name:'HTML5',        grad:['#4a1e00','#2e1200'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#E44D26" d="M5 3l3 33L20 40l12-4 3-33z"/><path fill="#F16529" d="M20 37.3V6.6l10.4.3-2.6 23.6z"/><path fill="#EBEBEB" d="M20 18H15l-.4-4H20V10H9.8l1 12H20zm0 8.5l-.1.1-4-1.1-.3-3H12l.6 6.8 7.4 2z"/><path fill="#fff" d="M20 18v3.7h4.3l-.4 4.7-3.9 1.1V31l7.3-2 .6-7.8.6-8.2H20zm0-7.4v3.9h7.8l.3-3.9H20z"/></svg>` },
     { name:'Git',          grad:['#4a1e0c','#2e1208'], svg:`<svg viewBox="0 0 40 40" width="38" height="38"><path fill="#F05032" d="M38.1 18.1L21.9 1.9a3.1 3.1 0 00-4.4 0l-3.3 3.3 4.2 4.2c1-.4 2.2-.2 3 .6.8.8 1 2 .6 3L26 17a3.1 3.1 0 11-1.9 1.9l-4.1-4V28a3.1 3.1 0 11-2.5 0V14.8a3.1 3.1 0 01-1.6-4.1L11.5 6.3 1.9 15.9a3.1 3.1 0 000 4.4l16.2 16.2a3.1 3.1 0 004.4 0L38.1 22.5a3.1 3.1 0 000-4.4z"/></svg>` },
     { name:'Redux',        grad:['#2e1252','#1c0a32'], svg:`<svg viewBox="0 0 40 40" fill="none" width="38" height="38"><path fill="#764ABC" d="M27.5 10.2c.5-.1 1.1-.1 1.6.1a3.7 3.7 0 012.4 3.5 3.7 3.7 0 01-.7 2.2 11.5 11.5 0 011.9 5.7c.2 2.9-.5 5.8-2.2 8.1a9.7 9.7 0 01-8.5 4.2 9.2 9.2 0 01-7.8-4.3 9.2 9.2 0 01-1-8.4h.2a3.5 3.5 0 01-.4-1.7 3.7 3.7 0 013.7-3.7c.4 0 .8.1 1.2.2A11.5 11.5 0 0121 14c.9-.1 1.8-.1 2.7 0a11 11 0 013 .8c.2-.4.4-.8.8-1.1a3.6 3.6 0 010 0zm-4.2 2.3c-.8 0-1.5.1-2.3.3a9.6 9.6 0 00-4.2 2.2 8.2 8.2 0 00-2.4 4 8.1 8.1 0 00.7 5.7 7.2 7.2 0 006.2 3.4 7.7 7.7 0 006.8-3.4c1.4-2 1.9-4.5 1.6-7a9.7 9.7 0 00-1.5-4.1 8.5 8.5 0 00-4.9-1.1z"/><circle cx="20" cy="6.5" r="3" fill="#764ABC"/></svg>` },
@@ -197,11 +197,11 @@ function initWin3DCube() {
   // Set B (back-style):  TS, Node.js, MongoDB, Python  → indices 2,3,7,5
   const faceSkills = {
     wFront:  { flat:[0,1,4,11],  single:false },  // React, Next.js, JS, Tailwind CSS (4 tiles)
-    wBack:   { flat:[2],         single:true  },  // TypeScript (1 tile)
-    wRight:  { flat:[3],         single:true  },  // Node.js (1 tile)
+    wBack:   { flat:[3],         single:true  },  // Node.js (1 tile)
+    wRight:  { flat:[9],         single:true  },  // Git (1 tile)
     wLeft:   { flat:[5],         single:true  },  // Python (1 tile)
-    wTop:    { flat:[9],         single:true  },  // Git (1 tile)
-    wBottom: { flat:[7],         single:true  },  // Docker (1 tile)
+    wTop:    { flat:[7],         single:true  },  // Docker (1 tile)
+    wBottom: { flat:[2],         single:true  },  // TypeScript (1 tile)
   };
 
   const glowMap = {
@@ -211,7 +211,7 @@ function initWin3DCube() {
     'HTML5':'#E44D26','Git':'#F05032','Redux':'#764ABC',
   };
 
-  // corner radii for 2x2 grid tiles
+  // corner radii for the front face's 2x2 grid tiles (kept as original seamless look)
   const RADII = ['14px 0 0 0','0 14px 0 0','0 0 0 14px','0 0 14px 0'];
 
   // ── Tile factory ──────────────────────────────────────────────
@@ -260,7 +260,7 @@ function initWin3DCube() {
   let spinning = false, rotX = 0, rotY = 0;
   let dragging = false, lastX = 0, lastY = 0, velX = 0, velY = 0;
   let autoSpin = true;  // clockwise auto-spin always on by default
-  let spinRAF = null, inertiaRAF = null, bounceTimer = null;
+  let spinRAF = null, inertiaRAF = null;
 
   const cube  = document.getElementById('win3dCube');
   const scene = document.getElementById('win3dScene');
@@ -288,34 +288,6 @@ function initWin3DCube() {
     }
     inertiaRAF = requestAnimationFrame(tick);
   }
-
-  // ── Bounce animation (flat mode) ──────────────────────────────
-  function startBounce() {
-    const tiles = document.querySelectorAll('#wFront .wt');
-    let i = 0, busy = false;
-    function next() {
-      if (spinning || busy) return;
-      busy = true;
-      const tile = tiles[i % tiles.length];
-      tile.classList.remove('wt-bounce');
-      void tile.offsetWidth; // reflow to restart animation
-      tile.classList.add('wt-bounce');
-      tile.addEventListener('animationend', function onEnd() {
-        tile.removeEventListener('animationend', onEnd);
-        tile.classList.remove('wt-bounce');
-        i++; busy = false;
-        bounceTimer = setTimeout(next, 300);
-      });
-    }
-    next();
-  }
-
-  function stopBounce() {
-    clearTimeout(bounceTimer); bounceTimer = null;
-    document.querySelectorAll('#wFront .wt').forEach(t => t.classList.remove('wt-bounce'));
-  }
-
-  startBounce();
 
   // ── Auto clockwise spin ───────────────────────────────────────
   function startAutoSpin() {
@@ -464,40 +436,11 @@ function initWin3DCube() {
 
   updateFaceBlur();
 
-  // ── Toggle spin / flat mode ───────────────────────────────────
   // ── Start 3D mode + auto-spin on load ───────────────────────
   spinning = true;
   scene.classList.add('mode-3d');
   buildFaces();
-  stopBounce();
-  document.getElementById('wBtnSpin')?.classList.add('active');
   startAutoSpin();
-
-  window.wToggleSpin = function () {
-    spinning = !spinning;
-    autoSpin = spinning;
-    const btn = document.getElementById('wBtnSpin');
-    if (spinning) {
-      btn.classList.add('active');
-      scene.classList.add('mode-3d');
-      buildFaces();
-      stopBounce();
-      cube.style.transition = 'none';
-      startAutoSpin();
-    } else {
-      btn.classList.remove('active');
-      scene.classList.remove('mode-3d');
-      cancelAnimationFrame(spinRAF); spinRAF = null;
-      cancelAnimationFrame(inertiaRAF); inertiaRAF = null;
-      Object.keys(faceNormals).forEach(id => {
-        const f = document.getElementById(id);
-        if (f) { f.style.opacity = ''; }
-      });
-      buildFaces();
-      rotX = 0; rotY = 0; applyRot();
-      setTimeout(startBounce, 300);
-    }
-  };
 }
 
 function initHL() {
