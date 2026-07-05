@@ -421,9 +421,6 @@ body.light .tube-bar {
    0 0 30px 10px rgba(200,220,255,.4),
    0 0 70px 26px rgba(200,220,255,.2);
 }
-@media (max-width: 640px) {
- .tube-light { width: clamp(340px, 96vw, 520px); height: 140px; }
-}
 #home .wrap { position: relative; z-index: 2; width: 100%; }
 .hero-inner { display: flex; flex-direction: row; align-items: center; width: 100%; position: relative; gap: 92px; }
 .hero-left { flex: 1; position: relative; z-index: 2; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
@@ -2082,6 +2079,7 @@ body.light .wt.wt-cube-single .wt-name {
   .nav-desk-links a svg { width: 15px; height: 15px; }
 
   /* ── Hero: text full width on top, cube centered below at the very bottom ── */
+  .tube-light { width: clamp(360px, 78vw, 620px); height: clamp(120px, 17vw, 180px); }
   #home {
     padding: clamp(90px, 14vw, 122px) 0 clamp(40px, 6vw, 64px);
     min-height: auto;
@@ -2298,6 +2296,7 @@ body.light .wt.wt-cube-single .wt-name {
   }
 
   /* ── Hero: same row layout as desktop — text left, cube right ── */
+  .tube-light { width: clamp(300px, 92vw, 480px); height: clamp(100px, 26vw, 140px); }
   #home {
     padding: clamp(40px, 8vw, 56px) 0 clamp(20px, 4vw, 36px);
     min-height: calc(100svh - var(--nav));
