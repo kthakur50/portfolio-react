@@ -20,7 +20,11 @@ const Education = () => (
               <div className="edu-deg-title">Bachelor of Computer Application</div>
               <span className="edu-yr">July 2019 – Aug 2022</span>
             </div>
-            <div className="edu-inst">Mangalmay Institute of Management and Technology · Greater Noida</div>
+            <div className="edu-inst">
+              <span className="edu-inst-name">Mangalmay Institute of Management and Technology</span>
+              <span className="edu-inst-sep"> · </span>
+              <span className="edu-inst-loc">Greater Noida</span>
+            </div>
           </div>
         </div>
       </div>
