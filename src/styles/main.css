@@ -127,7 +127,7 @@ body.light .sec-hd::after { display: none; }
  width: 100%;
  max-width: calc(1280px - 2 * var(--pad));
  margin: 0 auto;
- height: 38px;
+ height: 44px;
  display: grid;
  grid-template-columns: 1fr auto 1fr;
  align-items: center;
@@ -169,7 +169,7 @@ body.light .nav-sep-line { background: rgba(0,0,0,.15); }
  display: flex;
  align-items: center;
  justify-content: center;
- gap: 6px;
+ gap: 10px;
  overflow: hidden;
  max-width: 0;
  opacity: 0;
@@ -389,7 +389,7 @@ body.light #home { background: #ffffff; --htc: 200,225,215; }
  position: absolute;
  top: 0; left: 0;
  width: 100%;
- height: .4px;
+ height: .6px;
  border-radius: 2px;
  z-index: 2;
  clip-path: inset(-200px -200px -200px -200px);
@@ -402,27 +402,10 @@ body.light #home { background: #ffffff; --htc: 200,225,215; }
    rgba(255,255,255,.5) 94%,
    rgba(255,255,255,0) 100%);
  box-shadow:
-   0 0 6px 2px rgba(255,255,255,.6),
-   0 0 18px 6px rgba(255,255,255,.3),
-   0 0 44px 16px rgba(255,255,255,.12);
+   0 0 8px 3px rgba(255,255,255,.65),
+   0 0 24px 8px rgba(255,255,255,.32),
+   0 0 56px 20px rgba(255,255,255,.14);
  animation: tubeFlicker 9s ease-in-out infinite;
-}
-.tube-light::after {
- content: '';
- position: absolute;
- top: 0; left: 50%;
- transform: translateX(-50%);
- width: 70%;
- height: 65%;
- pointer-events: none;
- z-index: 1;
- border-radius: 24px;
- opacity: 1;
- background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,255,255,.08) 0%, transparent 75%);
- animation: tubeConeFade 1.2s ease-out;
-}
-body.light .tube-light::after {
- background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(200,220,255,.08) 0%, transparent 75%);
 }
 body.light .tube-bar {
  background: linear-gradient(90deg,
@@ -434,9 +417,9 @@ body.light .tube-bar {
    rgba(255,255,255,.5) 94%,
    rgba(255,255,255,0) 100%);
  box-shadow:
-   0 0 6px 2px rgba(200,220,255,.6),
-   0 0 18px 6px rgba(200,220,255,.3),
-   0 0 44px 16px rgba(200,220,255,.12);
+   0 0 8px 3px rgba(200,220,255,.65),
+   0 0 24px 8px rgba(200,220,255,.32),
+   0 0 56px 20px rgba(200,220,255,.14);
 }
 @media (max-width: 640px) {
  .tube-light { width: clamp(340px, 96vw, 520px); height: 140px; }
@@ -1650,17 +1633,13 @@ body.light .skill-card--tl {
  88.4%    { opacity: .8; }
  89%      { opacity: 1; }
 }
-@keyframes tubeConeFade {
- from { opacity: 0; }
- to { opacity: 1; }
-}
 .hero-right {
  flex: 1;
  min-width: clamp(180px, 17vw, 270px);
  display: flex;
  align-items: center;
  justify-content: flex-end;
- padding-right: clamp(12px, 2vw, 24px);
+ padding-right: clamp(32px, 5vw, 56px);
  position: relative;
  align-self: center;
 }
@@ -1708,15 +1687,8 @@ body.light .skill-card--tl {
  width: clamp(180px, 16vw, 260px);
  height: clamp(180px, 16vw, 260px);
 }
-.win3d-scene:not(.mode-3d) .win3d-cube {
- transform-style: flat;
- transform: none !important;
- transition: none !important;
-}
 
 /* ── FACES ───────────────────────────────────────────────────── */
-.win3d-scene:not(.mode-3d) .win3d-face:not(.win3d-front) { display: none; }
-.win3d-scene:not(.mode-3d) .win3d-front { transform: none; position: relative; }
 
 .win3d-face {
  position: absolute;
@@ -1725,8 +1697,8 @@ body.light .skill-card--tl {
  display: grid;
  grid-template-columns: 1fr 1fr;
  grid-template-rows: 1fr 1fr;
- gap: 5px;
- padding: 5px;
+ gap: 2px;
+ padding: 2px;
  border-radius: 20px;
  overflow: visible;
  backface-visibility: visible;
@@ -1737,8 +1709,8 @@ body.light .skill-card--tl {
 .win3d-scene.mode-3d .win3d-face {
  grid-template-columns: 1fr 1fr;
  grid-template-rows: 1fr 1fr;
- gap: 5px;
- padding: 5px;
+ gap: 4px;
+ padding: 4px;
  width: clamp(180px, 16vw, 260px);
  height: clamp(180px, 16vw, 260px);
  background: transparent;
@@ -1748,10 +1720,6 @@ body.light .skill-card--tl {
  backface-visibility: visible;
  -webkit-backface-visibility: visible;
 }
-.win3d-scene.mode-3d .win3d-face:not(.win3d-front) {
- gap: 0;
- padding: 0;
-}
 /* single-tile face: full-face one skill */
 .win3d-scene.mode-3d .win3d-face.win3d-face-single {
  display: flex;
@@ -1760,12 +1728,12 @@ body.light .skill-card--tl {
  grid-template-columns: unset;
  grid-template-rows: unset;
  gap: 0;
- padding: 8px;
+ padding: 4px;
 }
 .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-cube-single {
  width: 100%;
  height: 100%;
- border-radius: 14px;
+ border-radius: 12px;
 }
 .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-cube-single svg {
  width: 72px !important;
@@ -1802,10 +1770,6 @@ body.light .win3d-face .wt-cube-single {
  box-shadow: 0 1px 4px rgba(0,0,0,.05);
  backdrop-filter: blur(6px);
  -webkit-backdrop-filter: blur(6px);
-}
-.win3d-scene:not(.mode-3d) .win3d-face {
- background: transparent;
- border-radius: 20px;
 }
 
 /* flat mode face positions */
@@ -1849,30 +1813,17 @@ body.light .win3d-face .wt-cube-single {
  box-shadow: none;
 }
 
-/* grid tile corner radii */
-.win3d-face .wt           { border-radius: 14px; }
-.win3d-face .wt:nth-child(1) { border-radius: 14px 0 0 0; }
-.win3d-face .wt:nth-child(2) { border-radius: 0 14px 0 0; }
-.win3d-face .wt:nth-child(3) { border-radius: 0 0 0 14px; }
-.win3d-face .wt:nth-child(4) { border-radius: 0 0 14px 0; }
+/* grid tile corners: uniform rounding on all sides, matching front tile style */
+.win3d-face .wt { border-radius: 12px; }
 
 /* cube face 2x2 grid tiles */
 .win3d-scene.mode-3d .win3d-face .wt {
  width: 100%;
  height: 100%;
  flex-shrink: 0;
- border-radius: 6px;
+ border-radius: 12px;
 }
-.win3d-scene.mode-3d .win3d-face .wt:nth-child(1) { border-radius: 10px 6px 6px 6px; }
-.win3d-scene.mode-3d .win3d-face .wt:nth-child(2) { border-radius: 6px 10px 6px 6px; }
-.win3d-scene.mode-3d .win3d-face .wt:nth-child(3) { border-radius: 6px 6px 6px 10px; }
-.win3d-scene.mode-3d .win3d-face .wt:nth-child(4) { border-radius: 6px 6px 10px 6px; }
 
-/* non-front faces: tighten inner corners so tiles read as one solid face, no visible gap */
-.win3d-scene.mode-3d .win3d-face:not(.win3d-front) .wt:nth-child(1) { border-radius: 10px 2px 2px 2px; }
-.win3d-scene.mode-3d .win3d-face:not(.win3d-front) .wt:nth-child(2) { border-radius: 2px 10px 2px 2px; }
-.win3d-scene.mode-3d .win3d-face:not(.win3d-front) .wt:nth-child(3) { border-radius: 2px 2px 2px 10px; }
-.win3d-scene.mode-3d .win3d-face:not(.win3d-front) .wt:nth-child(4) { border-radius: 2px 2px 10px 2px; }
 .win3d-scene.mode-3d .win3d-face:not(.win3d-front) .wt {
  border-width: .5px;
  margin: -.25px;
@@ -1974,17 +1925,6 @@ body.light .wt.wt-cube-single .wt-name {
  text-shadow: none;
 }
 
-@keyframes wtBounce {
- 0%   { transform: scale(1) translateY(0); }
- 50%  { transform: scale(1.05) translateY(-5px); }
- 100% { transform: scale(1) translateY(0); }
-}
-.wt.wt-bounce {
- animation: wtBounce .7s cubic-bezier(.25,.46,.45,.94) forwards;
- will-change: transform;
- transform-origin: center bottom;
-}
-
 
 /* ================================================================
    RESPONSIVE — Single clean breakpoint system
@@ -2010,7 +1950,7 @@ body.light .wt.wt-cube-single .wt-name {
   section { padding: 80px 0; }
 
   /* Navbar: hamburger opens icons inline inside the navbar (tablet) */
-  .nav-inner { height: clamp(34px, 4.5vw, 38px); padding: 0 clamp(12px, 2vw, 20px); }
+  .nav-inner { height: 44px; padding: 0 clamp(12px, 2vw, 20px); }
   .nav-logo .logo-k { font-size: clamp(.78rem, 1.5vw, .95rem); }
   .nav-mob-ctrl { display: none !important; }
   .nav-mob { display: none !important; }
@@ -2044,7 +1984,7 @@ body.light .wt.wt-cube-single .wt-name {
   /* Info box: full width, more compact vertically */
   .hero-block { min-width: 0; width: 100%; }
   .hero-avail { font-size: clamp(.85rem, 1.6vw, 1.05rem); margin-bottom: clamp(13px, 1.7vw, 17px); }
-  .hero-info { width: 100%; padding: clamp(9px, 1.4vw, 14px) clamp(20px, 3vw, 32px); margin-bottom: clamp(11px, 1.7vw, 17px); }
+  .hero-info { width: 100%; padding: clamp(18px, 2.6vw, 26px) clamp(20px, 3vw, 32px); margin-bottom: clamp(11px, 1.7vw, 17px); }
   .hero-info-grid { flex-direction: row; align-items: stretch; gap: 0; }
   .hero-info-col { flex: 1 1 50%; min-width: 0; }
   .hero-info-col:first-child { padding-right: clamp(6px, 1.2vw, 14px); border-right: none; padding-bottom: 0; border-bottom: none; }
@@ -2057,22 +1997,22 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-btns .btn-o { font-size: clamp(.88rem, 1.6vw, 1.05rem); padding: clamp(12px, 1.5vw, 16px) clamp(16px, 2vw, 24px); flex: 1; }
 
   /* Cube: scaled proportionally */
-  .win3d-scene { width: clamp(112px, 17.5vw, 192px); margin-top: 10px; }
-  .win3d-perspective, .win3d-cube { width: clamp(112px, 17.5vw, 192px); height: clamp(112px, 17.5vw, 192px); }
-  .win3d-face { width: clamp(112px, 17.5vw, 192px); height: clamp(112px, 17.5vw, 192px); }
-  .win3d-front  { transform: translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(112px, 17.5vw, 192px); height: clamp(112px, 17.5vw, 192px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(56px, 8.75vw, 96px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(56px, 8.75vw, 96px)); }
+  .win3d-scene { width: clamp(130px, 20vw, 220px); margin-top: 10px; }
+  .win3d-perspective, .win3d-cube { width: clamp(130px, 20vw, 220px); height: clamp(130px, 20vw, 220px); }
+  .win3d-face { width: clamp(130px, 20vw, 220px); height: clamp(130px, 20vw, 220px); }
+  .win3d-front  { transform: translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(130px, 20vw, 220px); height: clamp(130px, 20vw, 220px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(65px, 10vw, 110px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(65px, 10vw, 110px)); }
 
   /* Skills: 3 columns always */
   .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -2103,7 +2043,7 @@ body.light .wt.wt-cube-single .wt-name {
   .nav { padding: 8px 0; }
   .nav.scrolled { transform: translateY(8px) translateZ(0) !important; }
   .nav-inner {
-    height: clamp(36px, 5.5vw, 42px);
+    height: 44px;
     padding: 0 clamp(12px, 2.5vw, 20px);
     border-radius: 999px;
     max-width: calc(100% - 2 * var(--pad));
@@ -2164,7 +2104,7 @@ body.light .wt.wt-cube-single .wt-name {
   /* Info: full width, bigger horizontally */
   .hero-block { min-width: 0; width: 100%; }
   .hero-avail { font-size: clamp(.95rem, 2.2vw, 1.1rem); margin-bottom: clamp(15px, 2.5vw, 21px); line-height: 1.5; letter-spacing: .01em; }
-  .hero-info { width: 100%; padding: clamp(14px, 2.2vw, 20px) clamp(20px, 3.2vw, 30px); margin-bottom: clamp(15px, 2.5vw, 21px); }
+  .hero-info { width: 100%; padding: clamp(22px, 3.4vw, 32px) clamp(20px, 3.2vw, 30px); margin-bottom: clamp(15px, 2.5vw, 21px); }
   .hero-info-grid { flex-direction: row; align-items: stretch; gap: 0; }
   .hero-info-col { flex: 1 1 50%; min-width: 0; }
   .hero-info-col:first-child { padding-right: clamp(7px, 1.3vw, 14px); border-right: none; padding-bottom: 0; border-bottom: none; }
@@ -2187,22 +2127,22 @@ body.light .wt.wt-cube-single .wt-name {
   }
 
   /* Cube: centered below, at the very bottom */
-  .win3d-scene { width: clamp(130px, 22vw, 180px); margin-top: 8px; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(130px, 22vw, 180px); height: clamp(130px, 22vw, 180px); }
-  .win3d-front  { transform: translateZ(clamp(65px, 11vw, 90px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(65px, 11vw, 90px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(65px, 11vw, 90px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(65px, 11vw, 90px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(65px, 11vw, 90px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-scene { width: clamp(150px, 25vw, 205px); margin-top: 8px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(150px, 25vw, 205px); height: clamp(150px, 25vw, 205px); }
+  .win3d-front  { transform: translateZ(clamp(75px, 12.5vw, 102.5px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(75px, 12.5vw, 102.5px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(75px, 12.5vw, 102.5px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(75px, 12.5vw, 102.5px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(75px, 12.5vw, 102.5px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(75px, 12.5vw, 102.5px)); }
   .win3d-scene.mode-3d .win3d-cube,
-  .win3d-scene.mode-3d .win3d-face { width: clamp(130px, 22vw, 180px); height: clamp(130px, 22vw, 180px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(65px, 11vw, 90px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(65px, 11vw, 90px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(65px, 11vw, 90px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(65px, 11vw, 90px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(65px, 11vw, 90px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(65px, 11vw, 90px)); }
+  .win3d-scene.mode-3d .win3d-face { width: clamp(150px, 25vw, 205px); height: clamp(150px, 25vw, 205px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(75px, 12.5vw, 102.5px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(75px, 12.5vw, 102.5px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(75px, 12.5vw, 102.5px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(75px, 12.5vw, 102.5px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(75px, 12.5vw, 102.5px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(75px, 12.5vw, 102.5px)); }
   .win3d-scene.mode-3d .win3d-face .wt svg { width: clamp(16px, 2.4vw, 22px); height: clamp(16px, 2.4vw, 22px); }
   .win3d-scene.mode-3d .win3d-face .wt-name { font-size: clamp(.48rem, .9vw, .58rem); }
   .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-cube-single svg { width: 46px !important; height: 46px !important; }
@@ -2450,7 +2390,7 @@ body.light .wt.wt-cube-single .wt-name {
   section { padding: 48px 0; }
   .sec-hd h2 { font-size: clamp(1.15rem, 6vw, 1.4rem); }
 
-  .nav-inner { height: 40px; padding: 0 10px; border-radius: 999px; }
+  .nav-inner { height: 44px; padding: 0 10px; border-radius: 999px; }
   .nav-logo .logo-k { font-size: .72rem; }
 
   #home { padding: calc(var(--nav) + 22px) 0 48px; }
@@ -2509,7 +2449,7 @@ body.light .wt.wt-cube-single .wt-name {
   section { padding: 42px 0; }
   .sec-hd h2 { font-size: clamp(1.1rem, 7vw, 1.3rem); }
 
-  .nav-inner { height: 38px; padding: 0 8px; border-radius: 999px; }
+  .nav-inner { height: 44px; padding: 0 8px; border-radius: 999px; }
   .nav-logo .logo-k { font-size: .66rem; }
   .nav-sep-line { display: none; }
 
