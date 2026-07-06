@@ -90,6 +90,7 @@ section { padding: 110px 0; }
 .sec-hd h2 em {
  font-style: normal;
  color: var(--a2);
+ margin-left: -8px;
 }
 .sec-hd-icon {
  width: clamp(26px, 4.8vw, 32px);
@@ -1200,7 +1201,7 @@ body.light .edu-inst { color: var(--a); }
  text-transform: uppercase;
  color: var(--a2);
  position: relative;
- padding-left: 16px;
+ padding-left: 26px;
  margin-bottom: 18px;
 }
 .c-info-title::before {
@@ -1208,7 +1209,7 @@ body.light .edu-inst { color: var(--a); }
  position: absolute;
  left: 0; top: 50%;
  transform: translateY(-50%);
- width: 8px; height: 2px;
+ width: 16px; height: 2px;
  border-radius: 2px;
  background: var(--a2);
 }
@@ -2008,7 +2009,7 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-btns .btn-o { font-size: clamp(.8rem, 1.4vw, .95rem); padding: clamp(10px, 1.3vw, 14px) clamp(14px, 1.7vw, 20px); flex: 1; }
 
   /* Cube: slightly smaller, with breathing room above/below */
-  .win3d-scene { width: clamp(160px, 21vw, 230px); margin: 10px 0; }
+  .win3d-scene { width: clamp(160px, 21vw, 230px); margin: 0; }
   .win3d-perspective, .win3d-cube { width: clamp(160px, 21vw, 230px); height: clamp(160px, 21vw, 230px); }
   .win3d-face { width: clamp(160px, 21vw, 230px); height: clamp(160px, 21vw, 230px); }
   .win3d-front  { transform: translateZ(clamp(80px, 10.5vw, 115px)); }
@@ -2141,7 +2142,7 @@ body.light .wt.wt-cube-single .wt-name {
   }
 
   /* Cube: centered below, slightly smaller, with breathing room above/below */
-  .win3d-scene { width: clamp(170px, 26vw, 220px); margin: 8px 0; }
+  .win3d-scene { width: clamp(170px, 26vw, 220px); margin: 0; }
   .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(170px, 26vw, 220px); height: clamp(170px, 26vw, 220px); }
   .win3d-front  { transform: translateZ(clamp(85px, 13vw, 110px)); }
   .win3d-back   { transform: rotateY(180deg) translateZ(clamp(85px, 13vw, 110px)); }
@@ -2362,7 +2363,7 @@ body.light .wt.wt-cube-single .wt-name {
   }
 
   /* Cube: bottom of right col, bigger and more prominent on phone */
-  .win3d-scene { width: clamp(105px, 26vw, 158px); margin-top: 10px; }
+  .win3d-scene { width: clamp(105px, 26vw, 158px); margin: 0; }
   .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(105px, 26vw, 158px); height: clamp(105px, 26vw, 158px); }
   .win3d-front  { transform: translateZ(clamp(53px, 13vw, 79px)); }
   .win3d-back   { transform: rotateY(180deg) translateZ(clamp(53px, 13vw, 79px)); }
