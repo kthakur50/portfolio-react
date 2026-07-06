@@ -3,10 +3,10 @@
  --a2: #22a063;
  --a3: #0d5836;
  --ag: rgba(34,160,99,.10);
- --bg: #0f0f0f;
- --bg2: #0f0f0f;
- --bg3: #0f0f0f;
- --cd: #0f0f0f;
+ --bg: #000000;
+ --bg2: #000000;
+ --bg3: #000000;
+ --cd: #000000;
  --br: #2a3530;
  --tx: #e8f5ef;
  --mu: #b0cfc0;
@@ -41,7 +41,7 @@ html {
 }
 body {
  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
- background: #0f0f0f;
+ background: #000000;
  color: var(--tx);
  transition: background var(--ease), color var(--ease);
  -webkit-font-smoothing: antialiased;
@@ -132,7 +132,7 @@ body.light .sec-hd-icon { border-color: rgba(0,0,0,.12); }
  display: grid;
  grid-template-columns: 1fr auto 1fr;
  align-items: center;
- background: rgba(15,15,15,.45);
+ background: rgba(0,0,0,.45);
  backdrop-filter: blur(16px) saturate(150%);
  -webkit-backdrop-filter: blur(16px) saturate(150%);
  border: 1px solid rgba(255,255,255,.12);
@@ -142,7 +142,7 @@ body.light .sec-hd-icon { border-color: rgba(0,0,0,.12); }
  transition: background .3s ease, border-color .3s ease;
 }
 .nav.scrolled .nav-inner {
- background: rgba(15,15,15,.60);
+ background: rgba(0,0,0,.60);
  border-color: rgba(255,255,255,.12);
  box-shadow: none;
 }
@@ -1406,8 +1406,8 @@ body.light footer { background: #ffffff; }
   z-index: 2;
   pointer-events: none;
 }
-.skill-marquee-wrap::before { left: 0; background: linear-gradient(90deg, rgba(15,15,15,.8) 0%, rgba(15,15,15,.4) 55%, transparent 100%); }
-.skill-marquee-wrap::after  { right: 0; background: linear-gradient(-90deg, rgba(15,15,15,.8) 0%, rgba(15,15,15,.4) 55%, transparent 100%); }
+.skill-marquee-wrap::before { left: 0; background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,.4) 55%, transparent 100%); }
+.skill-marquee-wrap::after  { right: 0; background: linear-gradient(-90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,.4) 55%, transparent 100%); }
 body.light .skill-marquee-wrap::before { background: linear-gradient(90deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.4) 55%, transparent 100%); }
 body.light .skill-marquee-wrap::after  { background: linear-gradient(-90deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.4) 55%, transparent 100%); }
 .skill-marquee-track {
