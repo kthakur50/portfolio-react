@@ -292,9 +292,12 @@ function initWin3DCube() {
   // ── Auto clockwise spin ───────────────────────────────────────
   function startAutoSpin() {
     cancelAnimationFrame(spinRAF);
-    function loop() {
+    const DEG_PER_SEC = 24; // clockwise (slower) — same speed on every device
+    let last = performance.now();
+    function loop(now) {
       if (dragging) { spinRAF = null; return; }
-      rotY += 0.4;  // clockwise (slower)
+      const dt = now - last; last = now;
+      rotY += DEG_PER_SEC * (dt / 1000);
       applyRot();
       spinRAF = requestAnimationFrame(loop);
     }
@@ -304,10 +307,14 @@ function initWin3DCube() {
   // ── Inertia after drag → fades into auto-spin ────────────────
   function startInertia() {
     cancelAnimationFrame(inertiaRAF);
-    function loop() {
+    let last = performance.now();
+    function loop(now) {
       if (dragging) { inertiaRAF = null; return; }
-      velX *= 0.92; velY *= 0.92;
-      rotX += velX; rotY += velY;
+      const dt = now - last; last = now;
+      const steps = dt / (1000 / 60); // normalize to a 60fps-equivalent step, regardless of actual device refresh rate
+      const decay = Math.pow(0.92, steps);
+      velX *= decay; velY *= decay;
+      rotX += velX * steps; rotY += velY * steps;
       rotX = Math.max(-60, Math.min(60, rotX));
       applyRot();
       if (Math.abs(velX) < 0.05 && Math.abs(velY) < 0.05) {
@@ -339,10 +346,10 @@ function initWin3DCube() {
   window.addEventListener('mousemove', e => {
     if (!dragging) return;
     const dx = e.clientX - lastX, dy = e.clientY - lastY;
-    rotY += dx * 0.45;
-    rotX = Math.max(-60, Math.min(60, rotX - dy * 0.45));
-    velY = velY * 0.6 + dx * 0.18;
-    velX = velX * 0.6 - dy * 0.18;
+    rotY += dx * 0.35;
+    rotX = Math.max(-60, Math.min(60, rotX - dy * 0.35));
+    velY = velY * 0.6 + dx * 0.14;
+    velX = velX * 0.6 - dy * 0.14;
     lastX = e.clientX; lastY = e.clientY; applyRot();
   });
 
@@ -368,8 +375,8 @@ function initWin3DCube() {
     const dx = e.touches[0].clientX - lastX, dy = e.touches[0].clientY - lastY;
     rotY += dx * 0.35;
     rotX = Math.max(-60, Math.min(60, rotX - dy * 0.35));
-    velY = velY * 0.7 + dx * 0.12;
-    velX = velX * 0.7 - dy * 0.12;
+    velY = velY * 0.6 + dx * 0.14;
+    velX = velX * 0.6 - dy * 0.14;
     lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; applyRot();
   }, { passive: false });
 
