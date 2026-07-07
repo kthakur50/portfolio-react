@@ -653,21 +653,21 @@ body.light .skill-chip[class*="sc-"]:hover {
  border-color: rgba(var(--cc), .55);
  box-shadow: none;
 }
-.skill-chip svg { width: 23px; height: 23px; display: block; max-width: none; flex-shrink: 0; transform: none; min-width: 23px; box-sizing: content-box; padding: 6px; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; background: rgba(255,255,255,.03); }
+.skill-chip svg { width: 26px; height: 26px; display: block; max-width: none; flex-shrink: 0; transform: none; min-width: 26px; box-sizing: content-box; padding: 6px; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; background: rgba(255,255,255,.03); }
 body.light .skill-chip svg { border-color: rgba(0,0,0,.10); background: rgba(0,0,0,.02); }
-.skill-chip span { font-size: .56rem; font-weight: 700; letter-spacing: .02em; text-transform: none; color: inherit; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70px; text-align: center; display: block; line-height: 1.35; padding-bottom: 1px; }
+.skill-chip span { font-size: .66rem; font-weight: 700; letter-spacing: .02em; text-transform: none; color: inherit; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 78px; text-align: center; display: block; line-height: 1.35; padding-bottom: 1px; }
 .skill-chip {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
   padding: 0;
   width: 100%;
-  height: 66px;
-  min-height: 66px;
-  max-height: 66px;
-  border-radius: 12px;
+  height: 76px;
+  min-height: 76px;
+  max-height: 76px;
+  border-radius: 13px;
   border: 1.5px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.04);
   color: var(--tx);
@@ -1201,7 +1201,7 @@ body.light .edu-inst { color: var(--a); }
  text-transform: uppercase;
  color: var(--a2);
  position: relative;
- padding-left: 26px;
+ padding-left: 38px;
  margin-bottom: 18px;
 }
 .c-info-title::before {
@@ -1209,7 +1209,7 @@ body.light .edu-inst { color: var(--a); }
  position: absolute;
  left: 0; top: 50%;
  transform: translateY(-50%);
- width: 16px; height: 2px;
+ width: 26px; height: 2px;
  border-radius: 2px;
  background: var(--a2);
 }
@@ -1431,19 +1431,19 @@ body.light .skill-marquee-wrap::after  { background: linear-gradient(-90deg, rgb
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 0 12px;
+  gap: 7px;
+  padding: 0 14px;
   width: auto;
-  height: 36px;
+  height: 40px;
   min-width: auto;
-  min-height: 36px;
-  border-radius: 8px;
+  min-height: 40px;
+  border-radius: 9px;
   border: 1.5px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.04);
   color: var(--tx);
   white-space: nowrap;
   flex-shrink: 0;
-  font-size: .64rem;
+  font-size: .66rem;
   font-weight: 700;
   letter-spacing: .02em;
   transition: border-color .2s, background .2s, color .2s, transform .2s;
@@ -1454,7 +1454,7 @@ body.light .skill-marquee-wrap::after  { background: linear-gradient(-90deg, rgb
   color: inherit;
   transform: translateY(-1px);
 }
-.mq-chip svg { flex-shrink: 0; display: block; width: 18px; height: 18px; }
+.mq-chip svg { flex-shrink: 0; display: block; width: 20px; height: 20px; }
 body.light .mq-chip { border-color: rgba(0,0,0,.10); background: rgba(0,0,0,.04); color: var(--tx); }
 
 .skill-one-card {
@@ -1561,7 +1561,7 @@ body.light .skill-card {
  box-shadow: none !important;
  transform: translateY(-1px) scale(1.03);
 }
-.skill-card .skill-chip svg { width: 27px; height: 27px; min-width: 27px; padding: 7px; border: 1px solid rgba(255,255,255,.12); border-radius: 9px; background: rgba(255,255,255,.03); }
+.skill-card .skill-chip svg { width: 30px; height: 30px; min-width: 30px; padding: 7px; border: 1px solid rgba(255,255,255,.12); border-radius: 9px; background: rgba(255,255,255,.03); }
 body.light .skill-card .skill-chip svg { border-color: rgba(0,0,0,.10); background: rgba(0,0,0,.02); }
 .skill-card--fe {
  border-color: rgba(96,165,250,.2); background: rgba(96,165,250,.06);
@@ -1704,6 +1704,8 @@ body.light .skill-card--tl {
 
 .win3d-face {
  position: absolute;
+ top: 0;
+ left: 0;
  width: clamp(180px, 16vw, 260px);
  height: clamp(180px, 16vw, 260px);
  display: grid;
@@ -2029,7 +2031,7 @@ body.light .wt.wt-cube-single .wt-name {
   /* Skills: 3 columns always */
   .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .skill-card .skill-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
-  .skill-chip { width: auto; height: 68px; min-height: 68px; max-height: 68px; }
+  .skill-chip { width: auto; height: 76px; min-height: 76px; max-height: 76px; }
 
   /* Projects: 3 columns */
   .masonry-list { grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -2170,9 +2172,9 @@ body.light .wt.wt-cube-single .wt-name {
   .skill-one-card { grid-template-columns: 1fr; gap: 14px; }
   .skill-one-card .skill-group { padding: 20px 16px 18px !important; }
   .skill-card .skill-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
-  .skill-chip { width: auto; height: 64px; min-height: 64px; max-height: 64px; border-radius: 10px; }
-  .skill-chip svg { width: 24px; height: 24px; min-width: 24px; padding: 5px; border-radius: 7px; }
-  .skill-chip span { font-size: .54rem; }
+  .skill-chip { width: auto; height: 70px; min-height: 70px; max-height: 70px; border-radius: 10px; }
+  .skill-chip svg { width: 27px; height: 27px; min-width: 27px; padding: 5px; border-radius: 7px; }
+  .skill-chip span { font-size: .62rem; }
   .skill-marquee-wrap { margin-top: 20px; }
 
   /* Experience */
@@ -2385,12 +2387,12 @@ body.light .wt.wt-cube-single .wt-name {
   .skill-one-card { grid-template-columns: 1fr; gap: 12px; }
   .skill-one-card .skill-group { padding: 14px 10px 12px !important; }
   .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 7px; }
-  .skill-chip { height: 54px; min-height: 54px; max-height: 54px; border-radius: 9px; gap: 3px; }
-  .skill-chip svg { width: 18px; height: 18px; min-width: 18px; padding: 4px; border-radius: 6px; }
-  .skill-chip span { font-size: .46rem; }
+  .skill-chip { height: 60px; min-height: 60px; max-height: 60px; border-radius: 9px; gap: 3px; }
+  .skill-chip svg { width: 20px; height: 20px; min-width: 20px; padding: 4px; border-radius: 6px; }
+  .skill-chip span { font-size: .54rem; }
   .skill-marquee-wrap::before, .skill-marquee-wrap::after { width: 60px; }
-  .mq-chip { padding: 6px 12px; font-size: .62rem; gap: 6px; }
-  .mq-chip svg { width: 13px; height: 13px; }
+  .mq-chip { padding: 7px 13px; font-size: .58rem; gap: 6px; }
+  .mq-chip svg { width: 15px; height: 15px; }
 
   /* Experience */
   .exp-list { padding-left: 40px; }
@@ -2466,9 +2468,9 @@ body.light .wt.wt-cube-single .wt-name {
   .skill-one-card { grid-template-columns: 1fr; gap: 10px; }
   .skill-one-card .skill-group { padding: 12px 8px 10px !important; }
   .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .skill-chip { height: 58px; min-height: 58px; max-height: 58px; border-radius: 8px; gap: 3px; }
-  .skill-chip svg { width: 16px; height: 16px; min-width: 16px; padding: 4px; border-radius: 6px; }
-  .skill-chip span { font-size: .42rem; }
+  .skill-chip { height: 64px; min-height: 64px; max-height: 64px; border-radius: 8px; gap: 3px; }
+  .skill-chip svg { width: 18px; height: 18px; min-width: 18px; padding: 4px; border-radius: 6px; }
+  .skill-chip span { font-size: .48rem; }
 
   .exp-list { padding-left: 36px; }
   .exp-node { left: -34px; width: 26px; height: 26px; top: 13px; padding: 5px; }
@@ -2520,9 +2522,9 @@ body.light .wt.wt-cube-single .wt-name {
   .skill-one-card { grid-template-columns: 1fr; gap: 8px; }
   .skill-one-card .skill-group { padding: 10px 6px 8px !important; }
   .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 5px; }
-  .skill-chip { height: 54px; min-height: 54px; max-height: 54px; border-radius: 7px; gap: 3px; }
-  .skill-chip svg { width: 14px; height: 14px; min-width: 14px; padding: 3px; border-radius: 5px; }
-  .skill-chip span { font-size: .38rem; }
+  .skill-chip { height: 60px; min-height: 60px; max-height: 60px; border-radius: 7px; gap: 3px; }
+  .skill-chip svg { width: 16px; height: 16px; min-width: 16px; padding: 3px; border-radius: 5px; }
+  .skill-chip span { font-size: .44rem; }
   .exp-role, .edu-deg-title { font-size: .82rem; }
   .c-form { padding: 10px 10px 12px; }
 
