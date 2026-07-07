@@ -43,8 +43,8 @@ const Contact = () => {
         <div className="contact-grid">
           <div className="c-info sr" style={{ transitionDelay: '.05s' }}>
             <p>
-              Got a project in mind, a job opening, or just want to talk shop?
-              Drop me a message below — I read everything and reply within a day.
+              No forms, no fluff — just say hi. Whether it's an idea, a role,
+              or a "does this even work" question, I'm one message away.
             </p>
             <div className="c-info-links">
               <a href="https://linkedin.com/in/kaushalt18" target="_blank" rel="noopener" className="btn-o">
