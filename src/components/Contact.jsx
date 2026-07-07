@@ -43,8 +43,8 @@ const Contact = () => {
         <div className="contact-grid">
           <div className="c-info sr" style={{ transitionDelay: '.05s' }}>
             <p>
-              Hit "Send me a message" below, type away, and it lands straight
-              in my inbox. That's it — no catch.
+              Interested in working together or have a question about my work?
+              Click "Send me a message" below — I typically respond within a day.
             </p>
             <div className="c-info-links">
               <a href="https://linkedin.com/in/kaushalt18" target="_blank" rel="noopener" className="btn-o">
