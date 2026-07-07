@@ -174,7 +174,10 @@ function initMasonry() {
 }
 
 function initWin3DCube() {
-  if (!document.getElementById('win3dScene')) return;
+  const win3dSceneEl = document.getElementById('win3dScene');
+  if (!win3dSceneEl) return;
+  if (win3dSceneEl.dataset.win3dInit === 'true') return; // prevent duplicate listeners on re-init
+  win3dSceneEl.dataset.win3dInit = 'true';
 
   // ── Skills data ───────────────────────────────────────────────
   const skills = [
