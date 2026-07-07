@@ -655,7 +655,7 @@ body.light .skill-chip[class*="sc-"]:hover {
 }
 .skill-chip svg { width: 26px; height: 26px; display: block; max-width: none; flex-shrink: 0; transform: none; min-width: 26px; box-sizing: content-box; padding: 6px; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; background: rgba(255,255,255,.03); }
 body.light .skill-chip svg { border-color: rgba(0,0,0,.10); background: rgba(0,0,0,.02); }
-.skill-chip span { font-size: .66rem; font-weight: 700; letter-spacing: .02em; text-transform: none; color: inherit; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 78px; text-align: center; display: block; line-height: 1.35; padding-bottom: 1px; }
+.skill-chip span { font-size: .66rem; font-weight: 600; letter-spacing: .02em; text-transform: none; color: var(--mu); opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 78px; text-align: center; display: block; line-height: 1.35; padding-bottom: 1px; }
 .skill-chip {
   display: flex;
   flex-direction: column;
@@ -1440,11 +1440,12 @@ body.light .skill-marquee-wrap::after  { background: linear-gradient(-90deg, rgb
   border-radius: 9px;
   border: 1.5px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.04);
-  color: var(--tx);
+  color: var(--mu);
+  opacity: .85;
   white-space: nowrap;
   flex-shrink: 0;
   font-size: .66rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: .02em;
   transition: border-color .2s, background .2s, color .2s, transform .2s;
 }
@@ -1455,7 +1456,7 @@ body.light .skill-marquee-wrap::after  { background: linear-gradient(-90deg, rgb
   transform: translateY(-1px);
 }
 .mq-chip svg { flex-shrink: 0; display: block; width: 20px; height: 20px; }
-body.light .mq-chip { border-color: rgba(0,0,0,.10); background: rgba(0,0,0,.04); color: var(--tx); }
+body.light .mq-chip { border-color: rgba(0,0,0,.10); background: rgba(0,0,0,.04); color: var(--mu); }
 
 .skill-one-card {
  display: grid;
@@ -1676,7 +1677,7 @@ body.light .skill-card--tl {
  position: relative;
 }
 .win3d-scene.mode-3d .win3d-perspective {
- perspective: 700px;
+ perspective: 1600px;
  cursor: grab;
 }
 .win3d-perspective { cursor: grab; }
