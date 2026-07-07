@@ -292,25 +292,34 @@ function initWin3DCube() {
     inertiaRAF = requestAnimationFrame(tick);
   }
 
-  // ── Auto clockwise spin ───────────────────────────────────────
+  // ── Auto clockwise spin (frame-rate independent) ──────────────
+  const AUTO_SPIN_SPEED = 24; // degrees per second
   function startAutoSpin() {
     cancelAnimationFrame(spinRAF);
-    function loop() {
+    let last = performance.now();
+    function loop(now) {
       if (dragging) { spinRAF = null; return; }
-      rotY += 0.4;  // clockwise (slower)
+      const dt = Math.min(now - last, 50); // clamp to avoid big jumps on tab-switch
+      last = now;
+      rotY += AUTO_SPIN_SPEED * (dt / 1000);
       applyRot();
       spinRAF = requestAnimationFrame(loop);
     }
     spinRAF = requestAnimationFrame(loop);
   }
 
-  // ── Inertia after drag → fades into auto-spin ────────────────
+  // ── Inertia after drag → fades into auto-spin (frame-rate independent) ─
   function startInertia() {
     cancelAnimationFrame(inertiaRAF);
-    function loop() {
+    let last = performance.now();
+    function loop(now) {
       if (dragging) { inertiaRAF = null; return; }
-      velX *= 0.92; velY *= 0.92;
-      rotX += velX; rotY += velY;
+      const dt = Math.min(now - last, 50);
+      last = now;
+      const steps = dt / (1000 / 60); // normalize decay/integration to 60fps-equivalent steps
+      const decay = Math.pow(0.92, steps);
+      velX *= decay; velY *= decay;
+      rotX += velX * steps; rotY += velY * steps;
       rotX = Math.max(-60, Math.min(60, rotX));
       applyRot();
       if (Math.abs(velX) < 0.05 && Math.abs(velY) < 0.05) {
@@ -324,6 +333,20 @@ function initWin3DCube() {
   }
 
   // ── Mouse events ──────────────────────────────────────────────
+  let dragRAF = null;
+  let hasPending = false;
+
+  function flushDrag() {
+    dragRAF = null;
+    if (!hasPending) return;
+    hasPending = false;
+    applyRot();
+  }
+  function queueDragUpdate() {
+    if (dragRAF) return;
+    dragRAF = requestAnimationFrame(flushDrag);
+  }
+
   scene.addEventListener('mouseleave', () => {
     if (!dragging) { /* do nothing, auto-spin continues */ }
   });
@@ -346,12 +369,15 @@ function initWin3DCube() {
     rotX = Math.max(-60, Math.min(60, rotX - dy * 0.45));
     velY = velY * 0.6 + dx * 0.18;
     velX = velX * 0.6 - dy * 0.18;
-    lastX = e.clientX; lastY = e.clientY; applyRot();
+    lastX = e.clientX; lastY = e.clientY;
+    hasPending = true;
+    queueDragUpdate();
   });
 
   window.addEventListener('mouseup', () => {
     if (!dragging) return;
     dragging = false; cube.classList.remove('dragging');
+    cancelAnimationFrame(dragRAF); dragRAF = null; hasPending = false;
     startInertia();  // inertia → snapBack → autoSpin
   });
 
@@ -373,12 +399,15 @@ function initWin3DCube() {
     rotX = Math.max(-60, Math.min(60, rotX - dy * 0.35));
     velY = velY * 0.7 + dx * 0.12;
     velX = velX * 0.7 - dy * 0.12;
-    lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; applyRot();
+    lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+    hasPending = true;
+    queueDragUpdate();
   }, { passive: false });
 
   scene.addEventListener('touchend', () => {
     if (!dragging) return;
     dragging = false;
+    cancelAnimationFrame(dragRAF); dragRAF = null; hasPending = false;
     startInertia();  // inertia → snapBack → autoSpin
   });
 
