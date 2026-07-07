@@ -2011,22 +2011,22 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-btns .btn-o { font-size: clamp(.8rem, 1.4vw, .95rem); padding: clamp(10px, 1.3vw, 14px) clamp(14px, 1.7vw, 20px); flex: 1; }
 
   /* Cube: slightly smaller, with breathing room above/below */
-  .win3d-scene { width: clamp(160px, 21vw, 230px); margin: 0; }
-  .win3d-perspective, .win3d-cube { width: clamp(160px, 21vw, 230px); height: clamp(160px, 21vw, 230px); }
-  .win3d-face { width: clamp(160px, 21vw, 230px); height: clamp(160px, 21vw, 230px); }
-  .win3d-front  { transform: translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(160px, 21vw, 230px); height: clamp(160px, 21vw, 230px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(80px, 10.5vw, 115px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(80px, 10.5vw, 115px)); }
+  .win3d-scene { width: clamp(140px, 18vw, 200px); margin: 0; }
+  .win3d-perspective, .win3d-cube { width: clamp(140px, 18vw, 200px); height: clamp(140px, 18vw, 200px); }
+  .win3d-face { width: clamp(140px, 18vw, 200px); height: clamp(140px, 18vw, 200px); }
+  .win3d-front  { transform: translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: clamp(140px, 18vw, 200px); height: clamp(140px, 18vw, 200px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(70px, 9vw, 100px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(70px, 9vw, 100px)); }
 
   /* Skills: 3 columns always */
   .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -2043,8 +2043,6 @@ body.light .wt.wt-cube-single .wt-name {
   .edu-header-row { display: contents; }
   .edu-deg-title { order: 1; }
   .edu-inst { order: 2; }
-  .edu-inst-sep { display: none; }
-  .edu-inst-loc { display: block; margin-top: 2px; }
   .edu-yr { order: 3; margin-left: 0; margin-top: 8px; text-align: left; align-self: flex-start; }
 
   /* Contact */
@@ -2149,26 +2147,26 @@ body.light .wt.wt-cube-single .wt-name {
   }
 
   /* Cube: centered below, slightly smaller, with breathing room above/below */
-  .win3d-scene { width: clamp(170px, 26vw, 220px); margin: 0; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(170px, 26vw, 220px); height: clamp(170px, 26vw, 220px); }
-  .win3d-front  { transform: translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(85px, 13vw, 110px)); }
+  .win3d-scene { width: clamp(150px, 22vw, 192px); margin: 0; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(150px, 22vw, 192px); height: clamp(150px, 22vw, 192px); }
+  .win3d-front  { transform: translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(75px, 11vw, 96px)); }
   .win3d-scene.mode-3d .win3d-cube,
-  .win3d-scene.mode-3d .win3d-face { width: clamp(170px, 26vw, 220px); height: clamp(170px, 26vw, 220px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(85px, 13vw, 110px)); }
-  .win3d-scene.mode-3d .win3d-face .wt svg { width: clamp(18px, 2.7vw, 24px); height: clamp(18px, 2.7vw, 24px); }
-  .win3d-scene.mode-3d .win3d-face .wt-name { font-size: clamp(.5rem, .95vw, .6rem); }
-  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-cube-single svg { width: 50px !important; height: 50px !important; }
-  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-name { font-size: .66rem; }
+  .win3d-scene.mode-3d .win3d-face { width: clamp(150px, 22vw, 192px); height: clamp(150px, 22vw, 192px); }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(75px, 11vw, 96px)); }
+  .win3d-scene.mode-3d .win3d-face .wt svg { width: clamp(16px, 2.3vw, 21px); height: clamp(16px, 2.3vw, 21px); }
+  .win3d-scene.mode-3d .win3d-face .wt-name { font-size: clamp(.46rem, .85vw, .55rem); }
+  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-cube-single svg { width: 44px !important; height: 44px !important; }
+  .win3d-scene.mode-3d .win3d-face.win3d-face-single .wt-name { font-size: .6rem; }
 
   /* About */
   .about-para { font-size: .85rem; line-height: 1.95; }
@@ -2206,8 +2204,6 @@ body.light .wt.wt-cube-single .wt-name {
   .edu-header-row { display: contents; }
   .edu-deg-title { font-size: .92rem; order: 1; }
   .edu-inst { font-size: .78rem; order: 2; }
-  .edu-inst-sep { display: none; }
-  .edu-inst-loc { display: block; margin-top: 2px; }
   .edu-yr { font-size: .58rem; white-space: nowrap; order: 3; margin-left: 0; margin-top: 8px; text-align: left; align-self: flex-start; }
 
   /* Contact */
@@ -2425,6 +2421,8 @@ body.light .wt.wt-cube-single .wt-name {
   .edu-header-row { display: contents; }
   .edu-deg-title { font-size: .88rem; order: 1; }
   .edu-inst { order: 2; }
+  .edu-inst-sep { display: none; }
+  .edu-inst-loc { display: block; margin-top: 2px; }
   .edu-yr { order: 3; margin-left: 0; margin-top: 8px; text-align: left; align-self: flex-start; }
 
   /* Contact: keep same 2-col form-row structure as tablet, scaled to fit */
