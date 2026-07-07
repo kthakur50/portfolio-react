@@ -43,8 +43,8 @@ const Contact = () => {
         <div className="contact-grid">
           <div className="c-info sr" style={{ transitionDelay: '.05s' }}>
             <p>
-              Open to new opportunities, collaborations, and freelance projects.
-              Feel free to reach out — I usually respond within 24 hours.
+              Got a project in mind, a job opening, or just want to talk shop?
+              Drop me a message below — I read everything and reply within a day.
             </p>
             <div className="c-info-links">
               <a href="https://linkedin.com/in/kaushalt18" target="_blank" rel="noopener" className="btn-o">
