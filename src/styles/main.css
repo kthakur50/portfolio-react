@@ -2203,7 +2203,7 @@ body.light .wt.wt-cube-single .wt-name {
   .edu-card { padding: 15px 17px; display: flex; flex-direction: column; }
   .edu-header-row { display: contents; }
   .edu-deg-title { font-size: .92rem; order: 1; }
-  .edu-inst { font-size: .78rem; order: 2; }
+  .edu-inst { font-size: .74rem; order: 2; }
   .edu-yr { font-size: .58rem; white-space: nowrap; order: 3; margin-left: 0; margin-top: 8px; text-align: left; align-self: flex-start; }
 
   /* Contact */
@@ -2366,23 +2366,23 @@ body.light .wt.wt-cube-single .wt-name {
     min-width: 0;
   }
 
-  /* Cube: bottom of right col, bigger and more prominent on phone */
-  .win3d-scene { width: clamp(105px, 26vw, 158px); margin: 0; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(105px, 26vw, 158px); height: clamp(105px, 26vw, 158px); }
-  .win3d-front  { transform: translateZ(clamp(53px, 13vw, 79px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(53px, 13vw, 79px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(53px, 13vw, 79px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(53px, 13vw, 79px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(53px, 13vw, 79px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(53px, 13vw, 79px)); }
+  /* Cube: bottom of right col — fixed size, identical on every phone */
+  .win3d-scene { width: 140px; margin: 0; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 140px; height: 140px; }
+  .win3d-front  { transform: translateZ(70px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(70px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(70px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(70px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
   .win3d-scene.mode-3d .win3d-cube,
-  .win3d-scene.mode-3d .win3d-face { width: clamp(105px, 26vw, 158px); height: clamp(105px, 26vw, 158px); }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(clamp(53px, 13vw, 79px)); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(clamp(53px, 13vw, 79px)); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(clamp(53px, 13vw, 79px)); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(53px, 13vw, 79px)); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(clamp(53px, 13vw, 79px)); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(53px, 13vw, 79px)); }
+  .win3d-scene.mode-3d .win3d-face { width: 140px; height: 140px; }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
   .wt-name { font-size: .56rem; }
 
   /* Skills */
@@ -2420,7 +2420,7 @@ body.light .wt.wt-cube-single .wt-name {
   .edu-card { padding: 13px 14px; display: flex; flex-direction: column; }
   .edu-header-row { display: contents; }
   .edu-deg-title { font-size: .88rem; order: 1; }
-  .edu-inst { order: 2; }
+  .edu-inst { order: 2; font-size: .72rem; line-height: 1.45; }
   .edu-inst-sep { display: none; }
   .edu-inst-loc { display: block; margin-top: 2px; }
   .edu-yr { order: 3; margin-left: 0; margin-top: 8px; text-align: left; align-self: flex-start; }
@@ -2453,21 +2453,21 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-btns { margin-top: 3px; }
   .hero-btns .btn-o { font-size: .62rem; padding: 6px 9px; }
 
-  .win3d-scene { width: 142px; }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: 142px; height: 142px; }
-  .win3d-front  { transform: translateZ(71px); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(71px); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(71px); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(71px); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(71px); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(71px); }
-  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 142px; height: 142px; }
-  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(71px); }
-  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(71px); }
-  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(71px); }
-  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(71px); }
-  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(71px); }
-  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(71px); }
+  .win3d-scene { width: 140px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 140px; height: 140px; }
+  .win3d-front  { transform: translateZ(70px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(70px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(70px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(70px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-cube, .win3d-scene.mode-3d .win3d-face { width: 140px; height: 140px; }
+  .win3d-scene.mode-3d .win3d-front  { transform: translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-back   { transform: rotateY(180deg) translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-right  { transform: rotateY(90deg) translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-left   { transform: rotateY(-90deg) translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
+  .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
 
   .skill-one-card { grid-template-columns: 1fr; gap: 10px; }
   .skill-one-card .skill-group { padding: 12px 8px 10px !important; }
@@ -2496,6 +2496,7 @@ body.light .wt.wt-cube-single .wt-name {
   .edu-node { left: -34px; width: 26px; height: 26px; top: 13px; padding: 5px; }
   .edu-item::before { left: -21px; top: 42px; bottom: 0; }
   .edu-deg-title { font-size: .84rem; }
+  .edu-inst { font-size: .7rem; line-height: 1.4; }
   .edu-yr { font-size: .54rem; }
 
   .c-form { padding: 12px 12px 14px; }
@@ -2514,14 +2515,14 @@ body.light .wt.wt-cube-single .wt-name {
 
   .hero-name { font-size: clamp(1.9rem, 10vw, 2.3rem); margin-top: 5px; margin-bottom: 12px; }
 
-  .win3d-scene { width: clamp(98px, 27vw, 122px); }
-  .win3d-perspective, .win3d-cube, .win3d-face { width: clamp(98px, 27vw, 122px); height: clamp(98px, 27vw, 122px); }
-  .win3d-front  { transform: translateZ(clamp(49px, 13.5vw, 61px)); }
-  .win3d-back   { transform: rotateY(180deg) translateZ(clamp(49px, 13.5vw, 61px)); }
-  .win3d-right  { transform: rotateY(90deg) translateZ(clamp(49px, 13.5vw, 61px)); }
-  .win3d-left   { transform: rotateY(-90deg) translateZ(clamp(49px, 13.5vw, 61px)); }
-  .win3d-top    { transform: rotateX(90deg) translateZ(clamp(49px, 13.5vw, 61px)); }
-  .win3d-bottom { transform: rotateX(-90deg) translateZ(clamp(49px, 13.5vw, 61px)); }
+  .win3d-scene { width: 140px; }
+  .win3d-perspective, .win3d-cube, .win3d-face { width: 140px; height: 140px; }
+  .win3d-front  { transform: translateZ(70px); }
+  .win3d-back   { transform: rotateY(180deg) translateZ(70px); }
+  .win3d-right  { transform: rotateY(90deg) translateZ(70px); }
+  .win3d-left   { transform: rotateY(-90deg) translateZ(70px); }
+  .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
+  .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
 
   .skill-one-card { grid-template-columns: 1fr; gap: 8px; }
   .skill-one-card .skill-group { padding: 10px 6px 8px !important; }
@@ -2530,6 +2531,7 @@ body.light .wt.wt-cube-single .wt-name {
   .skill-chip svg { width: 17px; height: 17px; min-width: 17px; padding: 3px; border-radius: 5px; }
   .skill-chip span { font-size: .44rem; }
   .exp-role, .edu-deg-title { font-size: .82rem; }
+  .edu-inst { font-size: .66rem; line-height: 1.4; }
   .c-form { padding: 10px 10px 12px; }
 
   .hero-info { padding: 11px 10px; }
