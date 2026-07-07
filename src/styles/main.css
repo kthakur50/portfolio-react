@@ -1677,7 +1677,7 @@ body.light .skill-card--tl {
  position: relative;
 }
 .win3d-scene.mode-3d .win3d-perspective {
- perspective: 1600px;
+ perspective: 1100px;
  cursor: grab;
 }
 .win3d-perspective { cursor: grab; }
