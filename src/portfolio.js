@@ -260,156 +260,112 @@ function initWin3DCube() {
   buildFaces();
 
   // ── State ─────────────────────────────────────────────────────
-  let spinning = false, rotX = 0, rotY = 0;
-  let dragging = false, lastX = 0, lastY = 0, velX = 0, velY = 0;
-  let autoSpin = true;  // clockwise auto-spin always on by default
-  let spinRAF = null, inertiaRAF = null;
-
   const cube  = document.getElementById('win3dCube');
   const scene = document.getElementById('win3dScene');
+  const perspectiveEl = scene.querySelector('.win3d-perspective') || scene;
+
+  let spinning = false;
+
+  const AUTO_SPIN_SPEED = 24; // deg/sec, idle auto-rotation speed
+  const ROTX_MAX = 55;        // max tilt in degrees
+  const DRAG_SENS = 0.45;     // deg per px while dragging
+  const SPRING_K = 10;        // how hard rotX gets pulled back to 0 after release
+  const DAMPING = 4.2;        // velocity damping rate (per second) after release
+  const Y_CONVERGE = 2.2;     // how fast rotY velocity eases into the idle auto-spin speed
+
+  let rotX = 0, rotY = 0;
+  let velX = 0, velY = 0;
+  let mode = 'idle'; // 'idle' | 'drag' | 'settle'
+
+  let pointerId = null;
+  let lastPX = 0, lastPY = 0, lastMoveT = 0;
+
+  let rafId = null;
+  let lastFrameT = 0;
 
   function applyRot() {
     cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
   }
 
-  function snapBack() {
-    cancelAnimationFrame(inertiaRAF); inertiaRAF = null;
-    const startX = rotX;
-    const duration = 500;
-    const start = performance.now();
-    function tick(now) {
-      const t = Math.min((now - start) / duration, 1);
-      const e = 1 - Math.pow(1 - t, 3);
-      rotX = startX * (1 - e);
-      applyRot();
-      if (t < 1) { inertiaRAF = requestAnimationFrame(tick); }
-      else {
-        rotX = 0; applyRot();
-        inertiaRAF = null;
-        if (autoSpin && !dragging) startAutoSpin();
+  function mainLoop(now) {
+    const dt = Math.min((now - lastFrameT) / 1000, 0.05) || 0; // seconds, clamped
+    lastFrameT = now;
+
+    if (mode === 'idle') {
+      rotY += AUTO_SPIN_SPEED * dt;
+    } else if (mode === 'settle') {
+      // rotX eases back to 0 like a soft spring
+      velX += (-rotX * SPRING_K) * dt;
+      velX *= Math.exp(-DAMPING * dt);
+      rotX += velX * dt;
+      rotX = Math.max(-ROTX_MAX, Math.min(ROTX_MAX, rotX));
+
+      // rotY momentum gently converges to the idle auto-spin speed (seamless handoff)
+      velY += (AUTO_SPIN_SPEED - velY) * Y_CONVERGE * dt;
+      rotY += velY * dt;
+
+      if (Math.abs(rotX) < 0.05 && Math.abs(velX) < 0.05 && Math.abs(velY - AUTO_SPIN_SPEED) < 0.5) {
+        rotX = 0;
+        mode = 'idle';
       }
     }
-    inertiaRAF = requestAnimationFrame(tick);
-  }
+    // 'drag' mode: rotX/rotY are updated directly by the pointer handler
 
-  // ── Auto clockwise spin (frame-rate independent) ──────────────
-  const AUTO_SPIN_SPEED = 24; // degrees per second
-  function startAutoSpin() {
-    cancelAnimationFrame(spinRAF);
-    let last = performance.now();
-    function loop(now) {
-      if (dragging) { spinRAF = null; return; }
-      const dt = Math.min(now - last, 50); // clamp to avoid big jumps on tab-switch
-      last = now;
-      rotY += AUTO_SPIN_SPEED * (dt / 1000);
-      applyRot();
-      spinRAF = requestAnimationFrame(loop);
-    }
-    spinRAF = requestAnimationFrame(loop);
-  }
-
-  // ── Inertia after drag → fades into auto-spin (frame-rate independent) ─
-  function startInertia() {
-    cancelAnimationFrame(inertiaRAF);
-    let last = performance.now();
-    function loop(now) {
-      if (dragging) { inertiaRAF = null; return; }
-      const dt = Math.min(now - last, 50);
-      last = now;
-      const steps = dt / (1000 / 60); // normalize decay/integration to 60fps-equivalent steps
-      const decay = Math.pow(0.92, steps);
-      velX *= decay; velY *= decay;
-      rotX += velX * steps; rotY += velY * steps;
-      rotX = Math.max(-60, Math.min(60, rotX));
-      applyRot();
-      if (Math.abs(velX) < 0.05 && Math.abs(velY) < 0.05) {
-        inertiaRAF = null;
-        snapBack();
-        return;
-      }
-      inertiaRAF = requestAnimationFrame(loop);
-    }
-    inertiaRAF = requestAnimationFrame(loop);
-  }
-
-  // ── Mouse events ──────────────────────────────────────────────
-  let dragRAF = null;
-  let hasPending = false;
-
-  function flushDrag() {
-    dragRAF = null;
-    if (!hasPending) return;
-    hasPending = false;
     applyRot();
-  }
-  function queueDragUpdate() {
-    if (dragRAF) return;
-    dragRAF = requestAnimationFrame(flushDrag);
+    rafId = requestAnimationFrame(mainLoop);
   }
 
-  scene.addEventListener('mouseleave', () => {
-    if (!dragging) { /* do nothing, auto-spin continues */ }
-  });
+  function startLoop() {
+    if (rafId) return;
+    lastFrameT = performance.now();
+    rafId = requestAnimationFrame(mainLoop);
+  }
 
-  scene.addEventListener('mousedown', e => {
-    e.preventDefault();
-    dragging = true; cube.classList.add('dragging');
-    lastX = e.clientX; lastY = e.clientY;
+  // ── Pointer events (mouse + touch, unified) ───────────────────
+  perspectiveEl.style.touchAction = 'none';
+
+  perspectiveEl.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    pointerId = e.pointerId;
+    perspectiveEl.setPointerCapture(pointerId);
+    mode = 'drag';
+    cube.classList.add('dragging');
+    lastPX = e.clientX; lastPY = e.clientY;
+    lastMoveT = performance.now();
     velX = 0; velY = 0;
-    cube.style.transition = 'none';
-    // Stop auto-spin while dragging
-    cancelAnimationFrame(spinRAF); spinRAF = null;
-    cancelAnimationFrame(inertiaRAF); inertiaRAF = null;
   });
 
-  window.addEventListener('mousemove', e => {
-    if (!dragging) return;
-    const dx = e.clientX - lastX, dy = e.clientY - lastY;
-    rotY += dx * 0.45;
-    rotX = Math.max(-60, Math.min(60, rotX - dy * 0.45));
-    velY = velY * 0.6 + dx * 0.18;
-    velX = velX * 0.6 - dy * 0.18;
-    lastX = e.clientX; lastY = e.clientY;
-    hasPending = true;
-    queueDragUpdate();
+  perspectiveEl.addEventListener('pointermove', e => {
+    if (mode !== 'drag' || e.pointerId !== pointerId) return;
+    const now = performance.now();
+    const dt = Math.max((now - lastMoveT) / 1000, 0.001);
+    lastMoveT = now;
+
+    const dx = e.clientX - lastPX, dy = e.clientY - lastPY;
+    lastPX = e.clientX; lastPY = e.clientY;
+
+    rotY += dx * DRAG_SENS;
+    rotX = Math.max(-ROTX_MAX, Math.min(ROTX_MAX, rotX - dy * DRAG_SENS));
+
+    // smoothed instantaneous velocity, used for release momentum
+    const instVelY = (dx * DRAG_SENS) / dt;
+    const instVelX = (-dy * DRAG_SENS) / dt;
+    velY = velY * 0.75 + instVelY * 0.25;
+    velX = velX * 0.75 + instVelX * 0.25;
   });
 
-  window.addEventListener('mouseup', () => {
-    if (!dragging) return;
-    dragging = false; cube.classList.remove('dragging');
-    cancelAnimationFrame(dragRAF); dragRAF = null; hasPending = false;
-    startInertia();  // inertia → snapBack → autoSpin
-  });
+  function endDrag(e) {
+    if (mode !== 'drag' || (e && e.pointerId !== pointerId)) return;
+    mode = 'settle';
+    cube.classList.remove('dragging');
+    if (pointerId !== null) {
+      try { perspectiveEl.releasePointerCapture(pointerId); } catch (_) {}
+    }
+    pointerId = null;
+  }
 
-  // ── Touch events ──────────────────────────────────────────────
-  scene.addEventListener('touchstart', e => {
-    e.stopPropagation();
-    cancelAnimationFrame(inertiaRAF); inertiaRAF = null;
-    dragging = true; velX = 0; velY = 0;
-    lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
-    cube.style.transition = 'none';
-    cancelAnimationFrame(spinRAF); spinRAF = null;
-  }, { passive: true });
-
-  scene.addEventListener('touchmove', e => {
-    if (!dragging) return;
-    e.preventDefault();
-    const dx = e.touches[0].clientX - lastX, dy = e.touches[0].clientY - lastY;
-    rotY += dx * 0.35;
-    rotX = Math.max(-60, Math.min(60, rotX - dy * 0.35));
-    velY = velY * 0.7 + dx * 0.12;
-    velX = velX * 0.7 - dy * 0.12;
-    lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
-    hasPending = true;
-    queueDragUpdate();
-  }, { passive: false });
-
-  scene.addEventListener('touchend', () => {
-    if (!dragging) return;
-    dragging = false;
-    cancelAnimationFrame(dragRAF); dragRAF = null; hasPending = false;
-    startInertia();  // inertia → snapBack → autoSpin
-  });
+  perspectiveEl.addEventListener('pointerup', endDrag);
+  perspectiveEl.addEventListener('pointercancel', endDrag);
 
   // ── Face shading based on camera angle ───────────────────────
   const faceNormals = {
@@ -468,11 +424,11 @@ function initWin3DCube() {
 
   updateFaceBlur();
 
-  // ── Start 3D mode + auto-spin on load ───────────────────────
+  // ── Start 3D mode + rotation loop on load ─────────────────────
   spinning = true;
   scene.classList.add('mode-3d');
   buildFaces();
-  startAutoSpin();
+  startLoop();
 }
 
 function initHL() {
