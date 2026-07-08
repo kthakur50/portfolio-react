@@ -1197,18 +1197,16 @@ body.light .edu-inst { color: var(--a); }
  letter-spacing: .2em;
  text-transform: uppercase;
  color: var(--a2);
- position: relative;
- padding-left: 26px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
  margin-bottom: 18px;
 }
-.c-info-title::before {
+.c-info-title::after {
  content: '';
- position: absolute;
- left: 0; top: 50%;
- transform: translateY(-50%);
- width: 16px; height: 2px;
- border-radius: 2px;
- background: var(--a2);
+ flex: 1;
+ height: 1px;
+ background: var(--br);
 }
 .c-info p {
  font-size: .87rem;
