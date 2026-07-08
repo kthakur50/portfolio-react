@@ -256,8 +256,8 @@ body.light .nav-desk-links a.active { color: var(--a); }
  visibility: hidden;
  pointer-events: none;
  transition: opacity .16s ease, transform .16s ease, visibility .16s;
- box-shadow: 0 6px 18px rgba(0,0,0,.35), 0 1px 3px rgba(0,0,0,.2);
  border: 1px solid rgba(255,255,255,.06);
+ box-shadow: 0 2px 8px rgba(0,0,0,.18);
  z-index: 30;
 }
 .nav-tip::after {
@@ -592,24 +592,9 @@ body.light #skills, body.light #contact {
 .skill-strip { display: flex; flex-wrap: wrap; gap: 7px; }
 
 .skill-chip:hover {
- transform: translateY(-2px) scale(1.03);
- border-color: rgba(34,160,99,.5);
- background: rgba(34,160,99,.08);
- box-shadow: none;
-}
-body.light .skill-chip {
- background: linear-gradient(145deg, rgba(255,255,255,.70) 0%, rgba(255,255,255,.40) 100%);
- border: 1.5px solid rgba(0,0,0,.10);
- color: var(--tx);
- backdrop-filter: blur(6px);
- -webkit-backdrop-filter: blur(6px);
- box-shadow: 0 1px 4px rgba(0,0,0,.07);
- transition: transform .28s cubic-bezier(.25,.46,.45,.94), border-color .28s cubic-bezier(.25,.46,.45,.94), background .28s cubic-bezier(.25,.46,.45,.94), background-color .28s cubic-bezier(.25,.46,.45,.94), box-shadow .28s cubic-bezier(.25,.46,.45,.94), color .28s cubic-bezier(.25,.46,.45,.94);
-}
-body.light .skill-chip:hover {
- transform: translateY(-3px) scale(1.05);
- border-color: rgba(0,0,0,.18);
- box-shadow: 0 4px 14px -6px rgba(0,0,0,.18);
+ transform: translateY(-2px);
+ border-color: rgba(34,160,99,.45);
+ background: rgba(34,160,99,.07);
 }
 
 .sc-html    { --cc: 228,77,38; }
@@ -644,32 +629,18 @@ body.light .sc-express { --cc: 60,60,60; }
  border-color: rgba(var(--cc), .35);
  box-shadow: none;
  background: linear-gradient(145deg, rgba(var(--cc),.10) 0%, rgba(var(--cc),.03) 100%);
- transition: transform .28s cubic-bezier(.25,.46,.45,.94), border-color .28s cubic-bezier(.25,.46,.45,.94), background .28s cubic-bezier(.25,.46,.45,.94), box-shadow .28s cubic-bezier(.25,.46,.45,.94);
+ transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
 }
 .skill-chip[class*="sc-"]:hover {
- transform: translateY(-2px) scale(1.03);
- border-color: rgba(var(--cc), .55);
- background: linear-gradient(145deg, rgba(var(--cc),.16) 0%, rgba(var(--cc),.05) 100%);
- box-shadow: 0 6px 16px -8px rgba(var(--cc),.45);
-}
-body.light .skill-chip[class*="sc-"] {
- border-color: rgba(var(--cc), .35);
- box-shadow: none;
- background: linear-gradient(145deg, rgba(var(--cc),.10) 0%, rgba(var(--cc),.03) 100%);
- transition: transform .28s cubic-bezier(.25,.46,.45,.94), border-color .28s cubic-bezier(.25,.46,.45,.94), background .28s cubic-bezier(.25,.46,.45,.94), box-shadow .28s cubic-bezier(.25,.46,.45,.94);
+ transform: translateY(-2px);
+ border-color: rgba(var(--cc), .5);
+ background: linear-gradient(145deg, rgba(var(--cc),.13) 0%, rgba(var(--cc),.04) 100%);
 }
 body.light .sc-next svg,
 body.light .sc-github svg,
 body.light .sc-vercel svg,
 body.light .sc-express svg { filter: invert(1); }
-body.light .skill-chip[class*="sc-"]:hover {
- transform: translateY(-2px) scale(1.03);
- border-color: rgba(var(--cc), .55);
- background: linear-gradient(145deg, rgba(var(--cc),.18) 0%, rgba(var(--cc),.06) 100%);
- box-shadow: 0 6px 16px -8px rgba(var(--cc),.35);
-}
-.skill-chip svg { width: 27px; height: 27px; display: block; max-width: none; flex-shrink: 0; transform: none; min-width: 27px; box-sizing: content-box; padding: 7px; border: 1px solid rgba(255,255,255,.12); border-radius: 9px; background: rgba(255,255,255,.03); }
-body.light .skill-chip svg { border-color: rgba(0,0,0,.10); background: rgba(0,0,0,.02); }
+.skill-chip svg { width: 27px; height: 27px; display: block; max-width: none; flex-shrink: 0; transform: none; min-width: 27px; box-sizing: content-box; padding: 7px; border: 1px solid rgba(127,127,127,.25); border-radius: 9px; background: rgba(127,127,127,.08); }
 .skill-chip span { font-size: .64rem; font-weight: 600; letter-spacing: .02em; text-transform: none; color: inherit; opacity: .82; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 82px; text-align: center; display: block; line-height: 1.35; padding-bottom: 1px; }
 .skill-chip {
   display: flex;
@@ -683,13 +654,12 @@ body.light .skill-chip svg { border-color: rgba(0,0,0,.10); background: rgba(0,0
   min-height: 76px;
   max-height: 76px;
   border-radius: 12px;
-  border: 1.5px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
+  border: 1.5px solid rgba(127,127,127,.22);
+  background: rgba(127,127,127,.07);
   color: var(--tx);
   cursor: default;
-  transition: transform .28s cubic-bezier(.25,.46,.45,.94), border-color .28s cubic-bezier(.25,.46,.45,.94), background-color .28s cubic-bezier(.25,.46,.45,.94), background .28s cubic-bezier(.25,.46,.45,.94), box-shadow .28s cubic-bezier(.25,.46,.45,.94), color .28s cubic-bezier(.25,.46,.45,.94);
+  transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
   flex-shrink: 0;
-  will-change: transform;
 }
 
 #about { background: transparent; }
@@ -1449,8 +1419,8 @@ body.light .skill-marquee-wrap::after  { background: linear-gradient(-90deg, rgb
   min-width: auto;
   min-height: 44px;
   border-radius: 9px;
-  border: 1.5px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
+  border: 1.5px solid rgba(127,127,127,.22);
+  background: rgba(127,127,127,.07);
   color: var(--tx);
   white-space: nowrap;
   flex-shrink: 0;
@@ -1458,18 +1428,16 @@ body.light .skill-marquee-wrap::after  { background: linear-gradient(-90deg, rgb
   font-weight: 600;
   letter-spacing: .02em;
   opacity: .85;
-  transition: border-color .3s cubic-bezier(.25,.46,.45,.94), background .3s cubic-bezier(.25,.46,.45,.94), color .3s cubic-bezier(.25,.46,.45,.94), transform .3s cubic-bezier(.25,.46,.45,.94), opacity .3s cubic-bezier(.25,.46,.45,.94), box-shadow .3s cubic-bezier(.25,.46,.45,.94);
+  transition: border-color .25s ease, background .25s ease, color .25s ease, transform .25s ease, opacity .25s ease;
 }
 .mq-chip:hover {
   border-color: rgba(var(--cc), .35);
-  background: rgba(var(--cc), .08);
+  background: rgba(var(--cc), .07);
   color: inherit;
   opacity: 1;
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 6px 16px -8px rgba(var(--cc),.4);
+  transform: translateY(-1px);
 }
 .mq-chip svg { flex-shrink: 0; display: block; width: 21px; height: 21px; }
-body.light .mq-chip { border-color: rgba(0,0,0,.10); background: rgba(0,0,0,.04); color: var(--tx); }
 
 .skill-one-card {
  display: grid;
@@ -1568,16 +1536,15 @@ body.light .skill-card {
  box-shadow: none !important;
  backdrop-filter: none !important;
  -webkit-backdrop-filter: none !important;
- transition: transform .3s cubic-bezier(.25,.46,.45,.94), box-shadow .3s cubic-bezier(.25,.46,.45,.94), color .28s cubic-bezier(.25,.46,.45,.94);
+ transition: transform .25s ease, opacity .25s ease;
 }
 .skill-card .skill-chip:hover {
  background: transparent !important;
  border: none !important;
- box-shadow: 0 0 0 1px rgba(var(--cc,255,255,255),.3), 0 8px 18px -8px rgba(var(--cc,255,255,255),.4) !important;
- transform: translateY(-2px) scale(1.05);
+ box-shadow: none !important;
+ transform: translateY(-2px);
 }
-.skill-card .skill-chip svg { width: 31px; height: 31px; min-width: 31px; padding: 8px; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; background: rgba(255,255,255,.03); }
-body.light .skill-card .skill-chip svg { border-color: rgba(0,0,0,.10); background: rgba(0,0,0,.02); }
+.skill-card .skill-chip svg { width: 31px; height: 31px; min-width: 31px; padding: 8px; border: 1px solid rgba(127,127,127,.25); border-radius: 10px; background: rgba(127,127,127,.08); }
 .skill-card--fe {
  border-color: rgba(96,165,250,.2); background: rgba(96,165,250,.06);
  box-shadow: none;
