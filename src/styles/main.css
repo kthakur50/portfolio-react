@@ -889,8 +889,7 @@ body.light .exp-item:hover .exp-card {
  color: #27b872;
  background: none;
  border: none;
- border-bottom: 1px solid rgba(39,184,114,.4);
- padding: 0 0 3px;
+ padding: 0;
  border-radius: 0;
  width: fit-content;
  flex-shrink: 0;
@@ -1171,8 +1170,6 @@ body.light .edu-item:hover .edu-card {
  line-height: 1.25;
  opacity: 1 !important;
  visibility: visible !important;
- border-bottom: 1px solid rgba(154,184,171,.35);
- padding-bottom: 3px;
 }
 .edu-inst {
  font-size: .83rem;
@@ -2171,13 +2168,13 @@ body.light .wt.wt-cube-single .wt-name {
   /* About */
   .about-para { font-size: .85rem; line-height: 1.95; }
 
-  /* Skills */
-  .skill-one-card { grid-template-columns: 1fr; gap: 14px; }
-  .skill-one-card .skill-group { padding: 20px 16px 18px !important; }
-  .skill-card .skill-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
-  .skill-chip { width: auto; height: 72px; min-height: 72px; max-height: 72px; border-radius: 10px; }
-  .skill-chip svg { width: 27px; height: 27px; min-width: 27px; padding: 6px; border-radius: 8px; }
-  .skill-chip span { font-size: .6rem; }
+  /* Skills — one fluid scale for every phone size (no more jumps between breakpoints) */
+  .skill-one-card { grid-template-columns: 1fr; gap: clamp(8px, 3px + 1.47vw, 14px); }
+  .skill-one-card .skill-group { padding: clamp(10px, 1px + 2.45vw, 20px) clamp(6px, 1px + 1.96vw, 16px) clamp(8px, 1px + 2.35vw, 18px) !important; }
+  .skill-card .skill-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(5px, 1px + 0.78vw, 7px); }
+  .skill-chip { width: auto; height: clamp(56px, 42px + 3.92vw, 72px); min-height: clamp(56px, 42px + 3.92vw, 72px); max-height: clamp(56px, 42px + 3.92vw, 72px); border-radius: clamp(7px, 4px + 0.78vw, 10px); gap: clamp(3px, 1px + 0.39vw, 5px); }
+  .skill-chip svg { width: clamp(17px, 8px + 2.45vw, 27px); height: clamp(17px, 8px + 2.45vw, 27px); min-width: clamp(17px, 8px + 2.45vw, 27px); padding: clamp(3px, 1px + 0.6vw, 6px); border-radius: clamp(5px, 3px + 0.6vw, 8px); }
+  .skill-chip span { font-size: clamp(.44rem, .3rem + 0.63vw, .6rem); }
   .skill-marquee-wrap { margin-top: 20px; }
 
   /* Experience */
@@ -2385,13 +2382,8 @@ body.light .wt.wt-cube-single .wt-name {
   .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
   .wt-name { font-size: .56rem; }
 
-  /* Skills */
-  .skill-one-card { grid-template-columns: 1fr; gap: 12px; }
-  .skill-one-card .skill-group { padding: 14px 10px 12px !important; }
-  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 7px; }
-  .skill-chip { height: 62px; min-height: 62px; max-height: 62px; border-radius: 9px; gap: 3px; }
-  .skill-chip svg { width: 21px; height: 21px; min-width: 21px; padding: 4px; border-radius: 6px; }
-  .skill-chip span { font-size: .52rem; }
+  /* Skills: sizing now handled by the single fluid rule set at 768px, so it scales
+     smoothly and stays visually consistent down to the smallest phone. */
   .skill-marquee-wrap::before, .skill-marquee-wrap::after { width: 60px; }
   .mq-chip { padding: 8px 14px; font-size: .68rem; gap: 7px; }
   .mq-chip svg { width: 16px; height: 16px; }
@@ -2469,13 +2461,6 @@ body.light .wt.wt-cube-single .wt-name {
   .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
   .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
 
-  .skill-one-card { grid-template-columns: 1fr; gap: 10px; }
-  .skill-one-card .skill-group { padding: 12px 8px 10px !important; }
-  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .skill-chip { height: 66px; min-height: 66px; max-height: 66px; border-radius: 8px; gap: 3px; }
-  .skill-chip svg { width: 19px; height: 19px; min-width: 19px; padding: 4px; border-radius: 6px; }
-  .skill-chip span { font-size: .48rem; }
-
   .exp-list { padding-left: 36px; }
   .exp-node { left: -34px; width: 26px; height: 26px; top: 13px; padding: 5px; }
   .exp-item::before { left: -21px; top: 42px; bottom: 24px; }
@@ -2524,12 +2509,6 @@ body.light .wt.wt-cube-single .wt-name {
   .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
   .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
 
-  .skill-one-card { grid-template-columns: 1fr; gap: 8px; }
-  .skill-one-card .skill-group { padding: 10px 6px 8px !important; }
-  .skill-card .skill-strip { grid-template-columns: repeat(4, 1fr); gap: 5px; }
-  .skill-chip { height: 60px; min-height: 60px; max-height: 60px; border-radius: 7px; gap: 3px; }
-  .skill-chip svg { width: 17px; height: 17px; min-width: 17px; padding: 3px; border-radius: 5px; }
-  .skill-chip span { font-size: .44rem; }
   .exp-role, .edu-deg-title { font-size: .82rem; }
   .edu-inst { font-size: .66rem; line-height: 1.4; }
   .c-form { padding: 10px 10px 12px; }
