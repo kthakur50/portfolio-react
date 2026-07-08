@@ -21,7 +21,7 @@ const Education = () => (
               <span className="edu-yr">July 2019 – Aug 2022</span>
             </div>
             <div className="edu-inst">
-              <span className="edu-inst-name">Mangalmay Institute of Management and Technology</span>
+              <span className="edu-inst-name">MIMT College</span>
               <span className="edu-inst-sep"> · </span>
               <span className="edu-inst-loc">Greater Noida</span>
             </div>
