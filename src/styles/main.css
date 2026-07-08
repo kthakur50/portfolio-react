@@ -1942,11 +1942,13 @@ body.light .wt.wt-cube-single .wt-name {
 
 /* ── LARGE DESKTOP (≤ 1400px) ──────────────────────────────── */
 @media (max-width: 1400px) {
+  .hero-name { font-size: clamp(2.4rem, 5.6vw, 6.3rem); }
   .masonry-list { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ── MEDIUM DESKTOP / LARGE TABLET LANDSCAPE (≤ 1200px) ────── */
 @media (max-width: 1200px) {
+  .hero-name { font-size: clamp(2.1rem, 4.6vw, 5.25rem); }
   .contact-grid { gap: 36px; }
   .masonry-list { grid-template-columns: repeat(3, 1fr); }
 }
