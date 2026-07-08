@@ -295,8 +295,6 @@ body.light .nav-toggle:hover { color: #24382c; background: transparent; }
 .nav-toggle svg {
  width: 17px; height: 17px; pointer-events: none;
  position: absolute; top: 50%; left: 50%;
- transform: translate(-50%,-50%) rotate(0deg) scale(1);
- opacity: 1;
  transition: opacity .45s cubic-bezier(.25,.46,.45,.94), transform .45s cubic-bezier(.25,.46,.45,.94);
 }
 .i-sun { opacity: 0; transform: translate(-50%,-50%) rotate(-90deg) scale(.4); }
