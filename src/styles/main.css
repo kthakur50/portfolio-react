@@ -71,7 +71,7 @@ body.light .sec-hd h2 em { text-shadow: none; }
 section { padding: 110px 0; }
 .sec-hd {
  display: flex;
- width: fit-content;
+ width: 100%;
  align-items: center;
  gap: 16px;
  margin-bottom: 40px;
@@ -80,6 +80,13 @@ section { padding: 110px 0; }
  max-width: 100%;
 }
 .sec-hd::before { display: none; }
+.sec-hd::after {
+ content: '';
+ flex: 1;
+ height: 1px;
+ background: var(--br);
+ margin-left: 6px;
+}
 .sec-hd h2 {
  font-size: clamp(1.5rem, 3vw, 1.9rem);
  font-weight: 800;
@@ -111,7 +118,6 @@ section { padding: 110px 0; }
 }
 .sec-hd-icon svg { width: 100%; height: 100%; display: block; }
 body.light .sec-hd-icon { border-color: rgba(0,0,0,.12); }
-.sec-hd::after { display: none; }
 .sr { opacity: 0; transform: translateY(24px) translateZ(0); transition: opacity .6s cubic-bezier(.25,.46,.45,.94), transform .6s cubic-bezier(.25,.46,.45,.94); will-change: opacity, transform; }
 .sr.on { opacity: 1; transform: translateY(0) translateZ(0); }
 .nav {
@@ -1188,7 +1194,8 @@ body.light .edu-inst { color: var(--a); }
 }
 .c-info-title::after {
  content: '';
- flex: 1;
+ flex: 0 0 40px;
+ width: 40px;
  height: 1px;
  background: var(--br);
 }
