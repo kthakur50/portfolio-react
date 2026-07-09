@@ -489,7 +489,7 @@ body.light .hero-name .ac-plain {
 .hero-info {
   margin-bottom: 14px;
   width: 100%;
-  border: 1px solid rgba(138,170,152,.10);
+  border: 1px solid rgba(138,170,152,.25);
   border-radius: 10px;
   padding: 20px 14px 20px 24px;
   box-sizing: border-box;
@@ -558,7 +558,7 @@ body.light .hero-name .ac-plain {
 }
 body.light .hero-info-time { color: #3a5e4a; }
 body.light .hero-info-time em { color: var(--a); }
-body.light .hero-info { border-color: rgba(0,0,0,.07); background: rgba(0,0,0,.02); }
+body.light .hero-info { border-color: rgba(138,170,152,.25); background: rgba(0,0,0,.02); }
 body.light .hero-info-item { color: #3a5e4a; font-weight: 500; }
 body.light .hero-info-item:hover { color: var(--tx); }
 body.light .hero-info-item svg { border-color: rgba(58,94,74,.25); }
@@ -2152,8 +2152,8 @@ body.light .wt.wt-cube-single .wt-name {
   /* Skills — one fluid scale for every phone size (no more jumps between breakpoints) */
   .skill-one-card { grid-template-columns: 1fr; gap: clamp(8px, 3px + 1.47vw, 14px); }
   .skill-one-card .skill-group { padding: clamp(10px, 1px + 2.45vw, 20px) clamp(6px, 1px + 1.96vw, 16px) clamp(8px, 1px + 2.35vw, 18px) !important; }
-  .skill-card .skill-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(5px, 1px + 0.78vw, 7px); }
-  .skill-chip { width: auto; height: clamp(56px, 42px + 3.92vw, 72px); min-height: clamp(56px, 42px + 3.92vw, 72px); max-height: clamp(56px, 42px + 3.92vw, 72px); border-radius: clamp(7px, 4px + 0.78vw, 10px); gap: clamp(3px, 1px + 0.39vw, 5px); }
+  .skill-card .skill-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(5px, 1px + 0.78vw, 7px); }
+  .skill-chip { flex: 0 0 calc(25% - clamp(5px, 1px + 0.78vw, 7px) * 3 / 4); width: auto; height: clamp(56px, 42px + 3.92vw, 72px); min-height: clamp(56px, 42px + 3.92vw, 72px); max-height: clamp(56px, 42px + 3.92vw, 72px); border-radius: clamp(7px, 4px + 0.78vw, 10px); gap: clamp(3px, 1px + 0.39vw, 5px); }
   .skill-chip svg { width: clamp(17px, 8px + 2.45vw, 27px); height: clamp(17px, 8px + 2.45vw, 27px); min-width: clamp(17px, 8px + 2.45vw, 27px); padding: clamp(3px, 1px + 0.6vw, 6px); border-radius: clamp(5px, 3px + 0.6vw, 8px); }
   .skill-chip span { font-size: clamp(.44rem, .3rem + 0.63vw, .6rem); }
   .skill-marquee-wrap { margin-top: 20px; }
@@ -2393,9 +2393,9 @@ body.light .wt.wt-cube-single .wt-name {
   .edu-card { padding: 13px 14px; display: flex; flex-direction: column; }
   .edu-header-row { display: contents; }
   .edu-deg-title { font-size: .88rem; order: 1; }
-  .edu-inst { order: 2; font-size: .72rem; line-height: 1.45; }
-  .edu-inst-sep { display: none; }
-  .edu-inst-loc { display: block; margin-top: 2px; }
+  .edu-inst { order: 2; font-size: clamp(.58rem, .4rem + 1.2vw, .72rem); line-height: 1.45; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  .edu-inst-sep { display: inline; }
+  .edu-inst-loc { display: inline; margin-top: 0; }
   .edu-yr { order: 3; margin-left: 0; margin-top: 8px; text-align: left; align-self: flex-start; }
 
   /* Contact: keep same 2-col form-row structure as tablet, scaled to fit */
