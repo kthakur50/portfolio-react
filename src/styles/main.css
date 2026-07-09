@@ -14,7 +14,7 @@
  --pad: clamp(20px,5vw,64px);
  --nav: 56px;
  --rad: 12px;
- --ease: .28s cubic-bezier(.25,.46,.45,.94);
+ --ease: .32s cubic-bezier(.25,.46,.45,.94);
  --card-shadow: 0 2px 8px rgba(0,0,0,.28);
  --card-bg: rgba(255,255,255,.04);
 }
@@ -33,7 +33,7 @@ body.light {
 *, *::before, *::after {
  box-sizing: border-box; margin: 0; padding: 0; word-break: break-word;
  -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none;
- transition: background-color .3s cubic-bezier(.25,.46,.45,.94), border-color .3s cubic-bezier(.25,.46,.45,.94), color .3s cubic-bezier(.25,.46,.45,.94), fill .3s cubic-bezier(.25,.46,.45,.94), stroke .3s cubic-bezier(.25,.46,.45,.94);
+ transition: background-color .45s cubic-bezier(.4,0,.2,1), border-color .45s cubic-bezier(.4,0,.2,1), color .45s cubic-bezier(.4,0,.2,1), fill .45s cubic-bezier(.4,0,.2,1), stroke .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1);
 }
 html {
  scroll-behavior: smooth;
@@ -47,7 +47,7 @@ body {
  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
  background: #000000;
  color: var(--tx);
- transition: background var(--ease), color var(--ease);
+ transition: background .45s cubic-bezier(.4,0,.2,1), color .45s cubic-bezier(.4,0,.2,1);
  -webkit-font-smoothing: antialiased;
  -moz-osx-font-smoothing: grayscale;
  text-rendering: optimizeLegibility;
