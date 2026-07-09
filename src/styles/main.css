@@ -1032,11 +1032,10 @@ body.light .masonry-item:hover .masonry-item-inner {
 .masonry-desc { font-size: .73rem; color: var(--mu); line-height: 1.72; flex: 1; }
 .masonry-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
 .masonry-link {
- display: inline-flex; align-items: center; gap: 5px;
- font-size: .72rem; font-weight: 600; color: var(--a2);
  margin-top: 9px;
- transition: gap .35s cubic-bezier(.25,.46,.45,.94), opacity .35s ease;
- opacity: .8;
+ align-self: flex-start;
+ transition: gap .35s cubic-bezier(.25,.46,.45,.94), opacity .35s ease, all .35s cubic-bezier(.25,.46,.45,.94);
+ opacity: .85;
 }
 .masonry-item:hover .masonry-link { opacity: 1; }
 .masonry-link .arr { transition: transform .35s cubic-bezier(.25,.46,.45,.94); display: inline-block; }
