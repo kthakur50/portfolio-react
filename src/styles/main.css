@@ -144,7 +144,7 @@ body.light .sec-hd-icon { border-color: rgba(0,0,0,.12); }
  display: grid;
  grid-template-columns: 1fr auto 1fr;
  align-items: center;
- background: rgba(60,60,60,.62);
+ background: rgba(20,20,20,.62);
  backdrop-filter: blur(16px) saturate(150%);
  -webkit-backdrop-filter: blur(16px) saturate(150%);
  border: 1px solid rgba(255,255,255,.12);
@@ -154,7 +154,7 @@ body.light .sec-hd-icon { border-color: rgba(0,0,0,.12); }
  transition: background .3s ease, border-color .3s ease;
 }
 .nav.scrolled .nav-inner {
- background: rgba(60,60,60,.75);
+ background: rgba(20,20,20,.75);
  border-color: rgba(255,255,255,.12);
  box-shadow: none;
 }
@@ -704,8 +704,8 @@ body.light #about { background: transparent; }
  border-radius: 1px;
  position: relative;
  overflow: hidden;
- -webkit-mask-image: linear-gradient(to right, #000 0%, #000 55%, transparent 100%);
- mask-image: linear-gradient(to right, #000 0%, #000 55%, transparent 100%);
+ -webkit-mask-image: linear-gradient(to right, #000 0%, #000 85%, transparent 100%);
+ mask-image: linear-gradient(to right, #000 0%, #000 85%, transparent 100%);
 }
 .hero-avail-line::after {
  content: '';
@@ -765,7 +765,7 @@ body.light #experience { background: transparent; }
  position: absolute;
  left: -29px;
  top: 54px;
- bottom: 24px;
+ bottom: 40px;
  width: 1px;
  background: linear-gradient(
  180deg,
@@ -778,7 +778,7 @@ body.light .exp-item::before { opacity: .7; }
 .exp-item:last-child::before { bottom: 0; }
 .exp-item {
  position: relative;
- padding-bottom: 24px;
+ padding-bottom: 40px;
 }
 .exp-item:last-child { padding-bottom: 0; }
 .exp-node {
@@ -1037,6 +1037,15 @@ body.light .masonry-item:hover .masonry-item-inner {
  align-self: flex-start;
  transition: gap .35s cubic-bezier(.25,.46,.45,.94), opacity .35s ease, all .35s cubic-bezier(.25,.46,.45,.94);
  opacity: .85;
+ padding: 0;
+ border: none;
+ background: transparent;
+ border-radius: 0;
+}
+.masonry-link:hover {
+ border: none;
+ background: transparent;
+ box-shadow: none;
 }
 .masonry-item:hover .masonry-link { opacity: 1; }
 .masonry-link .arr { transition: transform .35s cubic-bezier(.25,.46,.45,.94); display: inline-block; }
@@ -1238,7 +1247,7 @@ body.light .c-message-box {
  gap: 12px;
  width: 100%;
  padding: 10px 16px;
- border: 1px solid rgba(138,170,152,.12);
+ border: none;
  border-radius: 7px;
  background: transparent;
  color: var(--tx);
@@ -1246,7 +1255,6 @@ body.light .c-message-box {
  cursor: pointer;
  transition: all .35s cubic-bezier(.25,.46,.45,.94);
 }
-body.light .c-accordion-toggle { border-color: rgba(138,170,152,.25); }
 .c-accordion-icon {
  display: flex; align-items: center; justify-content: center;
  width: 24px; height: 24px;
