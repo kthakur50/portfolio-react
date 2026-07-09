@@ -1247,6 +1247,7 @@ body.light .c-message-box {
  gap: 12px;
  width: 100%;
  padding: 10px 16px;
+ margin-top: 8px;
  border: none;
  border-radius: 7px;
  background: transparent;
