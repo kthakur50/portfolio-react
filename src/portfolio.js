@@ -159,7 +159,7 @@ function initMasonry() {
           <div class="masonry-title">${p.title}</div>
           <div class="masonry-desc">${p.desc}</div>
           <div class="masonry-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-          <a href="${p.link}" class="masonry-link">View Project <span class="arr">→</span></a>
+          <a href="${p.link}" class="masonry-link btn-o">View Project <span class="arr">→</span></a>
         </div>
       </div>`;
     container.appendChild(el);
