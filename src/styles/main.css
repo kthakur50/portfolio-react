@@ -619,6 +619,7 @@ body.light .sc-express { --cc: 60,60,60; }
 .sc-node    { --cc: 51,153,51; }
 .sc-express { --cc: 180,180,180; }
 .sc-api     { --cc: 133,234,45; }
+.sc-fastapi { --cc: 5,153,139; }
 .sc-mongo   { --cc: 67,153,52; }
 .sc-pg      { --cc: 51,103,145; }
 .sc-python  { --cc: 55,118,171; }
@@ -630,6 +631,7 @@ body.light .sc-express { --cc: 60,60,60; }
 .sc-netlify { --cc: 0,199,183; }
 .sc-vercel  { --cc: 255,255,255; }
 .sc-docker  { --cc: 36,150,237; }
+.sc-k8s     { --cc: 50,108,229; }
 .sc-postman { --cc: 255,108,55; }
 .skill-chip[class*="sc-"] {
  border-color: rgba(var(--cc), .35);
