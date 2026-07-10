@@ -202,7 +202,21 @@ const IconPostman = () => (
   </svg>
 );
 
-/* ── Main component ── */
+/* FastAPI — official teal/green logomark */
+const IconFastAPI = () => (
+  <svg viewBox="0 0 128 128" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#05998b" d="M64 0a64 64 0 100 128A64 64 0 0064 0zM45.1 100.65V69.246H27.65L64.406 27.35v31.404H80.35L45.1 100.65z"/>
+  </svg>
+);
+
+/* Kubernetes — official blue helm wheel */
+const IconKubernetes = () => (
+  <svg viewBox="0 0 128 128" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#326ce5" d="M64 4.6a8 8 0 00-2.955.578l-42.7 15.55a8 8 0 00-5.198 6.66l-6.98 44.939a8 8 0 001.61 6.084l28.362 35.86a8 8 0 006.28 3.03l45.162-.01a8 8 0 006.28-3.03l28.35-35.87a8 8 0 001.61-6.083l-6.99-44.938a8 8 0 00-5.2-6.66l-42.68-15.55A8 8 0 0064 4.6zm.02 20.36a4.6 4.6 0 014.6 4.32l1.36 22.62a2.9 2.9 0 01-4.35 2.62l-1.61-.94a2.9 2.9 0 00-2.9 0l-1.61.94a2.9 2.9 0 01-4.35-2.62l1.36-22.62a4.6 4.6 0 014.5-4.32z"/>
+  </svg>
+);
+
+
 const Skills = () => {
   /* Marquee chips */
   const marqueeChips = [
@@ -262,6 +276,7 @@ const Skills = () => {
               <div className="skill-chip sc-node"><IconNode /><span>Node.js</span></div>
               <div className="skill-chip sc-express"><IconExpress /><span>Express.js</span></div>
               <div className="skill-chip sc-api"><IconRestAPI /><span>REST APIs</span></div>
+              <div className="skill-chip sc-fastapi"><IconFastAPI /><span>FastAPI</span></div>
               <div className="skill-chip sc-mongo"><IconMongoDB /><span>MongoDB</span></div>
               <div className="skill-chip sc-pg"><IconPostgres /><span>PostgreSQL</span></div>
               <div className="skill-chip sc-python"><IconPython /><span>Python</span></div>
@@ -279,6 +294,7 @@ const Skills = () => {
               <div className="skill-chip sc-netlify"><IconNetlify /><span>Netlify</span></div>
               <div className="skill-chip sc-vercel"><IconVercel /><span>Vercel</span></div>
               <div className="skill-chip sc-docker"><IconDocker /><span>Docker</span></div>
+              <div className="skill-chip sc-k8s"><IconKubernetes /><span>Kubernetes</span></div>
               <div className="skill-chip sc-postman"><IconPostman /><span>Postman</span></div>
             </div>
           </div>
