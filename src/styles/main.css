@@ -700,13 +700,14 @@ body.light #about { background: transparent; }
  width: 100%;
 }
 .hero-avail-line {
- flex: 0 0 auto;
- width: clamp(48px, 12vw, 90px);
+ flex: 1;
  height: 1px;
  background: linear-gradient(to right, rgba(138,170,152,.25), transparent);
  border-radius: 1px;
  position: relative;
  overflow: hidden;
+ -webkit-mask-image: linear-gradient(to right, #000 0%, #000 85%, transparent 100%);
+ mask-image: linear-gradient(to right, #000 0%, #000 85%, transparent 100%);
 }
 .hero-avail-line::after {
  content: '';
@@ -771,6 +772,7 @@ body.light #experience { background: transparent; }
  background: linear-gradient(
  180deg,
  var(--br) 0%,
+ var(--br) 75%,
  transparent 100%
  );
  opacity: .5;
@@ -1074,7 +1076,7 @@ body.light #education { background: transparent; }
  width: 1px;
  background: linear-gradient(
  180deg,
- var(--br) 60%,
+ var(--br) 75%,
  transparent 100%
  );
  opacity: .5;
