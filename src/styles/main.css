@@ -700,14 +700,13 @@ body.light #about { background: transparent; }
  width: 100%;
 }
 .hero-avail-line {
- flex: 1;
+ flex: 0 0 auto;
+ width: clamp(48px, 12vw, 90px);
  height: 1px;
  background: linear-gradient(to right, rgba(138,170,152,.25), transparent);
  border-radius: 1px;
  position: relative;
  overflow: hidden;
- -webkit-mask-image: linear-gradient(to right, #000 0%, #000 85%, transparent 100%);
- mask-image: linear-gradient(to right, #000 0%, #000 85%, transparent 100%);
 }
 .hero-avail-line::after {
  content: '';
@@ -2180,6 +2179,7 @@ body.light .wt.wt-cube-single .wt-name {
   /* Experience */
   .exp-list { padding-left: 44px; }
   .exp-node { left: -42px; width: 30px; height: 30px; top: 16px; }
+  .exp-item::before { left: -27px; top: 46px; }
   .exp-card { padding: 15px 17px; }
   .exp-role { font-size: .92rem; }
   .exp-co { font-size: .74rem; }
@@ -2197,6 +2197,7 @@ body.light .wt.wt-cube-single .wt-name {
   /* Education */
   .edu-list { padding-left: 44px; }
   .edu-node { left: -42px; width: 30px; height: 30px; }
+  .edu-item::before { left: -27px; top: 46px; }
   .edu-card { padding: 15px 17px; display: flex; flex-direction: column; }
   .edu-header-row { display: contents; }
   .edu-deg-title { font-size: .92rem; order: 1; }
@@ -2350,8 +2351,8 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-info { padding: clamp(12px, 2.6vw, 17px) clamp(9px, 2.3vw, 13px); margin-bottom: clamp(7px, 1.6vw, 10px); }
   .hero-info-grid { flex-direction: row; gap: 0; }
   .hero-info-col { flex: 1; min-width: 0; }
-  .hero-info-col:first-child { padding-right: clamp(5px, 1.3vw, 9px); border-right: none; padding-bottom: 0; border-bottom: none; }
-  .hero-info-col:last-child { padding-left: clamp(4px, 1.1vw, 8px); padding-top: 0; }
+  .hero-info-col:first-child { padding-right: clamp(6px, 1.2vw, 14px); border-right: none; padding-bottom: 0; border-bottom: none; }
+  .hero-info-col:last-child { padding-left: clamp(6px, 1.2vw, 14px); padding-top: 0; }
   .hero-info-item { font-size: clamp(.52rem, 1.75vw, .64rem); height: clamp(31px, 5.8vw, 37px); gap: clamp(9px, 2vw, 13px); white-space: nowrap; padding: clamp(3px, .7vw, 5px) 0; overflow-x: hidden; overflow-y: visible; text-overflow: ellipsis; }
   .hero-info-item svg { width: clamp(13px, 2.7vw, 16px); height: clamp(13px, 2.7vw, 16px); flex-shrink: 0; }
   /* Buttons */
@@ -2438,8 +2439,8 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-name { font-size: clamp(2.3rem, 11vw, 3rem); margin-top: 6px; margin-bottom: 13px; }
   .hero-avail { font-size: .64rem; margin-bottom: 14px; }
   .hero-info { padding: 12px 12px; margin-bottom: 9px; }
-  .hero-info-col:first-child { padding-right: 11px; }
-  .hero-info-col:last-child { padding-left: 5px; }
+  .hero-info-col:first-child { padding-right: 14px; }
+  .hero-info-col:last-child { padding-left: 14px; }
   .hero-info-item { font-size: .6rem; height: 34px; gap: 10px; padding: 4px 0; overflow-y: visible; }
   .hero-info-item svg { width: 16px; height: 16px; }
   .hero-btns { margin-top: 3px; }
