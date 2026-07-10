@@ -231,6 +231,7 @@ const Skills = () => {
     { cls: 'sc-node',    label: 'Node.js',       icon: <IconNode /> },
     { cls: 'sc-express', label: 'Express.js',    icon: <IconExpress /> },
     { cls: 'sc-api',     label: 'REST APIs',     icon: <IconRestAPI /> },
+    { cls: 'sc-fastapi', label: 'FastAPI',       icon: <IconFastAPI /> },
     { cls: 'sc-mongo',   label: 'MongoDB',       icon: <IconMongoDB /> },
     { cls: 'sc-redis',   label: 'Redis',         icon: <IconRedis /> },
     { cls: 'sc-git',     label: 'Git',           icon: <IconGit /> },
@@ -239,6 +240,7 @@ const Skills = () => {
     { cls: 'sc-netlify', label: 'Netlify',       icon: <IconNetlify /> },
     { cls: 'sc-vercel',  label: 'Vercel',        icon: <IconVercel /> },
     { cls: 'sc-docker',  label: 'Docker',        icon: <IconDocker /> },
+    { cls: 'sc-k8s',     label: 'Kubernetes',    icon: <IconKubernetes /> },
     { cls: 'sc-postman', label: 'Postman',       icon: <IconPostman /> },
   ];
 
