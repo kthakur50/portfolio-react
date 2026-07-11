@@ -649,18 +649,17 @@ body.light .sc-github svg,
 body.light .sc-vercel svg,
 body.light .sc-express svg { filter: invert(1); }
 .skill-chip svg { width: 27px; height: 27px; display: block; max-width: none; flex-shrink: 0; transform: none; min-width: 27px; box-sizing: content-box; padding: 7px; border: 1px solid rgba(127,127,127,.25); border-radius: 9px; background: rgba(127,127,127,.08); }
-.skill-chip span { font-size: .64rem; font-weight: 600; letter-spacing: .02em; text-transform: none; color: inherit; opacity: .82; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 82px; text-align: center; display: block; line-height: 1.35; padding-bottom: 1px; }
+.skill-chip span { font-size: .64rem; font-weight: 600; letter-spacing: .02em; text-transform: none; color: inherit; opacity: .82; white-space: normal; overflow: visible; text-overflow: clip; max-width: 100%; text-align: center; display: block; line-height: 1.25; padding: 0 2px 1px; }
 .skill-chip {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  padding: 0;
+  padding: 6px 4px;
   width: 100%;
-  height: 76px;
+  height: auto;
   min-height: 76px;
-  max-height: 76px;
   border-radius: 12px;
   border: 1.5px solid rgba(127,127,127,.22);
   background: rgba(127,127,127,.07);
@@ -1229,7 +1228,7 @@ body.light .edu-inst { color: var(--a); }
 .c-message-box {
  display: flex;
  flex-direction: column;
- border-radius: 16px;
+ border-radius: 7px;
  border: 1px solid rgba(255,255,255,.09);
  background: rgba(255,255,255,.025);
  transition: border-color var(--ease), background var(--ease);
@@ -2029,7 +2028,7 @@ body.light .wt.wt-cube-single .wt-name {
   /* Skills: 3 columns always */
   .skill-one-card { grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .skill-card .skill-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
-  .skill-chip { width: auto; height: 76px; min-height: 76px; max-height: 76px; }
+  .skill-chip { width: auto; height: auto; min-height: 76px; padding: 6px 4px; }
 
   /* Projects: 3 columns */
   .masonry-list { grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -2173,7 +2172,7 @@ body.light .wt.wt-cube-single .wt-name {
   .skill-one-card { grid-template-columns: 1fr; gap: clamp(8px, 3px + 1.47vw, 14px); }
   .skill-one-card .skill-group { padding: clamp(10px, 1px + 2.45vw, 20px) clamp(6px, 1px + 1.96vw, 16px) clamp(8px, 1px + 2.35vw, 18px) !important; }
   .skill-card .skill-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(5px, 1px + 0.78vw, 7px); }
-  .skill-chip { width: auto; height: clamp(56px, 42px + 3.92vw, 72px); min-height: clamp(56px, 42px + 3.92vw, 72px); max-height: clamp(56px, 42px + 3.92vw, 72px); border-radius: clamp(7px, 4px + 0.78vw, 10px); gap: clamp(3px, 1px + 0.39vw, 5px); }
+  .skill-chip { width: auto; height: auto; min-height: clamp(56px, 42px + 3.92vw, 72px); border-radius: clamp(7px, 4px + 0.78vw, 10px); gap: clamp(3px, 1px + 0.39vw, 5px); padding: clamp(4px, 1px + 0.6vw, 6px) 3px; }
   .skill-chip svg { width: clamp(17px, 8px + 2.45vw, 27px); height: clamp(17px, 8px + 2.45vw, 27px); min-width: clamp(17px, 8px + 2.45vw, 27px); padding: clamp(3px, 1px + 0.6vw, 6px); border-radius: clamp(5px, 3px + 0.6vw, 8px); }
   .skill-chip span { font-size: clamp(.44rem, .3rem + 0.63vw, .6rem); }
   .skill-marquee-wrap { margin-top: 20px; }
@@ -2351,12 +2350,12 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-block { min-width: 0; width: 100%; }
   .hero-avail { font-size: clamp(.5rem, 1.3vw, .62rem); margin-bottom: clamp(9px, 2vw, 13px); }
   .hero-info { padding: clamp(12px, 2.6vw, 17px) clamp(9px, 2.3vw, 13px); margin-bottom: clamp(7px, 1.6vw, 10px); }
-  .hero-info-grid { flex-direction: column; gap: clamp(4px, 1.2vw, 8px); }
-  .hero-info-col { flex: 1 1 auto; min-width: 0; width: 100%; gap: 0; }
-  .hero-info-col:first-child { padding-right: 0; border-right: none; padding-bottom: 0; border-bottom: none; }
-  .hero-info-col:last-child { padding-left: 0; padding-top: 0; }
-  .hero-info-item { font-size: clamp(.66rem, 2.4vw, .76rem); height: auto; min-height: clamp(30px, 6.5vw, 36px); gap: clamp(9px, 2vw, 13px); white-space: nowrap; padding: clamp(3px, .7vw, 5px) 0; overflow-x: hidden; overflow-y: visible; text-overflow: ellipsis; }
-  .hero-info-item svg { width: clamp(13px, 2.7vw, 16px); height: clamp(13px, 2.7vw, 16px); flex-shrink: 0; }
+  .hero-info-grid { flex-direction: row; align-items: stretch; gap: 0; }
+  .hero-info-col { flex: 1 1 50%; min-width: 0; gap: clamp(4px, 1vw, 7px); }
+  .hero-info-col:first-child { padding-right: clamp(6px, 1.6vw, 12px); border-right: none; padding-bottom: 0; border-bottom: none; }
+  .hero-info-col:last-child { padding-left: clamp(6px, 1.6vw, 12px); padding-top: 0; }
+  .hero-info-item { font-size: clamp(.48rem, 1.7vw, .6rem); height: auto; min-height: clamp(26px, 5vw, 32px); gap: clamp(6px, 1.5vw, 9px); white-space: normal; word-break: break-word; line-height: 1.3; padding: clamp(3px, .7vw, 5px) 0; overflow: visible; }
+  .hero-info-item svg { width: clamp(12px, 2.4vw, 15px); height: clamp(12px, 2.4vw, 15px); flex-shrink: 0; }
   /* Buttons */
   .hero-btns { flex-wrap: wrap; gap: clamp(4px, 1.5vw, 7px); margin-top: clamp(2px, 1vw, 5px); }
   .hero-btns .btn-o {
@@ -2440,12 +2439,13 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-inner { flex-direction: column; align-items: center; gap: 22px; margin-top: -24px; }
   .hero-name { font-size: clamp(2.3rem, 11vw, 3rem); margin-top: 6px; margin-bottom: 13px; }
   .hero-avail { font-size: .64rem; margin-bottom: 14px; }
-  .hero-info { padding: 12px 12px; margin-bottom: 9px; }
-  .hero-info-grid { flex-direction: column; gap: 6px; }
-  .hero-info-col:first-child { padding-right: 0; }
-  .hero-info-col:last-child { padding-left: 0; }
-  .hero-info-item { font-size: .68rem; height: auto; min-height: 32px; gap: 10px; padding: 4px 0; overflow-y: visible; }
-  .hero-info-item svg { width: 16px; height: 16px; }
+  .hero-info { padding: 10px 10px; margin-bottom: 9px; }
+  .hero-info-grid { flex-direction: row; gap: 0; }
+  .hero-info-col { gap: 5px; }
+  .hero-info-col:first-child { padding-right: 8px; }
+  .hero-info-col:last-child { padding-left: 8px; }
+  .hero-info-item { font-size: .56rem; height: auto; min-height: 28px; gap: 7px; padding: 3px 0; line-height: 1.25; white-space: normal; word-break: break-word; overflow: visible; }
+  .hero-info-item svg { width: 13px; height: 13px; }
   .hero-btns { margin-top: 3px; }
   .hero-btns .btn-o { font-size: .62rem; padding: 6px 9px; }
 
@@ -2495,7 +2495,7 @@ body.light .wt.wt-cube-single .wt-name {
   .skill-one-card .skill-group { padding: 14px 12px 14px !important; }
   .skill-card { gap: 12px; }
   .skill-card .skill-strip { gap: 6px; }
-  .skill-chip span { max-width: 60px; font-size: .56rem; }
+  .skill-chip span { max-width: 100%; font-size: .52rem; line-height: 1.2; }
   .skill-marquee-wrap { margin-top: 18px; padding: 4px 0; }
   .skill-marquee-wrap::before, .skill-marquee-wrap::after { width: 36px; }
   .mq-chip { height: 38px; min-height: 38px; padding: 0 12px; gap: 6px; font-size: .66rem; }
@@ -2527,17 +2527,20 @@ body.light .wt.wt-cube-single .wt-name {
   .edu-inst { font-size: .66rem; line-height: 1.4; }
   .c-form { padding: 10px 10px 12px; }
 
-  .hero-info { padding: 11px 10px; }
-  .hero-info-item { font-size: .64rem; height: auto; min-height: 30px; gap: 8px; padding: 4px 0; overflow-y: visible; }
-  .hero-info-item svg { width: 15px; height: 15px; }
+  .hero-info { padding: 9px 8px; }
+  .hero-info-col { gap: 4px; }
+  .hero-info-col:first-child { padding-right: 6px; }
+  .hero-info-col:last-child { padding-left: 6px; }
+  .hero-info-item { font-size: .52rem; height: auto; min-height: 26px; gap: 6px; padding: 3px 0; line-height: 1.2; white-space: normal; word-break: break-word; overflow: visible; }
+  .hero-info-item svg { width: 12px; height: 12px; }
 
   .skill-one-card { gap: 8px; }
   .skill-one-card .skill-group { padding: 12px 10px 12px !important; }
   .skill-card { gap: 10px; padding: 14px 12px; }
   .skill-card .skill-strip { gap: 5px; }
-  .skill-chip { min-height: 60px !important; height: 60px !important; }
+  .skill-chip { min-height: 62px !important; height: auto !important; padding: 5px 3px !important; }
   .skill-chip svg { width: 18px !important; height: 18px !important; min-width: 18px !important; padding: 5px !important; }
-  .skill-chip span { max-width: 50px; font-size: .5rem; }
+  .skill-chip span { max-width: 100%; font-size: .48rem; line-height: 1.15; }
   .skill-marquee-wrap { margin-top: 14px; }
   .skill-marquee-wrap::before, .skill-marquee-wrap::after { width: 24px; }
   .mq-chip { height: 34px; min-height: 34px; padding: 0 10px; gap: 5px; font-size: .6rem; }
