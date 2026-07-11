@@ -85,7 +85,7 @@ section { padding: 110px 0; }
  flex: 1;
  height: 1px;
  background: var(--br);
- opacity: .45;
+ opacity: .7;
  margin-left: 6px;
 }
 .sec-hd h2 {
@@ -2489,6 +2489,16 @@ body.light .wt.wt-cube-single .wt-name {
 
   .c-form { padding: 12px 12px 14px; }
   .c-form input, .c-form textarea { font-size: .8rem; padding: 10px 12px; }
+
+  .skill-one-card { gap: 10px; }
+  .skill-one-card .skill-group { padding: 14px 12px 14px !important; }
+  .skill-card { gap: 12px; }
+  .skill-card .skill-strip { gap: 6px; }
+  .skill-chip span { max-width: 60px; font-size: .56rem; }
+  .skill-marquee-wrap { margin-top: 18px; padding: 4px 0; }
+  .skill-marquee-wrap::before, .skill-marquee-wrap::after { width: 36px; }
+  .mq-chip { height: 38px; min-height: 38px; padding: 0 12px; gap: 6px; font-size: .66rem; }
+  .mq-chip svg { width: 18px; height: 18px; }
 }
 
 /* ── VERY SMALL PHONE (≤ 360px) ─────────────────────────────── */
@@ -2519,6 +2529,18 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-info { padding: 11px 10px; }
   .hero-info-item { font-size: .56rem; height: 32px; gap: 8px; padding: 4px 0; overflow-y: visible; }
   .hero-info-item svg { width: 15px; height: 15px; }
+
+  .skill-one-card { gap: 8px; }
+  .skill-one-card .skill-group { padding: 12px 10px 12px !important; }
+  .skill-card { gap: 10px; padding: 14px 12px; }
+  .skill-card .skill-strip { gap: 5px; }
+  .skill-chip { min-height: 60px !important; height: 60px !important; }
+  .skill-chip svg { width: 18px !important; height: 18px !important; min-width: 18px !important; padding: 5px !important; }
+  .skill-chip span { max-width: 50px; font-size: .5rem; }
+  .skill-marquee-wrap { margin-top: 14px; }
+  .skill-marquee-wrap::before, .skill-marquee-wrap::after { width: 24px; }
+  .mq-chip { height: 34px; min-height: 34px; padding: 0 10px; gap: 5px; font-size: .6rem; }
+  .mq-chip svg { width: 16px; height: 16px; }
 }
 
 /* ── TOUCH DEVICES: minimum tap targets ─────────────────────── */
