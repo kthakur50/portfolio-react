@@ -85,7 +85,7 @@ section { padding: 110px 0; }
  content: '';
  flex: 1;
  height: 1px;
- background: linear-gradient(to right, var(--br), transparent);
+ background: linear-gradient(to right, var(--br) 60%, rgba(255,255,255,0) 100%);
  opacity: .55;
  margin-left: 6px;
 }
@@ -2367,11 +2367,11 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-block { min-width: 0; width: 100%; }
   .hero-avail { font-size: clamp(.5rem, 1.3vw, .62rem); margin-bottom: clamp(9px, 2vw, 13px); }
   .hero-info { padding: clamp(16px, 3.4vw, 22px) clamp(12px, 3vw, 17px); margin-bottom: clamp(9px, 1.8vw, 12px); }
-  .hero-info-grid { flex-direction: column; align-items: stretch; gap: 0; }
-  .hero-info-col { flex: 1 1 auto; min-width: 0; gap: clamp(5px, 1.2vw, 9px); width: 100%; }
-  .hero-info-col:first-child { padding-right: 0; border-right: none; padding-bottom: 0; border-bottom: none; }
-  .hero-info-col:last-child { padding-left: 0; padding-top: 0; }
-  .hero-info-item { font-size: clamp(.6rem, 2.1vw, .74rem); height: auto; min-height: clamp(32px, 5.8vw, 38px); gap: clamp(7px, 1.7vw, 11px); white-space: nowrap; line-height: 1.35; padding: clamp(4px, .9vw, 6px) 0; overflow: visible; }
+  .hero-info-grid { flex-direction: row; align-items: stretch; gap: 0; }
+  .hero-info-col { flex: 1 1 50%; min-width: 0; gap: clamp(5px, 1.2vw, 9px); }
+  .hero-info-col:first-child { padding-right: clamp(6px, 1.5vw, 12px); border-right: none; padding-bottom: 0; border-bottom: none; }
+  .hero-info-col:last-child { padding-left: clamp(6px, 1.5vw, 12px); padding-top: 0; }
+  .hero-info-item { font-size: clamp(.5rem, 1.7vw, .62rem); height: auto; min-height: clamp(32px, 5.8vw, 38px); gap: clamp(5px, 1.2vw, 8px); white-space: nowrap; line-height: 1.35; padding: clamp(4px, .9vw, 6px) 0; overflow: visible; }
   .hero-info-item svg { width: clamp(15px, 2.9vw, 19px); height: clamp(15px, 2.9vw, 19px); flex-shrink: 0; }
   /* Buttons */
   .hero-btns { flex-wrap: wrap; gap: clamp(4px, 1.5vw, 7px); margin-top: clamp(2px, 1vw, 5px); }
@@ -2407,13 +2407,8 @@ body.light .wt.wt-cube-single .wt-name {
   .mq-chip { padding: 8px 14px; font-size: .68rem; gap: 7px; }
   .mq-chip svg { width: 16px; height: 16px; }
 
-  /* Experience */
-  .exp-list { padding-left: 40px; }
-  .exp-node { left: -38px; width: 28px; height: 28px; padding: 6px; top: 14px; }
-  .exp-item::before { left: -24px; top: 46px; bottom: 24px; }
+  /* Experience: timeline sizing now matches tablet (inherited from 768px rules) */
   .exp-card { padding: 13px 14px; min-height: 50px; }
-  .exp-role { font-size: .88rem; }
-  .exp-desc { font-size: .76rem; line-height: 1.78; }
   .exp-divider { margin: 10px 0; }
 
   /* Projects: keep same 2-col structure as tablet, scaled to fit */
@@ -2424,17 +2419,11 @@ body.light .wt.wt-cube-single .wt-name {
   .masonry-tags { gap: 4px; margin-top: 6px; }
   .masonry-cat { font-size: .6rem; }
 
-  /* Education */
-  .edu-list { padding-left: 40px; }
-  .edu-node { left: -38px; width: 28px; height: 28px; padding: 5px; top: 14px; }
-  .edu-item::before { left: -24px; top: 46px; bottom: 0; }
+  /* Education: timeline sizing now matches tablet (inherited from 768px rules) */
   .edu-card { padding: 13px 14px; min-height: 50px; display: flex; flex-direction: column; }
   .edu-header-row { display: contents; }
-  .edu-deg-title { font-size: .88rem; order: 1; }
-  .edu-inst { order: 2; font-size: clamp(.58rem, .4rem + 1.2vw, .72rem); line-height: 1.45; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
   .edu-inst-sep { display: inline; }
   .edu-inst-loc { display: inline; margin-top: 0; }
-  .edu-yr { order: 3; margin-left: 0; margin-top: 8px; text-align: left; align-self: flex-start; }
 
   /* Contact: keep same 2-col form-row structure as tablet, scaled to fit */
   .contact-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -2457,11 +2446,11 @@ body.light .wt.wt-cube-single .wt-name {
   .hero-name { font-size: clamp(2.3rem, 11vw, 3rem); margin-top: 6px; margin-bottom: 13px; }
   .hero-avail { font-size: .64rem; margin-bottom: 14px; }
   .hero-info { padding: 14px 13px; margin-bottom: 11px; }
-  .hero-info-grid { flex-direction: column; gap: 0; }
-  .hero-info-col { gap: 6px; width: 100%; }
-  .hero-info-col:first-child { padding-right: 0; }
-  .hero-info-col:last-child { padding-left: 0; }
-  .hero-info-item { font-size: .68rem; height: auto; min-height: 34px; gap: 8px; padding: 4px 0; line-height: 1.3; white-space: nowrap; overflow: visible; }
+  .hero-info-grid { flex-direction: row; gap: 0; }
+  .hero-info-col { gap: 6px; }
+  .hero-info-col:first-child { padding-right: 8px; }
+  .hero-info-col:last-child { padding-left: 8px; }
+  .hero-info-item { font-size: .56rem; height: auto; min-height: 34px; gap: 6px; padding: 4px 0; line-height: 1.3; white-space: nowrap; overflow: visible; }
   .hero-info-item svg { width: 16px; height: 16px; }
   .hero-btns { margin-top: 3px; }
   .hero-btns .btn-o { font-size: .62rem; padding: 6px 9px; }
@@ -2482,13 +2471,7 @@ body.light .wt.wt-cube-single .wt-name {
   .win3d-scene.mode-3d .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
   .win3d-scene.mode-3d .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
 
-  .exp-list { padding-left: 36px; }
-  .exp-node { left: -34px; width: 26px; height: 26px; top: 13px; padding: 5px; }
-  .exp-item::before { left: -21px; top: 42px; bottom: 24px; }
-  .exp-role { font-size: .84rem; }
-  .exp-desc { font-size: .74rem; }
-  .exp-period { font-size: .54rem; }
-  .exp-badge { font-size: .52rem; padding: 2px 5px; }
+  /* Experience & Education: timeline sizing now matches tablet (inherited from 768px rules) */
 
   /* Projects: single column below 430px — 2-col makes the card graphics illegible */
   .masonry-list { grid-template-columns: 1fr; gap: 12px; }
@@ -2497,13 +2480,6 @@ body.light .wt.wt-cube-single .wt-name {
   .masonry-desc { font-size: .76rem; line-height: 1.7; }
   .masonry-tags { gap: 5px; margin-top: 8px; }
   .masonry-cat { font-size: .64rem; }
-
-  .edu-list { padding-left: 36px; }
-  .edu-node { left: -34px; width: 26px; height: 26px; top: 13px; padding: 5px; }
-  .edu-item::before { left: -21px; top: 42px; bottom: 0; }
-  .edu-deg-title { font-size: .84rem; }
-  .edu-inst { font-size: .7rem; line-height: 1.4; }
-  .edu-yr { font-size: .54rem; }
 
   .c-form { padding: 12px 12px 14px; }
   .c-form input, .c-form textarea { font-size: .8rem; padding: 10px 12px; }
@@ -2540,15 +2516,13 @@ body.light .wt.wt-cube-single .wt-name {
   .win3d-top    { transform: rotateX(90deg) translateZ(70px); }
   .win3d-bottom { transform: rotateX(-90deg) translateZ(70px); }
 
-  .exp-role, .edu-deg-title { font-size: .82rem; }
-  .edu-inst { font-size: .66rem; line-height: 1.4; }
   .c-form { padding: 10px 10px 12px; }
 
   .hero-info { padding: 12px 11px; }
-  .hero-info-col { gap: 5px; width: 100%; }
-  .hero-info-col:first-child { padding-right: 0; }
-  .hero-info-col:last-child { padding-left: 0; }
-  .hero-info-item { font-size: .62rem; height: auto; min-height: 30px; gap: 7px; padding: 4px 0; line-height: 1.25; white-space: nowrap; overflow: visible; }
+  .hero-info-col { gap: 5px; }
+  .hero-info-col:first-child { padding-right: 6px; }
+  .hero-info-col:last-child { padding-left: 6px; }
+  .hero-info-item { font-size: .5rem; height: auto; min-height: 30px; gap: 5px; padding: 4px 0; line-height: 1.25; white-space: nowrap; overflow: visible; }
   .hero-info-item svg { width: 14px; height: 14px; }
 
   .skill-one-card { gap: 8px; }
