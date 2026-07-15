@@ -664,8 +664,8 @@ body.light .sc-next svg,
 body.light .sc-github svg,
 body.light .sc-vercel svg,
 body.light .sc-express svg { filter: invert(1); }
-.skill-chip svg { width: 27px; height: 27px; display: block; max-width: none; flex-shrink: 0; transform: none; min-width: 27px; box-sizing: content-box; padding: 7px; border: 1px solid rgba(127,127,127,.25); border-radius: var(--rad); background: rgba(127,127,127,.08); }
-.skill-chip span { font-size: .64rem; font-weight: 600; letter-spacing: .02em; text-transform: none; color: inherit; opacity: .82; white-space: normal; overflow: visible; text-overflow: clip; max-width: 100%; text-align: center; display: block; line-height: 1.25; padding: 0 2px 1px; }
+.skill-chip svg { width: 27px; height: 27px; display: block; max-width: none; flex-shrink: 0; transform: none; min-width: 27px; box-sizing: content-box; padding: 7px; border: 1px solid rgba(127,127,127,.25); border-radius: var(--rad); background: rgba(127,127,127,.08); filter: brightness(1.15) saturate(1.25); }
+.skill-chip span { font-size: .64rem; font-weight: 600; letter-spacing: .02em; text-transform: none; color: inherit; opacity: .96; white-space: normal; overflow: visible; text-overflow: clip; max-width: 100%; text-align: center; display: block; line-height: 1.25; padding: 0 2px 1px; }
 .skill-chip.sc-tw span { white-space: nowrap; }
 .skill-chip {
   display: flex;
@@ -1464,7 +1464,7 @@ body.light .skill-marquee-wrap::after  { background: linear-gradient(-90deg, rgb
   font-size: .78rem;
   font-weight: 600;
   letter-spacing: .02em;
-  opacity: .85;
+  opacity: .96;
   transition: color .25s ease, transform .25s ease, opacity .25s ease;
 }
 .mq-chip:hover {
@@ -1472,7 +1472,7 @@ body.light .skill-marquee-wrap::after  { background: linear-gradient(-90deg, rgb
   opacity: 1;
   transform: translateY(-1px);
 }
-.mq-chip svg { flex-shrink: 0; display: block; width: 23px; height: 23px; }
+.mq-chip svg { flex-shrink: 0; display: block; width: 23px; height: 23px; filter: brightness(1.15) saturate(1.25); }
 
 .skill-one-card {
  display: grid;
@@ -1579,7 +1579,7 @@ body.light .skill-card {
  box-shadow: none !important;
  transform: translateY(-2px);
 }
-.skill-card .skill-chip svg { width: 31px; height: 31px; min-width: 31px; padding: 8px; border: 1px solid rgba(127,127,127,.25); border-radius: var(--rad); background: rgba(127,127,127,.08); }
+.skill-card .skill-chip svg { width: 31px; height: 31px; min-width: 31px; padding: 8px; border: 1px solid rgba(127,127,127,.25); border-radius: var(--rad); background: rgba(127,127,127,.08); filter: brightness(1.15) saturate(1.25); }
 .skill-card--fe {
  border-color: rgba(96,165,250,.2); background: rgba(96,165,250,.06);
  box-shadow: none;
