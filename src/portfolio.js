@@ -11,22 +11,32 @@ function initNav() {
   const links    = document.querySelectorAll('.nav-desk-links a, .nav-mob a');
   if (!links.length) return;
 
+  const sectionEls = sections.map(id => document.getElementById(id)).filter(Boolean);
+  let navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav')) || 62;
+  window.addEventListener('resize', () => {
+    navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav')) || 62;
+  }, { passive: true });
+
+  let ticking = false;
   function mark() {
-    const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav')) || 62;
     const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-    let current = 'home';
+    let current = sectionEls[0]?.id || 'home';
     if (atBottom) {
-      current = sections[sections.length - 1];
+      current = sectionEls[sectionEls.length - 1]?.id || current;
     } else {
-      sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= navH + 60) current = id;
+      sectionEls.forEach(el => {
+        if (el.getBoundingClientRect().top <= navH + 60) current = el.id;
       });
     }
     links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
   }
 
-  window.addEventListener('scroll', mark, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(() => { mark(); ticking = false; });
+    }
+  }, { passive: true });
   mark();
 }
 
@@ -92,7 +102,16 @@ function initHam() {
 function initSR() {
   const ob = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('on'); ob.unobserve(e.target); }
+      if (e.isIntersecting) {
+        const el = e.target;
+        el.classList.add('on');
+        ob.unobserve(el);
+        // Drop the compositing layer once the reveal transition is done —
+        // keeping will-change forever on every revealed element wastes GPU memory.
+        const release = () => { el.style.willChange = 'auto'; el.removeEventListener('transitionend', release); };
+        el.addEventListener('transitionend', release);
+        setTimeout(release, 700); // safety fallback if transitionend doesn't fire
+      }
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.sr:not(.on)').forEach(el => ob.observe(el));
@@ -388,6 +407,9 @@ function initWin3DCube() {
     wRight:[ 1, 0, 0], wLeft:[-1, 0, 0],
     wTop:  [ 0, 1, 0], wBottom:[ 0,-1, 0],
   };
+  const faceEls = {};
+  Object.keys(faceNormals).forEach(id => { faceEls[id] = document.getElementById(id); });
+  let blurRAF = null;
 
   function rotateNormal(nx, ny, nz, rx, ry) {
     const rxR = -rx * Math.PI / 180, ryR = ry * Math.PI / 180;
@@ -398,10 +420,10 @@ function initWin3DCube() {
   function updateFaceBlur() {
     if (!spinning) {
       Object.keys(faceNormals).forEach(id => {
-        const f = document.getElementById(id);
+        const f = faceEls[id];
         if (f) { f.style.filter = ''; f.style.opacity = ''; }
       });
-      requestAnimationFrame(updateFaceBlur);
+      blurRAF = requestAnimationFrame(updateFaceBlur);
       return;
     }
     const isTB = new Set(['wTop','wBottom']);
@@ -421,7 +443,7 @@ function initWin3DCube() {
     // sharp; every other face gets a subtle blur that increases the
     // further it is turned away from the camera.
     Object.entries(dots).forEach(([id, t]) => {
-      const face = document.getElementById(id);
+      const face = faceEls[id];
       if (!face) return;
       let opacity;
       if (t > 0.85)      opacity = 0.95;
@@ -434,7 +456,7 @@ function initWin3DCube() {
       face.style.opacity = opacity;
       face.style.filter = blurPx > 0.05 ? `blur(${blurPx.toFixed(2)}px)` : 'none';
     });
-    requestAnimationFrame(updateFaceBlur);
+    blurRAF = requestAnimationFrame(updateFaceBlur);
   }
 
   updateFaceBlur();
@@ -444,6 +466,21 @@ function initWin3DCube() {
   scene.classList.add('mode-3d');
   buildFaces();
   startAutoSpin();
+
+  // ── Pause all cube animation work while it's scrolled off-screen ──
+  // The cube runs two perpetual requestAnimationFrame loops (spin + face
+  // shading). Keeping them alive while the hero isn't visible burns main
+  // -thread time that the rest of the page needs for smooth scrolling.
+  new IntersectionObserver(entries => {
+    const visible = entries[0]?.isIntersecting;
+    if (visible) {
+      if (!spinRAF && autoSpin && !dragging) startAutoSpin();
+      if (!blurRAF) updateFaceBlur();
+    } else {
+      cancelAnimationFrame(spinRAF); spinRAF = null;
+      cancelAnimationFrame(blurRAF); blurRAF = null;
+    }
+  }, { threshold: 0 }).observe(scene);
 }
 
 function initHL() {
