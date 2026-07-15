@@ -574,8 +574,8 @@ body.light .hero-info-item a:hover { color: var(--tx); }
 body.light .hero-info-item a[href*="github"]:hover { color: var(--a); }
 
 .hero-btns { display: flex; gap: 8px; flex-wrap: nowrap; align-items: center; width: 100%; }
-.btn-o { display: inline-flex; align-items: center; gap: 6px; padding: 9px 15px; border-radius: var(--rad); border: 1px solid rgba(138,170,152,.12); color: var(--tx); font-size: .72rem; font-weight: 600; transition: all .35s cubic-bezier(.25,.46,.45,.94); will-change: transform; transform: translateZ(0); }
-body.light .btn-o { border-color: rgba(138,170,152,.25); }
+.btn-o { display: inline-flex; align-items: center; gap: 6px; padding: 9px 15px; border-radius: var(--rad); border: 1px solid rgba(138,170,152,.12); background: rgba(255,255,255,.025); color: var(--tx); font-size: .72rem; font-weight: 600; transition: color .3s ease, border-color .3s ease, background-color .3s ease, transform .3s cubic-bezier(.25,.46,.45,.94); will-change: transform; transform: translateZ(0); }
+body.light .btn-o { border-color: rgba(138,170,152,.25); background: rgba(0,0,0,.02); }
 .btn-o:hover { border-color: rgba(34,160,99,.5); color: var(--a2); background: rgba(34,160,99,.08); box-shadow: none; }
 body.light .btn-o:hover { border-color: rgba(25,106,71,.3); background: rgba(25,106,71,.06); }
 .arr { display: inline-block; transition: transform var(--ease); will-change: transform; }
@@ -1122,6 +1122,7 @@ body.light .edu-item:hover .edu-node {
  border: 1px solid rgba(255,255,255,.10);
  border-radius: var(--rad);
  padding: 18px 22px;
+ min-height: 58px;
  transition: border-color var(--ease), background var(--ease), box-shadow var(--ease), transform var(--ease);
  transform: translateZ(0);
  will-change: transform;
@@ -1257,7 +1258,7 @@ body.light .c-message-box {
  color: var(--tx);
  text-align: left;
  cursor: pointer;
- transition: all .35s cubic-bezier(.25,.46,.45,.94);
+ transition: color .3s ease, background-color .3s ease;
 }
 .c-accordion-icon {
  display: flex; align-items: center; justify-content: center;
@@ -2198,9 +2199,9 @@ body.light .wt.wt-cube-single .wt-name {
 
   /* Education */
   .edu-list { padding-left: 44px; }
-  .edu-node { left: -42px; width: 30px; height: 30px; }
+  .edu-node { left: -42px; width: 30px; height: 30px; top: 14px; }
   .edu-item::before { left: -27px; top: 46px; }
-  .edu-card { padding: 15px 17px; display: flex; flex-direction: column; }
+  .edu-card { padding: 15px 17px; min-height: 54px; display: flex; flex-direction: column; }
   .edu-header-row { display: contents; }
   .edu-deg-title { font-size: .92rem; order: 1; }
   .edu-inst { font-size: .74rem; order: 2; }
@@ -2412,7 +2413,7 @@ body.light .wt.wt-cube-single .wt-name {
   .edu-list { padding-left: 40px; }
   .edu-node { left: -38px; width: 28px; height: 28px; padding: 5px; top: 14px; }
   .edu-item::before { left: -24px; top: 46px; bottom: 0; }
-  .edu-card { padding: 13px 14px; display: flex; flex-direction: column; }
+  .edu-card { padding: 13px 14px; min-height: 50px; display: flex; flex-direction: column; }
   .edu-header-row { display: contents; }
   .edu-deg-title { font-size: .88rem; order: 1; }
   .edu-inst { order: 2; font-size: clamp(.58rem, .4rem + 1.2vw, .72rem); line-height: 1.45; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
