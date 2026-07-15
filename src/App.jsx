@@ -28,6 +28,7 @@ const App = () => {
         <Contact />
       </main>
       <Footer />
+      <div className="bottom-blur" aria-hidden="true"></div>
     </>
   );
 };
