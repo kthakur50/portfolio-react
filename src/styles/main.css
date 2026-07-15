@@ -1267,9 +1267,9 @@ body.light .c-message-box {
  justify-content: flex-start;
  gap: 12px;
  width: 100%;
- padding: 18px 16px 6px;
- margin-top: 8px;
- margin-bottom: 8px;
+ padding: 13px 16px 5px;
+ margin-top: 6px;
+ margin-bottom: 6px;
  border: none;
  border-radius: var(--rad);
  background: transparent;
