@@ -1203,7 +1203,7 @@ body.light .edu-inst { color: var(--a); }
  display: grid;
  grid-template-columns: 1fr 1fr;
  gap: 60px;
- align-items: center;
+ align-items: start;
  margin: 0;
 }
 .c-info {
